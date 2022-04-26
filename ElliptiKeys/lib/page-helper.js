@@ -7,12 +7,12 @@ export default class PageHelper
 
     static CalculatePageNumber(num)
     {
-        if (num <= ROWS_PER_PAGE)
+        if (num <= PageHelper.ROWS_PER_PAGE)
             return 1;
 
-        let remainder = num % ROWS_PER_PAGE;
+        let remainder = num % PageHelper.ROWS_PER_PAGE;
         
-        let pageNum = ((num - remainder) / ROWS_PER_PAGE) + BigInt('1');
+        let pageNum = ((num - remainder) / PageHelper.ROWS_PER_PAGE) + BigInt('1');
 
         return pageNum;
     }

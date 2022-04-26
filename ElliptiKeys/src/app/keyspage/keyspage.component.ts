@@ -16,7 +16,8 @@ export class KeyspageComponent implements OnInit {
     this.pageNumber = BigInt(window.location.href.split('bitcoin/')[1])
     this.maxPageNumber = BigInt(PageHelper.GetMaxPage())
 
-    //if (this.pageNumber )
+    if (this.pageNumber > this.maxPageNumber)
+      window.location.href = "/too-far"
   }
 
 }
