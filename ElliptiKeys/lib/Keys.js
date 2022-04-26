@@ -255,7 +255,7 @@ static Base58DecodeToHex(
     {
         let num = BigInt(numStr)
 
-        let privateKeyHex = Keys._FormatHexStringLength(BnToHex(num))
+        let privateKeyHex = Keys._FormatHexStringLength(Keys.BnToHex(num))
         let privateKeyHexAndPrefix = "80" + privateKeyHex;
 
         return Keys._PrivateKeyAndVersionToBitcoinKey(privateKeyHexAndPrefix);
@@ -265,7 +265,7 @@ static Base58DecodeToHex(
     {
         let num = BigInt(numStr)
 
-        let privateKeyHex = _FormatHexStringLength(BnToHex(num))
+        let privateKeyHex = Keys._FormatHexStringLength(Keys.BnToHex(num))
         let privateKeyHexAndPrefix = "80" + privateKeyHex + "01";
 
         return Keys._PrivateKeyAndVersionToBitcoinKey(privateKeyHexAndPrefix);

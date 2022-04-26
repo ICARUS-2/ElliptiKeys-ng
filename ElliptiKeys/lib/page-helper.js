@@ -1,8 +1,9 @@
 import Keys from "./Keys";
+import KeyRowModel from './../models/key-row-model';
 
 export default class PageHelper
 {
-    static ROWS_PER_PAGE = BigInt('30');
+    static ROWS_PER_PAGE = BigInt('128');
     static DELAY = 4;
 
     static CalculatePageNumber(num)
@@ -28,5 +29,19 @@ export default class PageHelper
             division++
 
         return division
+    }
+
+    static GetKeysForPage(pageNumber)
+    {
+        let models = []
+
+        let firstKeyNum = (pageNumber * PageHelper.ROWS_PER_PAGE - PageHelper.ROWS_PER_PAGE) + BigInt('1');
+
+        for(let i = firstKeyNum; i < firstKeyNum + PageHelper.ROWS_PER_PAGE; i++)
+        {
+            models.push(new KeyRowModel(i))
+        }
+
+        return models
     }
 }

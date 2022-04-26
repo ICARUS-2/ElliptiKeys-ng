@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { TooFarComponent } from './too-far/too-far.component';
 import { RandomComponent } from './random/random.component';
 import * as $ from 'jquery';
+import { KeyrowComponent } from './keyrow/keyrow.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import * as $ from 'jquery';
     HomepageComponent,
     KeyspageComponent,
     TooFarComponent,
-    RandomComponent
+    RandomComponent,
+    KeyrowComponent,
   ],
   imports: [
     BrowserModule,
