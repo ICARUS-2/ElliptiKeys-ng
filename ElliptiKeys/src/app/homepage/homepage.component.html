@@ -1,0 +1,23 @@
+<h1>Every Bitcoin private key and address is on this website.</h1>
+<h2>Satoshi Nakamoto's private key is hidden on one of the pages...</h2>
+
+<div class="m-5"></div>
+
+<div class="randomPageSelector d-flex flex-column align-items-center">
+    <img src="../../assets/bitcoin-logo.png" class="randomBitcoinImage">
+    <a href="./" class="btn btn-primary">View random page</a>
+</div>
+
+<div class="m-5"></div>
+
+<h2>Search</h2>
+<h4>If you are curious which page your private key is on, you can search for it.</h4>
+<h4>Although, is entering your own private key on a random website really a good idea?</h4>
+<div>
+    <form #keySearch (ngSubmit)="onSubmitSearch(keySearch)">
+        <div class="d-flex formSection">
+            <input type="text" class="w-100" style="font-size: xx-large; color: cyan" name="searchQuery" ngModel>
+            <input type="submit" class="btn btn-primary" value="Search" style="margin-left: 10px"> 
+        </div>
+    </form>
+</div>
