@@ -5,4 +5,8 @@
     <h5 id="currentPageNumber">{{pageNumber}}</h5>
     <h5>of</h5>
     <h5 id="maxPageNum">{{maxPageNumber}}</h5>
+
+    <div class="m-5"></div>
+
+    <app-keyrow *ngFor="let i of keys" [model]="i"></app-keyrow>
 </div>

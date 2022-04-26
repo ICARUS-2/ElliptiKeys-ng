@@ -25,8 +25,6 @@ export class KeyspageComponent implements OnInit {
       window.location.href = "/too-far"
 
       this.keys = PageHelper.GetKeysForPage(this.pageNumber)
-
-      console.log(this.keys)
   }
 
 

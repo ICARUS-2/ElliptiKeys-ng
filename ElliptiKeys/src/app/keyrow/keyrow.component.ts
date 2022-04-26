@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import KeyRowModel from './../../../models/key-row-model';
 
 @Component({
@@ -8,7 +8,7 @@ import KeyRowModel from './../../../models/key-row-model';
 })
 export class KeyrowComponent implements OnInit {
 
-  model: KeyRowModel = new KeyRowModel(BigInt('1'));
+  @Input() model: KeyRowModel = new KeyRowModel(BigInt('1'));
 
   constructor() { }
 
