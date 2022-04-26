@@ -1,6 +1,5 @@
 import CryptoJS from "./crypto-js.js";
 import { Point } from "./noble-secp256k1.js";
-import { ROWS_PER_PAGE } from "./values.js";
 
 export default class Keys
 {
@@ -461,17 +460,5 @@ static Base58DecodeToHex(
         }
 
         return bech32Address
-    }
-
-    static CalculatePageNumber(num)
-    {
-        if (num <= ROWS_PER_PAGE)
-            return 1;
-
-        let remainder = num % ROWS_PER_PAGE;
-        
-        let pageNum = ((num - remainder) / ROWS_PER_PAGE) + BigInt('1');
-
-        return pageNum;
     }
 }

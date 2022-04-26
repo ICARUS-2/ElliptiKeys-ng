@@ -1,0 +1,32 @@
+import Keys from "./Keys";
+
+export default class PageHelper
+{
+    static ROWS_PER_PAGE = BigInt('30');
+    static DELAY = 4;
+
+    static CalculatePageNumber(num)
+    {
+        if (num <= ROWS_PER_PAGE)
+            return 1;
+
+        let remainder = num % ROWS_PER_PAGE;
+        
+        let pageNum = ((num - remainder) / ROWS_PER_PAGE) + BigInt('1');
+
+        return pageNum;
+    }
+
+    static GetMaxPage()
+    {
+        console.log(Keys.MAX_PRIVATE_KEY)
+
+        let division = Keys.MAX_PRIVATE_KEY / this.ROWS_PER_PAGE
+        let modulo = Keys.MAX_PRIVATE_KEY / this.ROWS_PER_PAGE
+        
+        if (modulo != 0)
+            division++
+
+        return division
+    }
+}

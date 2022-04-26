@@ -5,7 +5,7 @@
 
 <div class="randomPageSelector d-flex flex-column align-items-center">
     <img src="../../assets/bitcoin-logo.png" class="randomBitcoinImage">
-    <a href="./" class="btn btn-primary">View random page</a>
+    <a href="/random/" class="btn btn-primary">View random page</a>
 </div>
 
 <div class="m-5"></div>
@@ -19,5 +19,6 @@
             <input type="text" class="w-100" style="font-size: xx-large; color: cyan" name="searchQuery" ngModel>
             <input type="submit" class="btn btn-primary" value="Search" style="margin-left: 10px"> 
         </div>
+        <div class="text-danger">{{errorMessage}}</div>
     </form>
 </div>

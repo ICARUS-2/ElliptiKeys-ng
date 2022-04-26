@@ -7,13 +7,18 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { KeyspageComponent } from './keyspage/keyspage.component';
 import { FormsModule } from '@angular/forms';
+import { TooFarComponent } from './too-far/too-far.component';
+import { RandomComponent } from './random/random.component';
+import * as $ from 'jquery';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomepageComponent,
-    KeyspageComponent
+    KeyspageComponent,
+    TooFarComponent,
+    RandomComponent
   ],
   imports: [
     BrowserModule,

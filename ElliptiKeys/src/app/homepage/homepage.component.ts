@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormsModule } from '@angular/forms';
 import Keys from '../../../lib/Keys.js';
+import PageHelper from 'lib/page-helper.js';
 
 @Component({
   selector: 'app-homepage',
@@ -8,6 +9,7 @@ import Keys from '../../../lib/Keys.js';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
+  errorMessage : string = "";
 
   constructor() { }
 
@@ -15,11 +17,22 @@ export class HomepageComponent implements OnInit {
   }
 
   onSubmitSearch(keySearch : HTMLFormElement) : void{    
-    let searchQuery:string = keySearch["searchQuery"].value;
-    let privateKeyNum:BigInt = Keys.GetNumberFromPrivateKey(searchQuery)
+    
+    try
+    {
+      let searchQuery:string = keySearch["searchQuery"].value;
+      let privateKeyNum:BigInt = Keys.GetNumberFromPrivateKey(searchQuery)
 
-    let pageNumber = Keys.CalculatePageNumber(privateKeyNum)
+      let pageNumber:BigInt = BigInt(PageHelper.CalculatePageNumber(privateKeyNum))
 
-    console.log(pageNumber)
+      if ( privateKeyNum > Keys.MAX_PRIVATE_KEY)
+        throw new Error();
+
+        window.location.href = "/bitcoin/"+pageNumber
+    }
+    catch(err)
+    {
+      this.errorMessage = "That's not a valid private key"
+    }
   }
 }
