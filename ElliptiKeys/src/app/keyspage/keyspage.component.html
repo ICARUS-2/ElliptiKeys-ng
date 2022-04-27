@@ -4,19 +4,20 @@
 
     <div class="d-flex align-items-center w-100 flex-column justify-content-center pageNumbers">
         <h4>Page</h4>
-        <h5 id="currentPageNumber">{{pageNumber}}</h5>
+        <h5 id="currentPageNumber" style="max-width: 80%;">{{pageNumber}}</h5>
         <h5>of</h5>
-        <h5 id="maxPageNum">{{maxPageNumber}}</h5>
+        <h5 id="maxPageNum" style="max-width: 80%;">{{maxPageNumber}}</h5>
     </div>
 
     <div class="m-3"></div>
 
-    <app-pagebuttons style="width: 70%;"></app-pagebuttons>
+    <div class="loadingDiv" style="height: 50px">Loading...</div>
+    <app-pagebuttons style="width: 70%; display: none;" class="pageBtns"></app-pagebuttons>
 
     <div class="m-3"></div>
 
     <div style="display: flex; justify-content: center; width: 100%;">
-        <table style="border-spacing: 10px 20px; border-collapse: separate; width: 70%;" class="keysTable">
+        <table style="border-spacing: 10px 20px; border-collapse: separate; width: 70%; table-layout: fixed;" class="keysTable">
             <tr *ngFor="let model of keys">
                 <td class="desktopTd">{{model.privateKey}}
                 {{model.privateKeyCompressed}}</td>
@@ -41,5 +42,7 @@
         </table>
     </div>
 
-    <app-pagebuttons style="width: 70%;"></app-pagebuttons>
+    <app-pagebuttons style="width: 70%; display: none;" class="pageBtns"></app-pagebuttons>
+
+    <div class="loadingDiv" style="height: 50px">Loading...</div>
 </div>

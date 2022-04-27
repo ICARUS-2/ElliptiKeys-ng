@@ -1,3 +1,9 @@
+h4, h5
+{
+    text-align: center;
+    word-wrap: break-word;
+}
+
 .mobileTd
 {
     display: none;
@@ -16,20 +22,20 @@
         border: 1px solid rgb(70,70,70)
     }
 
-    .keysTable
-    {
-        width: 100%;
-    }
-
     #currentPageNumber, #maxPageNum
     {
         font-size: medium;
     }
 }
 
-@media screen and (max-width: 668px){
+@media screen and (max-width: 988px){
     #currentPageNumber, #maxPageNum
     {
-        font-size: x-small;
+        font-size: small;
+    }
+
+    .mobileTd
+    {
+        word-wrap: break-word;
     }
 }

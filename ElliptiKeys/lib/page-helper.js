@@ -4,7 +4,7 @@ import KeyRowModel from './../models/key-row-model';
 export default class PageHelper
 {
     static ROWS_PER_PAGE = BigInt('30');
-    static DELAY = 4;
+    static DELAY = 4000;
 
     static CalculatePageNumber(num)
     {

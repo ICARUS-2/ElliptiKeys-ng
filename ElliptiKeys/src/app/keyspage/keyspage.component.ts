@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import PageHelper from 'lib/page-helper';
 import KeyRowModel from './../../../models/key-row-model';
 import { Title } from '@angular/platform-browser';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-keyspage',
@@ -14,6 +13,7 @@ export class KeyspageComponent implements OnInit {
 
   pageNumber:BigInt = BigInt("0");
   maxPageNumber: BigInt = BigInt("0");
+  isLoading: Boolean = true;
 
   keys: KeyRowModel[] = []
 
@@ -44,9 +44,32 @@ export class KeyspageComponent implements OnInit {
     if (this.pageNumber > this.maxPageNumber)
       window.location.href = "/too-far"
 
-    
-
       this.keys = PageHelper.GetKeysForPage(this.pageNumber)
+
+      setTimeout(this.enableBtns, PageHelper.DELAY)
+  }
+
+  enableBtns()
+  {
+    this.isLoading = false;
+
+    let arr = Array.from(document.getElementsByClassName('pageBtns') as HTMLCollectionOf<HTMLElement>)
+
+    for(let i = 0; i < arr.length; i++)
+    {
+      let element = arr[i];
+
+      element.style.display = "block"
+    }
+
+    let loadingDivs = Array.from(document.getElementsByClassName('loadingDiv') as HTMLCollectionOf<HTMLElement>)
+  
+    for(let i = 0; i < arr.length; i++)
+    {
+      let element = loadingDivs[i];
+
+      element.style.display = "none"
+    }
   }
 
 
