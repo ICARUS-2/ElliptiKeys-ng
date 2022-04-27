@@ -11,6 +11,7 @@ import { TooFarComponent } from './too-far/too-far.component';
 import { RandomComponent } from './random/random.component';
 import * as $ from 'jquery';
 import { KeyrowComponent } from './keyrow/keyrow.component';
+import { PagebuttonsComponent } from './pagebuttons/pagebuttons.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { KeyrowComponent } from './keyrow/keyrow.component';
     TooFarComponent,
     RandomComponent,
     KeyrowComponent,
+    PagebuttonsComponent,
   ],
   imports: [
     BrowserModule,

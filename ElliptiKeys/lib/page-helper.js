@@ -40,6 +40,9 @@ export default class PageHelper
         for(let i = firstKeyNum; i < firstKeyNum + PageHelper.ROWS_PER_PAGE; i++)
         {
             models.push(new KeyRowModel(i))
+            
+            if (i == Keys.MAX_PRIVATE_KEY)
+                break;
         }
 
         return models
