@@ -1,0 +1,35 @@
+.mobileTd
+{
+    display: none;
+}
+
+@media screen and (max-width: 1200px){
+
+    .desktopTd
+    {
+        display: none;
+    }
+
+    .mobileTd
+    {
+        display: table-cell;
+        border: 1px solid rgb(70,70,70)
+    }
+
+    .keysTable
+    {
+        width: 100%;
+    }
+
+    #currentPageNumber, #maxPageNum
+    {
+        font-size: medium;
+    }
+}
+
+@media screen and (max-width: 668px){
+    #currentPageNumber, #maxPageNum
+    {
+        font-size: x-small;
+    }
+}

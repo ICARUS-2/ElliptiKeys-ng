@@ -25,6 +25,9 @@ export class HomepageComponent implements OnInit {
 
       let pageNumber:BigInt = BigInt(PageHelper.CalculatePageNumber(privateKeyNum))
 
+      if (!searchQuery.startsWith("5") && !searchQuery.startsWith("L") && !searchQuery.startsWith("K"))
+        throw new Error();
+
       if ( privateKeyNum > Keys.MAX_PRIVATE_KEY)
         throw new Error();
 

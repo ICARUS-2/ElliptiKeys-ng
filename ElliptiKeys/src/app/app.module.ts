@@ -9,9 +9,8 @@ import { KeyspageComponent } from './keyspage/keyspage.component';
 import { FormsModule } from '@angular/forms';
 import { TooFarComponent } from './too-far/too-far.component';
 import { RandomComponent } from './random/random.component';
-import * as $ from 'jquery';
-import { KeyrowComponent } from './keyrow/keyrow.component';
 import { PagebuttonsComponent } from './pagebuttons/pagebuttons.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,8 @@ import { PagebuttonsComponent } from './pagebuttons/pagebuttons.component';
     KeyspageComponent,
     TooFarComponent,
     RandomComponent,
-    KeyrowComponent,
     PagebuttonsComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

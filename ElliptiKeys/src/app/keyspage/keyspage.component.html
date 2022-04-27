@@ -1,10 +1,13 @@
 <div class="d-flex align-items-center w-100 flex-column justify-content-center">
 
     <div class="mt-1"></div>
-    <h4>Page</h4>
-    <h5 id="currentPageNumber">{{pageNumber}}</h5>
-    <h5>of</h5>
-    <h5 id="maxPageNum">{{maxPageNumber}}</h5>
+
+    <div class="d-flex align-items-center w-100 flex-column justify-content-center pageNumbers">
+        <h4>Page</h4>
+        <h5 id="currentPageNumber">{{pageNumber}}</h5>
+        <h5>of</h5>
+        <h5 id="maxPageNum">{{maxPageNumber}}</h5>
+    </div>
 
     <div class="m-3"></div>
 
@@ -12,7 +15,31 @@
 
     <div class="m-3"></div>
 
-    <app-keyrow *ngFor="let i of keys" [model]="i"></app-keyrow>
+    <div style="display: flex; justify-content: center; width: 100%;">
+        <table style="border-spacing: 10px 20px; border-collapse: separate; width: 70%;" class="keysTable">
+            <tr *ngFor="let model of keys">
+                <td class="desktopTd">{{model.privateKey}}
+                {{model.privateKeyCompressed}}</td>
+
+                <td class="desktopTd">{{model.legacy}}
+                {{model.legacyCompressed}}</td>
+
+                <td class="desktopTd">{{model.segwit}}
+                {{model.bech32}}</td>
+            
+                <td class="mobileTd">
+                    {{model.privateKey}}
+                    {{model.privateKeyCompressed}}
+                    <br>
+                    <br>
+                    {{model.legacy}}
+                    {{model.legacyCompressed}}
+                    {{model.segwit}}
+                    {{model.bech32}}
+                </td>
+            </tr>
+        </table>
+    </div>
 
     <app-pagebuttons style="width: 70%;"></app-pagebuttons>
 </div>

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KeyrowComponent } from './keyrow.component';
+import { NotFoundComponent } from './not-found.component';
 
-describe('KeyrowComponent', () => {
-  let component: KeyrowComponent;
-  let fixture: ComponentFixture<KeyrowComponent>;
+describe('NotFoundComponent', () => {
+  let component: NotFoundComponent;
+  let fixture: ComponentFixture<NotFoundComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ KeyrowComponent ]
+      declarations: [ NotFoundComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(KeyrowComponent);
+    fixture = TestBed.createComponent(NotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
