@@ -37,6 +37,11 @@ a
     {
         font-size: medium;
     }
+
+    .tableWrapper
+    {
+        width: 90% !important  ;
+    }
 }
 
 @media screen and (max-width: 988px){
