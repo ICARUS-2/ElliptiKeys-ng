@@ -16,6 +16,12 @@ a
 
 @media screen and (max-width: 1200px){
 
+    .keysTable
+    {
+        table-layout: fixed;
+        width: 100% !important;
+    }
+
     .desktopTd
     {
         display: none;
@@ -41,6 +47,12 @@ a
 
     .mobileTd
     {
+        word-wrap: break-word;
+    }
+
+    .tableRow
+    {
+        width: 70%;
         word-wrap: break-word;
     }
 }
