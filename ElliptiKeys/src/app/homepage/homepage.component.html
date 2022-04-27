@@ -1,29 +1,36 @@
 <div style="width: 100%; display: flex; flex-direction: row; justify-content: center;">
     <div style="width: 90%">
-    <h1>Every Bitcoin private key and address is on this website.</h1>
-    <h2>Satoshi Nakamoto's private key is hidden on one of the pages...</h2>
+        <h1>Every Bitcoin private key and address is on this website.</h1>
+        <h2>Satoshi Nakamoto's private key is hidden on one of the pages...</h2>
 
-    <div class="m-5"></div>
+        <div class="m-5"></div>
 
-    <div class="randomPageSelector d-flex flex-column align-items-center">
-        <img src="../../assets/bitcoin-logo.png" class="randomBitcoinImage">
-        <a href="/random/" class="btn btn-primary">View random page</a>
-    </div>
+        <div class="randomPageSelector d-flex flex-column align-items-center">
+            <img src="../../assets/bitcoin-logo.png" class="randomBitcoinImage">
+            <a href="/random/" class="btn btn-primary">View random page</a>
+        </div>
 
-    <div class="m-5"></div>
+        <div class="m-5"></div>
 
-    <h2>Search</h2>
-    <h4>If you are curious which page your private key is on, you can search for it.</h4>
-    <h4>Although, is entering your own private key on a random website really a good idea?</h4>
-    <div>
-        <form #keySearch (ngSubmit)="onSubmitSearch(keySearch)">
-            <div class="d-flex formSection">
-                <input type="text" class="w-100" style="font-size: xx-large; color: cyan" name="searchQuery" ngModel>
-                <input type="submit" class="btn btn-primary" value="Search" style="margin-left: 10px"> 
-            </div>
-            <div class="text-danger">{{errorMessage}}</div>
-        </form>
-    </div>
+        <h2>Search</h2>
+        <h4>If you are curious which page your private key is on, you can search for it.</h4>
+        <h4>Although, is entering your own private key on a random website really a good idea?</h4>
+        <div>
+            <form #keySearch (ngSubmit)="onSubmitSearch(keySearch)">
+                <div class="d-flex formSection">
+                    <input type="text" class="w-100" style="font-size: xx-large; color: cyan" name="searchQuery" ngModel>
+                    <input type="submit" class="btn btn-primary" value="Search" style="margin-left: 10px"> 
+                </div>
+                <div class="text-danger">{{errorMessage}}</div>
+            </form>
+        </div>
 
+        <div class="m-5"></div>
+
+        <a class="btn btn-primary" href="/bitcoin/3652623259368895283986624115251209429224473915945566630412988779112435957909">Ominous message hidden in the private keys</a>
+        <div class="m-2"></div>
+        <a class="btn btn-primary" href="/bitcoin/2177013038187485258698883559268049174543354117695077604057244199502536509005">Another slightly less ominous message</a>
+        <div class="m-2"></div>
+        <a class="btn btn-primary" href="/bitcoin/2265443783050967141182990812261365796147778763225707135998716890999682417110">Did you know?</a>
     </div>
 </div>

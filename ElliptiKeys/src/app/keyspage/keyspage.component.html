@@ -16,27 +16,38 @@
 
     <div class="m-3"></div>
 
-    <div style="display: flex; justify-content: center; width: 100%;">
-        <table style="border-spacing: 10px 20px; border-collapse: separate; width: 70%; table-layout: fixed;" class="keysTable">
+    <div style="display: flex; justify-content: center; width: 70%;">
+        <table style="border-spacing: 10px 10px; border-collapse: separate; width: 70%;" class="keysTable">
             <tr *ngFor="let model of keys">
-                <td class="desktopTd">{{model.privateKey}}
-                {{model.privateKeyCompressed}}</td>
+                <td class="desktopTd">
+                    {{model.privateKey}}
+                    <br>
+                    {{model.privateKeyCompressed}}
+                </td>
 
-                <td class="desktopTd">{{model.legacy}}
-                {{model.legacyCompressed}}</td>
+                <td class="desktopTd">
+                    <a href="https://www.blockchain.com/btc/address/{{model.legacy}}" target="blank">{{model.legacy}}</a>
+                    <br>
+                    <a href="https://www.blockchain.com/btc/address/{{model.legacyCompressed}}" target="blank">{{model.legacyCompressed}}</a>
+                </td>
 
-                <td class="desktopTd">{{model.segwit}}
-                {{model.bech32}}</td>
+                <td class="desktopTd">
+                    <a href="https://www.blockchain.com/btc/address/{{model.segwit}}" target="blank">{{model.segwit}}</a>
+                    <br>
+                    <a href="https://www.blockchain.com/btc/address/{{model.bech32}}" target="blank">{{model.bech32}}</a>
+                </td>
             
                 <td class="mobileTd">
                     {{model.privateKey}}
-                    {{model.privateKeyCompressed}}
                     <br>
                     <br>
-                    {{model.legacy}}
-                    {{model.legacyCompressed}}
-                    {{model.segwit}}
-                    {{model.bech32}}
+                    <a href="https://www.blockchain.com/btc/address/{{model.legacy}}" target="blank">{{model.legacy}}</a>
+                    <br>
+                    <a href="https://www.blockchain.com/btc/address/{{model.legacyCompressed}}" target="blank">{{model.legacyCompressed}}</a>
+                    <br>
+                    <a href="https://www.blockchain.com/btc/address/{{model.segwit}}" target="blank">{{model.segwit}}</a>
+                    <br>
+                    <a href="https://www.blockchain.com/btc/address/{{model.bech32}}" target="blank">{{model.bech32}}</a>
                 </td>
             </tr>
         </table>
