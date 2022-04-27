@@ -1,0 +1,16 @@
+a 
+{
+    width: 50px;
+}
+
+img
+{
+    width: 50px;
+}
+
+.outer
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
