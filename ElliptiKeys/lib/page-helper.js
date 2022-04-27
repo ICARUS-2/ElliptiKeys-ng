@@ -20,8 +20,6 @@ export default class PageHelper
 
     static GetMaxPage()
     {
-        console.log(Keys.MAX_PRIVATE_KEY)
-
         let division = Keys.MAX_PRIVATE_KEY / this.ROWS_PER_PAGE
         let modulo = Keys.MAX_PRIVATE_KEY / this.ROWS_PER_PAGE
         

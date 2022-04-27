@@ -16,8 +16,8 @@
 
     <div class="m-3"></div>
 
-    <div style="display: flex; justify-content: center; width: 70%;" class="tableWrapper">
-        <table style="border-spacing: 10px 10px; border-collapse: separate; width: 70%;" class="keysTable">
+    <div style="display: flex; justify-content: center; width: 100%;" class="tableWrapper">
+        <table style="border-spacing: 10px 10px; border-collapse: separate; width: 95%;" class="keysTable">
             <tr *ngFor="let model of keys" class="tableRow">
                 <td class="desktopTd">
                     {{model.privateKey}}
@@ -26,28 +26,35 @@
                 </td>
 
                 <td class="desktopTd">
-                    <a href="https://www.blockchain.com/btc/address/{{model.legacy}}" target="blank">{{model.legacy}}</a>
+                    <a href="https://www.blockchain.com/btc/address/{{model.legacy}}" target="blank" class="{{model.legacy}}">{{model.legacy}}</a>
                     <br>
-                    <a href="https://www.blockchain.com/btc/address/{{model.legacyCompressed}}" target="blank">{{model.legacyCompressed}}</a>
+                    <a href="https://www.blockchain.com/btc/address/{{model.legacyCompressed}}" target="blank" class="{{model.legacyCompressed}}">{{model.legacyCompressed}}</a>
                 </td>
 
                 <td class="desktopTd">
-                    <a href="https://www.blockchain.com/btc/address/{{model.segwit}}" target="blank">{{model.segwit}}</a>
+                    <a href="https://www.blockchain.com/btc/address/{{model.segwit}}" target="blank" class="{{model.segwit}}">{{model.segwit}}</a>
                     <br>
-                    <a href="https://www.blockchain.com/btc/address/{{model.bech32}}" target="blank">{{model.bech32}}</a>
+                    <a href="https://www.blockchain.com/btc/address/{{model.bech32}}" target="blank"  class="{{model.bech32}}">{{model.bech32}}</a>
+                </td>
+
+                <td class="desktopTd">
+                    <p class="{{model.privateKey}}-stats">? BTC (? TX)</p>
                 </td>
             
                 <td class="mobileTd">
                     {{model.privateKey}}
                     <br>
                     <br>
-                    <a href="https://www.blockchain.com/btc/address/{{model.legacy}}" target="blank">{{model.legacy}}</a>
+                    <a href="https://www.blockchain.com/btc/address/{{model.legacy}}" target="blank" class="{{model.legacy}}">{{model.legacy.substr(0, model.legacy.length / 1.3)}}...</a>
                     <br>
-                    <a href="https://www.blockchain.com/btc/address/{{model.legacyCompressed}}" target="blank">{{model.legacyCompressed}}</a>
+                    <a href="https://www.blockchain.com/btc/address/{{model.legacyCompressed}}" target="blank" class="{{model.legacyCompressed}}">{{model.legacyCompressed.substr(0, model.legacyCompressed.length / 1.3)}}...</a>
                     <br>
-                    <a href="https://www.blockchain.com/btc/address/{{model.segwit}}" target="blank">{{model.segwit}}</a>
+                    <a href="https://www.blockchain.com/btc/address/{{model.segwit}}" target="blank" class="{{model.segwit}}">{{model.segwit.substr(0, model.segwit.length / 1.3)}}...</a>
                     <br>
-                    <a href="https://www.blockchain.com/btc/address/{{model.bech32}}" target="blank">{{model.bech32}}</a>
+                    <a href="https://www.blockchain.com/btc/address/{{model.bech32}}" target="blank" class="{{model.bech32}}">{{model.bech32.substr(0, model.bech32.length / 1.3)}}...</a>
+                    <br>
+                    <br>
+                    <p class="{{model.privateKey}}-stats">? BTC (? TX)</p>
                 </td>
             </tr>
         </table>
@@ -56,4 +63,6 @@
     <app-pagebuttons style="width: 70%; display: none;" class="pageBtns"></app-pagebuttons>
 
     <div class="loadingDiv" style="height: 50px">Loading...</div>
+
+    <div class="m-5"></div> 
 </div>

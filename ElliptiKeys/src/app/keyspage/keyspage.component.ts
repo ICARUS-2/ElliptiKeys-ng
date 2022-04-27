@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import PageHelper from 'lib/page-helper';
 import KeyRowModel from './../../../models/key-row-model';
 import { Title } from '@angular/platform-browser';
+import BalanceApi from './../../../lib/balance-api';
 
 @Component({
   selector: 'app-keyspage',
@@ -17,9 +18,11 @@ export class KeyspageComponent implements OnInit {
 
   keys: KeyRowModel[] = []
 
+  balanceApi: BalanceApi = new BalanceApi();
+
   constructor(private titleService:Title) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
 
     try
     {
@@ -47,6 +50,27 @@ export class KeyspageComponent implements OnInit {
       this.keys = PageHelper.GetKeysForPage(this.pageNumber)
 
       setTimeout(this.enableBtns, PageHelper.DELAY)
+
+    this.balanceApi = new BalanceApi();
+
+    for(let key of this.keys)
+    {
+      this.balanceApi.addAddress(key.legacy);
+      this.balanceApi.addAddress(key.legacyCompressed);
+      this.balanceApi.addAddress(key.segwit);
+      this.balanceApi.addAddress(key.bech32);
+    }
+
+    //await this.balanceApi.doApiRequest();
+
+    console.log(this.balanceApi.addressModels)
+
+    for(let keyRow of this.keys)
+    {
+       let statsElements = document.getElementsByClassName(keyRow.privateKey+"-stats")
+      
+       //TODO: POPULATE WITH STATS
+      }
   }
 
   enableBtns()

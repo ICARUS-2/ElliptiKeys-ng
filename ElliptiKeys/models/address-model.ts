@@ -10,4 +10,9 @@ export default class AddressModel
         this.transactions = txn
         this.balance = bal;
     }
+
+    getBtcBalance():number
+    {
+        return this.balance / 100000000
+    }
 }

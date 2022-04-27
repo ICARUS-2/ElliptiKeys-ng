@@ -5,6 +5,7 @@ export default class BalanceApi
     url: string = "https://blockchain.info/balance?cors=true&active="
     addressModels: AddressModel[] = []
 
+    _jsonResult: any;
     constructor() 
     {
 
@@ -16,12 +17,17 @@ export default class BalanceApi
         this.url+=address+"|"
     }
 
-    async getStats()
+    async doApiRequest()
     {
-        this.fetchJson(this.url)
+        this._jsonResult = await this.fetchJson(this.url)
         
+        console.log(this._jsonResult)
+
         this.addressModels.forEach(item => {
+            let data = this._getJsonDataByKey(item.address);
             
+            item.balance = data.final_balance;
+            item.transactions = data.n_tx;
         });
     }
 
@@ -30,5 +36,10 @@ export default class BalanceApi
         let res = await fetch(url);
 
         return res.json();
+    }
+
+    _getJsonDataByKey(key:string)
+    {
+        return this._jsonResult[key]
     }
 }
