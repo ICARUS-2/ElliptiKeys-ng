@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import PageHelper from 'lib/page-helper';
 import KeyRowModel from './../../../models/key-row-model';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-keyspage',
@@ -15,11 +16,18 @@ export class KeyspageComponent implements OnInit {
 
   keys: KeyRowModel[] = []
 
-  constructor() { }
+  constructor(private titleService:Title) { }
 
   ngOnInit(): void {
     this.pageNumber = BigInt(window.location.href.split('bitcoin/')[1])
     this.maxPageNumber = BigInt(PageHelper.GetMaxPage())
+
+    if (this.pageNumber == BigInt('1'))
+      this.titleService.setTitle("First page of Bitcoin keys")
+    else if (this.pageNumber == this.maxPageNumber)
+      this.titleService.setTitle("Last page of Bitcoin keys")
+    else
+      this.titleService.setTitle(`Bitcoin keys page ${this.pageNumber} of ${this.maxPageNumber}`)
 
     if (this.pageNumber > this.maxPageNumber)
       window.location.href = "/too-far"
