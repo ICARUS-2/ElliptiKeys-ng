@@ -11,6 +11,7 @@ import { TooFarComponent } from './too-far/too-far.component';
 import { RandomComponent } from './random/random.component';
 import { PagebuttonsComponent } from './pagebuttons/pagebuttons.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     RandomComponent,
     PagebuttonsComponent,
     NotFoundComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
