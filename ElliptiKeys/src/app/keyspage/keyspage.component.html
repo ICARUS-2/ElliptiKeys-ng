@@ -17,9 +17,9 @@
     <div class="m-3"></div>
 
     <div style="display: flex; justify-content: center; width: 100%;" class="tableWrapper">
-        <table style="border-spacing: 10px 10px; border-collapse: separate; width: 97%;" class="keysTable">
+        <table style="border-spacing: 10px 0px; border-collapse: separate; width: 97%;" class="keysTable">
             <tr *ngFor="let model of keys; let index = index" class="tableRow">
-                <td class="desktopTd">
+                <td class="desktopTd" style="padding: 10px 0px;" [style.border-left]="model.borderColor">
                     {{model.privateKey}}
                     <br>
                     {{model.privateKeyCompressed}}
@@ -41,7 +41,7 @@
                     <p>{{model.stats}}</p>
                 </td>
             
-                <td class="mobileTd">
+                <td class="mobileTd" [style.border-left]="model.borderColor">
                     {{model.privateKey}}
                     <br>
                     <br>

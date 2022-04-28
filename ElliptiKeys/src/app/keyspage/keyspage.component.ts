@@ -67,8 +67,32 @@ export class KeyspageComponent implements OnInit {
     
     for(let k of this.keys)
     {
-      k.stats= this.balanceApi.getStatsForKeyRow(k).getFormat()
+      this.setDelayForKey(k)
     }
+  }
+
+  setDelayForKey(k: KeyRowModel)
+  {
+    setTimeout( () =>
+    {
+      let stats = this.balanceApi.getStatsForKeyRow(k)
+
+      k.stats= stats.getFormat();
+
+      if (stats.totalBalance > 0)
+      {
+        k.setBorderColor("lime")
+      }
+      else if (stats.totalTx > 0)
+      {
+        k.setBorderColor("yellow")
+      }
+      else
+      {
+        k.setBorderColor("red")
+      }
+
+    }, this.getRandomDelay())
   }
 
   enableBtns()
@@ -94,5 +118,8 @@ export class KeyspageComponent implements OnInit {
     }
   }
 
+  getRandomDelay(min: number = 0, max: number = PageHelper.DELAY) {
+    return Math.random() * (max - min) + min;
+  }
 
 }
