@@ -13,6 +13,7 @@ import { PagebuttonsComponent } from './pagebuttons/pagebuttons.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
+import { DonateComponent } from './donate/donate.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AboutComponent } from './about/about.component';
     NotFoundComponent,
     FooterComponent,
     AboutComponent,
+    DonateComponent,
   ],
   imports: [
     BrowserModule,
