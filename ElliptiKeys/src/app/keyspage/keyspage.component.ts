@@ -61,16 +61,14 @@ export class KeyspageComponent implements OnInit {
       this.balanceApi.addAddress(key.bech32);
     }
 
-    //await this.balanceApi.doApiRequest();
+    await this.balanceApi.doApiRequest();
 
     console.log(this.balanceApi.addressModels)
-
-    for(let keyRow of this.keys)
+    
+    for(let k of this.keys)
     {
-       let statsElements = document.getElementsByClassName(keyRow.privateKey+"-stats")
-      
-       //TODO: POPULATE WITH STATS
-      }
+      k.stats= this.balanceApi.getStatsForKeyRow(k).getFormat()
+    }
   }
 
   enableBtns()

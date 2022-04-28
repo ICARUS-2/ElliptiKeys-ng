@@ -1,4 +1,6 @@
 import AddressModel from './../models/address-model';
+import KeyRowModel from './../models/key-row-model';
+import KeyStatsModel from './../models/key-stats-model';
 
 export default class BalanceApi
 {
@@ -36,6 +38,35 @@ export default class BalanceApi
         let res = await fetch(url);
 
         return res.json();
+    }
+
+    getStatsForKeyRow(keyrow: KeyRowModel)
+    {
+        let legacyModel = new AddressModel("", 0, 0);
+        let compressedLegacyModel = new AddressModel("", 0, 0);
+        let segwitModel = new AddressModel("", 0, 0);
+        let bech32Model = new AddressModel("", 0, 0);
+
+        for(let model of this.addressModels)
+        {
+            if (model.address == keyrow.legacy)
+                legacyModel = model;
+
+            if (model.address == keyrow.legacyCompressed)
+                compressedLegacyModel = model;
+
+            if (model.address == keyrow.segwit)
+                segwitModel = model;
+
+            if (model.address == keyrow.bech32)
+                bech32Model = model;
+        }
+
+        
+        let totalBalance = legacyModel.getBtcBalance() + compressedLegacyModel.getBtcBalance() + segwitModel.getBtcBalance() + bech32Model.getBtcBalance();
+        let totalTx = legacyModel.transactions + compressedLegacyModel.transactions + segwitModel.transactions + bech32Model.transactions;
+
+        return new KeyStatsModel(totalTx, totalBalance)
     }
 
     _getJsonDataByKey(key:string)

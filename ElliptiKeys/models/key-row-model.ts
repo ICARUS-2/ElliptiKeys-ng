@@ -1,4 +1,5 @@
 import Keys from "lib/Keys"
+import KeyStatsModel from './key-stats-model';
 
 export default class KeyRowModel
 {
@@ -8,6 +9,7 @@ export default class KeyRowModel
     legacyCompressed: string = "1xxx"
     segwit: string = "3xxx"
     bech32: string = "bc1qxxx"
+    stats: string = "0 BTC (0 tx)"
 
     constructor(num : BigInt)
     {
@@ -17,5 +19,10 @@ export default class KeyRowModel
         this.legacyCompressed = Keys.CompressedPrivateKeyToLegacyAddress(this.privateKeyCompressed);
         this.segwit = Keys.CompressedPrivateKeyToSegwitAddress(this.privateKeyCompressed);
         this.bech32 = Keys.CompressedPrivateKeyToBech32Address(this.privateKeyCompressed);
+    }
+
+    setAddressStats(model: KeyStatsModel)
+    {
+
     }
 }

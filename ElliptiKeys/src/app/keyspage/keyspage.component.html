@@ -17,8 +17,8 @@
     <div class="m-3"></div>
 
     <div style="display: flex; justify-content: center; width: 100%;" class="tableWrapper">
-        <table style="border-spacing: 10px 10px; border-collapse: separate; width: 95%;" class="keysTable">
-            <tr *ngFor="let model of keys" class="tableRow">
+        <table style="border-spacing: 10px 10px; border-collapse: separate; width: 97%;" class="keysTable">
+            <tr *ngFor="let model of keys; let index = index" class="tableRow">
                 <td class="desktopTd">
                     {{model.privateKey}}
                     <br>
@@ -38,7 +38,7 @@
                 </td>
 
                 <td class="desktopTd">
-                    <p class="{{model.privateKey}}-stats">? BTC (? TX)</p>
+                    <p>{{model.stats}}</p>
                 </td>
             
                 <td class="mobileTd">
@@ -54,7 +54,7 @@
                     <a href="https://www.blockchain.com/btc/address/{{model.bech32}}" target="blank" class="{{model.bech32}}">{{model.bech32.substr(0, model.bech32.length / 1.3)}}...</a>
                     <br>
                     <br>
-                    <p class="{{model.privateKey}}-stats">? BTC (? TX)</p>
+                    <p>{{model.stats}}</p>
                 </td>
             </tr>
         </table>
