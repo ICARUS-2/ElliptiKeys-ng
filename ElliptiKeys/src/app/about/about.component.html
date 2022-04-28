@@ -33,7 +33,15 @@
             simply a number somewhere between 1 and 2^256, it calculates them starting at n=([page number] * [keys/page])
             and derives every private key and its corresponding address formats from n to n + [keys/page].
             Once the private and public keys have been derived, it uses the <a href="https://www.blockchain.com/api" target="blank">Blockchain.com API</a>
-            to perform the balance checking.
+            to perform the balance checking. 
+            <br>
+            <br>
+            • Keys that have never been used will turn <span style="color: red;">red.</span> 
+            <br>
+            • Keys that have been previously used that currently have zero balance will turn <span style="color: yellow;">yellow.</span>
+            <br>
+            • Keys that currently contain coins will turn <span style="color: lime;">green</span>. 
+
             <br>
             <br>
             If you would like to know more about how this happens behind the scenes, I recommend taking a look
