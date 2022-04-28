@@ -20,21 +20,21 @@
         <table style="border-spacing: 10px 0px; border-collapse: separate; width: 97%;" class="keysTable">
             <tr *ngFor="let model of keys; let index = index" class="tableRow">
                 <td class="desktopTd" style="padding: 10px 0px;" [style.border-left]="model.borderColor">
-                    {{model.privateKey}}
+                    <span>{{model.privateKey}}</span>
                     <br>
-                    {{model.privateKeyCompressed}}
+                    <span>{{model.privateKeyCompressed}}</span>
                 </td>
 
                 <td class="desktopTd">
-                    <a href="https://www.blockchain.com/btc/address/{{model.legacy}}" target="blank" class="{{model.legacy}}">{{model.legacy}}</a>
+                    <a [style.color]="model.legacyColor" href="https://www.blockchain.com/btc/address/{{model.legacy}}" target="blank" class="{{model.legacy}}">{{model.legacy}}</a>
                     <br>
-                    <a href="https://www.blockchain.com/btc/address/{{model.legacyCompressed}}" target="blank" class="{{model.legacyCompressed}}">{{model.legacyCompressed}}</a>
+                    <a [style.color]="model.legacyCompressedColor" href="https://www.blockchain.com/btc/address/{{model.legacyCompressed}}" target="blank" class="{{model.legacyCompressed}}">{{model.legacyCompressed}}</a>
                 </td>
 
                 <td class="desktopTd">
-                    <a href="https://www.blockchain.com/btc/address/{{model.segwit}}" target="blank" class="{{model.segwit}}">{{model.segwit}}</a>
+                    <a [style.color]="model.segwitColor" href="https://www.blockchain.com/btc/address/{{model.segwit}}" target="blank" class="{{model.segwit}}">{{model.segwit}}</a>
                     <br>
-                    <a href="https://www.blockchain.com/btc/address/{{model.bech32}}" target="blank"  class="{{model.bech32}}">{{model.bech32}}</a>
+                    <a [style.color]="model.bech32Color" href="https://www.blockchain.com/btc/address/{{model.bech32}}" target="blank"  class="{{model.bech32}}">{{model.bech32}}</a>
                 </td>
 
                 <td class="desktopTd">
@@ -45,13 +45,13 @@
                     {{model.privateKey}}
                     <br>
                     <br>
-                    <a href="https://www.blockchain.com/btc/address/{{model.legacy}}" target="blank" class="{{model.legacy}}">{{model.legacy.substr(0, model.legacy.length / 1.3)}}...</a>
+                    <a [style.color]="model.legacyColor" href="https://www.blockchain.com/btc/address/{{model.legacy}}" target="blank" class="{{model.legacy}}">{{model.legacy.substr(0, model.legacy.length / 1.3)}}...</a>
                     <br>
-                    <a href="https://www.blockchain.com/btc/address/{{model.legacyCompressed}}" target="blank" class="{{model.legacyCompressed}}">{{model.legacyCompressed.substr(0, model.legacyCompressed.length / 1.3)}}...</a>
+                    <a [style.color]="model.legacyCompressedColor" href="https://www.blockchain.com/btc/address/{{model.legacyCompressed}}" target="blank" class="{{model.legacyCompressed}}">{{model.legacyCompressed.substr(0, model.legacyCompressed.length / 1.3)}}...</a>
                     <br>
-                    <a href="https://www.blockchain.com/btc/address/{{model.segwit}}" target="blank" class="{{model.segwit}}">{{model.segwit.substr(0, model.segwit.length / 1.3)}}...</a>
+                    <a [style.color]="model.segwitColor" href="https://www.blockchain.com/btc/address/{{model.segwit}}" target="blank" class="{{model.segwit}}">{{model.segwit.substr(0, model.segwit.length / 1.3)}}...</a>
                     <br>
-                    <a href="https://www.blockchain.com/btc/address/{{model.bech32}}" target="blank" class="{{model.bech32}}">{{model.bech32.substr(0, model.bech32.length / 1.3)}}...</a>
+                    <a [style.color]="model.bech32Color" href="https://www.blockchain.com/btc/address/{{model.bech32}}" target="blank" class="{{model.bech32}}">{{model.bech32.substr(0, model.bech32.length / 1.3)}}...</a>
                     <br>
                     <br>
                     <p>{{model.stats}}</p>

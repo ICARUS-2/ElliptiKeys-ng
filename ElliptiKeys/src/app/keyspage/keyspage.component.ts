@@ -79,6 +79,7 @@ export class KeyspageComponent implements OnInit {
 
       k.stats= stats.getFormat();
 
+      //Sets the border color for that entry
       if (stats.totalBalance > 0)
       {
         k.setBorderColor("lime")
@@ -91,6 +92,32 @@ export class KeyspageComponent implements OnInit {
       {
         k.setBorderColor("red")
       }
+
+      //sets the color for the individual addresses
+      let legacyModel = this.balanceApi.getAddressModel(k.legacy);
+      let compressedLegacyModel = this.balanceApi.getAddressModel(k.legacyCompressed);
+      let segwitModel = this.balanceApi.getAddressModel(k.segwit);
+      let bech32Model = this.balanceApi.getAddressModel(k.bech32);
+
+      if (legacyModel.balance > 0)
+        k.legacyColor = "lime"
+      else if (legacyModel.transactions > 0)
+        k.legacyColor = "yellow"
+
+        if (compressedLegacyModel.balance > 0)
+        k.legacyCompressedColor = "lime"
+      else if (compressedLegacyModel.transactions > 0)
+        k.legacyCompressedColor = "yellow"
+
+        if (segwitModel.balance > 0)
+        k.segwitColor = "lime"
+      else if (segwitModel.transactions > 0)
+        k.segwitColor = "yellow"
+
+        if (bech32Model.balance > 0)
+        k.bech32Color = "lime"
+      else if (bech32Model.transactions > 0)
+        k.bech32Color = "yellow"
 
     }, this.getRandomDelay())
   }

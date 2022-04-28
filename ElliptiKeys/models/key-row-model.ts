@@ -14,6 +14,10 @@ export default class KeyRowModel
     stats: string = "? BTC (? tx)"
 
     borderColor: string = `${this.BORDER_WIDTH}px solid gray`
+    legacyColor: string = "white";
+    legacyCompressedColor: string = "white";
+    segwitColor: string = "white";
+    bech32Color: string = "white";
 
     constructor(num : BigInt)
     {

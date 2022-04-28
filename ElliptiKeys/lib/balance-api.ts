@@ -40,6 +40,17 @@ export default class BalanceApi
         return res.json();
     }
 
+    getAddressModel(address: string)
+    {
+        for(let model of this.addressModels)
+        {
+            if (model.address == address)
+                return model;
+        }
+
+        return new AddressModel("address not found");
+    }
+
     getStatsForKeyRow(keyrow: KeyRowModel)
     {
         let legacyModel = new AddressModel("", 0, 0);
