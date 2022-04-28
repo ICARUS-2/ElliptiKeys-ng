@@ -1,0 +1,45 @@
+<div style="width: 100%; display: flex; flex-direction: row; justify-content: center;">
+    <div style="width: 70%">
+        <h1>About ElliptiKeys</h1>
+        <p class="descParagraph">As you could probably tell, this site is based off the ever-popular
+            <a href="https://keys.lol" target="blank">keys.lol site.</a> However, this version is capable of deriving 
+            every public key type including SegWit and Bech32 addresses, as opposed to only
+            Legacy-type addresses. This version also displays all compressed private keys
+            alongside uncompressed ones.
+            <br>
+            <br>
+            It's also in dark mode.
+        </p>
+
+        <div style="margin-top: 100px"></div>
+
+        <h2>2^256 possibilities</h2>
+        <p class="descParagraph">
+            To visualize how many private keys there really are and how you will
+            never actually find any coins on here, I recommend watching
+            this video.
+        </p>
+        <iframe style="width: 60%; height: 400px;" src="https://www.youtube.com/embed/S9JGmA5_unY?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+        <div style="margin-top: 100px"></div>
+
+        <h2>How it works</h2>
+        <p class="descParagraph">
+            Knowing how massive the possible keyspace truly is, storing every single private and public key simply would not be possible.
+            The keys are all dynamically computed when the page is loaded. 
+            <br>
+            <br>
+            Since we know a private key is
+            simply a number somewhere between 1 and 2^256, it calculates them starting at n=([page number] * [keys/page])
+            and derives every private key and its corresponding address formats from n to n + [keys/page].
+            Once the private and public keys have been derived, it uses the <a href="https://www.blockchain.com/api" target="blank">Blockchain.com API</a>
+            to perform the balance checking.
+            <br>
+            <br>
+            If you would like to know more about how this happens behind the scenes, I recommend taking a look
+            at <a href="https://www.oreilly.com/library/view/mastering-bitcoin-2nd/9781491954379/ch04.html#:~:text=In%20bitcoin%2C%20we%20use%20public,transactions%20to%20spend%20the%20funds." target="blank">this article.</a>
+        </p>
+
+        <div style="margin-top: 100px"></div>
+    </div>
+</div>

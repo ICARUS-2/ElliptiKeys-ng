@@ -12,6 +12,7 @@ import { RandomComponent } from './random/random.component';
 import { PagebuttonsComponent } from './pagebuttons/pagebuttons.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
     PagebuttonsComponent,
     NotFoundComponent,
     FooterComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
