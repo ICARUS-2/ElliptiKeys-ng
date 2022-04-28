@@ -21,6 +21,10 @@ export class HomepageComponent implements OnInit {
     try
     {
       let searchQuery:string = keySearch["searchQuery"].value;
+      
+      if (searchQuery.startsWith("K") || searchQuery.startsWith("L"))
+        searchQuery = Keys.DecompressWIF(searchQuery)
+      
       let privateKeyNum:BigInt = Keys.GetNumberFromPrivateKey(searchQuery)
 
       let pageNumber:BigInt = BigInt(PageHelper.CalculatePageNumber(privateKeyNum))

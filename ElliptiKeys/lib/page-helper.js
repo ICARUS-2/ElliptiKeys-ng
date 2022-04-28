@@ -12,8 +12,11 @@ export default class PageHelper
             return 1;
 
         let remainder = num % PageHelper.ROWS_PER_PAGE;
-        
+
         let pageNum = ((num - remainder) / PageHelper.ROWS_PER_PAGE) + BigInt('1');
+
+        if (remainder == 0)
+            pageNum--;
 
         return pageNum;
     }
