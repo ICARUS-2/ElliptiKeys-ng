@@ -3,7 +3,7 @@ import KeyRowModel from './../models/key-row-model';
 
 export default class PageHelper
 {
-    static ROWS_PER_PAGE = BigInt('30');
+    static ROWS_PER_PAGE = BigInt('34');
     static DELAY = 4000;
 
     static CalculatePageNumber(num)
@@ -40,10 +40,11 @@ export default class PageHelper
 
         for(let i = firstKeyNum; i < firstKeyNum + PageHelper.ROWS_PER_PAGE; i++)
         {
-            models.push(new KeyRowModel(i))
-            
-            if (i == Keys.MAX_PRIVATE_KEY)
+                        
+            if (i == Keys.MAX_PRIVATE_KEY + BigInt(1))
                 break;
+
+            models.push(new KeyRowModel(i))
         }
 
         return models
