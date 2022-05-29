@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { DonateComponent } from './donate/donate.component';
 import { PriceService } from './services/price.service';
+import { PriceComponent } from './price/price.component';
 
 @NgModule({
   declarations: [
@@ -29,15 +30,19 @@ import { PriceService } from './services/price.service';
     FooterComponent,
     AboutComponent,
     DonateComponent,
+    PriceComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     Title,
     PriceService
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   bootstrap: [AppComponent]
 })

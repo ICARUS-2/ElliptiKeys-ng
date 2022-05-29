@@ -7,18 +7,13 @@ import { PriceService } from './../services/price.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  price: object = {}
-  priceService: PriceService
 
-  constructor(priceService: PriceService) { 
-    this.priceService = priceService;
+  constructor() { 
+
   }
 
-  async ngOnInit(): Promise<void> {
-    //window.localStorage.clear()
-    this.price = await this.priceService.GetPrice();
-
-    console.log(this.price)
+  ngOnInit(): void {
+  
   }
 
 }

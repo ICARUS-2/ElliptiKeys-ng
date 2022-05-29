@@ -1,0 +1,12 @@
+<div *ngIf="showPrice">
+    <div style="display: flex;" id="priceInner">
+        <div style="font-family: Roboto, 'Helvetica Neue', sans-serif;" id="priceValue">${{priceModel.usdPrice}}</div>
+        <div style="margin-right: 5px;"></div>
+
+        <div style="display: flex; align-items: center;">
+            <img [src]="priceModel.getArrowImgSrc()" width="15" height="15">
+            <div style="font-family: Roboto, 'Helvetica Neue', sans-serif;" id="percentageChangeValue" [style.color]="priceModel.getColor()">{{priceModel.changePercentage}}%</div>
+        </div>
+    </div>
+
+</div>

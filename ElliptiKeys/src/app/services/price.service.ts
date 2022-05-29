@@ -6,21 +6,21 @@ import LocalStorageHelper from 'lib/localstorage-helper';
 })
 
 export class PriceService {
-  static CALL_DELAY = 10;
+  static CALL_DELAY = 60;
   static API = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true"
 
   constructor() { 
     
   }
 
-  async GetPrice()
+  async GetPrice() : Promise<object>
   {
     if (this._CanCallApi())
     {
       try
       {
         let price = await this._FetchPrice()
-        console.log("REAL TIME PRICE CALLED")
+        //console.log("REAL TIME PRICE CALLED")
 
         LocalStorageHelper.SetLastPriceApiCall(Date.now())
         LocalStorageHelper.SetLastRecordedPrice(price)
