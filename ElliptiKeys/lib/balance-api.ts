@@ -23,7 +23,7 @@ export default class BalanceApi
     {
         this._jsonResult = await this.fetchJson(this.url)
         
-        console.log(this._jsonResult)
+        //console.log(this._jsonResult)
 
         this.addressModels.forEach(item => {
             let data = this._getJsonDataByKey(item.address);

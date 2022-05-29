@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PriceService } from './../services/price.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  price: object = {}
+  priceService: PriceService
 
-  constructor() { }
+  constructor(priceService: PriceService) { 
+    this.priceService = priceService;
+  }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    //window.localStorage.clear()
+    this.price = await this.priceService.GetPrice();
+
+    console.log(this.price)
   }
 
 }

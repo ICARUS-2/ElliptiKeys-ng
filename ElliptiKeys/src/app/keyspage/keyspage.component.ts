@@ -63,7 +63,7 @@ export class KeyspageComponent implements OnInit {
 
     await this.balanceApi.doApiRequest();
 
-    console.log(this.balanceApi.addressModels)
+    //console.log(this.balanceApi.addressModels)
     
     for(let k of this.keys)
     {

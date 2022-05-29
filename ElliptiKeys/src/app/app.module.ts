@@ -14,6 +14,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { DonateComponent } from './donate/donate.component';
+import { PriceService } from './services/price.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DonateComponent } from './donate/donate.component';
     FormsModule
   ],
   providers: [
-    Title
+    Title,
+    PriceService
   ],
   bootstrap: [AppComponent]
 })
