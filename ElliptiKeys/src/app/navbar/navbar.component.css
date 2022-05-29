@@ -3,6 +3,12 @@
     font-size: xx-large;
 }
 
+#bitcoinLogo
+{
+    width: 50px;
+    height: 50px;
+}
+
 nav
 {
     width: 100%;
@@ -31,4 +37,12 @@ a
 a:visited
 {
     text-decoration: none !important;
+}
+
+@media screen and (max-width: 415px) 
+{
+    #navRight
+    {
+        flex-direction: column;
+    }
 }

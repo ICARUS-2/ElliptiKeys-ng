@@ -19,3 +19,12 @@ ion-icon {
         font-size: medium;
     }
 }
+
+
+@media screen and (max-width: 375px)
+{
+    #priceValue, #percentageChangeValue
+    {
+        font-size: small;
+    }
+}
