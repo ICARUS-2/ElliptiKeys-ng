@@ -20,9 +20,9 @@
         <table style="border-spacing: 10px 0px; border-collapse: separate; width: 97%;" class="keysTable">
             <tr *ngFor="let model of keys; let index = index" class="tableRow">
                 <td class="desktopTd" style="padding: 10px 0px;" [style.border-left]="model.borderColor">
-                    <span>{{model.privateKey}}</span>
+                    <span [style.color]="model.privateKeyTextColor">{{model.privateKey}}</span>
                     <br>
-                    <span>{{model.privateKeyCompressed}}</span>
+                    <span [style.color]="model.privateKeyTextColor">{{model.privateKeyCompressed}}</span>
                 </td>
 
                 <td class="desktopTd">
@@ -42,7 +42,9 @@
                 </td>
             
                 <td class="mobileTd" [style.border-left]="model.borderColor">
-                    {{model.privateKey}}
+                    <span [style.color]="model.privateKeyTextColor">{{model.privateKey}}</span>
+                    <br>
+                    <span [style.color]="model.privateKeyTextColor">{{model.privateKeyCompressed}}</span>
                     <br>
                     <br>
                     <a [style.color]="model.legacyColor" href="https://www.blockchain.com/btc/address/{{model.legacy}}" target="blank" class="{{model.legacy}}">{{model.legacy.substr(0, model.legacy.length / 1.3)}}...</a>

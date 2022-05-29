@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Form, FormsModule } from '@angular/forms';
 import Keys from '../../../lib/Keys.js';
 import PageHelper from 'lib/page-helper.js';
+import LocalStorageHelper from 'lib/localstorage-helper';
 
 @Component({
   selector: 'app-homepage',
@@ -34,6 +35,8 @@ export class HomepageComponent implements OnInit {
 
       if ( privateKeyNum > Keys.MAX_PRIVATE_KEY)
         throw new Error();
+
+        LocalStorageHelper.SetPrivateKeySearchQuery(searchQuery)
 
         window.location.href = "/bitcoin/"+pageNumber
     }

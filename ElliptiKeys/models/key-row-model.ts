@@ -1,5 +1,5 @@
 import Keys from "lib/Keys"
-import KeyStatsModel from './key-stats-model';
+import LocalStorageHelper from "lib/localstorage-helper"
 
 export default class KeyRowModel
 {
@@ -14,6 +14,7 @@ export default class KeyRowModel
     stats: string = "? BTC (? tx)"
 
     borderColor: string = `${this.BORDER_WIDTH}px solid gray`
+    privateKeyTextColor: string = "white"
     legacyColor: string = "white";
     legacyCompressedColor: string = "white";
     segwitColor: string = "white";
@@ -27,10 +28,25 @@ export default class KeyRowModel
         this.legacyCompressed = Keys.CompressedPrivateKeyToLegacyAddress(this.privateKeyCompressed);
         this.segwit = Keys.CompressedPrivateKeyToSegwitAddress(this.privateKeyCompressed);
         this.bech32 = Keys.CompressedPrivateKeyToBech32Address(this.privateKeyCompressed);
+
+        let key = LocalStorageHelper.GetPrivateKeySearchQuery()
+        if (key)
+        {
+            if (key == this.privateKey || key == this.privateKeyCompressed)
+            {
+                this.setSearchBorderColor();
+                LocalStorageHelper.ClearPrivateKeySearchQuery();
+            }
+        }
     }
 
     setBorderColor(color: string = "red")
     {
         this.borderColor = `${this.BORDER_WIDTH}px solid ${color}`
+    }
+
+    setSearchBorderColor(color: string = "cyan")
+    {
+        this.privateKeyTextColor = color;
     }
 }
