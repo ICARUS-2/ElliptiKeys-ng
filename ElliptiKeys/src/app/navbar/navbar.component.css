@@ -39,7 +39,7 @@ a:visited
     text-decoration: none !important;
 }
 
-@media screen and (max-width: 415px) 
+@media screen and (max-width: 450px) 
 {
     #navRight
     {

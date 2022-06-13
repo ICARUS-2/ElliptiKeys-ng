@@ -7,7 +7,7 @@ ion-icon {
     font-size: x-large;
 }
 
-@media screen and (max-width: 760px)
+@media screen and (max-width: 768px)
 {
     #priceInner
     {
@@ -25,6 +25,6 @@ ion-icon {
 {
     #priceValue, #percentageChangeValue
     {
-        font-size: small;
+        font-size: small !important;
     }
 }
