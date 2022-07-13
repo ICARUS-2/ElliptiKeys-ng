@@ -20,7 +20,7 @@ export class PriceService {
       try
       {
         let price = await this._FetchPrice()
-        console.log("REAL TIME PRICE CALLED")
+        //console.log("REAL TIME PRICE CALLED")
 
         LocalStorageHelper.SetLastPriceApiCall(Date.now())
         LocalStorageHelper.SetLastRecordedPrice(price)
@@ -63,7 +63,7 @@ export class PriceService {
 
       let delay = (now - lastCallDate) / 1000
 
-      console.log(delay)
+      //console.log(delay)
 
       return delay >= PriceService.CALL_DELAY;
     }

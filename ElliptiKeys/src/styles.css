@@ -6,5 +6,8 @@
     box-sizing: border-box;
     color: white
 }
-html, body { height: 100%; overflow-x: hidden;}
+/*html, body { height: 100%; overflow-x: hidden;}*/
+html{
+    scroll-behavior: auto !important;
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}

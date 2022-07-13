@@ -35,7 +35,7 @@ export class KeyspageComponent implements OnInit {
       this.router.navigate(['/not-found'])
     }
 
-    console.log(this.pageNumber)
+    //console.log(this.pageNumber)
 
     this.maxPageNumber = BigInt(PageHelper.GetMaxPage())
 
