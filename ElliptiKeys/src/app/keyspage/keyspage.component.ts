@@ -3,6 +3,7 @@ import PageHelper from 'lib/page-helper';
 import KeyRowModel from './../../../models/key-row-model';
 import { Title } from '@angular/platform-browser';
 import BalanceApi from './../../../lib/balance-api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-keyspage',
@@ -20,7 +21,7 @@ export class KeyspageComponent implements OnInit {
 
   balanceApi: BalanceApi = new BalanceApi();
 
-  constructor(private titleService:Title) { }
+  constructor(private titleService:Title, private router: Router) { }
 
   async ngOnInit() {
 
@@ -30,7 +31,8 @@ export class KeyspageComponent implements OnInit {
     }
     catch(err)
     {
-      window.location.href = "/not-found"
+      //window.location.href = "/not-found"
+      this.router.navigate(['/not-found'])
     }
 
     console.log(this.pageNumber)
@@ -45,7 +47,7 @@ export class KeyspageComponent implements OnInit {
       this.titleService.setTitle(`Bitcoin keys page ${this.pageNumber} of ${this.maxPageNumber}`)
 
     if (this.pageNumber > this.maxPageNumber)
-      window.location.href = "/too-far"
+      this.router.navigate(["/too-far"])
 
       this.keys = PageHelper.GetKeysForPage(this.pageNumber)
 

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PriceService } from './../services/price.service';
 
 @Component({
   selector: 'app-navbar',

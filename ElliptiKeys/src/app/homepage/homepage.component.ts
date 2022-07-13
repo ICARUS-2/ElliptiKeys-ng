@@ -3,6 +3,8 @@ import { Form, FormsModule } from '@angular/forms';
 import Keys from '../../../lib/Keys.js';
 import PageHelper from 'lib/page-helper.js';
 import LocalStorageHelper from 'lib/localstorage-helper';
+import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-homepage',
@@ -12,9 +14,10 @@ import LocalStorageHelper from 'lib/localstorage-helper';
 export class HomepageComponent implements OnInit {
   errorMessage : string = "";
 
-  constructor() { }
+  constructor(private router: Router, private title: Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle("ElliptiKeys")
   }
 
   onSubmitSearch(keySearch : HTMLFormElement) : void{    
@@ -38,7 +41,7 @@ export class HomepageComponent implements OnInit {
 
         LocalStorageHelper.SetPrivateKeySearchQuery(searchQuery)
 
-        window.location.href = "/bitcoin/"+pageNumber
+        this.router.navigate(["/bitcoin/"+pageNumber])
     }
     catch(err)
     {

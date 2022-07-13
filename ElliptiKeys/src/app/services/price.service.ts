@@ -20,7 +20,7 @@ export class PriceService {
       try
       {
         let price = await this._FetchPrice()
-        //console.log("REAL TIME PRICE CALLED")
+        console.log("REAL TIME PRICE CALLED")
 
         LocalStorageHelper.SetLastPriceApiCall(Date.now())
         LocalStorageHelper.SetLastRecordedPrice(price)
@@ -51,6 +51,9 @@ export class PriceService {
 
   _CanCallApi() : boolean
   {
+    if (window.location.href.includes('/random'))
+      return false;
+
     let lastCallStored: string|null = LocalStorageHelper.GetLastPriceApiCall();
     
     if (lastCallStored)

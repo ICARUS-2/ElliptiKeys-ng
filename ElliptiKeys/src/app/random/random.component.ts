@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Keys from 'lib/Keys';
 import PageHelper from './../../../lib/page-helper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-random',
@@ -9,12 +10,12 @@ import PageHelper from './../../../lib/page-helper';
 })
 export class RandomComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     let pageNum:BigInt = BigInt(PageHelper.CalculatePageNumber(Keys.GetNumberFromPrivateKey(Keys.GenerateRandomPrivateKey())))
 
-    window.location.href = "/bitcoin/"+pageNum
+    this.router.navigate(["/bitcoin/"+pageNum])
   }
 
 }

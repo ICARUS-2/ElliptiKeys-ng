@@ -1,6 +1,7 @@
 import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import PageHelper from 'lib/page-helper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pagebuttons',
@@ -18,7 +19,9 @@ export class PagebuttonsComponent implements OnInit {
   isFirstPage: Boolean = false;
   isLastPage: Boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { 
+
+  }
 
   ngOnInit(): void {
     this.pageNumber = BigInt(window.location.href.split('bitcoin/')[1])
@@ -36,5 +39,4 @@ export class PagebuttonsComponent implements OnInit {
   {
       return "/bitcoin/"+pageNum.toString();
   }
-
 }

@@ -1,16 +1,16 @@
 <div class="outer">
 
-    <a [href]="makePageLink(firstPage)" *ngIf="!isFirstPage"><img src="../../assets/first-page.png"></a>
+    <a [routerLink]="makePageLink(firstPage)" *ngIf="!isFirstPage"><img src="../../assets/first-page.png"></a>
     <a *ngIf="isFirstPage"><img src=""></a>
     
-    <a [href]="makePageLink(previousPage)" *ngIf="!isFirstPage"><img src="../../assets/previous.png"></a>
+    <a [routerLink]="makePageLink(previousPage)" *ngIf="!isFirstPage"><img src="../../assets/previous.png"></a>
     <a *ngIf="isFirstPage"><img src=""></a>
 
-    <a href="/random"><img src="../../assets/random.png"></a>
+    <a routerLink="/random"><img src="../../assets/random.png"></a>
 
-    <a [href]="makePageLink(nextPage)" *ngIf="!isLastPage"><img src="../../assets/next.png"></a>
+    <a [routerLink]="makePageLink(nextPage)" *ngIf="!isLastPage"><img src="../../assets/next.png"></a>
     <a *ngIf="isLastPage"><img src=""></a>
     
-    <a [href]="makePageLink(lastPage)" *ngIf="!isLastPage"><img src="../../assets/last-page.png"></a>
+    <a [routerLink]="makePageLink(lastPage)" *ngIf="!isLastPage"><img src="../../assets/last-page.png"></a>
     <a *ngIf="isLastPage"><img src=""></a>
 </div>
