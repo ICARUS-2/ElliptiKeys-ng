@@ -10,6 +10,11 @@
     margin-bottom: 10px;
 }
 
+#networkSelector
+{
+    display: flex;
+}
+
 .btn-info
 {
     color: white;
@@ -19,3 +24,13 @@
 {
     height: 60px;
 }
+
+/*
+@media screen and (max-width: 1000px)
+{
+    #networkSelector
+    {
+
+    }
+}
+*/

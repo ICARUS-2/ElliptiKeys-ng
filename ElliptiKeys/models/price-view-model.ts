@@ -20,8 +20,8 @@ export default class PriceViewModel
     getArrowImgSrc()
     {
         if (this.changePercentage < 0)
-            return "../../assets/down.png"
+            return "../../assets/down.webp"
 
-        return "../../assets/up.png"
+        return "../../assets/up.webp"
     }
 }

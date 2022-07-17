@@ -4,10 +4,17 @@
         <h2>Satoshi Nakamoto's private key is hidden on one of the pages...</h2>
 
         <div class="m-5"></div>
+        
+        <div id="networkSelector">
+            <div class="randomPageSelector d-flex flex-column align-items-center m-2">
+                <img src="../../assets/bitcoin-logo.webp" class="randomBitcoinImage">
+                <a routerLink="/random/" class="btn btn-lg btn-primary">View random page</a>
+            </div>
 
-        <div class="randomPageSelector d-flex flex-column align-items-center">
-            <img src="../../assets/bitcoin-logo.png" class="randomBitcoinImage">
-            <a routerLink="/random/" class="btn btn-primary">View random page</a>
+            <div class="randomPageSelector d-flex flex-column align-items-center m-2">
+                <img src="../../assets/bitcoin-testnet-logo.webp" class="randomBitcoinImage">
+                <a routerLink="/testnet-random/" class="btn btn-lg btn-primary">View random testnet page</a>
+            </div>
         </div>
 
         <div class="m-5"></div>
