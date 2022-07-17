@@ -3,7 +3,7 @@ import PageHelper from 'lib/page-helper';
 import KeyRowModel from './../../../models/key-row-model';
 import { Title } from '@angular/platform-browser';
 import BalanceApi from './../../../lib/balance-api';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-keyspage',
@@ -17,34 +17,43 @@ export class KeyspageComponent implements OnInit {
   maxPageNumber: BigInt = BigInt("0");
   isLoading: Boolean = true;
 
+  isTestnet: Boolean = false;
+
   keys: KeyRowModel[] = []
 
   balanceApi: BalanceApi = new BalanceApi();
 
-  constructor(private titleService:Title, private router: Router) { }
+  constructor(private titleService:Title, private router: Router, private activeRoute: ActivatedRoute) { }
 
   async ngOnInit() {
+    
+    this.activeRoute.data.subscribe( (data) =>
+    {
+      if (data["isTestnet"])
+        this.isTestnet = data["isTestnet"]
+    } )
 
     try
-    {
-      this.pageNumber = BigInt(window.location.href.split('bitcoin/')[1])
+    { 
+      let param = this.isTestnet ? "testnet/" : "bitcoin/"
+        
+      this.pageNumber = BigInt(window.location.href.split(param)[1])
     }
     catch(err)
     {
-      //window.location.href = "/not-found"
       this.router.navigate(['/not-found'])
     }
 
-    //console.log(this.pageNumber)
+    let version = this.isTestnet ? "Testnet" : "Bitcoin"
 
     this.maxPageNumber = BigInt(PageHelper.GetMaxPage())
 
     if (this.pageNumber == BigInt('1'))
-      this.titleService.setTitle("First page of Bitcoin keys")
+      this.titleService.setTitle("First page of " + version + " keys")
     else if (this.pageNumber == this.maxPageNumber)
-      this.titleService.setTitle("Last page of Bitcoin keys")
+      this.titleService.setTitle("Last page of" + version + "keys")
     else
-      this.titleService.setTitle(`Bitcoin keys page ${this.pageNumber} of ${this.maxPageNumber}`)
+      this.titleService.setTitle(version+` keys page ${this.pageNumber} of ${this.maxPageNumber}`)
 
     if (this.pageNumber > this.maxPageNumber)
       this.router.navigate(["/too-far"])

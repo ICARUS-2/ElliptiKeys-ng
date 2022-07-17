@@ -1,7 +1,7 @@
 import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import PageHelper from 'lib/page-helper';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pagebuttons',
@@ -18,13 +18,23 @@ export class PagebuttonsComponent implements OnInit {
 
   isFirstPage: Boolean = false;
   isLastPage: Boolean = false;
+  
+  isTestnet: Boolean = false;
 
-  constructor(private router: Router) { 
-
+  constructor(private router: Router, private activeRoute: ActivatedRoute) { 
+    activeRoute.data.subscribe( (d) => 
+    {
+      if (d["isTestnet"])
+        this.isTestnet = d["isTestnet"]
+    } )
   }
 
   ngOnInit(): void {
-    this.pageNumber = BigInt(window.location.href.split('bitcoin/')[1])
+
+    if (!this.isTestnet)
+      this.pageNumber = BigInt(window.location.href.split('bitcoin/')[1])
+    else
+      this.pageNumber = BigInt(window.location.href.split('testnet/')[1])
 
     this.firstPage = BigInt("1");
     this.lastPage = BigInt(PageHelper.GetMaxPage())
@@ -37,6 +47,8 @@ export class PagebuttonsComponent implements OnInit {
 
   makePageLink(pageNum:BigInt)
   {
-      return "/bitcoin/"+pageNum.toString();
+    let versionPrefix = this.isTestnet ? "/testnet/" : "/bitcoin/"
+
+    return versionPrefix+pageNum.toString();
   }
 }

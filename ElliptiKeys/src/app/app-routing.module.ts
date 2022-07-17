@@ -10,7 +10,8 @@ import { DonateComponent } from './donate/donate.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
-  {path: 'bitcoin/:id', component: KeyspageComponent}, 
+  {path: 'bitcoin/:id', component: KeyspageComponent, data: {isTestnet: false}}, 
+  {path: 'testnet/:id', component: KeyspageComponent, data: {isTestnet: true}},
   {path: 'too-far', component:TooFarComponent},
   {path: 'random', component:RandomComponent},
   {path: 'about', component:AboutComponent},
