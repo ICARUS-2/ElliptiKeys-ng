@@ -32,7 +32,7 @@ export default class PageHelper
         return division
     }
 
-    static GetKeysForPage(pageNumber)
+    static GetKeysForPage(pageNumber, isTestnet)
     {
         let models = []
 
@@ -44,7 +44,7 @@ export default class PageHelper
             if (i == Keys.MAX_PRIVATE_KEY + BigInt(1))
                 break;
 
-            models.push(new KeyRowModel(i))
+            models.push(new KeyRowModel(i, isTestnet))
         }
 
         return models

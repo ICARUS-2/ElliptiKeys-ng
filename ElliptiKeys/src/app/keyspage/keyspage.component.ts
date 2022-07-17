@@ -21,7 +21,7 @@ export class KeyspageComponent implements OnInit {
 
   keys: KeyRowModel[] = []
 
-  balanceApi: BalanceApi = new BalanceApi();
+  balanceApi: BalanceApi = new BalanceApi(false);
 
   constructor(private titleService:Title, private router: Router, private activeRoute: ActivatedRoute) { }
 
@@ -58,11 +58,11 @@ export class KeyspageComponent implements OnInit {
     if (this.pageNumber > this.maxPageNumber)
       this.router.navigate(["/too-far"])
 
-      this.keys = PageHelper.GetKeysForPage(this.pageNumber)
+      this.keys = PageHelper.GetKeysForPage(this.pageNumber, this.isTestnet)
 
       setTimeout(this.enableBtns, PageHelper.DELAY)
 
-    this.balanceApi = new BalanceApi();
+    this.balanceApi = new BalanceApi(this.isTestnet);
 
     for(let key of this.keys)
     {

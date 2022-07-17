@@ -4,12 +4,24 @@ import KeyStatsModel from './../models/key-stats-model';
 
 export default class BalanceApi
 {
-    url: string = "https://blockchain.info/balance?cors=true&active="
+    url: string = ""
     addressModels: AddressModel[] = []
 
+    isTestnet: Boolean = false;
+
     _jsonResult: any;
-    constructor() 
+    constructor(isTn: Boolean) 
     {
+        this.isTestnet = isTn;
+        this.url = this.getURL();
+    }
+
+    getURL()
+    {
+        if (this.isTestnet) //TODO: FIND API FOR TESTNET
+            return "https://testnet.blockchain.info/balance?cors=true&active="
+        else
+            return "https://blockchain.info/balance?cors=true&active="
 
     }
 
@@ -21,7 +33,7 @@ export default class BalanceApi
 
     async doApiRequest()
     {
-        this._jsonResult = await this.fetchJson(this.url)
+        this._jsonResult = await this.fetchJson()
         
         //console.log(this._jsonResult)
 
@@ -33,9 +45,9 @@ export default class BalanceApi
         });
     }
 
-    async fetchJson(url:string): Promise<JSON>
+    async fetchJson(): Promise<JSON>
     {
-        let res = await fetch(url);
+        let res = await fetch(this.url);
 
         return res.json();
     }

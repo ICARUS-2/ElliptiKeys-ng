@@ -20,14 +20,14 @@ export default class KeyRowModel
     segwitColor: string = "white";
     bech32Color: string = "white";
 
-    constructor(num : BigInt)
+    constructor(num : BigInt, isTestnet : Boolean)
     {
-        this.privateKey = Keys.GeneratePrivateKeyFromNumber(num);
-        this.privateKeyCompressed = Keys.GenerateCompressedPrivateKeyFromNumber(num);
-        this.legacy = Keys.PrivateKeyToLegacyAddress(this.privateKey)
-        this.legacyCompressed = Keys.CompressedPrivateKeyToLegacyAddress(this.privateKeyCompressed);
-        this.segwit = Keys.CompressedPrivateKeyToSegwitAddress(this.privateKeyCompressed);
-        this.bech32 = Keys.CompressedPrivateKeyToBech32Address(this.privateKeyCompressed);
+        this.privateKey = isTestnet ? Keys.GenerateTestnetPrivateKeyFromNumber(num) : Keys.GeneratePrivateKeyFromNumber(num);
+        this.privateKeyCompressed = isTestnet ? Keys.GenerateCompressedTestnetPrivateKeyFromNumber(num) : Keys.GenerateCompressedPrivateKeyFromNumber(num);
+        this.legacy = isTestnet ? Keys.TestnetPrivateKeyToLegacyAddress(this.privateKey) : Keys.PrivateKeyToLegacyAddress(this.privateKey)
+        this.legacyCompressed = isTestnet ? Keys.TestnetCompressedPrivateKeyToLegacyAddress(this.privateKeyCompressed) : Keys.CompressedPrivateKeyToLegacyAddress(this.privateKeyCompressed);
+        this.segwit = isTestnet ? Keys.TestnetCompressedPrivateKeyToSegwitAddress(this.privateKeyCompressed) : Keys.CompressedPrivateKeyToSegwitAddress(this.privateKeyCompressed);
+        this.bech32 = isTestnet ? Keys.TestnetCompressedPrivateKeyToBech32Address(this.privateKeyCompressed) : Keys.CompressedPrivateKeyToBech32Address(this.privateKeyCompressed);
 
         let key = LocalStorageHelper.GetPrivateKeySearchQuery()
         if (key)
