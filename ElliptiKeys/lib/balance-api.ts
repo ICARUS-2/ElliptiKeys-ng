@@ -18,8 +18,8 @@ export default class BalanceApi
 
     getURL()
     {
-        if (this.isTestnet) //TODO: FIND API FOR TESTNET
-            return "https://testnet.blockchain.info/balance?cors=true&active="
+        if (this.isTestnet)
+            return "https://api.haskoin.com/btctest/address/balances?addresses="
         else
             return "https://blockchain.info/balance?cors=true&active="
 
@@ -28,21 +28,48 @@ export default class BalanceApi
     addAddress(address:string) :void
     {
         this.addressModels.push(new AddressModel(address))
-        this.url+=address+"|"
+        
+        if (!this.isTestnet)
+        {
+            this.url+=address+"|"
+        }
+        else
+        {
+            this.url+=address+","
+        }
     }
 
     async doApiRequest()
     {
-        this._jsonResult = await this.fetchJson()
-        
-        //console.log(this._jsonResult)
+        //Removes trailing comma.
+        if (this.isTestnet)
+            this.url = this.url.slice(0, -1)
 
-        this.addressModels.forEach(item => {
-            let data = this._getJsonDataByKey(item.address);
-            
-            item.balance = data.final_balance;
-            item.transactions = data.n_tx;
-        });
+        this._jsonResult = await this.fetchJson()
+
+        if (!this.isTestnet)
+        {
+            this.addressModels.forEach(item => {
+                let data = this._getJsonDataByKey(item.address);
+                
+                item.balance = data.final_balance;
+                item.transactions = data.n_tx;
+            });
+        }
+        else
+        {
+            this.addressModels.forEach(item =>
+                {
+                    let data = this._jsonResult.find( (obj: Object) =>
+                    {
+                        //@ts-ignore
+                        return obj.address == item.address
+                    } ) 
+
+                    item.balance = data.confirmed;
+                    item.transactions = data.txs;
+                })
+        }
     }
 
     async fetchJson(): Promise<JSON>

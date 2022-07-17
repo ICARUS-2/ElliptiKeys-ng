@@ -16,6 +16,7 @@ import { AboutComponent } from './about/about.component';
 import { DonateComponent } from './donate/donate.component';
 import { PriceService } from './services/price.service';
 import { PriceComponent } from './price/price.component';
+import { TestnetRandomComponent } from './testnet-random/testnet-random.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PriceComponent } from './price/price.component';
     AboutComponent,
     DonateComponent,
     PriceComponent,
+    TestnetRandomComponent,
   ],
   imports: [
     BrowserModule,

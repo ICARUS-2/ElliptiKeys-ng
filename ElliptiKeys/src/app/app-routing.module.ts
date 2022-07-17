@@ -7,6 +7,7 @@ import { RandomComponent } from './random/random.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
 import { DonateComponent } from './donate/donate.component';
+import { TestnetRandomComponent } from './testnet-random/testnet-random.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'testnet/:id', component: KeyspageComponent, data: {isTestnet: true}},
   {path: 'too-far', component:TooFarComponent},
   {path: 'random', component:RandomComponent},
+  {path: 'testnet-random', component: TestnetRandomComponent},
   {path: 'about', component:AboutComponent},
   {path: 'donate', component: DonateComponent},
   {path: '**', component:NotFoundComponent}
