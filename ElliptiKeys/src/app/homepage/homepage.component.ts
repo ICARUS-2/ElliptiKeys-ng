@@ -28,12 +28,15 @@ export class HomepageComponent implements OnInit {
       
       if (searchQuery.startsWith("K") || searchQuery.startsWith("L"))
         searchQuery = Keys.DecompressWIF(searchQuery)
+
+      if (searchQuery.startsWith("c"))
+        searchQuery = Keys.DecompressTestnetWIF(searchQuery)
       
       let privateKeyNum:BigInt = Keys.GetNumberFromPrivateKey(searchQuery)
 
       let pageNumber:BigInt = BigInt(PageHelper.CalculatePageNumber(privateKeyNum))
 
-      if (!searchQuery.startsWith("5") && !searchQuery.startsWith("L") && !searchQuery.startsWith("K"))
+      if (!searchQuery.startsWith("5") && !searchQuery.startsWith("L") && !searchQuery.startsWith("K") && !searchQuery.startsWith("c") && !searchQuery.startsWith("9"))
         throw new Error();
 
       if ( privateKeyNum > Keys.MAX_PRIVATE_KEY)
@@ -41,7 +44,10 @@ export class HomepageComponent implements OnInit {
 
         LocalStorageHelper.SetPrivateKeySearchQuery(searchQuery)
 
+      if (searchQuery.startsWith("5"))
         this.router.navigate(["/bitcoin/"+pageNumber])
+      else if (searchQuery.startsWith("9"))
+      this.router.navigate(["/testnet/"+pageNumber])
     }
     catch(err)
     {
