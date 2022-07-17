@@ -51,4 +51,9 @@ export class PagebuttonsComponent implements OnInit {
 
     return versionPrefix+pageNum.toString();
   }
+
+  getRandomLink()
+  {
+    return this.isTestnet ? "/testnet-random" : "/random"
+  }
 }
