@@ -8,6 +8,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
 import { DonateComponent } from './donate/donate.component';
 import { TestnetRandomComponent } from './testnet-random/testnet-random.component';
+import { ExplorerAddressComponent } from './explorer/explorer-address/explorer-address.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
@@ -18,7 +19,11 @@ const routes: Routes = [
   {path: 'testnet-random', component: TestnetRandomComponent},
   {path: 'about', component:AboutComponent},
   {path: 'donate', component: DonateComponent},
-  {path: '**', component:NotFoundComponent}
+
+  {path: 'explorer/bitcoin/address/:id', component: ExplorerAddressComponent},
+  {path: 'explorer/testnet/address/:id', component: ExplorerAddressComponent},
+
+  {path: '**', component:NotFoundComponent},
 ];
 
 @NgModule({

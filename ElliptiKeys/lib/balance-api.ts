@@ -37,7 +37,7 @@ export default class BalanceApi
         {
             this.url+=address+","
         }
-    }
+    }       
 
     async doApiRequest()
     {
@@ -54,6 +54,8 @@ export default class BalanceApi
                 
                 item.balance = data.final_balance;
                 item.transactions = data.n_tx;
+                item.received = data.total_received;
+                item.sent = data.total_received - data.final_balance;
             });
         }
         else
@@ -68,6 +70,8 @@ export default class BalanceApi
 
                     item.balance = data.confirmed;
                     item.transactions = data.txs;
+                    item.received = data.received;
+                    item.sent = data.received - data.confirmed;
                 })
         }
     }

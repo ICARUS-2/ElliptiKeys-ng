@@ -555,9 +555,14 @@ static Base58DecodeToHex(
             }
 
             //Bech32 encoding requires its own type of checksum
-            if (bitcoinAddress.startsWith("bc1q"))
+            if (bitcoinAddress.startsWith("bc1q") || bitcoinAddress.startsWith("tb1q"))
             {
-                bitcoinAddress = bitcoinAddress.replace("bc1", "")
+                let isTestnet = bitcoinAddress.startsWith("tb1q")
+
+                if (!isTestnet)
+                    bitcoinAddress = bitcoinAddress.replace("bc1", "")
+                else
+                    bitcoinAddress = bitcoinAddress.replace("tb1", "")
 
                 let indexArr = []
                 for(let c of bitcoinAddress)
@@ -573,7 +578,9 @@ static Base58DecodeToHex(
 
                 let providedChecksum = Keys.BytesToHex(bytesArr.slice(bytesArr.length - CHECKSUM_LENGTH, bytesArr.length))
                 
-                let computedChecksum = Keys.BytesToHex(Keys.Bech32CreateChecksum("bc", bytesWithoutChecksum))
+                let version = isTestnet ? "tb" : "bc"
+
+                let computedChecksum = Keys.BytesToHex(Keys.Bech32CreateChecksum(version, bytesWithoutChecksum))
 
                 return providedChecksum == computedChecksum;
             }

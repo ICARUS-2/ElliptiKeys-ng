@@ -4,8 +4,8 @@ import { ADDRESS_TYPES } from './../lib/address-types';
 
 export default class KeyRowModel
 {
-    BASE_EXPLORER_URL: string = "https://www.blockchain.com/btc/address/"
-    BASE_TESTNET_EXPLORER_URL: string = "https://www.blockchain.com/btc-testnet/address/"
+    BASE_EXPLORER_URL: string = "/explorer/bitcoin/address/"
+    BASE_TESTNET_EXPLORER_URL: string = "explorer/testnet/address/"
 
     BORDER_WIDTH = 4
 
