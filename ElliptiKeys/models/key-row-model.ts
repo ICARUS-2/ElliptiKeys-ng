@@ -1,12 +1,11 @@
 import Keys from "lib/Keys"
 import LocalStorageHelper from "lib/localstorage-helper"
 import { ADDRESS_TYPES } from './../lib/address-types';
+import { WIF_TYPES } from './../lib/wif-types';
+import { URLS } from './../lib/urls';
 
 export default class KeyRowModel
 {
-    BASE_EXPLORER_URL: string = "/explorer/bitcoin/address/"
-    BASE_TESTNET_EXPLORER_URL: string = "/explorer/testnet/address/"
-
     BORDER_WIDTH = 4
 
     privateKey: string = "5xxx"
@@ -57,24 +56,39 @@ export default class KeyRowModel
         this.privateKeyTextColor = color;
     }
 
-    getExplorerUrl(addressType: string)
+    getAddressExplorerUrl(addressType: string)
     {
         switch(addressType)
         {
             case ADDRESS_TYPES.legacy:
-                return this.isTestnet ? this.BASE_TESTNET_EXPLORER_URL+this.legacy : this.BASE_EXPLORER_URL+this.legacy;
+                return this.isTestnet ? URLS.BASE_TESTNET_EXPLORER_URL+this.legacy : URLS.BASE_EXPLORER_URL+this.legacy;
 
             case ADDRESS_TYPES.legacyCompressed:
-                return this.isTestnet ? this.BASE_TESTNET_EXPLORER_URL+this.legacyCompressed : this.BASE_EXPLORER_URL+this.legacyCompressed;
+                return this.isTestnet ? URLS.BASE_TESTNET_EXPLORER_URL+this.legacyCompressed : URLS.BASE_EXPLORER_URL+this.legacyCompressed;
 
             case ADDRESS_TYPES.segwit:
-                return this.isTestnet ? this.BASE_TESTNET_EXPLORER_URL+this.segwit : this.BASE_EXPLORER_URL+this.segwit;
+                return this.isTestnet ? URLS.BASE_TESTNET_EXPLORER_URL+this.segwit : URLS.BASE_EXPLORER_URL+this.segwit;
 
             case ADDRESS_TYPES.bech32:
-                return this.isTestnet ? this.BASE_TESTNET_EXPLORER_URL+this.bech32 : this.BASE_EXPLORER_URL+this.bech32;
+                return this.isTestnet ? URLS.BASE_TESTNET_EXPLORER_URL+this.bech32 : URLS.BASE_EXPLORER_URL+this.bech32;
         
             default:
                 return "#";
         }       
+    }
+
+    getWifExplorerUrl(keyType: string)
+    {
+        switch(keyType)
+        {
+            case WIF_TYPES.compressed:
+                return this.isTestnet ? URLS.BASE_TESTNET_WIF_EXPLORER_URL+this.privateKeyCompressed : URLS.BASE_WIF_EXPLORER_URL+this.privateKeyCompressed;
+
+            case WIF_TYPES.uncompressed:
+                return this.isTestnet ? URLS.BASE_TESTNET_WIF_EXPLORER_URL+this.privateKey : URLS.BASE_WIF_EXPLORER_URL+this.privateKey;
+
+            default: 
+                return "#";
+        }
     }
 }

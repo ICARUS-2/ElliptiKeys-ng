@@ -1,0 +1,51 @@
+<div class="container">
+
+    <div class="m-2"></div>
+  
+    <h2 class="addressHeader">WIF Private Key</h2>
+  
+    <div class="mainInnerDiv">
+      <qrcode [qrdata]="key" [width]="300" [errorCorrectionLevel]="'M'" class="m-5"></qrcode>
+      <table class="table mobileScrollableTable">
+          <tbody>
+            <tr>
+              <th scope="row">Address</th>
+              <td>{{key}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Network</th>
+              <td>{{isTestnet ? "Testnet" : "Mainnet"}}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Format</th>
+              <td>
+                <h5><span class="badge" [ngClass]="{ 'bg-danger': !isCompressed, 'bg-success': isCompressed}">{{isCompressed ? "Compressed" : "Uncompressed"}}</span></h5>
+              </td>
+            </tr>
+
+            <tr>
+                <td>{{isCompressed ? "Uncompressed" : "Compressed"}} Version</td>
+                <td><a [routerLink]="getWifExplorerUrl()">{{oppositeKeyFormat}}</a></td>
+            </tr>
+
+            <tr>
+                <td>Legacy Address</td>
+                <td><a [routerLink]="getAddressExplorerUrl('legacy')">{{legacyAddress}}</a></td>
+            </tr>
+
+            <tr *ngIf="isCompressed">
+                <td>SegWit Address</td>
+                <td><a [routerLink]="getAddressExplorerUrl('segwit')">{{segwitAddress}}</a></td>
+            </tr>
+
+            <tr *ngIf="isCompressed">
+                <td>Bech32 Address</td>
+                <td><a [routerLink]="getAddressExplorerUrl('bech32')">{{bech32Address}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+  
+  <div class="m-5"></div>

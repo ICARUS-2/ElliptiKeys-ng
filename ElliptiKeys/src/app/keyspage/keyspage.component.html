@@ -26,21 +26,21 @@
         <table style="border-spacing: 10px 0px; border-collapse: separate; width: 97%;" class="keysTable">
             <tr *ngFor="let model of keys; let index = index" class="tableRow">
                 <td class="desktopTd" style="padding: 10px 0px;" [style.border-left]="model.borderColor">
-                    <span [style.color]="model.privateKeyTextColor">{{model.privateKey}}</span>
+                    <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('uncompressed')">{{model.privateKey}}</a>
                     <br>
-                    <span [style.color]="model.privateKeyTextColor">{{model.privateKeyCompressed}}</span>
+                    <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('compressed')">{{model.privateKeyCompressed}}</a>
                 </td>
 
                 <td class="desktopTd">
-                    <a [style.color]="model.legacyColor" [routerLink]="model.getExplorerUrl('legacy')" target="_blank" class="{{model.legacy}}">{{model.legacy}}</a>
+                    <a [style.color]="model.legacyColor" [routerLink]="model.getAddressExplorerUrl('legacy')" class="{{model.legacy}}">{{model.legacy}}</a>
                     <br>
-                    <a [style.color]="model.legacyCompressedColor" [routerLink]="model.getExplorerUrl('legacyCompressed')" target="_blank" class="{{model.legacyCompressed}}">{{model.legacyCompressed}}</a>
+                    <a [style.color]="model.legacyCompressedColor" [routerLink]="model.getAddressExplorerUrl('legacyCompressed')" class="{{model.legacyCompressed}}">{{model.legacyCompressed}}</a>
                 </td>
 
                 <td class="desktopTd">
-                    <a [style.color]="model.segwitColor" [routerLink]="model.getExplorerUrl('segwit')" target="_blank" class="{{model.segwit}}">{{model.segwit}}</a>
+                    <a [style.color]="model.segwitColor" [routerLink]="model.getAddressExplorerUrl('segwit')" class="{{model.segwit}}">{{model.segwit}}</a>
                     <br>
-                    <a [style.color]="model.bech32Color" [routerLink]="model.getExplorerUrl('bech32')" target="_blank"  class="{{model.bech32}}">{{model.bech32}}</a>
+                    <a [style.color]="model.bech32Color" [routerLink]="model.getAddressExplorerUrl('bech32')" class="{{model.bech32}}">{{model.bech32}}</a>
                 </td>
 
                 <td class="desktopTd">
@@ -48,18 +48,18 @@
                 </td>
             
                 <td class="mobileTd" [style.border-left]="model.borderColor">
-                    <span [style.color]="model.privateKeyTextColor">{{model.privateKey}}</span>
+                    <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('uncompressed')">{{model.privateKey}}</a>
                     <div style="margin-top: 10px;"></div>
-                    <span [style.color]="model.privateKeyTextColor">{{model.privateKeyCompressed}}</span>
+                    <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('compressed')">{{model.privateKeyCompressed}}</a>
                     <br>
                     <br>
-                    <a [style.color]="model.legacyColor" [routerLink]="model.getExplorerUrl('legacy')" target="_blank" class="{{model.legacy}}">{{model.legacy.substr(0, model.legacy.length / 1.3)}}...</a>
+                    <a [style.color]="model.legacyColor" [routerLink]="model.getAddressExplorerUrl('legacy')" class="{{model.legacy}}">{{model.legacy.substr(0, model.legacy.length / 1.3)}}...</a>
                     <br>
-                    <a [style.color]="model.legacyCompressedColor" [routerLink]="model.getExplorerUrl('legacyCompressed')" target="_blank" class="{{model.legacyCompressed}}">{{model.legacyCompressed.substr(0, model.legacyCompressed.length / 1.3)}}...</a>
+                    <a [style.color]="model.legacyCompressedColor" [routerLink]="model.getAddressExplorerUrl('legacyCompressed')" class="{{model.legacyCompressed}}">{{model.legacyCompressed.substr(0, model.legacyCompressed.length / 1.3)}}...</a>
                     <br>
-                    <a [style.color]="model.segwitColor" [routerLink]="model.getExplorerUrl('segwit')" class="{{model.segwit}}" target="_blank">{{model.segwit.substr(0, model.segwit.length / 1.3)}}...</a>
+                    <a [style.color]="model.segwitColor" [routerLink]="model.getAddressExplorerUrl('segwit')" class="{{model.segwit}}">{{model.segwit.substr(0, model.segwit.length / 1.3)}}...</a>
                     <br>
-                    <a [style.color]="model.bech32Color" [routerLink]="model.getExplorerUrl('bech32')" target="_blank" class="{{model.bech32}}">{{model.bech32.substr(0, model.bech32.length / 1.3)}}...</a>
+                    <a [style.color]="model.bech32Color" [routerLink]="model.getAddressExplorerUrl('bech32')" class="{{model.bech32}}">{{model.bech32.substr(0, model.bech32.length / 1.3)}}...</a>
                     <br>
                     <br>
                     <p>{{model.stats}}</p>

@@ -19,6 +19,7 @@ import { PriceComponent } from './price/price.component';
 import { TestnetRandomComponent } from './testnet-random/testnet-random.component';
 import { ExplorerAddressComponent } from './explorer/explorer-address/explorer-address.component';
 import { QRCodeModule } from 'angularx-qrcode';
+import { ExplorerPrivateKeyComponent } from './explorer/explorer-private-key/explorer-private-key.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { QRCodeModule } from 'angularx-qrcode';
     PriceComponent,
     TestnetRandomComponent,
     ExplorerAddressComponent,
+    ExplorerPrivateKeyComponent,
   ],
   imports: [
     BrowserModule,

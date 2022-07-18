@@ -1,7 +1,7 @@
 import Keys from "./Keys";
 import { ADDRESS_TYPES } from './address-types';
 
-export default class AddressHelper
+export default class KeysHelper
 {
     static GetAddressFormat(addr: string)
     {
@@ -29,5 +29,25 @@ export default class AddressHelper
             return false;
         }
         return addr.startsWith("m") || addr.startsWith('n') || addr.startsWith('2') || addr.startsWith('tb1q')
+    }
+
+    static IsPrivateKeyTestnet(key: string)
+    {
+        if (!Keys.ValidatePrivateKey(key))
+        {
+            return false;
+        }
+
+        return key.startsWith("c") || key.startsWith("9")
+    }
+
+    static IsPrivateKeyCompressed(key: string)
+    {
+        if (!Keys.ValidatePrivateKey(key))
+        {
+            return false;
+        }
+
+        return key.startsWith("c") || key.startsWith("L") || key.startsWith("K")
     }
 }

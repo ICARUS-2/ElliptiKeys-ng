@@ -593,6 +593,17 @@ static Base58DecodeToHex(
         return false
     }
 
+    static ValidatePrivateKey(privateKey)
+    {
+        let decodedKey = Keys.Base58DecodeToHex(privateKey)
+        let providedChecksum = decodedKey.substr(decodedKey.length - 8, decodedKey.length)
+        let decodedKeyWithoutChecksum = decodedKey.replace(providedChecksum, "")
+
+        let recomputedKey = Keys._PrivateKeyAndVersionToBitcoinKey(decodedKeyWithoutChecksum)
+
+        return privateKey == recomputedKey;
+    }
+
     static GenerateRandomTestnetPrivateKey()
     {
         var randArr = new Uint8Array(32) 

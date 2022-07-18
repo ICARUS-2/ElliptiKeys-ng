@@ -1,4 +1,4 @@
-import AddressHelper from "lib/address-helper";
+import KeysHelper from "lib/keys-helper";
 import { ADDRESS_TYPES } from "lib/address-types";
 
 export default class AddressModel
@@ -37,7 +37,7 @@ export default class AddressModel
 
     getFormat()
     {
-        return AddressHelper.GetAddressFormat(this.address)
+        return KeysHelper.GetAddressFormat(this.address)
     }
 
     getDisplayFormat()

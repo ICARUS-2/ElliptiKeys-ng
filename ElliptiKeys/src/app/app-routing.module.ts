@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { DonateComponent } from './donate/donate.component';
 import { TestnetRandomComponent } from './testnet-random/testnet-random.component';
 import { ExplorerAddressComponent } from './explorer/explorer-address/explorer-address.component';
+import { ExplorerPrivateKeyComponent } from './explorer/explorer-private-key/explorer-private-key.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
@@ -22,7 +23,9 @@ const routes: Routes = [
 
   {path: 'explorer/bitcoin/address/:id', component: ExplorerAddressComponent},
   {path: 'explorer/testnet/address/:id', component: ExplorerAddressComponent},
-
+  {path: 'explorer/bitcoin/wif/:id', component: ExplorerPrivateKeyComponent},
+  {path: 'explorer/testnet/wif/:id', component: ExplorerPrivateKeyComponent},
+  
   {path: '**', component:NotFoundComponent},
 ];
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import Keys from './../../../../lib/Keys';
 import BalanceApi from './../../../../lib/balance-api';
-import AddressHelper from './../../../../lib/address-helper';
+import KeysHelper from './../../../../lib/keys-helper';
 import AddressModel from './../../../../models/address-model';
 import { Title } from '@angular/platform-browser';
 
@@ -27,7 +27,7 @@ export class ExplorerAddressComponent implements OnInit {
       if (d["id"])
         this.address = d["id"]
 
-      this.isTestnet = AddressHelper.IsAddressTestnet(this.address)
+      this.isTestnet = KeysHelper.IsAddressTestnet(this.address)
       let isUrlTestnet = window.location.href.includes("/testnet");
 
 
