@@ -5,46 +5,47 @@
   <div *ngIf="errorCallingApi" class="alert alert-danger">Error occurred while retrieving info</div>
   <h2>Address</h2>
 
-  
-
-  <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Info</th>
-          <th scope="col">Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Address</th>
-          <td>{{addressModel?.address}}</td>
-        </tr>
-        <tr>
-          <th scope="row">Network</th>
-          <td>{{isTestnet ? "Testnet" : "Mainnet"}}</td>
-        </tr>
-        <tr>
-          <th scope="row">Format</th>
-          <td>
-            <h5><span class="badge" [ngClass]="{ 'bg-danger': addressModel?.getFormat() == 'legacy', 'bg-primary': addressModel?.getFormat() == 'segwit', 'bg-success': addressModel?.getFormat() == 'bech32'}">{{addressModel?.getDisplayFormat()}}</span></h5>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Transactions</th>
-          <td>{{addressModel?.transactions}}</td>
-        </tr>
-        <tr>
-          <th scope="row">Total Received</th>
-          <td>{{addressModel?.getBtcReceived()}} BTC</td>
-        </tr>
-        <tr>
-          <th scope="row">Total Sent</th>
-          <td>{{addressModel?.getBtcSent()}} BTC</td>
-        </tr>
-        <tr>
-          <th scope="row">Balance</th>
-          <td>{{addressModel?.getBtcBalance()}} BTC</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="mainInnerDiv">
+    <qrcode [qrdata]="address" [width]="300" [errorCorrectionLevel]="'M'" class="m-5"></qrcode>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Info</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Address</th>
+            <td>{{addressModel?.address}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Network</th>
+            <td>{{isTestnet ? "Testnet" : "Mainnet"}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Format</th>
+            <td>
+              <h5><span class="badge" [ngClass]="{ 'bg-danger': addressModel?.getFormat() == 'legacy', 'bg-primary': addressModel?.getFormat() == 'segwit', 'bg-success': addressModel?.getFormat() == 'bech32'}">{{addressModel?.getDisplayFormat()}}</span></h5>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Transactions</th>
+            <td>{{addressModel?.transactions}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Total Received</th>
+            <td>{{addressModel?.getBtcReceived()}} BTC</td>
+          </tr>
+          <tr>
+            <th scope="row">Total Sent</th>
+            <td>{{addressModel?.getBtcSent()}} BTC</td>
+          </tr>
+          <tr>
+            <th scope="row">Balance</th>
+            <td>{{addressModel?.getBtcBalance()}} BTC</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
 </div>

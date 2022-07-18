@@ -1,4 +1,3 @@
-import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import PageHelper from 'lib/page-helper';
 import { ActivatedRoute, Router } from '@angular/router';

@@ -18,7 +18,7 @@ import { PriceService } from './services/price.service';
 import { PriceComponent } from './price/price.component';
 import { TestnetRandomComponent } from './testnet-random/testnet-random.component';
 import { ExplorerAddressComponent } from './explorer/explorer-address/explorer-address.component';
-import { QRCodeModule } from 'angularx-qrcode'
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [

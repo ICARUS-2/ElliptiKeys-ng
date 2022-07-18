@@ -4,7 +4,6 @@ import Keys from './../../../../lib/Keys';
 import BalanceApi from './../../../../lib/balance-api';
 import AddressHelper from './../../../../lib/address-helper';
 import AddressModel from './../../../../models/address-model';
-import { QRCodeModule } from 'angularx-qrcode';
 
 @Component({
   selector: 'app-explorer-address',
