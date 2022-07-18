@@ -1,8 +1,12 @@
 import Keys from "lib/Keys"
 import LocalStorageHelper from "lib/localstorage-helper"
+import { ADDRESS_TYPES } from './../lib/address-types';
 
 export default class KeyRowModel
 {
+    BASE_EXPLORER_URL: string = "https://www.blockchain.com/btc/address/"
+    BASE_TESTNET_EXPLORER_URL: string = "https://www.blockchain.com/btc-testnet/address/"
+
     BORDER_WIDTH = 4
 
     privateKey: string = "5xxx"
@@ -20,8 +24,11 @@ export default class KeyRowModel
     segwitColor: string = "white";
     bech32Color: string = "white";
 
+    isTestnet: Boolean = false;
+
     constructor(num : BigInt, isTestnet : Boolean)
     {
+        this.isTestnet = isTestnet;
         this.privateKey = isTestnet ? Keys.GenerateTestnetPrivateKeyFromNumber(num) : Keys.GeneratePrivateKeyFromNumber(num);
         this.privateKeyCompressed = isTestnet ? Keys.GenerateCompressedTestnetPrivateKeyFromNumber(num) : Keys.GenerateCompressedPrivateKeyFromNumber(num);
         this.legacy = isTestnet ? Keys.TestnetPrivateKeyToLegacyAddress(this.privateKey) : Keys.PrivateKeyToLegacyAddress(this.privateKey)
@@ -48,5 +55,26 @@ export default class KeyRowModel
     setSearchBorderColor(color: string = "cyan")
     {
         this.privateKeyTextColor = color;
+    }
+
+    getExplorerUrl(addressType: string)
+    {
+        switch(addressType)
+        {
+            case ADDRESS_TYPES.legacy:
+                return this.isTestnet ? this.BASE_TESTNET_EXPLORER_URL+this.legacy : this.BASE_EXPLORER_URL+this.legacy;
+
+            case ADDRESS_TYPES.legacyCompressed:
+                return this.isTestnet ? this.BASE_TESTNET_EXPLORER_URL+this.legacyCompressed : this.BASE_EXPLORER_URL+this.legacyCompressed;
+
+            case ADDRESS_TYPES.segwit:
+                return this.isTestnet ? this.BASE_TESTNET_EXPLORER_URL+this.segwit : this.BASE_EXPLORER_URL+this.segwit;
+
+            case ADDRESS_TYPES.bech32:
+                return this.isTestnet ? this.BASE_TESTNET_EXPLORER_URL+this.bech32 : this.BASE_EXPLORER_URL+this.bech32;
+        
+            default:
+                return "#";
+        }       
     }
 }
