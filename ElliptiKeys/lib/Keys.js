@@ -541,7 +541,7 @@ static Base58DecodeToHex(
         //Legacy/Wrapped SegWit will require verifying the double-hash checksum
         try
         {
-            if (bitcoinAddress.startsWith('1') || bitcoinAddress.startsWith('3') || bitcoinAddress.startsWith('2'))
+            if (bitcoinAddress.startsWith('1') || bitcoinAddress.startsWith('3') || bitcoinAddress.startsWith('2') || bitcoinAddress.startsWith('m') || bitcoinAddress.startsWith('n'))
             {
                 let decoded = Keys.Base58DecodeToHex(bitcoinAddress)
                 

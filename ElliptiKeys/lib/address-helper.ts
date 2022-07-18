@@ -28,7 +28,6 @@ export default class AddressHelper
         {
             return false;
         }
-
         return addr.startsWith("m") || addr.startsWith('n') || addr.startsWith('2') || addr.startsWith('tb1q')
     }
 }

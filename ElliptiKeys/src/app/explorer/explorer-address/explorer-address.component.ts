@@ -4,6 +4,7 @@ import Keys from './../../../../lib/Keys';
 import BalanceApi from './../../../../lib/balance-api';
 import AddressHelper from './../../../../lib/address-helper';
 import AddressModel from './../../../../models/address-model';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-explorer-address',
@@ -20,7 +21,7 @@ export class ExplorerAddressComponent implements OnInit {
   //@ts-ignore
   balanceApi: BalanceApi;
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router) {
+  constructor(private activeRoute: ActivatedRoute, private router: Router, private title: Title) {
     activeRoute.params.subscribe( (d)=> 
     {
       if (d["id"])
@@ -29,10 +30,13 @@ export class ExplorerAddressComponent implements OnInit {
       this.isTestnet = AddressHelper.IsAddressTestnet(this.address)
       let isUrlTestnet = window.location.href.includes("/testnet");
 
+
       //If URL does not match the requested address, navigate away.
       if (this.isTestnet != isUrlTestnet)
         router.navigate(['/not-found'])
     })
+
+    title.setTitle("Address: " + this.address)
    }
 
   async ngOnInit(): Promise<void> {
