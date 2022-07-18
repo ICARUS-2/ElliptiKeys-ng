@@ -3,17 +3,11 @@
   <div class="m-2"></div>
 
   <div *ngIf="errorCallingApi" class="alert alert-danger">Error occurred while retrieving info</div>
-  <h2>Address</h2>
+  <h2 class="addressHeader">Address</h2>
 
   <div class="mainInnerDiv">
     <qrcode [qrdata]="address" [width]="300" [errorCorrectionLevel]="'M'" class="m-5"></qrcode>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Info</th>
-            <th scope="col">Value</th>
-          </tr>
-        </thead>
+    <table class="table mobileScrollableTable">
         <tbody>
           <tr>
             <th scope="row">Address</th>

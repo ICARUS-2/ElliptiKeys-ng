@@ -11,3 +11,14 @@ html{
     scroll-behavior: auto !important;
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+@media screen and (max-width: 768px)
+{
+    .mobileScrollableTable {
+        display: block;
+        max-width: -moz-fit-content;
+        max-width: fit-content;
+        margin: 0 auto;
+        overflow-x: auto;
+    }
+}
