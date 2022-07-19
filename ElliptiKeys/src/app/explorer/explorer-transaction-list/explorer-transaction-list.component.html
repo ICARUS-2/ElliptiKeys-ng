@@ -1,5 +1,13 @@
 <div>
-    <div *ngFor="let tx of transactions">
+    <ngb-pagination
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="transactions.length"
+  [directionLinks]="true"
+  [ellipses]="true"
+  [maxSize]="7" class="pagination"></ngb-pagination>
+
+    <div *ngFor="let tx of transactions | slice: (page-1) * pageSize : page * pageSize ">
       <table class="table mobileScrollableTable">
         <tbody>
           <tr>
@@ -57,4 +65,12 @@
       <div class="m-5"></div>
 
     </div>  
+
+    <ngb-pagination
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="transactions.length"
+    [directionLinks]="true"
+    [ellipses]="true"
+    [maxSize]="7" class="pagination"></ngb-pagination>
 </div>

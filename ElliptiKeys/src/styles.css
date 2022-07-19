@@ -12,6 +12,18 @@ html{
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 
+.page-link span
+{
+    background-color: black !important;
+    color: lightblue !important
+}
+
+.page-link
+{
+    background-color: black !important;
+    color: cyan !important
+}
+
 @media screen and (max-width: 768px)
 {
     .mobileScrollableTable {

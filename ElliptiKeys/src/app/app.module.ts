@@ -21,6 +21,8 @@ import { ExplorerAddressComponent } from './explorer/explorer-address/explorer-a
 import { QRCodeModule } from 'angularx-qrcode';
 import { ExplorerPrivateKeyComponent } from './explorer/explorer-private-key/explorer-private-key.component';
 import { ExplorerTransactionListComponent } from './explorer/explorer-transaction-list/explorer-transaction-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { ExplorerTransactionListComponent } from './explorer/explorer-transactio
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    QRCodeModule
+    QRCodeModule,
+    NgbModule
   ],
   providers: [
     Title,

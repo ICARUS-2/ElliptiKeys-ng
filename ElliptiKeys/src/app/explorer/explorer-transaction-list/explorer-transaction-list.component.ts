@@ -16,6 +16,8 @@ export class ExplorerTransactionListComponent implements OnInit {
 
   satoshiService: SatoshiToBitcoinService;
   dateFormatter: DateFormatterService;
+  page: number= 1;
+  pageSize: number = 5;
 
   constructor(satoshiToBtc: SatoshiToBitcoinService, dateFormatter: DateFormatterService) 
   {
