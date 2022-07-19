@@ -25,12 +25,11 @@
     height: 60px;
 }
 
-/*
-@media screen and (max-width: 1000px)
+
+@media screen and (max-width: 768px)
 {
     #networkSelector
     {
-
+        margin-bottom: 100px;
     }
 }
-*/
