@@ -35,6 +35,6 @@ export class ExplorerTransactionListComponent implements OnInit {
 
   getTransactionExplorerLink(key: string)
   {
-    return this.isTestnet ? URLS.BASE_TESTNET_TRANSACTION_EXPLORER_URL+key : URLS.BASE_TESTNET_TRANSACTION_EXPLORER_URL+key
+    return this.isTestnet ? URLS.BASE_TESTNET_TRANSACTION_EXPLORER_URL+key : URLS.BASE_TRANSACTION_EXPLORER_URL+key
   }
 }
