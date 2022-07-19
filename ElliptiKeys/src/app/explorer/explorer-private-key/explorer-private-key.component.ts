@@ -6,6 +6,8 @@ import Keys from './../../../../lib/Keys';
 import { URLS } from './../../../../lib/urls';
 import { ADDRESS_TYPES } from 'lib/address-types';
 import { WIF_TYPES } from './../../../../lib/wif-types';
+import PageHelper from './../../../../lib/page-helper';
+import LocalStorageHelper from './../../../../lib/localstorage-helper';
 
 @Component({
   selector: 'app-explorer-private-key',
@@ -90,4 +92,20 @@ export class ExplorerPrivateKeyComponent implements OnInit {
     return this.isTestnet ? URLS.BASE_TESTNET_WIF_EXPLORER_URL+this.oppositeKeyFormat : URLS.BASE_WIF_EXPLORER_URL+this.oppositeKeyFormat;
   }
 
+  handleOpenPageButtonClick()
+  {
+    let query = this.isTestnet ? Keys.DecompressTestnetWIF(this.key) : Keys.DecompressWIF(this.key)
+    LocalStorageHelper.SetPrivateKeySearchQuery(query)
+  }
+
+  getOpenPageButtonLink()
+  {
+    let query = this.isTestnet ? Keys.DecompressTestnetWIF(this.key) : Keys.DecompressWIF(this.key)
+
+    let privateKeyNum:BigInt = Keys.GetNumberFromPrivateKey(query)
+    let pageNumber:BigInt = BigInt(PageHelper.CalculatePageNumber(privateKeyNum))
+
+    return this.isTestnet ? "/testnet/"+pageNumber : "/bitcoin/"+pageNumber
+    //this.isTestnet ? this.router.navigate(["/testnet/"+pageNumber]) : this.router.navigate(["/bitcoin/"+pageNumber])
+  }
 }

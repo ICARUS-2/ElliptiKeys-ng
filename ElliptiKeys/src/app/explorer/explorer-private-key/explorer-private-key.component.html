@@ -9,7 +9,7 @@
       <table class="table mobileScrollableTable">
           <tbody>
             <tr>
-              <th scope="row">Address</th>
+              <th scope="row">Private Key</th>
               <td>{{key}}</td>
             </tr>
             <tr>
@@ -25,23 +25,28 @@
             </tr>
 
             <tr>
-                <td>{{isCompressed ? "Uncompressed" : "Compressed"}} Version</td>
+                <th scope="row">{{isCompressed ? "Uncompressed" : "Compressed"}} Version</th>
                 <td><a [routerLink]="getWifExplorerUrl()">{{oppositeKeyFormat}}</a></td>
             </tr>
 
             <tr>
-                <td>Legacy Address</td>
+                <th scope="row">Legacy Address</th>
                 <td><a [routerLink]="getAddressExplorerUrl('legacy')">{{legacyAddress}}</a></td>
             </tr>
 
             <tr *ngIf="isCompressed">
-                <td>SegWit Address</td>
+                <th scope="row">SegWit Address</th>
                 <td><a [routerLink]="getAddressExplorerUrl('segwit')">{{segwitAddress}}</a></td>
             </tr>
 
             <tr *ngIf="isCompressed">
-                <td>Bech32 Address</td>
+                <th scope="row">Bech32 Address</th>
                 <td><a [routerLink]="getAddressExplorerUrl('bech32')">{{bech32Address}}</a></td>
+            </tr>
+
+            <tr>
+                <th scope="row">Page</th>
+                <td><a [routerLink]="getOpenPageButtonLink()" (click)="handleOpenPageButtonClick()" class="btn btn-primary">Open ElliptiKeys Page</a></td>
             </tr>
           </tbody>
         </table>
