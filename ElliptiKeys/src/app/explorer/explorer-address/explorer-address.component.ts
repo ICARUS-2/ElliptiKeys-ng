@@ -46,7 +46,7 @@ export class ExplorerAddressComponent implements OnInit {
 
       //If URL does not match the requested address, navigate away.
       if (this.isTestnet != isUrlTestnet)
-        router.navigate(['/not-found'])
+        router.navigate(['/not-found'], {skipLocationChange: true})
     })
 
     title.setTitle("Address: " + this.address)
@@ -67,7 +67,6 @@ export class ExplorerAddressComponent implements OnInit {
         if (result?.transactionModels)
         {
           this.transactions = result?.transactionModels.map( (t) => new TransactionViewModel(t) )
-          console.log(this.transactions)
         }
       }
       catch(err)
@@ -77,7 +76,7 @@ export class ExplorerAddressComponent implements OnInit {
     }
     else
     {
-      this.router.navigate(["/not-found"])
+      this.router.navigate(["/not-found"], {skipLocationChange: true})
     }
 
   }

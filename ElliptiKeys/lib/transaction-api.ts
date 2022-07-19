@@ -9,14 +9,12 @@ export default class TransactionApi
     static ADDRESS_TRANSACTION_URL: string = "https://blockchain.info/rawaddr/"
     static TESTNET_ADDRESS_TRANSACTION_URL: string = "https://api.haskoin.com/btctest/blockchain/rawaddr/"
 
-    static TRANSACTION_URL = "https://blockchain.info/rawtx/$tx_hash";
-    static TESTNET_TRANSACTION_URL = ""
-
-    //isTestnet: boolean = false;
+    static TRANSACTION_URL = "https://blockchain.info/rawtx/";
+    static TESTNET_TRANSACTION_URL = "https://api.haskoin.com/btctest/blockchain/rawtx/"
 
     constructor()
     {
-        //this.isTestnet = isTn;
+
     }
 
     async getSingleAddressData(address: string): Promise<AddressTransactionModel | undefined>
@@ -74,9 +72,49 @@ export default class TransactionApi
             return atModel;
         }catch(err)
         {
-            return undefined;
+            throw(err)
         }
     }
 
+    async getSingleTransactionData(hash: string, isTestnet: boolean) : Promise<TransactionModel | undefined>
+    {
+        try
+        {
+            let fetchResult = await fetch(isTestnet ? TransactionApi.TESTNET_TRANSACTION_URL+hash : TransactionApi.TRANSACTION_URL+hash)
+            let jsonResult = await fetchResult.json();
 
+                let mappedModel = new TransactionModel();
+                mappedModel.hash = jsonResult["hash"];
+                mappedModel.time = jsonResult["time"];
+                mappedModel.block = jsonResult["block_height"];
+                mappedModel.fee = jsonResult["fee"];
+                mappedModel.result = 0;
+
+                mappedModel.inputs = jsonResult["inputs"].map( (txInput: any) =>
+                {
+                    let txInputModel = new TransactionIOModel();
+                    txInputModel.address = txInput["prev_out"]["addr"];
+                    txInputModel.value = txInput["prev_out"]["value"];
+
+                    mappedModel.result += txInputModel.value;
+
+                    return txInputModel;
+                })
+
+                mappedModel.outputs = jsonResult["out"].map( (txOutput:any) =>
+                {
+                    let txOutputModel = new TransactionIOModel();
+                    txOutputModel.address = txOutput["addr"];
+                    txOutputModel.value = txOutput["value"];
+
+                    return txOutputModel;
+                })
+
+            return mappedModel;
+        }
+        catch(err)
+        {
+            return undefined
+        }
+    }
 }

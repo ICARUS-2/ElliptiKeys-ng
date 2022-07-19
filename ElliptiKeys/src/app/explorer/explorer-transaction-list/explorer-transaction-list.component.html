@@ -5,7 +5,10 @@
   [collectionSize]="transactions.length"
   [directionLinks]="true"
   [ellipses]="true"
-  [maxSize]="7" class="pagination"></ngb-pagination>
+  [maxSize]="7" class="pagination" *ngIf="transactions.length > 1"></ngb-pagination>
+
+    <div *ngIf="transactions.length == 0">No transactions found.</div>
+
     <div *ngFor="let tx of transactions | slice: (page-1) * pageSize : page * pageSize ">
       <table class="table mobileScrollableTable">
         <tbody>
@@ -76,5 +79,5 @@
     [collectionSize]="transactions.length"
     [directionLinks]="true"
     [ellipses]="true"
-    [maxSize]="7" class="pagination"></ngb-pagination>
+    [maxSize]="7" class="pagination" *ngIf="transactions.length > 1"></ngb-pagination>
 </div>

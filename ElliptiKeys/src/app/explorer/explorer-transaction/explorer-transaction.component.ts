@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import KeysHelper from 'lib/keys-helper';
+import TransactionViewModel from 'models/transaction-view-model';
+import  TransactionApi from './../../../../lib/transaction-api';
 
 @Component({
   selector: 'app-explorer-transaction',
@@ -11,6 +12,7 @@ import KeysHelper from 'lib/keys-helper';
 export class ExplorerTransactionComponent implements OnInit {
   isTestnet: boolean = false;
   key: string = ""
+  transaction: TransactionViewModel[] = [];
 
   constructor(private activeRoute: ActivatedRoute, private router: Router, private title: Title) 
   {
@@ -20,11 +22,20 @@ export class ExplorerTransactionComponent implements OnInit {
         this.key = d["id"]
 
     })
+    this.isTestnet = window.location.href.includes("/testnet");
 
     title.setTitle("Transaction: " + this.key)
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    let transactionApi = new TransactionApi()
+
+    let result = await transactionApi.getSingleTransactionData(this.key, this.isTestnet);
+
+    if (result == undefined)
+      this.router.navigate(["/not-found"], {skipLocationChange: true} )
+    else
+      this.transaction.push(new TransactionViewModel(result))
   }
 
 }

@@ -2,4 +2,8 @@
     <div class="m-2"></div>
     
     <h2 class="addressHeader">Transaction</h2>
+
+    <qrcode [qrdata]="key" [width]="300" [errorCorrectionLevel]="'M'" class="m-5"></qrcode>
+
+    <app-explorer-transaction-list [isTestnet]="isTestnet" [transactions]="transaction"></app-explorer-transaction-list>
 </div>
