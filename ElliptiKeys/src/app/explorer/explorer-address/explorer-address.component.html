@@ -63,6 +63,17 @@
             <th scope="row">Fee</th>
             <td>{{satoshiService.get(tx.model.fee)}} BTC</td>
           </tr>
+
+          <tr>
+            <th scope="row">Block No.</th>
+            <td>{{tx.model.block}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Timestamp</th>
+            <td>{{dateFormatter.formatUnixTime(tx.model.time)}}</td>
+          </tr>
+
         </tbody>
       </table>
 
@@ -70,7 +81,7 @@
 
       <div class="row">
         <div class="col">
-          <table class="table table-borderless">
+          <table class="table table-borderless mobileScrollableTable">
             <tr *ngFor="let i of tx.getVisibleInputs()">
               <td><a [routerLink]="getAddressExplorerLink(i.address)">{{i.address}}</a></td>
               <td>{{satoshiService.get(i.value)}} BTC <img src="../../../assets/input.webp"></td>
@@ -80,7 +91,7 @@
         </div>
         
         <div class="col">
-          <table class="table table-borderless">
+          <table class="table table-borderless mobileScrollableTable">
             <tr *ngFor="let i of tx.getVisibleOutputs()">
               <td><a [routerLink]="getAddressExplorerLink(i.address)">{{i.address}}</a></td>
               <td>{{satoshiService.get(i.value)}} BTC <img src="../../../assets/output.webp"></td>
