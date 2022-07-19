@@ -81,10 +81,4 @@ export class ExplorerAddressComponent implements OnInit {
     }
 
   }
-
-  getAddressExplorerLink(addr: string)
-  {
-    return this.isTestnet ? URLS.BASE_TESTNET_EXPLORER_URL+addr : URLS.BASE_EXPLORER_URL+addr
-  }
-
 }

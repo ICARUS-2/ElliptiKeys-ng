@@ -20,6 +20,7 @@ import { TestnetRandomComponent } from './testnet-random/testnet-random.componen
 import { ExplorerAddressComponent } from './explorer/explorer-address/explorer-address.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { ExplorerPrivateKeyComponent } from './explorer/explorer-private-key/explorer-private-key.component';
+import { ExplorerTransactionListComponent } from './explorer/explorer-transaction-list/explorer-transaction-list.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ExplorerPrivateKeyComponent } from './explorer/explorer-private-key/exp
     TestnetRandomComponent,
     ExplorerAddressComponent,
     ExplorerPrivateKeyComponent,
+    ExplorerTransactionListComponent,
   ],
   imports: [
     BrowserModule,

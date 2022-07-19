@@ -1,0 +1,60 @@
+<div>
+    <div *ngFor="let tx of transactions">
+      <table class="table mobileScrollableTable">
+        <tbody>
+          <tr>
+            <th scope="row">Amount</th>
+            <td><h6><span class="alert" style="padding: 5px;" [ngClass]="{ 'alert-success text-success': tx.model.result >= 0, 'alert-danger text-danger': tx.model.result < 0 }">{{tx.model.result >= 0 ? "+" : ""}} {{satoshiService.get(tx.model.result)}} BTC</span></h6></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">Hash/ID</th>
+            <td>{{tx.model.hash}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Fee</th>
+            <td>{{satoshiService.get(tx.model.fee)}} BTC</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Block No.</th>
+            <td>{{tx.model.block}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Timestamp</th>
+            <td>{{dateFormatter.formatUnixTime(tx.model.time)}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <button *ngIf="tx.shouldDisplayButton()" (click)="tx.toggleCollapse()" class="btn btn-primary">{{tx.getButtonText()}}</button>
+
+      <div class="row">
+        <div class="col">
+          <table class="table table-borderless mobileScrollableTable">
+            <tr *ngFor="let i of tx.getVisibleInputs()">
+              <td><a [routerLink]="getAddressExplorerLink(i.address)">{{i.address}}</a></td>
+              <td>{{satoshiService.get(i.value)}} BTC <img src="../../../assets/input.webp"></td>
+            </tr>
+          </table>
+
+        </div>
+        
+        <div class="col">
+          <table class="table table-borderless mobileScrollableTable">
+            <tr *ngFor="let i of tx.getVisibleOutputs()">
+              <td><a [routerLink]="getAddressExplorerLink(i.address)">{{i.address}}</a></td>
+              <td>{{satoshiService.get(i.value)}} BTC <img src="../../../assets/output.webp"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div *ngIf="tx.shouldDisplayButton() && tx.isCollapsed">+ {{tx.getHiddenTotal()}}</div>
+
+      <div class="m-5"></div>
+
+    </div>  
+</div>
