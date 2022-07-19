@@ -12,6 +12,6 @@ export class SatoshiToBitcoinService {
 
   get(satoshis: number)
   {
-    return satoshis / SatoshiToBitcoinService.DIVISOR;
+    return (satoshis / SatoshiToBitcoinService.DIVISOR).toFixed(8);
   }
 }
