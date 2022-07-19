@@ -6,6 +6,7 @@ export class TransactionModel
     fee: number = 0;
     result: number = 0;
     balance: number = 0;
+    isCoinbase: boolean = false;
 
     inputs: TransactionIOModel[] = [];
     outputs: TransactionIOModel[] = []

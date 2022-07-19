@@ -44,8 +44,6 @@ export default class TransactionApi
                 mappedModel.result = txObj["result"];
                 mappedModel.balance = txObj["balance"];
 
-                console.log(mappedModel.block)
-
                 mappedModel.inputs = txObj["inputs"].map( (txInput: any) =>
                 {
                     let txInputModel = new TransactionIOModel();
@@ -63,6 +61,15 @@ export default class TransactionApi
 
                     return txOutputModel;
                 } )
+                
+                if (mappedModel.inputs.length == 1 && mappedModel.outputs.length == 1)
+                {
+                    if (mappedModel.inputs[0].value == 0 && mappedModel.inputs[0].address == undefined)
+                    {
+                        mappedModel.isCoinbase = true;
+                        mappedModel.result = mappedModel.outputs[0].value;
+                    }
+                }
                 
                 return mappedModel;
             } )
@@ -82,6 +89,8 @@ export default class TransactionApi
         {
             let fetchResult = await fetch(isTestnet ? TransactionApi.TESTNET_TRANSACTION_URL+hash : TransactionApi.TRANSACTION_URL+hash)
             let jsonResult = await fetchResult.json();
+
+            console.log(jsonResult)
 
                 let mappedModel = new TransactionModel();
                 mappedModel.hash = jsonResult["hash"];
@@ -109,6 +118,15 @@ export default class TransactionApi
 
                     return txOutputModel;
                 })
+
+                if (mappedModel.inputs.length == 1 && mappedModel.outputs.length == 1)
+                {
+                    if (mappedModel.inputs[0].value == 0 && mappedModel.inputs[0].address == undefined)
+                    {
+                        mappedModel.isCoinbase = true;
+                        mappedModel.result = mappedModel.outputs[0].value;
+                    }
+                }
 
             return mappedModel;
         }
