@@ -6,6 +6,9 @@ import KeysHelper from './../../../../lib/keys-helper';
 import AddressModel from './../../../../models/address-model';
 import { Title } from '@angular/platform-browser';
 import TransactionApi from './../../../../lib/transaction-api';
+import TransactionViewModel from './../../../../models/transaction-view-model';
+import { SatoshiToBitcoinService } from 'src/app/services/satoshi-to-bitcoin.service';
+import { URLS } from './../../../../lib/urls';
 
 @Component({
   selector: 'app-explorer-address',
@@ -16,12 +19,15 @@ export class ExplorerAddressComponent implements OnInit {
 
   address: string = "";
   addressModel: AddressModel | undefined;
+  transactions: TransactionViewModel[] = [];
   isTestnet: Boolean = false;
   errorCallingApi: Boolean = false;
 
+  satoshiService: SatoshiToBitcoinService;
+
   transactionApi: TransactionApi = new TransactionApi();
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router, private title: Title) {
+  constructor(private activeRoute: ActivatedRoute, private router: Router, private title: Title, satoshiToBtc: SatoshiToBitcoinService) {
     activeRoute.params.subscribe( (d)=> 
     {
       if (d["id"])
@@ -37,6 +43,7 @@ export class ExplorerAddressComponent implements OnInit {
     })
 
     title.setTitle("Address: " + this.address)
+    this.satoshiService = satoshiToBtc;
    }
 
   async ngOnInit(): Promise<void> {
@@ -49,6 +56,11 @@ export class ExplorerAddressComponent implements OnInit {
 
         this.addressModel = result?.addressModel;
 
+        if (result?.transactionModels)
+        {
+          this.transactions = result?.transactionModels.map( (t) => new TransactionViewModel(t) )
+          console.log(this.transactions)
+        }
       }
       catch(err)
       {
@@ -60,6 +72,11 @@ export class ExplorerAddressComponent implements OnInit {
       this.router.navigate(["/not-found"])
     }
 
+  }
+
+  getAddressExplorerLink(addr: string)
+  {
+    return this.isTestnet ? URLS.BASE_TESTNET_EXPLORER_URL+addr : URLS.BASE_EXPLORER_URL+addr
   }
 
 }

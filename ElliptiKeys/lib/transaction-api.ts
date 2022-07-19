@@ -1,6 +1,6 @@
 import Keys from "./Keys";
 import KeysHelper from './keys-helper';
-import AddressTransactionModel from './address-transaction-model';
+import AddressTransactionModel from '../models/address-transaction-model';
 import AddressModel from './../models/address-model';
 import { TransactionIOModel, TransactionModel } from './../models/transaction-model';
 
@@ -34,6 +34,7 @@ export default class TransactionApi
             
             let transactions = jsonResult.txs.map( (txObj: any) =>
             {
+                console.log(txObj)
                 let mappedModel = new TransactionModel();
                 mappedModel.hash = txObj["hash"];
                 mappedModel.time = txObj["time"];
@@ -64,8 +65,6 @@ export default class TransactionApi
             } )
 
             let atModel = new AddressTransactionModel(addressModel, transactions)
-
-            console.log(atModel)
 
             return atModel;
         }catch(err)

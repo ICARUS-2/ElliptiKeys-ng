@@ -1,5 +1,5 @@
-import AddressModel from '../models/address-model';
-import { TransactionModel } from '../models/transaction-model';
+import AddressModel from './address-model';
+import { TransactionModel } from './transaction-model';
 
 export default class AddressTransactionModel
 {
