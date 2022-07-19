@@ -9,6 +9,9 @@ export default class TransactionApi
     static ADDRESS_TRANSACTION_URL: string = "https://blockchain.info/rawaddr/"
     static TESTNET_ADDRESS_TRANSACTION_URL: string = "https://api.haskoin.com/btctest/blockchain/rawaddr/"
 
+    static TRANSACTION_URL = "https://blockchain.info/rawtx/$tx_hash";
+    static TESTNET_TRANSACTION_URL = ""
+
     //isTestnet: boolean = false;
 
     constructor()
@@ -43,6 +46,8 @@ export default class TransactionApi
                 mappedModel.result = txObj["result"];
                 mappedModel.balance = txObj["balance"];
 
+                console.log(mappedModel.block)
+
                 mappedModel.inputs = txObj["inputs"].map( (txInput: any) =>
                 {
                     let txInputModel = new TransactionIOModel();
@@ -72,4 +77,6 @@ export default class TransactionApi
             return undefined;
         }
     }
+
+
 }

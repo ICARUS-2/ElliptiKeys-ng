@@ -6,7 +6,6 @@
   [directionLinks]="true"
   [ellipses]="true"
   [maxSize]="7" class="pagination"></ngb-pagination>
-
     <div *ngFor="let tx of transactions | slice: (page-1) * pageSize : page * pageSize ">
       <table class="table mobileScrollableTable">
         <tbody>
@@ -17,7 +16,7 @@
           
           <tr>
             <th scope="row">Hash/ID</th>
-            <td>{{tx.model.hash}}</td>
+            <td><a [routerLink]="getTransactionExplorerLink(tx.model.hash)">{{tx.model.hash}}</a></td>
           </tr>
 
           <tr>
@@ -26,8 +25,13 @@
           </tr>
 
           <tr>
+            <th scope="row">Status</th>
+            <td><span class="badge" [ngClass]=" {'bg-danger' : tx.model.block == null, 'bg-success' : tx.model.block != null}">{{tx.model.block == null ? "Unconfirmed" : "Confirmed"}}</span></td>
+          </tr>
+
+          <tr>
             <th scope="row">Block No.</th>
-            <td>{{tx.model.block}}</td>
+            <td>{{tx.model.block == null ? "-" : tx.model.block}}</td>
           </tr>
 
           <tr>

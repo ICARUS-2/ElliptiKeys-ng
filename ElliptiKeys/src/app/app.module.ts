@@ -22,6 +22,7 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { ExplorerPrivateKeyComponent } from './explorer/explorer-private-key/explorer-private-key.component';
 import { ExplorerTransactionListComponent } from './explorer/explorer-transaction-list/explorer-transaction-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ExplorerTransactionComponent } from './explorer/explorer-transaction/explorer-transaction.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ExplorerAddressComponent,
     ExplorerPrivateKeyComponent,
     ExplorerTransactionListComponent,
+    ExplorerTransactionComponent,
   ],
   imports: [
     BrowserModule,

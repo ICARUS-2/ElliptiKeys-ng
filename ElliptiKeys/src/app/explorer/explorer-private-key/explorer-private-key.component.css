@@ -5,6 +5,16 @@
     align-items: center;
 }
 
+a
+{
+    color: white;
+}
+
+a:visited
+{
+    color: white;
+}
+
 @media screen and (max-width: 900px)
 {
     .mainInnerDiv
