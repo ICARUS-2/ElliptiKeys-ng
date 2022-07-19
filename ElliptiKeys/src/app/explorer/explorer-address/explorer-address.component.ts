@@ -5,6 +5,7 @@ import BalanceApi from './../../../../lib/balance-api';
 import KeysHelper from './../../../../lib/keys-helper';
 import AddressModel from './../../../../models/address-model';
 import { Title } from '@angular/platform-browser';
+import TransactionApi from './../../../../lib/transaction-api';
 
 @Component({
   selector: 'app-explorer-address',
@@ -18,8 +19,7 @@ export class ExplorerAddressComponent implements OnInit {
   isTestnet: Boolean = false;
   errorCallingApi: Boolean = false;
 
-  //@ts-ignore
-  balanceApi: BalanceApi;
+  transactionApi: TransactionApi = new TransactionApi();
 
   constructor(private activeRoute: ActivatedRoute, private router: Router, private title: Title) {
     activeRoute.params.subscribe( (d)=> 
@@ -43,14 +43,11 @@ export class ExplorerAddressComponent implements OnInit {
   
     if (Keys.ValidateBitcoinAddress(this.address))
     {
-      this.balanceApi = new BalanceApi(this.isTestnet);
-      this.balanceApi.addAddress(this.address);
-
       try
       {
-        await this.balanceApi.doApiRequest();
+        let result = await this.transactionApi.getSingleAddressData(this.address);
 
-        this.addressModel = this.balanceApi.getAddressModel(this.address)
+        this.addressModel = result?.addressModel;
 
       }
       catch(err)
