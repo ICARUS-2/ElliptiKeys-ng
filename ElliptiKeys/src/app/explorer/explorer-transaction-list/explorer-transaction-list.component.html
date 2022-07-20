@@ -61,7 +61,8 @@
         <div class="col">
           <table class="table table-borderless mobileScrollableTable">
             <tr *ngFor="let i of tx.getVisibleOutputs()">
-              <td><a [routerLink]="getAddressExplorerLink(i.address)">{{i.address}}</a></td>
+              <td *ngIf="i.address != undefined"><a [routerLink]="getAddressExplorerLink(i.address)">{{i.address}}</a></td>
+              <td *ngIf="i.address == undefined"><a>OP_RETURN</a></td>
               <td>{{satoshiService.get(i.value)}} BTC <img src="../../../assets/output.webp"></td>
             </tr>
           </table>

@@ -43,7 +43,11 @@
         </tr>
         <tr>
             <th scope="row">Fee Reward</th>
-            <td>{{blockModel?.fee?.toFixed(8)}} BTC</td>
+            <td>{{satoshiService.get(blockModel?.fee)}} BTC</td>
+        </tr>
+        <tr>
+            <th scope="row">Volume</th>
+            <td>{{satoshiService.get(blockModel?.volume)}}</td>
         </tr>
         </tbody>
     </table>

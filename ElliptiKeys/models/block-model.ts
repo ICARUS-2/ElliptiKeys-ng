@@ -14,6 +14,7 @@ export default class BlockModel
     height: number = 0;
     fee: number = 0;
     txCount: number = 0;
+    volume: number = 0;
 
     transactions: TransactionModel[] = [];
 

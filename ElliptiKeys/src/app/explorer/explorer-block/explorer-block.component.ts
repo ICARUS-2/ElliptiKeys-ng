@@ -20,9 +20,10 @@ export class ExplorerBlockComponent implements OnInit {
   blockModel: BlockModel | undefined;
   transactions: TransactionViewModel[] = [];
 
+  satoshiService: SatoshiToBitcoinService;
   dateFormatter: DateFormatterService;
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router, private title: Title, dfs: DateFormatterService) 
+  constructor(private activeRoute: ActivatedRoute, private router: Router, private title: Title, dfs: DateFormatterService, ss: SatoshiToBitcoinService) 
   {
     activeRoute.params.subscribe( (d)=> 
     {
@@ -33,6 +34,7 @@ export class ExplorerBlockComponent implements OnInit {
     })
 
     this.dateFormatter = dfs;
+    this.satoshiService = ss;
   }
 
   async ngOnInit(): Promise<void> {

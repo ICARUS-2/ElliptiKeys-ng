@@ -120,7 +120,7 @@ export default class TransactionApi
                     return txOutputModel;
                 })
 
-                if (mappedModel.inputs.length == 1 && mappedModel.outputs.length == 1)
+                if (mappedModel.inputs.length == 1)
                 {
                     if (mappedModel.inputs[0].value == 0 && mappedModel.inputs[0].address == undefined)
                     {
@@ -128,7 +128,7 @@ export default class TransactionApi
                         mappedModel.result = mappedModel.outputs[0].value;
                     }
                 }
-
+                
             return mappedModel;
         }
         catch(err)
@@ -155,6 +155,7 @@ export default class TransactionApi
             blockModel.txCount = jsonResult["n_tx"];
             blockModel.sizeInBytes = jsonResult["size"];
             blockModel.height = jsonResult["block_index"];
+            blockModel.volume = 0;
 
             blockModel.transactions = jsonResult["tx"].map( (txObj: any) => 
             {
@@ -185,7 +186,7 @@ export default class TransactionApi
                     return txOutputModel;
                 })
 
-                if (mappedModel.inputs.length == 1 && mappedModel.outputs.length == 1)
+                if (mappedModel.inputs.length == 1)
                 {
                     if (mappedModel.inputs[0].value == 0 && mappedModel.inputs[0].address == undefined)
                     {
@@ -193,6 +194,8 @@ export default class TransactionApi
                         mappedModel.result = mappedModel.outputs[0].value;
                     }
                 }
+
+                blockModel.volume += mappedModel.result
 
             return mappedModel;
 
