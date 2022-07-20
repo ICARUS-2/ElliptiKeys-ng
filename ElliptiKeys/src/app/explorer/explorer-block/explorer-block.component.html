@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="m-2"></div>
+
+    <h2>Block {{blockNum}}</h2>
+
+    <table class="table mobileScrollableTable">
+        <tbody>
+        <tr>
+            <th scope="row">Hash</th>
+            <td>{{blockModel?.hash}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Previous Hash</th>
+            <td>{{blockModel?.prevHash}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Network</th>
+            <td>{{isTestnet ? "Testnet" : "Mainnet"}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Merkle Root</th>
+            <td>{{blockModel?.merkleRoot}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Transactions</th>
+            <td>{{blockModel?.txCount}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Timestamp</th>
+            <td>{{dateFormatter.formatUnixTime(blockModel?.timeStamp)}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Nonce</th>
+            <td>{{blockModel?.nonce}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Size</th>
+            <td>{{blockModel?.sizeInBytes}} bytes</td>
+        </tr>
+        <tr>
+            <th scope="row">Base Reward</th>
+            <td>{{blockModel?.getBlockReward()?.toFixed(8)}} BTC</td>
+        </tr>
+        <tr>
+            <th scope="row">Fee Reward</th>
+            <td>{{blockModel?.fee?.toFixed(8)}} BTC</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Transactions</h2>
+
+    <app-explorer-transaction-list [transactions]="transactions" [isTestnet]="isTestnet"></app-explorer-transaction-list>
+  
+    <div style="margin-top: 100px;"></div>
+</div>

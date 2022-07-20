@@ -10,8 +10,11 @@ export class SatoshiToBitcoinService {
 
   }
 
-  get(satoshis: number)
+  get(satoshis: number | undefined)
   {
+    if (satoshis == undefined)
+      return 0;
+
     return (satoshis / SatoshiToBitcoinService.DIVISOR).toFixed(8);
   }
 }

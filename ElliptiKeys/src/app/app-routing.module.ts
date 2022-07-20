@@ -11,6 +11,7 @@ import { TestnetRandomComponent } from './testnet-random/testnet-random.componen
 import { ExplorerAddressComponent } from './explorer/explorer-address/explorer-address.component';
 import { ExplorerTransactionComponent } from './explorer/explorer-transaction/explorer-transaction.component';
 import { ExplorerPrivateKeyComponent } from './explorer/explorer-private-key/explorer-private-key.component';
+import { ExplorerBlockComponent } from './explorer/explorer-block/explorer-block.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
@@ -28,7 +29,9 @@ const routes: Routes = [
   {path: 'explorer/testnet/wif/:id', component: ExplorerPrivateKeyComponent},
   {path: 'explorer/bitcoin/transaction/:id', component: ExplorerTransactionComponent},
   {path: 'explorer/testnet/transaction/:id', component: ExplorerTransactionComponent},
-  
+  {path: 'explorer/bitcoin/block/:id', component: ExplorerBlockComponent},
+  {path: 'explorer/testnet/block/:id', component: ExplorerBlockComponent},
+
   {path: '**', component:NotFoundComponent},
 ];
 

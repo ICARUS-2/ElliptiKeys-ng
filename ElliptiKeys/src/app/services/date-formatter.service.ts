@@ -7,8 +7,11 @@ export class DateFormatterService {
 
   constructor() { }
 
-  formatUnixTime(unixTime: number)
+  formatUnixTime(unixTime: number | undefined)
   {
+    if (unixTime == undefined)
+      return "";
+
     let d = new Date(unixTime * 1000);
 
     let dateStr = d.toLocaleDateString("en-US");

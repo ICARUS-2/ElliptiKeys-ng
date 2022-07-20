@@ -23,6 +23,7 @@ import { ExplorerPrivateKeyComponent } from './explorer/explorer-private-key/exp
 import { ExplorerTransactionListComponent } from './explorer/explorer-transaction-list/explorer-transaction-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExplorerTransactionComponent } from './explorer/explorer-transaction/explorer-transaction.component';
+import { ExplorerBlockComponent } from './explorer/explorer-block/explorer-block.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ExplorerTransactionComponent } from './explorer/explorer-transaction/ex
     ExplorerPrivateKeyComponent,
     ExplorerTransactionListComponent,
     ExplorerTransactionComponent,
+    ExplorerBlockComponent,
   ],
   imports: [
     BrowserModule,
