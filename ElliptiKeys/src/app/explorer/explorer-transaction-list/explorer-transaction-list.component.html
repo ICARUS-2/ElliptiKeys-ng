@@ -34,7 +34,8 @@
 
           <tr>
             <th scope="row">Block No.</th>
-            <td>{{tx.model.block == null ? "-" : tx.model.block}}</td>
+            <td *ngIf="tx.model.block == null"></td>
+            <td *ngIf="tx.model.block != null"><a [routerLink]="getBlockExplorerLink(tx.model.block)">{{tx.model.block}}</a></td>
           </tr>
 
           <tr>

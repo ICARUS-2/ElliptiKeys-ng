@@ -7,5 +7,8 @@ export let URLS =
     BASE_TESTNET_WIF_EXPLORER_URL: "/explorer/testnet/wif/",
 
     BASE_TRANSACTION_EXPLORER_URL: "/explorer/bitcoin/transaction/",
-    BASE_TESTNET_TRANSACTION_EXPLORER_URL: "/explorer/testnet/transaction/"
+    BASE_TESTNET_TRANSACTION_EXPLORER_URL: "/explorer/testnet/transaction/",
+
+    BASE_BLOCK_EXPLORER_URL: "/explorer/bitcoin/block/",
+    BASE_TESTNET_BLOCK_EXPLORER_URL: "/explorer/testnet/block/"
 }
