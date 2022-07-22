@@ -16,16 +16,23 @@ nav
 
     display: flex;
     justify-content: space-between;
+
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-.nav-left
+.navLink
 {
-    margin-left: 10%;
+    font-size: 25px;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+    color: lightgray;
+    margin-bottom: 5px;
 }
 
-.nav-right
+.navLink:hover
 {
-    margin-right: 10%;
+    color: white;
 }
 
 a
@@ -39,10 +46,34 @@ a:visited
     text-decoration: none !important;
 }
 
-@media screen and (max-width: 450px) 
+.navbar-toggler-icon
+{
+    background-image: url('../../assets/hamburger-menu.webp');
+}
+
+@media screen and (max-width: 1000px) 
 {
     #navRight
     {
         flex-direction: column;
+    }
+    
+    .appPriceWrapper
+    {
+        width: 100%;
+        display: flex;
+        justify-content: right;
+    }
+
+    .navbarLi
+    {
+        display: flex;
+        justify-content: end;
+    }
+
+    .navLink
+    {
+        padding-left: unset !important;
+        padding-right: unset !important;
     }
 }

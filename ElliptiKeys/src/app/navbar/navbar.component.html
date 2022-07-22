@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg shadow">
+<!--<nav class="navbar navbar-expand-lg shadow">
     <div class="titleBar navbar-brand nav-item nav-left">
         <a routerLink="/" id="homeLink">
             ElliptiKeys <img src="../../assets/key-logo.webp" id="siteLogo">
@@ -10,4 +10,50 @@
         <div style="margin-right: 10px;"></div>
         <app-price></app-price>
     </div>
+    
+</nav>-->
+
+<nav class="navbar navbar-expand-lg shadow">
+    <div class="titleBar navbar-brand nav-item nav-left">
+        <a routerLink="/" id="homeLink">
+            ElliptiKeys <img src="../../assets/key-logo.webp" id="siteLogo">
+        </a>
+    </div>
+
+    <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#toggleMobileMenu" 
+        aria-controls="toggleMobileMenu" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="toggleMobileMenu">
+        <ul class="navbar-nav ms-auto text-end">
+
+            <li class="navbarLi">
+                <div class="nav-item nav-right" style="display: flex; align-items: center; justify-content: center; height: 100%">
+                    <a routerLink="/explorer" class="navLink">Blockchain Explorer</a>
+                </div>
+            </li>
+
+            <li class="appPriceWrapper">
+                <div class="nav-item nav-right" style="display: flex; align-items: center;" id="navRight">
+                    <a routerLink="/"><img src="../../assets/bitcoin-logo.webp" id="bitcoinLogo"></a>
+                    <div style="margin-right: 10px;"></div>
+                    <app-price></app-price>
+                </div>
+            </li>
+            <!--<li id="langSelectListItem">
+                <select #langselect (change)="onLanguageChanged()" name="" id="langSelect" class="nav-link">
+                    <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang == currentLang">{{lang}}</option>
+                </select>
+            </li>-->
+        </ul>
+    </div>
+
 </nav>
