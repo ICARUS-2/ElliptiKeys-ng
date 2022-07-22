@@ -1,0 +1,46 @@
+<div style="width: 100%; display: flex; flex-direction: row; justify-content: center;">
+    <div style="width: 90%">
+        <div class="d-flex align-items-center">
+            <img src="../../../assets/block.webp" style="margin-right: 10px;" width="50px" height="50px"> <!--Cube by Icons8-->
+            <div>
+                <h2>ElliptiKeys Blockchain Explorer</h2>
+                <h4>Powered by <a href="https://www.blockchain.com/api" target="_blank">Blockchain.com</a> and <a href="https://haskoin.com/" target="_blank">Haskoin</a></h4>
+            </div>
+        </div>
+
+        <div class="m-4"></div>
+        <h2>Using this tool, you can look up any Bitcoin or Testnet block number, address, transaction, or even a private key (please not your own) to view its data.</h2>
+    
+        <div class="m-5"></div>
+    
+        <div>
+            <form #explorerSearch (ngSubmit)="onSubmitSearch(explorerSearch)">
+                <div class="d-flex formSection">
+                    <input type="text" class="w-100" style="font-size: xx-large; color: cyan" name="searchQuery" ngModel>
+                    <input type="submit" class="btn btn-primary" value="Search" style="margin-left: 10px"> 
+                </div>
+            </form>
+        </div>
+
+        <h3>{{searchResultHeader}}</h3>
+        
+        <div style="margin: 20px;"></div>
+
+        <div id="explorerSearchResults">
+            <table class="mobileScrollableTable table table-hover searchResultTable">
+                <tbody>
+                    <tr class="searchResultRow" *ngFor="let res of searchResults;" [routerLink]="res.link" style="cursor: pointer">
+                        <td>
+                            <img [src]="res.getImgSrc()" width="70px" style="margin-right: 15px;"> <h4 style="display: inline">{{res.networkType}}: {{res.searchType}}</h4>
+                        </td>
+
+                        <td>
+                            <h4>{{res.text}}</h4>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="margin-bottom: 200px;"></div>
+    </div>
+</div>

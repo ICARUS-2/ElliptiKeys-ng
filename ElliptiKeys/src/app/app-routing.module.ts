@@ -12,6 +12,7 @@ import { ExplorerAddressComponent } from './explorer/explorer-address/explorer-a
 import { ExplorerTransactionComponent } from './explorer/explorer-transaction/explorer-transaction.component';
 import { ExplorerPrivateKeyComponent } from './explorer/explorer-private-key/explorer-private-key.component';
 import { ExplorerBlockComponent } from './explorer/explorer-block/explorer-block.component';
+import { ExplorerIndexComponent } from './explorer/explorer-index/explorer-index.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'about', component:AboutComponent},
   {path: 'donate', component: DonateComponent},
 
+  {path: 'explorer', component: ExplorerIndexComponent},
   {path: 'explorer/bitcoin/address/:id', component: ExplorerAddressComponent},
   {path: 'explorer/testnet/address/:id', component: ExplorerAddressComponent},
   {path: 'explorer/bitcoin/wif/:id', component: ExplorerPrivateKeyComponent},

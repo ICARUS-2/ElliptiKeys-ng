@@ -24,6 +24,7 @@ import { ExplorerTransactionListComponent } from './explorer/explorer-transactio
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExplorerTransactionComponent } from './explorer/explorer-transaction/explorer-transaction.component';
 import { ExplorerBlockComponent } from './explorer/explorer-block/explorer-block.component';
+import { ExplorerIndexComponent } from './explorer/explorer-index/explorer-index.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { ExplorerBlockComponent } from './explorer/explorer-block/explorer-block
     ExplorerTransactionListComponent,
     ExplorerTransactionComponent,
     ExplorerBlockComponent,
+    ExplorerIndexComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+a
+{
+    color: white;
+}
+
+a:visited
+{
+    color: white;
+}
+
+.searchResultTable td
+{
+    vertical-align: middle;
+}
+
+.searchResultTable td h4, .searchResultTable td img
+{
+    background-color: transparent;
+}
+
+
+.searchResultRow:hover
+{
+    background-color: rgb(10,10,10)
+}
