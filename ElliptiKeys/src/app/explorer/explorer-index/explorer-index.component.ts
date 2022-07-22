@@ -3,6 +3,7 @@ import SearchResultViewModel from '../../../../models/search-result-view-model';
 import Keys from './../../../../lib/Keys';
 import KeysHelper from './../../../../lib/keys-helper';
 import { URLS } from './../../../../lib/urls';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-explorer-index',
@@ -15,7 +16,10 @@ export class ExplorerIndexComponent implements OnInit {
   searchResults: SearchResultViewModel[] = [];
   searchResultHeader: string = "";
 
-  constructor() { }
+  constructor(private title: Title) 
+  {
+    title.setTitle("ElliptiKeys Block Explorer")
+  }
 
   ngOnInit(): void {
   }
