@@ -43,16 +43,23 @@ nav
     font-size: xx-large;
 }
 
-.nav-link
+.navLi
 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     font-size: x-large;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-    color: lightgray !important;
-    border: 3px solid transparent !important;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
-.nav-link:hover
+.navLi a
+{
+    color: rgb(200,200,200);
+    margin-bottom: 5px;
+}
+
+.navLi a:hover
 {
     color:  white !important;
 }
@@ -87,9 +94,16 @@ nav, .navbar-collapse, .navbar-brand, .navbar-nav, .nav-link, .navbar-toggler, .
         background-color: #052432 !important;
     }
 
-    .nav-link
+    .navLi
     {
         padding-left: 0% !important;
         padding-right: 0% !important;
+    }
+
+    #priceWrapperLi
+    {
+        display: flex; 
+        width: 100%; 
+        justify-content: flex-end
     }
 }

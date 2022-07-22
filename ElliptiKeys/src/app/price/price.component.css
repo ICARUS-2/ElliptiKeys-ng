@@ -9,19 +9,9 @@ ion-icon {
 
 @media screen and (max-width: 768px)
 {
-    #priceInner
-    {
-        
-    }
-
     #priceValue, #percentageChangeValue
     {
         font-size: medium;
-    }
-
-    #priceOuter
-    {
-        justify-content: end;
     }
 }
 
