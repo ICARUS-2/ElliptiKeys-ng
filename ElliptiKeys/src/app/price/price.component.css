@@ -11,15 +11,19 @@ ion-icon {
 {
     #priceInner
     {
-        flex-direction: column;
+        
     }
 
     #priceValue, #percentageChangeValue
     {
         font-size: medium;
     }
-}
 
+    #priceOuter
+    {
+        justify-content: end;
+    }
+}
 
 @media screen and (max-width: 375px)
 {

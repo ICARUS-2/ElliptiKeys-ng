@@ -1,5 +1,7 @@
-<div *ngIf="showPrice">
-    <div style="display: flex;" id="priceInner">
+<div *ngIf="showPrice" style="height: 100%; display: flex" id="priceOuter">
+    <div style="display: flex; align-items: center;" id="priceInner">
+        <img src="../../assets/bitcoin-logo.webp" width="50px">
+        <div style="margin-right: 5px;"></div>
         <div style="font-family: Roboto, 'Helvetica Neue', sans-serif;" id="priceValue">${{priceModel.usdPrice}}</div>
         <div style="margin-right: 5px;"></div>
 
@@ -8,5 +10,4 @@
             <div style="font-family: Roboto, 'Helvetica Neue', sans-serif;" id="percentageChangeValue" [style.color]="priceModel.getColor()">{{priceModel.changePercentage}}%</div>
         </div>
     </div>
-
 </div>
