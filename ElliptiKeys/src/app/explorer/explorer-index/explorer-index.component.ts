@@ -47,6 +47,7 @@ export class ExplorerIndexComponent implements OnInit {
         }
 
         this.searchResults.push(model);
+        this.updateSearchHeader(searchQuery);
         return;
       }
     }
@@ -79,6 +80,7 @@ export class ExplorerIndexComponent implements OnInit {
           }
 
           this.searchResults.push(model)
+          this.updateSearchHeader(searchQuery);
           return;
         }
       }
@@ -136,6 +138,11 @@ export class ExplorerIndexComponent implements OnInit {
       this.searchResults.push(tModel);
     }
 
+    this.updateSearchHeader(searchQuery);
+  }
+
+  updateSearchHeader(searchQuery: string)
+  {
     this.searchResults.length == 0 ? this.searchResultHeader = "No search results for \""+searchQuery+"\"" : this.searchResultHeader = this.searchResults.length + " possible results for \"" + searchQuery + "\"";
   }
 }
