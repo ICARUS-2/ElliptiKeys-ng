@@ -1,0 +1,30 @@
+<div style="width: 100%; display: flex; flex-direction: row; justify-content: center;">
+    <div style="width: 90%;">
+        <h1>ElliptiKeys Wallet Generator</h1>
+
+        <div style="margin-top: 25px"></div>
+
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" [destroyOnHide]="false" class="nav-tabs">
+            <li [ngbNavItem]="1" [destroyOnHide]="false">
+              <a ngbNavLink>Single Keyset</a>
+              <ng-template ngbNavContent>
+                <app-single-keyset></app-single-keyset>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="2" [destroyOnHide]="false">
+              <a ngbNavLink>Bulk Generate</a>
+              <ng-template ngbNavContent>
+                <app-bulk-generate></app-bulk-generate>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="3" [destroyOnHide]="false">
+              <a ngbNavLink>Mnemonic</a>
+              <ng-template ngbNavContent let-active>
+                <app-mnemonic></app-mnemonic>
+              </ng-template>
+            </li>
+          </ul>
+          
+          <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>
+</div>

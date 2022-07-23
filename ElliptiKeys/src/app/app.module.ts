@@ -25,6 +25,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExplorerTransactionComponent } from './explorer/explorer-transaction/explorer-transaction.component';
 import { ExplorerBlockComponent } from './explorer/explorer-block/explorer-block.component';
 import { ExplorerIndexComponent } from './explorer/explorer-index/explorer-index.component';
+import { WalletGeneratorIndexComponent } from './wallet-generator/wallet-generator-index/wallet-generator-index.component';
+import { SingleKeysetComponent } from './wallet-generator/single-keyset/single-keyset.component';
+import { BulkGenerateComponent } from './wallet-generator/bulk-generate/bulk-generate.component';
+import { MnemonicComponent } from './wallet-generator/mnemonic/mnemonic.component';
 
 
 @NgModule({
@@ -48,6 +52,10 @@ import { ExplorerIndexComponent } from './explorer/explorer-index/explorer-index
     ExplorerTransactionComponent,
     ExplorerBlockComponent,
     ExplorerIndexComponent,
+    WalletGeneratorIndexComponent,
+    SingleKeysetComponent,
+    BulkGenerateComponent,
+    MnemonicComponent,
   ],
   imports: [
     BrowserModule,

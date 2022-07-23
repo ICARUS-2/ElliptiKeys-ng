@@ -13,6 +13,7 @@ import { ExplorerTransactionComponent } from './explorer/explorer-transaction/ex
 import { ExplorerPrivateKeyComponent } from './explorer/explorer-private-key/explorer-private-key.component';
 import { ExplorerBlockComponent } from './explorer/explorer-block/explorer-block.component';
 import { ExplorerIndexComponent } from './explorer/explorer-index/explorer-index.component';
+import { WalletGeneratorIndexComponent } from './wallet-generator/wallet-generator-index/wallet-generator-index.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
@@ -33,6 +34,8 @@ const routes: Routes = [
   {path: 'explorer/testnet/transaction/:id', component: ExplorerTransactionComponent},
   {path: 'explorer/bitcoin/block/:id', component: ExplorerBlockComponent},
   {path: 'explorer/testnet/block/:id', component: ExplorerBlockComponent},
+
+  {path: 'wallet-generator', component: WalletGeneratorIndexComponent},
 
   {path: '**', component:NotFoundComponent},
 ];

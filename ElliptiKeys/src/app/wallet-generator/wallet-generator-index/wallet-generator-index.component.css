@@ -1,0 +1,18 @@
+.nav-link
+{
+    background-color: black !important;
+}
+
+.nav-link
+{   
+    color: gray;
+    border: none;
+    font-size: x-large;
+}
+
+.nav-link.active
+{
+    color: white;
+    border: 1px solid white;
+    border-bottom: 0px;
+}
