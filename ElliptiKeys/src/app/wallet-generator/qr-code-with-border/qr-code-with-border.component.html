@@ -1,1 +1,5 @@
-<p>qr-code-with-border works!</p>
+<div class="qrCodeWithBorder" [style.border]="'5px solid '+borderColor">
+    <h2 [style.background-color]="borderColor">{{headerText}}</h2>
+    <h4 [style.border-bottom]="'4px solid ' + borderColor">{{qrData}}</h4>
+    <qrcode [qrdata]="qrData" [errorCorrectionLevel]="errorCorrectionLevel" [width]="300"></qrcode>
+</div>

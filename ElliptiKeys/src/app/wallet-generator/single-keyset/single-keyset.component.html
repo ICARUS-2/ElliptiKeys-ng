@@ -18,16 +18,14 @@
 
         <button class="btn btn-lg btn-outline-primary" (click)="makeNewKeyset()">Generate New Wallet</button>
 
-        <div>
-            <h2>{{address}}</h2>
-            <h2>{{privateKey}}</h2>
-        </div>
-    </div>
+   </div>
 
-    <div>
-        <div class="singleAddressQrCode" style="border-radius: 10px; border: 2px solid green">
-            
-            <qrcode [qrdata]="address" [errorCorrectionLevel]="getQrCodeType()"></qrcode>
-        </div>
+    <div id="qrCodeContainer">
+        <app-qr-code-with-border headerText="Address (Load/Receive)" [qrData]="address" [errorCorrectionLevel]="getQrCodeType()" borderColor="green" style="width: 100%"></app-qr-code-with-border>
+        
+        <div style="margin-top: 15px"></div>
+        
+        <app-qr-code-with-border headerText="Private Key (Spend/Withdraw)" [qrData]="privateKey" borderColor="red" style="width: 100%;"></app-qr-code-with-border>
     </div>
 </div>
+<div style="margin-top: 100px"></div>

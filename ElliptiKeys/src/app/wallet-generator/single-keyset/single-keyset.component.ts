@@ -27,7 +27,7 @@ export class SingleKeysetComponent implements OnInit {
 
   ngOnInit(): void 
   {
-
+    this.makeNewKeyset();
   }
 
   getQrCodeType() : QRCodeErrorCorrectionLevel
