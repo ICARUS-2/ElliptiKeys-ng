@@ -1,1 +1,8 @@
-<p>single-keyset works!</p>
+<div class="container">
+
+    <div class="m-4"></div>
+
+    <app-address-type-selector (itemChanged)="addressTypeChanged($event)"></app-address-type-selector>
+    
+    <app-qr-code-type-selector (itemChanged)="qrCodeTypeChanged($event)" ></app-qr-code-type-selector>
+</div>

@@ -1,0 +1,14 @@
+<h2>Address Type</h2>
+<div class="btn-group" role="group" (change)="onRadioButtonChanged()">
+    <input type="radio" [formControl]="addressFormControl" [value]="addressTypes.legacy" class="btn-check" id="legacyRadio" autocomplete="off">
+    <label class="btn btn-outline-primary" [ngClass]="{'active' : addressFormControl.value == addressTypes.legacy}" for="legacyRadio">Legacy</label>
+  
+    <input type="radio" [formControl]="addressFormControl" [value]="addressTypes.legacyCompressed" class="btn-check" id="legacyCompressedRadio">
+    <label class="btn btn-outline-primary" [ngClass]="{'active' : addressFormControl.value == addressTypes.legacyCompressed}" for="legacyCompressedRadio">Legacy (Compressed)</label>
+    
+    <input type="radio" [formControl]="addressFormControl" [value]="addressTypes.segwit" class="btn-check" id="segwitRadio">
+    <label class="btn btn-outline-primary" [ngClass]="{'active' : addressFormControl.value == addressTypes.segwit}" for="segwitRadio">Segwit</label>
+
+    <input type="radio" [formControl]="addressFormControl" [value]="addressTypes.bech32" class="btn-check" id="bech32Radio">
+    <label class="btn btn-outline-primary" [ngClass]="{'active' : addressFormControl.value == addressTypes.bech32}" for="bech32Radio">Bech32</label>
+</div>

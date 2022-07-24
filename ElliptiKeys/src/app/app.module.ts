@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { KeyspageComponent } from './keyspage/keyspage.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TooFarComponent } from './too-far/too-far.component';
 import { RandomComponent } from './random/random.component';
 import { PagebuttonsComponent } from './pagebuttons/pagebuttons.component';
@@ -29,6 +29,8 @@ import { WalletGeneratorIndexComponent } from './wallet-generator/wallet-generat
 import { SingleKeysetComponent } from './wallet-generator/single-keyset/single-keyset.component';
 import { BulkGenerateComponent } from './wallet-generator/bulk-generate/bulk-generate.component';
 import { MnemonicComponent } from './wallet-generator/mnemonic/mnemonic.component';
+import { AddressTypeSelectorComponent } from './wallet-generator/address-type-selector/address-type-selector.component';
+import { QrCodeTypeSelectorComponent } from './wallet-generator/qr-code-type-selector/qr-code-type-selector.component';
 
 
 @NgModule({
@@ -56,11 +58,14 @@ import { MnemonicComponent } from './wallet-generator/mnemonic/mnemonic.componen
     SingleKeysetComponent,
     BulkGenerateComponent,
     MnemonicComponent,
+    AddressTypeSelectorComponent,
+    QrCodeTypeSelectorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     QRCodeModule,
     NgbModule
   ],
