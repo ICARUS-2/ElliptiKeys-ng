@@ -26,7 +26,7 @@
         
         <div style="margin-top: 15px"></div>
         
-        <app-qr-code-with-border headerText="Private Key (Spend/Withdraw)" [qrData]="privateKey" borderColor="darkred"></app-qr-code-with-border>
+        <app-qr-code-with-border headerText="Private Key (Spend/Withdraw)" [qrData]="privateKey" borderColor="darkred" [errorCorrectionLevel]="getQrCodeType()"></app-qr-code-with-border>
     </div>
 </div>
 <div style="margin-top: 100px"></div>
