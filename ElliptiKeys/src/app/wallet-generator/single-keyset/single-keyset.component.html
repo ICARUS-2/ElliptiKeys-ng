@@ -22,11 +22,11 @@
 
     <div id="qrCodeContainer">
 
-        <app-qr-code-with-border id="addressQrSection" headerText="Address (Load/Receive)" [qrData]="address" [errorCorrectionLevel]="getQrCodeType()" borderColor="green"></app-qr-code-with-border>
+        <app-qr-code-with-border id="addressQrSection" headerText="Address (Load/Receive)" [qrData]="model.address" [errorCorrectionLevel]="getQrCodeType()" borderColor="green"></app-qr-code-with-border>
         
         <div style="margin-top: 15px"></div>
         
-        <app-qr-code-with-border headerText="Private Key (Spend/Withdraw)" [qrData]="privateKey" borderColor="darkred" [errorCorrectionLevel]="getQrCodeType()"></app-qr-code-with-border>
+        <app-qr-code-with-border headerText="Private Key (Spend/Withdraw)" [qrData]="model.privateKey" borderColor="darkred" [errorCorrectionLevel]="getQrCodeType()"></app-qr-code-with-border>
     </div>
 </div>
 <div style="margin-top: 100px"></div>

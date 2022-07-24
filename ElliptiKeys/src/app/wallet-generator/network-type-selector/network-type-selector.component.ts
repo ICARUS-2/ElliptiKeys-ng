@@ -12,6 +12,8 @@ export class NetworkTypeSelectorComponent implements OnInit {
   networkFormControl: FormControl;
   networkTypes = NETWORK_TYPES;
 
+  radioName: string = Math.random().toString();
+
   static DEFAULT_VALUE = NETWORK_TYPES.bitcoin;
 
   @Output() itemChanged: EventEmitter<string> = new EventEmitter<string>();

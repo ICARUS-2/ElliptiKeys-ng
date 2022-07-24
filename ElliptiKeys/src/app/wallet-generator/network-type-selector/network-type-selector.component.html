@@ -1,8 +1,8 @@
 <h2>Network Type</h2>
-<div class="btn-group" role="group" (change)="onRadioButtonChanged()">
-    <input type="radio" [formControl]="networkFormControl" [value]="networkTypes.bitcoin" class="btn-check" id="networkBtcRadio" autocomplete="off">
-    <label class="btn btn-outline-primary" [ngClass]="{'active' : networkFormControl.value == networkTypes.bitcoin}" for="networkBtcRadio">Bitcoin</label>
+<div class="btn-group" (change)="onRadioButtonChanged()">
+    <input type="radio" [name]="radioName" [formControl]="networkFormControl" [value]="networkTypes.bitcoin" class="btn-check" [id]="'networkBtcRadio'+radioName" autocomplete="off">
+    <label class="btn btn-outline-primary" [for]="'networkBtcRadio'+radioName">Bitcoin</label>
   
-    <input type="radio" [formControl]="networkFormControl" [value]="networkTypes.testnet" class="btn-check" id="networkTestnetRadio" autocomplete="off">
-    <label class="btn btn-outline-primary" [ngClass]="{'active' : networkFormControl.value == networkTypes.testnet}" for="networkTestnetRadio">Testnet</label>
+    <input type="radio" [name]="radioName" [formControl]="networkFormControl" [value]="networkTypes.testnet" class="btn-check" [id]="'networkTestnetRadio'+radioName" autocomplete="off">
+    <label class="btn btn-outline-primary" [for]="'networkTestnetRadio'+radioName">Testnet</label>
 </div>

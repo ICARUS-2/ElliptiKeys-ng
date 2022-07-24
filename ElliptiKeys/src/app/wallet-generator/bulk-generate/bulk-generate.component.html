@@ -1,3 +1,23 @@
 <div id="bulkGenerateContainer">
-    
+
+    <div id="">
+
+        <div class="m-4"></div>
+
+        <app-network-type-selector (itemChanged)="networkTypeChanged($event)"></app-network-type-selector>
+
+        <div class="m-4"></div>
+
+        <app-address-type-selector (itemChanged)="addressTypeChanged($event)"></app-address-type-selector>
+        
+        <div class="m-4"></div>
+
+        <h2>Quantity</h2>
+        <input id="qtyInput" type="number" [(ngModel)]="qtyToGenerate" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
+
+        <div class="m-5"></div>
+
+        <button class="btn btn-lg btn-outline-primary" [ngClass]="{ 'btn-outline-secondary disabled' : isCurrentlyGenerating }" (click)="bulkGenerate()">Generate</button>
+
+   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ADDRESS_TYPES } from 'lib/address-types';
 
@@ -14,6 +14,8 @@ export class AddressTypeSelectorComponent implements OnInit {
 
   static DEFAULT_VALUE = ADDRESS_TYPES.segwit;
   
+  radioName = Math.random().toString();
+
   @Output() itemChanged: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() 

@@ -23,8 +23,7 @@ export class SingleKeysetComponent implements OnInit {
   selectedAddressType: string = AddressTypeSelectorComponent.DEFAULT_VALUE;
   qrCodeType: string = QrCodeTypeSelectorComponent.DEFAULT_VALUE;
 
-  address: string = "";
-  privateKey: string = "";  
+  model: SingleAddressModel = new SingleAddressModel();
 
   ngOnInit(): void 
   {
@@ -40,10 +39,7 @@ export class SingleKeysetComponent implements OnInit {
   {
     let isTestnet: boolean = this.networkType == NETWORK_TYPES.testnet;
 
-    let model = SingleAddressModel.create(isTestnet, this.selectedAddressType);
-
-    this.address = model.address;
-    this.privateKey = model.privateKey;
+    this.model = SingleAddressModel.create(isTestnet, this.selectedAddressType);
   }
 
   networkTypeChanged(value: string)

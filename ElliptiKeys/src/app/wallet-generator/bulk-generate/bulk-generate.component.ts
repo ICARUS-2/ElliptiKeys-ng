@@ -15,9 +15,28 @@ export class BulkGenerateComponent implements OnInit {
   networkType: string = NetworkTypeSelectorComponent.DEFAULT_VALUE;
   selectedAddressType: string = AddressTypeSelectorComponent.DEFAULT_VALUE;
 
+  isCurrentlyGenerating: boolean = false;
+
+  qtyToGenerate: number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  networkTypeChanged(value: string)
+  {
+    this.networkType = value;
+  }
+
+  addressTypeChanged(value: string)
+  {
+    this.selectedAddressType = value;
+  }
+
+  bulkGenerate()
+  {
+
   }
 
 }

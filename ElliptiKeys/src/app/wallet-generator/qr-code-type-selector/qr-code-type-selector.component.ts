@@ -13,6 +13,8 @@ export class QrCodeTypeSelectorComponent implements OnInit {
   qrFormControl: FormControl;
   qrCodeTypes = QR_ERROR_CORRECTION;
   
+  radioName: string = Math.random().toString();
+
   @Output() itemChanged: EventEmitter<string> = new EventEmitter<string>();
 
   static DEFAULT_VALUE = QR_ERROR_CORRECTION.high;
