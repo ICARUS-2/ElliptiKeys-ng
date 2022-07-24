@@ -8,6 +8,7 @@ import { QrCodeTypeSelectorComponent } from './../qr-code-type-selector/qr-code-
 import { NETWORK_TYPES } from './../../../../lib/network-types';
 import { NetworkTypeSelectorComponent } from './../network-type-selector/network-type-selector.component';
 import { QRCodeErrorCorrectionLevel } from 'angularx-qrcode';
+import SingleAddressModel from './../../../../models/single-address-model';
 
 @Component({
   selector: 'app-single-keyset',
@@ -39,69 +40,10 @@ export class SingleKeysetComponent implements OnInit {
   {
     let isTestnet: boolean = this.networkType == NETWORK_TYPES.testnet;
 
-    switch(this.selectedAddressType)
-    {
-      case this.addressTypes.legacy:
-        
-        if (isTestnet)
-        {
-          this.privateKey = Keys.GenerateRandomTestnetPrivateKey();
-          this.address = Keys.TestnetPrivateKeyToLegacyAddress(this.privateKey);
-        }
-        else
-        {
-          this.privateKey = Keys.GenerateRandomPrivateKey();
-          this.address = Keys.PrivateKeyToLegacyAddress(this.privateKey)
-        }
+    let model = SingleAddressModel.create(isTestnet, this.selectedAddressType);
 
-        break;
-
-      case this.addressTypes.legacyCompressed:
-      
-        if (isTestnet)
-        {
-          this.privateKey = Keys.GenerateRandomCompressedTestnetPrivateKey();
-          this.address = Keys.TestnetCompressedPrivateKeyToLegacyAddress(this.privateKey);
-        }
-        else
-        {
-          this.privateKey = Keys.GenerateRandomCompressedPrivateKey();
-          this.address = Keys.CompressedPrivateKeyToLegacyAddress(this.privateKey)
-        }
-
-        break;
-
-      case this.addressTypes.segwit:
-      
-        if (isTestnet)
-        {
-          this.privateKey = Keys.GenerateRandomCompressedTestnetPrivateKey();
-          this.address = Keys.TestnetCompressedPrivateKeyToSegwitAddress(this.privateKey);
-        }
-        else
-        {
-          this.privateKey = Keys.GenerateRandomCompressedPrivateKey();
-          this.address = Keys.CompressedPrivateKeyToSegwitAddress(this.privateKey)
-        }
-
-        break;
-
-      case this.addressTypes.bech32:
-      
-        if (isTestnet)
-        {
-          this.privateKey = Keys.GenerateRandomCompressedTestnetPrivateKey();
-          this.address = Keys.TestnetCompressedPrivateKeyToBech32Address(this.privateKey);
-        }
-        else
-        {
-          this.privateKey = Keys.GenerateRandomCompressedPrivateKey();
-          this.address = Keys.CompressedPrivateKeyToBech32Address(this.privateKey)
-        }
-
-        break;
-
-    }
+    this.address = model.address;
+    this.privateKey = model.privateKey;
   }
 
   networkTypeChanged(value: string)
