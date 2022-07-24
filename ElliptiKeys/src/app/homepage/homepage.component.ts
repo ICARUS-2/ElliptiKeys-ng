@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormsModule } from '@angular/forms';
-import Keys from '../../../lib/Keys.js';
+import Keys from 'lib/keys/Keys';
 import PageHelper from 'lib/page-helper.js';
 import LocalStorageHelper from 'lib/localstorage-helper';
 import { Router } from '@angular/router';

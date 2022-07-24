@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import SearchResultViewModel from '../../../../models/search-result-view-model';
-import Keys from './../../../../lib/Keys';
+import Keys from 'lib/keys/Keys';
 import KeysHelper from './../../../../lib/keys-helper';
 import { URLS } from './../../../../lib/urls';
 import { Title } from '@angular/platform-browser';

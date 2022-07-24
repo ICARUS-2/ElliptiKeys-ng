@@ -31,6 +31,7 @@ import { BulkGenerateComponent } from './wallet-generator/bulk-generate/bulk-gen
 import { MnemonicComponent } from './wallet-generator/mnemonic/mnemonic.component';
 import { AddressTypeSelectorComponent } from './wallet-generator/address-type-selector/address-type-selector.component';
 import { QrCodeTypeSelectorComponent } from './wallet-generator/qr-code-type-selector/qr-code-type-selector.component';
+import { NetworkTypeSelectorComponent } from './wallet-generator/network-type-selector/network-type-selector.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { QrCodeTypeSelectorComponent } from './wallet-generator/qr-code-type-sel
     MnemonicComponent,
     AddressTypeSelectorComponent,
     QrCodeTypeSelectorComponent,
+    NetworkTypeSelectorComponent,
   ],
   imports: [
     BrowserModule,

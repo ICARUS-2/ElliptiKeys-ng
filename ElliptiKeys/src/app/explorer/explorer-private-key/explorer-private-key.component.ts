@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import KeysHelper from './../../../../lib/keys-helper';
-import Keys from './../../../../lib/Keys';
+import Keys from 'lib/keys/Keys';
 import { URLS } from './../../../../lib/urls';
 import { ADDRESS_TYPES } from 'lib/address-types';
 import { WIF_TYPES } from './../../../../lib/wif-types';

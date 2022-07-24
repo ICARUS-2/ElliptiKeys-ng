@@ -1,4 +1,4 @@
-import Keys from "lib/Keys"
+import Keys from "lib/keys/Keys";
 import LocalStorageHelper from "lib/localstorage-helper"
 import { ADDRESS_TYPES } from './../lib/address-types';
 import { WIF_TYPES } from './../lib/wif-types';

@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import Keys from './../../../../lib/Keys';
-import BalanceApi from './../../../../lib/balance-api';
+import Keys from 'lib/keys/Keys';
 import KeysHelper from './../../../../lib/keys-helper';
 import AddressModel from './../../../../models/address-model';
 import { Title } from '@angular/platform-browser';
 import TransactionApi from './../../../../lib/transaction-api';
 import TransactionViewModel from './../../../../models/transaction-view-model';
 import { SatoshiToBitcoinService } from 'src/app/services/satoshi-to-bitcoin.service';
-import { URLS } from './../../../../lib/urls';
 import { DateFormatterService } from 'src/app/services/date-formatter.service';
 
 @Component({

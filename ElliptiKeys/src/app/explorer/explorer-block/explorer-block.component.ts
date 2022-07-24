@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import KeysHelper from 'lib/keys-helper';
 import TransactionApi from 'lib/transaction-api';
 import BlockModel from 'models/block-model';
 import { DateFormatterService } from 'src/app/services/date-formatter.service';

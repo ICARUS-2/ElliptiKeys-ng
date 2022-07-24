@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import Keys from 'lib/Keys';
+import Keys from 'lib/keys/Keys';
 import PageHelper from 'lib/page-helper';
 
 @Component({

@@ -1,4 +1,4 @@
-import Keys from "./Keys";
+import Keys from './keys/Keys';
 import { ADDRESS_TYPES } from './address-types';
 
 export default class KeysHelper

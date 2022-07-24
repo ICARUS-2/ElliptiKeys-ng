@@ -1,4 +1,4 @@
-import Keys from "./Keys";
+import Keys from './keys/Keys';
 import KeyRowModel from './../models/key-row-model';
 
 export default class PageHelper
