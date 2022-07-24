@@ -1,4 +1,4 @@
-<div class="container" id="singleAddressContainer">
+<div id="singleAddressContainer">
 
     <div id="singleAddressSettings">
 
@@ -21,11 +21,12 @@
    </div>
 
     <div id="qrCodeContainer">
-        <app-qr-code-with-border headerText="Address (Load/Receive)" [qrData]="address" [errorCorrectionLevel]="getQrCodeType()" borderColor="green" style="width: 100%"></app-qr-code-with-border>
+
+        <app-qr-code-with-border id="addressQrSection" headerText="Address (Load/Receive)" [qrData]="address" [errorCorrectionLevel]="getQrCodeType()" borderColor="green"></app-qr-code-with-border>
         
         <div style="margin-top: 15px"></div>
         
-        <app-qr-code-with-border headerText="Private Key (Spend/Withdraw)" [qrData]="privateKey" borderColor="red" style="width: 100%;"></app-qr-code-with-border>
+        <app-qr-code-with-border headerText="Private Key (Spend/Withdraw)" [qrData]="privateKey" borderColor="darkred"></app-qr-code-with-border>
     </div>
 </div>
 <div style="margin-top: 100px"></div>

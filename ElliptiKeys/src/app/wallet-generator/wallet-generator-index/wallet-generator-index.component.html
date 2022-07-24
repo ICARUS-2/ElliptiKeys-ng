@@ -2,7 +2,7 @@
     <div style="width: 90%;">
         <h1>ElliptiKeys Wallet Generator</h1>
 
-        <ngb-alert *ngIf="connectionStatus == 1" class="alert alert-dark">
+        <ngb-alert id="onlineAlert" #onlineAlert *ngIf="connectionStatus == 1" class="alert alert-dark" (closed)="handleNetworkAlertCleared()">
           !!! WARNING: You appear to be connected to the Internet. 
           If you wish to generate important wallets, it is recommended to download the 
           <a href="https://github.com/ICARUS-2/ElliptiKeys-ng" class="alert-link bg-transparent"> ElliptiKeys source code</a>

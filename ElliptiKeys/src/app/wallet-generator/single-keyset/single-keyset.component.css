@@ -5,9 +5,40 @@
 
 #qrCodeContainer
 {
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+}
+
+app-qr-code-with-border
+{
+    width: 65%;
+}
+
+@media screen and (max-width: 1800px)
+{
+    app-qr-code-with-border
+    {   
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 1400px)
+{
+    #singleAddressContainer
+    {
+        flex-direction: column;
+    }
+
+    app-qr-code-with-border
+    {   
+        width: 95%;
+    }
+    
+    #addressQrSection
+    {
+        margin-top: 25px;
+    }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap/nav/nav.module';
 import { OnlineStatusService, OnlineStatusType } from "ngx-online-status";
 
@@ -24,4 +25,13 @@ export class WalletGeneratorIndexComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleNetworkAlertCleared()
+  {
+    let element = document.getElementById("onlineAlert");
+
+    if (element != null)
+    {
+      element.style.display = "none";
+    }
+  }
 }
