@@ -32,7 +32,8 @@ import { MnemonicComponent } from './wallet-generator/mnemonic/mnemonic.componen
 import { AddressTypeSelectorComponent } from './wallet-generator/address-type-selector/address-type-selector.component';
 import { QrCodeTypeSelectorComponent } from './wallet-generator/qr-code-type-selector/qr-code-type-selector.component';
 import { NetworkTypeSelectorComponent } from './wallet-generator/network-type-selector/network-type-selector.component';
-
+import { OnlineStatusModule } from 'ngx-online-status';
+import { QrCodeWithBorderComponent } from './wallet-generator/qr-code-with-border/qr-code-with-border.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { NetworkTypeSelectorComponent } from './wallet-generator/network-type-se
     AddressTypeSelectorComponent,
     QrCodeTypeSelectorComponent,
     NetworkTypeSelectorComponent,
+    QrCodeWithBorderComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,7 @@ import { NetworkTypeSelectorComponent } from './wallet-generator/network-type-se
     FormsModule,
     ReactiveFormsModule,
     QRCodeModule,
+    OnlineStatusModule,
     NgbModule
   ],
   providers: [

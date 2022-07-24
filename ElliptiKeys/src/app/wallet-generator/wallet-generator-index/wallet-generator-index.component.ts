@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap/nav/nav.module';
+import { OnlineStatusService, OnlineStatusType } from "ngx-online-status";
 
 @Component({
   selector: 'app-wallet-generator-index',
@@ -7,9 +8,17 @@ import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap/nav/nav.module';
   styleUrls: ['./wallet-generator-index.component.css']
 })
 export class WalletGeneratorIndexComponent implements OnInit {
+  
+  //The current navtab (single address, bulk gen, BIP-39 mnemonic)
   active = 1;
-  constructor() { 
 
+  connectionStatus: OnlineStatusType = this.onlineStatusService.getStatus(); // get initial status
+
+  constructor(private onlineStatusService: OnlineStatusService) {
+    this.onlineStatusService.status.subscribe((status: OnlineStatusType) => {
+      // use status
+      this.connectionStatus = status;
+    });
   }
 
   ngOnInit(): void {

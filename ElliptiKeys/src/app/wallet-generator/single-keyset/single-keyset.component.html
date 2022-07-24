@@ -1,23 +1,33 @@
-<div class="container">
+<div class="container" id="singleAddressContainer">
 
-    <div class="m-4"></div>
+    <div id="singleAddressSettings">
 
-    <app-network-type-selector (itemChanged)="networkTypeChanged($event)"></app-network-type-selector>
+        <div class="m-4"></div>
 
-    <div class="m-4"></div>
+        <app-network-type-selector (itemChanged)="networkTypeChanged($event)"></app-network-type-selector>
 
-    <app-address-type-selector (itemChanged)="addressTypeChanged($event)"></app-address-type-selector>
-    
-    <div class="m-4"></div>
+        <div class="m-4"></div>
 
-    <app-qr-code-type-selector (itemChanged)="qrCodeTypeChanged($event)" ></app-qr-code-type-selector>
+        <app-address-type-selector (itemChanged)="addressTypeChanged($event)"></app-address-type-selector>
+        
+        <div class="m-4"></div>
 
-    <div class="m-5"></div>
+        <app-qr-code-type-selector (itemChanged)="qrCodeTypeChanged($event)" ></app-qr-code-type-selector>
 
-    <button class="btn btn-lg btn-outline-primary" (click)="makeNewKeyset()">Generate New Wallet</button>
+        <div class="m-5"></div>
+
+        <button class="btn btn-lg btn-outline-primary" (click)="makeNewKeyset()">Generate New Wallet</button>
+
+        <div>
+            <h2>{{address}}</h2>
+            <h2>{{privateKey}}</h2>
+        </div>
+    </div>
 
     <div>
-        <h2>{{address}}</h2>
-        <h2>{{privateKey}}</h2>
+        <div class="singleAddressQrCode" style="border-radius: 10px; border: 2px solid green">
+            
+            <qrcode [qrdata]="address" [errorCorrectionLevel]="getQrCodeType()"></qrcode>
+        </div>
     </div>
 </div>

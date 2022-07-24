@@ -7,6 +7,7 @@ import { AddressTypeSelectorComponent } from '../address-type-selector/address-t
 import { QrCodeTypeSelectorComponent } from './../qr-code-type-selector/qr-code-type-selector.component';
 import { NETWORK_TYPES } from './../../../../lib/network-types';
 import { NetworkTypeSelectorComponent } from './../network-type-selector/network-type-selector.component';
+import { QRCodeErrorCorrectionLevel } from 'angularx-qrcode';
 
 @Component({
   selector: 'app-single-keyset',
@@ -22,15 +23,16 @@ export class SingleKeysetComponent implements OnInit {
   qrCodeType: string = QrCodeTypeSelectorComponent.DEFAULT_VALUE;
 
   address: string = "";
-  privateKey: string = "";
-
-  constructor() { 
-
-  }
+  privateKey: string = "";  
 
   ngOnInit(): void 
   {
 
+  }
+
+  getQrCodeType() : QRCodeErrorCorrectionLevel
+  {
+    return this.qrCodeType as QRCodeErrorCorrectionLevel;
   }
 
   makeNewKeyset()
