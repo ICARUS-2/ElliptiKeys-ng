@@ -1,6 +1,6 @@
 <div id="bulkGenerateContainer">
 
-    <div id="">
+    <div>
 
         <div class="m-4"></div>
 
@@ -14,10 +14,18 @@
 
         <h2>Quantity</h2>
         <input id="qtyInput" type="number" [(ngModel)]="qtyToGenerate" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
+        <p class="countErrDisplay">{{countErrorMessage}}</p>
 
         <div class="m-5"></div>
 
         <button class="btn btn-lg btn-outline-primary" [ngClass]="{ 'btn-outline-secondary disabled' : isCurrentlyGenerating }" (click)="bulkGenerate()">Generate</button>
+    </div>
 
+   <div>
+        <div *ngFor="let key of displayedKeys">
+            <h4>{{key.privateKey}} {{key.address}}</h4>
+        </div>
    </div>
 </div>
+
+<div style="margin-top: 100px"></div>
