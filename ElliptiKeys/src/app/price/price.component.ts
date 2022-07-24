@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PriceService } from '../services/price.service';
+import { PriceService } from '../services/price/price.service';
 import PriceViewModel from '../../../models/price-view-model';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';

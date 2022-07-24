@@ -1,0 +1,1 @@
+export let NETWORK_TYPES = { bitcoin: "Bitcoin", testnet: "Testnet" }

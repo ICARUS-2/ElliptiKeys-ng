@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { NETWORK_TYPES } from './../../../../lib/network-types';
 
 @Component({
   selector: 'app-network-type-selector',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./network-type-selector.component.css']
 })
 export class NetworkTypeSelectorComponent implements OnInit {
+  
+  networkFormControl: FormControl;
+  networkTypes = NETWORK_TYPES;
 
-  constructor() { }
+  static DEFAULT_VALUE = NETWORK_TYPES.bitcoin;
 
-  ngOnInit(): void {
+  @Output() itemChanged: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor() 
+  {
+    this.networkFormControl = new FormControl(NetworkTypeSelectorComponent.DEFAULT_VALUE);
   }
 
+  ngOnInit(): void 
+  {
+  
+  }
+  
+  onRadioButtonChanged()
+  {
+    this.itemChanged.emit(this.networkFormControl.value)
+  }
 }

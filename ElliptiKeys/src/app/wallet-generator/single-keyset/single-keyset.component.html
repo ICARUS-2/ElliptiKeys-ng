@@ -2,6 +2,10 @@
 
     <div class="m-4"></div>
 
+    <app-network-type-selector (itemChanged)="networkTypeChanged($event)"></app-network-type-selector>
+
+    <div class="m-4"></div>
+
     <app-address-type-selector (itemChanged)="addressTypeChanged($event)"></app-address-type-selector>
     
     <div class="m-4"></div>
@@ -10,9 +14,10 @@
 
     <div class="m-5"></div>
 
-    <button class="btn btn-lg btn-outline-primary">Generate New Address</button>
+    <button class="btn btn-lg btn-outline-primary" (click)="makeNewKeyset()">Generate New Wallet</button>
 
     <div>
-        
+        <h2>{{address}}</h2>
+        <h2>{{privateKey}}</h2>
     </div>
 </div>

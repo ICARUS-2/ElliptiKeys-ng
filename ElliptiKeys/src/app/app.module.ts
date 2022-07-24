@@ -14,7 +14,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { DonateComponent } from './donate/donate.component';
-import { PriceService } from './services/price.service';
+import { PriceService } from './services/price/price.service';
 import { PriceComponent } from './price/price.component';
 import { TestnetRandomComponent } from './testnet-random/testnet-random.component';
 import { ExplorerAddressComponent } from './explorer/explorer-address/explorer-address.component';

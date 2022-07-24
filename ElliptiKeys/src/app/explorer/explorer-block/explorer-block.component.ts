@@ -3,9 +3,9 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import TransactionApi from 'lib/transaction-api';
 import BlockModel from 'models/block-model';
-import { DateFormatterService } from 'src/app/services/date-formatter.service';
+import { DateFormatterService } from 'src/app/services/date-formatter/date-formatter.service';
 import TransactionViewModel  from 'models/transaction-view-model';
-import { SatoshiToBitcoinService } from 'src/app/services/satoshi-to-bitcoin.service';
+import { SatoshiToBitcoinService } from 'src/app/services/satoshi-to-bitcoin/satoshi-to-bitcoin.service';
 
 @Component({
   selector: 'app-explorer-block',

@@ -6,8 +6,8 @@ import AddressModel from './../../../../models/address-model';
 import { Title } from '@angular/platform-browser';
 import TransactionApi from './../../../../lib/transaction-api';
 import TransactionViewModel from './../../../../models/transaction-view-model';
-import { SatoshiToBitcoinService } from 'src/app/services/satoshi-to-bitcoin.service';
-import { DateFormatterService } from 'src/app/services/date-formatter.service';
+import { SatoshiToBitcoinService } from 'src/app/services/satoshi-to-bitcoin/satoshi-to-bitcoin.service';
+import { DateFormatterService } from 'src/app/services/date-formatter/date-formatter.service';
 
 @Component({
   selector: 'app-explorer-address',
