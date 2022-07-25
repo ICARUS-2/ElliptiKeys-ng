@@ -14,7 +14,7 @@
 
     <div id="mnemonicInfoOuter">
         <div id="mnemonicInfoInner">
-            <qrcode [width]="300" [qrdata]="getQrCodeData()" [errorCorrectionLevel]="getQrCodeType()"></qrcode>
+            <qrcode *ngIf="words.length > 0" [width]="300" [qrdata]="getQrCodeData()" [errorCorrectionLevel]="getQrCodeType()" [allowEmptyString]="true"></qrcode>
             
             <div id="wordsContainer">
                 <h3 class="wordEntry" *ngFor="let w of words; let i = index"><span class="badge badge-lg bg-secondary wordEntryBadge">{{i+1}}. {{w}}</span></h3>

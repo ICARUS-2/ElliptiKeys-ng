@@ -11,7 +11,7 @@ import { OnlineStatusService, OnlineStatusType } from "ngx-online-status";
 export class WalletGeneratorIndexComponent implements OnInit {
   
   //The current navtab (single address, bulk gen, BIP-39 mnemonic)
-  active = 3;
+  active = 1;
 
   connectionStatus: OnlineStatusType = this.onlineStatusService.getStatus(); // get initial status
 

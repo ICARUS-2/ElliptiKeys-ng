@@ -10,19 +10,21 @@
         </ngb-alert>
 
 
-        <ul ngbNav #nav="ngbNav" [(activeId)]="active" [destroyOnHide]="false" class="nav-tabs">
+        <ul id="walletGenNav" ngbNav #nav="ngbNav" [(activeId)]="active" [destroyOnHide]="false" class="nav-tabs" orientation="horizontal">
             <li [ngbNavItem]="1" [destroyOnHide]="false">
               <a ngbNavLink>Single Address</a>
               <ng-template ngbNavContent>
                 <app-single-keyset></app-single-keyset>
               </ng-template>
             </li>
+
             <li [ngbNavItem]="2" [destroyOnHide]="false">
               <a ngbNavLink>Bulk Generate</a>
               <ng-template ngbNavContent>
                 <app-bulk-generate></app-bulk-generate>
               </ng-template>
             </li>
+
             <li [ngbNavItem]="3" [destroyOnHide]="false">
               <a ngbNavLink>Mnemonic</a>
               <ng-template ngbNavContent let-active>
