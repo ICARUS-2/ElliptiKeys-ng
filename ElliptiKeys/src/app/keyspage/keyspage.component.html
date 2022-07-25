@@ -3,8 +3,14 @@
     <div class="mt-1"></div>
 
     <div *ngIf="isTestnet">
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-warning" role="alert">
             You are currently exploring testnet keys. Testnet is an alternative Bitcoin blockchain that developers use for testing. Testnet coins do not hold any value.
+        </div>          
+    </div>
+
+    <div *ngIf="balanceApi.errorCallingApi">
+        <div class="alert alert-danger" role="alert">
+            Error occurred while retrieving balances.
         </div>          
     </div>
 
