@@ -281,7 +281,7 @@ static Base58DecodeToHex(
     {
         //Securely gets the random bytes
         var randArr = new Uint8Array(32) 
-        window.crypto.getRandomValues(randArr)
+        crypto.getRandomValues(randArr)
 
         //Converts it to a normal array for compatibility
         var privateKeyBytes = []
@@ -607,7 +607,7 @@ static Base58DecodeToHex(
     static GenerateRandomTestnetPrivateKey()
     {
         var randArr = new Uint8Array(32) 
-        window.crypto.getRandomValues(randArr)
+        crypto.getRandomValues(randArr)
 
         var privateKeyBytes = []
         for (var i = 0; i < randArr.length; ++i)
@@ -872,7 +872,7 @@ static Base58DecodeToHex(
         }
 
         var randArr = new Uint8Array(arrLength) 
-        window.crypto.getRandomValues(randArr)
+        crypto.getRandomValues(randArr)
 
         var privateKeyBytes = []
         for (var i = 0; i < randArr.length; ++i)

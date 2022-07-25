@@ -1,3 +1,8 @@
+#bulkGenerateContainer
+{
+    display: flex;
+}
+
 #qtyInput
 {
     font-size: x-large;
@@ -8,3 +13,43 @@
     color: red;
 }
 
+#qtyControl
+{
+    display: flex;
+}
+
+#qtyControl button
+{
+    margin-left: 5px;
+}
+
+#tableOuter
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#tableOuter table
+{
+    width: 95%
+}
+
+@media screen and (max-width: 1000px)
+{
+    #bulkGenerateContainer
+    {
+        flex-direction: column;
+    }
+
+    #qtyControl
+    {
+        flex-direction: column;
+    }
+
+    #qtyControl button
+    {
+        margin: 0px;
+        margin-top: 5px;
+    }
+}

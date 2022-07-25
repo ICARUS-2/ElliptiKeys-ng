@@ -14,3 +14,4 @@ export class AppComponent {
     router.routeReuseStrategy.shouldReuseRoute = () => false
   }
 }
+

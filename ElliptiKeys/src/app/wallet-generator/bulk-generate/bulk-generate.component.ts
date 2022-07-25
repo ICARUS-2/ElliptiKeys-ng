@@ -14,6 +14,7 @@ import SingleAddressModel from './../../../../models/single-address-model';
 export class BulkGenerateComponent implements OnInit {
 
   static MAX_GEN = 20000;
+  maxGen: number;
 
   addressTypes = ADDRESS_TYPES;
 
@@ -28,7 +29,9 @@ export class BulkGenerateComponent implements OnInit {
 
   countErrorMessage: string = "";
 
-  constructor() { }
+  constructor() { 
+    this.maxGen = BulkGenerateComponent.MAX_GEN;
+  }
 
   ngOnInit(): void {
   }
@@ -43,7 +46,7 @@ export class BulkGenerateComponent implements OnInit {
     this.selectedAddressType = value;
   }
 
-  async bulkGenerate()
+  bulkGenerate()
   {
     if (this.qtyToGenerate == null || this.qtyToGenerate > BulkGenerateComponent.MAX_GEN || this.qtyToGenerate <=0)
     {
@@ -51,20 +54,53 @@ export class BulkGenerateComponent implements OnInit {
       return;
     }
     
-    let isTestnet: boolean = this.networkType == NETWORK_TYPES.testnet;
-
-    let tempArr: SingleAddressModel[] = []
-
-    this.isCurrentlyGenerating = true;
-
-    for(let i = 0; i < this.qtyToGenerate; i++)
+    try
     {
-      tempArr.push( SingleAddressModel.create(isTestnet, this.selectedAddressType) )
+
+      let isTestnet: boolean = this.networkType == NETWORK_TYPES.testnet;
+
+      this.isCurrentlyGenerating = true;
+
+
+      if (typeof Worker !== 'undefined') {
+        // Create a new
+        const worker = new Worker(new URL('./bg.worker', import.meta.url));
+        
+        worker.onmessage = ({ data }) => {
+          
+          this.displayedKeys = data.map( (e: any) => 
+          {
+            let model = new SingleAddressModel();
+            model.address = e.address;
+            model.privateKey = e.privateKey;
+
+            return model;
+          }
+          )
+
+          this.isCurrentlyGenerating = false;
+        };
+
+        //Send the parameters to the web worker
+        worker.postMessage({ isTestnet: isTestnet, selectedAddressType : this.selectedAddressType, qtyToGenerate : this.qtyToGenerate });
+      } else {
+        alert("Your browser does not support this operation (Web Worker not found)")
+      }
+
+      
+      /*
+      for(let i = 0; i < this.qtyToGenerate; i++)
+      {
+        tempArr.push( SingleAddressModel.create(isTestnet, this.selectedAddressType) )
+      }
+      */
+
     }
-
-    this.isCurrentlyGenerating = false;
-
-    this.displayedKeys = tempArr;
+    catch(err)
+    {
+      alert("An error occurred while generating the keys")
+      this.isCurrentlyGenerating = true;
+    }
   }
 
 }

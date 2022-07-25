@@ -10,6 +10,9 @@ export default class BalanceApi
     isTestnet: Boolean = false;
 
     _jsonResult: any;
+
+    errorCallingApi: Boolean = false;
+
     constructor(isTn: Boolean) 
     {
         this.isTestnet = isTn;
@@ -41,38 +44,45 @@ export default class BalanceApi
 
     async doApiRequest()
     {
-        //Removes trailing comma.
-        if (this.isTestnet)
-            this.url = this.url.slice(0, -1)
-
-        this._jsonResult = await this.fetchJson()
-
-        if (!this.isTestnet)
+        try
         {
-            this.addressModels.forEach(item => {
-                let data = this._getJsonDataByKey(item.address);
-                
-                item.balance = data.final_balance;
-                item.transactions = data.n_tx;
-                item.received = data.total_received;
-                item.sent = data.total_received - data.final_balance;
-            });
-        }
-        else
-        {
-            this.addressModels.forEach(item =>
-                {
-                    let data = this._jsonResult.find( (obj: Object) =>
+
+            //Removes trailing comma.
+            if (this.isTestnet)
+                this.url = this.url.slice(0, -1)
+
+            this._jsonResult = await this.fetchJson()
+
+            if (!this.isTestnet)
+            {
+                this.addressModels.forEach(item => {
+                    let data = this._getJsonDataByKey(item.address);
+                    
+                    item.balance = data.final_balance;
+                    item.transactions = data.n_tx;
+                    item.received = data.total_received;
+                    item.sent = data.total_received - data.final_balance;
+                });
+            }
+            else
+            {
+                this.addressModels.forEach(item =>
                     {
-                        //@ts-ignore
-                        return obj.address == item.address
-                    } ) 
+                        let data = this._jsonResult.find( (obj: Object) =>
+                        {
+                            //@ts-ignore
+                            return obj.address == item.address
+                        } ) 
 
-                    item.balance = data.confirmed;
-                    item.transactions = data.txs;
-                    item.received = data.received;
-                    item.sent = data.received - data.confirmed;
-                })
+                        item.balance = data.confirmed;
+                        item.transactions = data.txs;
+                        item.received = data.received;
+                        item.sent = data.received - data.confirmed;
+                    })
+            }
+        }catch(err)
+        {
+            this.errorCallingApi = true;
         }
     }
 
