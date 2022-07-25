@@ -1,1 +1,26 @@
-<p>mnemonic works!</p>
+<div id="mnemonicContainer">
+
+    <div id="mnemonicSettings">
+        <div class="m-4"></div>
+        <app-mnemonic-word-count-selector (itemChanged)="onWordCountChanged($event)"></app-mnemonic-word-count-selector>
+        
+        <div class="m-4"></div>
+        <app-qr-code-type-selector (itemChanged)="onQrTypeChanged($event)"></app-qr-code-type-selector>
+
+        <br>
+        <div class="m-5"></div>
+        <button class="btn btn-primary btn-lg" (click)="makeNewMnemonic()">Generate</button>
+    </div>
+
+    <div id="mnemonicInfoOuter">
+        <div id="mnemonicInfoInner">
+            <qrcode [width]="300" [qrdata]="getQrCodeData()" [errorCorrectionLevel]="getQrCodeType()"></qrcode>
+            
+            <div id="wordsContainer">
+                <h3 class="wordEntry" *ngFor="let w of words; let i = index"><span class="badge badge-lg bg-secondary wordEntryBadge">{{i+1}}. {{w}}</span></h3>
+            </div>
+        </div>    
+    </div>
+</div>
+
+<div style="margin-top: 100px"></div>

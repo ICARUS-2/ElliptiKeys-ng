@@ -34,6 +34,7 @@ import { QrCodeTypeSelectorComponent } from './wallet-generator/qr-code-type-sel
 import { NetworkTypeSelectorComponent } from './wallet-generator/network-type-selector/network-type-selector.component';
 import { OnlineStatusModule } from 'ngx-online-status';
 import { QrCodeWithBorderComponent } from './wallet-generator/qr-code-with-border/qr-code-with-border.component';
+import { MnemonicWordCountSelectorComponent } from './wallet-generator/mnemonic-word-count-selector/mnemonic-word-count-selector.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { QrCodeWithBorderComponent } from './wallet-generator/qr-code-with-borde
     QrCodeTypeSelectorComponent,
     NetworkTypeSelectorComponent,
     QrCodeWithBorderComponent,
+    MnemonicWordCountSelectorComponent,
   ],
   imports: [
     BrowserModule,

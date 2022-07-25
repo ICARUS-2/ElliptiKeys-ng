@@ -1,0 +1,53 @@
+#mnemonicContainer
+{
+    display: flex;
+}
+
+#mnemonicInfoOuter
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#wordsContainer
+{
+    margin-top: 9px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#mnemonicInfoInner
+{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wordEntry
+{
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.wordEntryBadge
+{
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 1000px)
+{
+    #mnemonicContainer
+    {
+        flex-direction: column;
+    }
+
+    #mnemonicInfoOuter
+    {
+        margin-top: 25px;
+    }
+}

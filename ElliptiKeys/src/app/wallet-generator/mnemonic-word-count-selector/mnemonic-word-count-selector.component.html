@@ -1,0 +1,7 @@
+<h2>Word Count</h2>
+<div class="btn-group" role="group" (change)="onRadioButtonChanged()">
+    <ng-container *ngFor="let n of wordCounts">
+        <input type="radio" [name]="radioName" [formControl]="wordsFormControl" [value]="n" class="btn-check" [id]="n+'wordCount'+radioName" autocomplete="off">
+        <label class="btn btn-outline-primary" [for]="n+'wordCount'+radioName">{{n}}</label>
+    </ng-container>
+</div>
