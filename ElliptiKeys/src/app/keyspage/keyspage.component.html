@@ -23,6 +23,8 @@
 
     <div class="m-3"></div>
 
+    <app-auto-gen [isTestnet]="isTestnet"></app-auto-gen>
+    
     <div class="loadingDiv" style="height: 50px">Loading...</div>
     <app-pagebuttons style="width: 70%; display: none;" class="pageBtns"></app-pagebuttons>
 
@@ -75,8 +77,9 @@
     </div>
 
     <app-pagebuttons style="width: 70%; display: none;" class="pageBtns"></app-pagebuttons>
-
     <div class="loadingDiv" style="height: 50px">Loading...</div>
+
+    <app-auto-gen [isTestnet]="isTestnet"></app-auto-gen>
 
     <div class="m-5"></div> 
 </div>

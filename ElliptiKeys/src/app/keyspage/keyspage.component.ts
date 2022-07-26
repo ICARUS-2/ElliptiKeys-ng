@@ -4,6 +4,7 @@ import KeyRowModel from './../../../models/key-row-model';
 import { Title } from '@angular/platform-browser';
 import BalanceApi from './../../../lib/balance-api';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AutoGenService } from '../services/auto-gen/auto-gen.service';
 
 @Component({
   selector: 'app-keyspage',
@@ -17,13 +18,17 @@ export class KeyspageComponent implements OnInit {
   maxPageNumber: BigInt = BigInt("0");
   isLoading: Boolean = true;
 
-  isTestnet: Boolean = false;
+  isTestnet: boolean = false;
 
   keys: KeyRowModel[] = []
 
   balanceApi: BalanceApi = new BalanceApi(false);
 
-  constructor(private titleService:Title, private router: Router, private activeRoute: ActivatedRoute) { }
+  constructor(
+    private titleService:Title, 
+    private router: Router, 
+    private activeRoute: ActivatedRoute,
+    private autoGenService: AutoGenService) { }
 
   async ngOnInit() {
     
@@ -80,6 +85,11 @@ export class KeyspageComponent implements OnInit {
     {
       this.setDelayForKey(k)
     }
+
+    if (this.autoGenService.autoModeActive)
+    {
+      this.autoGenService.navigateAfterDelay(this.isTestnet);
+    }
   }
 
   setDelayForKey(k: KeyRowModel)
@@ -94,6 +104,7 @@ export class KeyspageComponent implements OnInit {
       if (stats.totalBalance > 0)
       {
         k.setBorderColor("lime")
+        this.autoGenService.autoModeActive = false;
       }
       else if (stats.totalTx > 0)
       {
@@ -160,4 +171,8 @@ export class KeyspageComponent implements OnInit {
     return Math.random() * (max - min) + min;
   }
 
+  isAutoGenning()
+  {
+    return this.autoGenService.autoModeActive;
+  }
 }

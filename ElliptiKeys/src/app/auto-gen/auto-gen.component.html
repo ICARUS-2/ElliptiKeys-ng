@@ -1,0 +1,1 @@
+<button class="btn btn-lg" [ngClass]="{ 'btn-outline-success' : !this.autoGenService.autoModeActive, 'btn-outline-danger' : this.autoGenService.autoModeActive}" (click)="toggleAutoGen()">{{ this.autoGenService.autoModeActive ? "Stop Auto-Gen" : "Activate Auto-Gen" }}</button>

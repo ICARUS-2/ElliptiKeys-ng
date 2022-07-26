@@ -16,26 +16,27 @@ import { ExplorerIndexComponent } from './explorer/explorer-index/explorer-index
 import { WalletGeneratorIndexComponent } from './wallet-generator/wallet-generator-index/wallet-generator-index.component';
 
 const routes: Routes = [
-  {path: '', component: HomepageComponent},
-  {path: 'bitcoin/:id', component: KeyspageComponent, data: {isTestnet: false}}, 
-  {path: 'testnet/:id', component: KeyspageComponent, data: {isTestnet: true}},
-  {path: 'too-far', component:TooFarComponent},
-  {path: 'random', component:RandomComponent},
-  {path: 'testnet-random', component: TestnetRandomComponent},
-  {path: 'about', component:AboutComponent},
-  {path: 'donate', component: DonateComponent},
+  {path: '', component: HomepageComponent, data: {routeName: "homepage"}},
+  {path: 'bitcoin/:id', component: KeyspageComponent, data: {isTestnet: false, routeName: "keyspageBitcoin"}}, 
+  {path: 'testnet/:id', component: KeyspageComponent, data: {isTestnet: true, routeName: "keyspageTestnet"}},
+  {path: 'too-far', component:TooFarComponent, data: {routeName: "tooFar"}},
+  {path: 'random', component:RandomComponent, data: {routeName: "randomBitcoin"}},
+  {path: 'testnet-random', component: TestnetRandomComponent, data: {routeName: "randomTestnet"}},
+  
+  {path: 'about', component:AboutComponent, data: {routeName: "about"}},
+  {path: 'donate', component: DonateComponent, data: {routeName: "donate"}},
 
-  {path: 'explorer', component: ExplorerIndexComponent},
-  {path: 'explorer/bitcoin/address/:id', component: ExplorerAddressComponent},
-  {path: 'explorer/testnet/address/:id', component: ExplorerAddressComponent},
-  {path: 'explorer/bitcoin/wif/:id', component: ExplorerPrivateKeyComponent},
-  {path: 'explorer/testnet/wif/:id', component: ExplorerPrivateKeyComponent},
-  {path: 'explorer/bitcoin/transaction/:id', component: ExplorerTransactionComponent},
-  {path: 'explorer/testnet/transaction/:id', component: ExplorerTransactionComponent},
-  {path: 'explorer/bitcoin/block/:id', component: ExplorerBlockComponent},
-  {path: 'explorer/testnet/block/:id', component: ExplorerBlockComponent},
+  {path: 'explorer', component: ExplorerIndexComponent, data: {routeName: "explorerIndex"}},
+  {path: 'explorer/bitcoin/address/:id', component: ExplorerAddressComponent, data: {routeName: "explorerAddressBitcoin"}},
+  {path: 'explorer/testnet/address/:id', component: ExplorerAddressComponent, data: {routeName: "explorerAddressTestnet"}},
+  {path: 'explorer/bitcoin/wif/:id', component: ExplorerPrivateKeyComponent, data: {routeName: "explorerWifBitcoin"}},
+  {path: 'explorer/testnet/wif/:id', component: ExplorerPrivateKeyComponent, data: {routeName: "explorerWifTestnet"}},
+  {path: 'explorer/bitcoin/transaction/:id', component: ExplorerTransactionComponent, data: {routeName: "explorerTxBitcoin"}},
+  {path: 'explorer/testnet/transaction/:id', component: ExplorerTransactionComponent, data: {routeName: "explorerTxTestnet"}},
+  {path: 'explorer/bitcoin/block/:id', component: ExplorerBlockComponent, data: {routeName: "explorerBlockBitcoin"}},
+  {path: 'explorer/testnet/block/:id', component: ExplorerBlockComponent, data: {routeName: "explorerBlockTestnet"}},
 
-  {path: 'wallet-generator', component: WalletGeneratorIndexComponent},
+  {path: 'wallet-generator', component: WalletGeneratorIndexComponent, data: {routeName: "walletGeneratorIndex"}},
 
   {path: '**', component:NotFoundComponent},
 ];
