@@ -104,7 +104,7 @@ export class KeyspageComponent implements OnInit {
       if (stats.totalBalance > 0)
       {
         k.setBorderColor("lime")
-        this.autoGenService.autoModeActive = false;
+        this.autoGenService.cancel();
       }
       else if (stats.totalTx > 0)
       {
