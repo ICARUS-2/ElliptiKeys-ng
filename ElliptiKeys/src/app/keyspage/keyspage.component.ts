@@ -65,7 +65,7 @@ export class KeyspageComponent implements OnInit {
 
       this.keys = PageHelper.GetKeysForPage(this.pageNumber, this.isTestnet)
 
-      setTimeout(this.enableBtns, PageHelper.DELAY)
+      setTimeout( () => {this.isLoading = false} , PageHelper.DELAY)
 
     this.balanceApi = new BalanceApi(this.isTestnet);
 
@@ -142,29 +142,6 @@ export class KeyspageComponent implements OnInit {
         k.bech32Color = "yellow"
 
     }, this.getRandomDelay())
-  }
-
-  enableBtns()
-  {
-    this.isLoading = false;
-
-    let arr = Array.from(document.getElementsByClassName('pageBtns') as HTMLCollectionOf<HTMLElement>)
-
-    for(let i = 0; i < arr.length; i++)
-    {
-      let element = arr[i];
-
-      element.style.display = "block"
-    }
-
-    let loadingDivs = Array.from(document.getElementsByClassName('loadingDiv') as HTMLCollectionOf<HTMLElement>)
-  
-    for(let i = 0; i < arr.length; i++)
-    {
-      let element = loadingDivs[i];
-
-      element.style.display = "none"
-    }
   }
 
   getRandomDelay(min: number = 0, max: number = PageHelper.DELAY) {
