@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AutoGenService } from '../services/auto-gen/auto-gen.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-auto-gen',
@@ -10,6 +11,7 @@ export class AutoGenComponent implements OnInit {
 
   @Input() isTestnet: boolean = false;
 
+  formName: string = Math.random().toString();
   autoGenService: AutoGenService;
 
   constructor(ags: AutoGenService) 

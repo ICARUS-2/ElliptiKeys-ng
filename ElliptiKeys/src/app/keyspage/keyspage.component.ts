@@ -24,11 +24,16 @@ export class KeyspageComponent implements OnInit {
 
   balanceApi: BalanceApi = new BalanceApi(false);
 
+  autoGenService: AutoGenService;
+
   constructor(
     private titleService:Title, 
     private router: Router, 
     private activeRoute: ActivatedRoute,
-    private autoGenService: AutoGenService) { }
+    autoGenService: AutoGenService) 
+    {
+      this.autoGenService = autoGenService;
+    }
 
   async ngOnInit() {
     
@@ -109,6 +114,10 @@ export class KeyspageComponent implements OnInit {
       else if (stats.totalTx > 0)
       {
         k.setBorderColor("yellow")
+        if (this.autoGenService.stopOnYellow)
+        {
+          this.autoGenService.cancel();
+        }
       }
       else
       {

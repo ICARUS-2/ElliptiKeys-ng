@@ -8,6 +8,9 @@ import PageHelper from './../../../../lib/page-helper';
 export class AutoGenService {
 
   autoModeActive: boolean = false;
+
+  stopOnYellow: boolean = true;
+
   timeoutEvent: any;
 
   constructor(private router: Router) 
