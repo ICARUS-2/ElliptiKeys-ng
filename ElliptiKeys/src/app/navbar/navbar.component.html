@@ -18,9 +18,14 @@
 
     <div class="collapse navbar-collapse" id="toggleMobileMenu">
         <ul class="navbar-nav ms-auto text-end">
-            <li class="navLi"><a routerLink="/explorer" class="">Explorer</a></li>
-            <li class="navLi"><a routerLink="/wallet-generator" class="">Wallet Generator</a></li>
+            <li class="navLi"><a routerLink="/explorer" class="">{{'navbar.explorerLink' | translate}}</a></li>
+            <li class="navLi"><a routerLink="/wallet-generator" class="">{{'navbar.walletGenLink' | translate}}</a></li>
             <li id="priceWrapperLi"><app-price></app-price></li>
+            <li class="navLi" id="langSelectListItem">
+                <select #langselect (change)="onLanguageChanged()" name="" id="langSelect" class="nav-link">
+                    <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang == currentLang">{{lang}}</option>
+                </select>
+            </li>
         </ul>
     </div>
 </nav>

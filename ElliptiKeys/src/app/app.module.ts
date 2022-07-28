@@ -36,6 +36,14 @@ import { OnlineStatusModule } from 'ngx-online-status';
 import { QrCodeWithBorderComponent } from './wallet-generator/qr-code-with-border/qr-code-with-border.component';
 import { MnemonicWordCountSelectorComponent } from './wallet-generator/mnemonic-word-count-selector/mnemonic-word-count-selector.component';
 import { AutoGenComponent } from './auto-gen/auto-gen.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient)
+{
+    return new TranslateHttpLoader(http)
+}
 
 @NgModule({
   declarations: [
@@ -76,7 +84,15 @@ import { AutoGenComponent } from './auto-gen/auto-gen.component';
     ReactiveFormsModule,
     QRCodeModule,
     OnlineStatusModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     Title,

@@ -4,6 +4,17 @@ export default class LocalStorageHelper
     static LAST_PRICE_API_CALL: string = "elliptikeys_LastPriceApiCall"
     static LAST_RECORDED_PRICE: string = "elliptikeys_LastRecordedPrice"
 
+    static SITE_NAME: string="elliptikeys_Lang"
+    static getLang() : string | null
+    {
+        return window.localStorage.getItem(this.SITE_NAME)
+    }
+
+    static setLang(val: string)
+    {
+        window.localStorage.setItem(this.SITE_NAME, val)
+    }
+
     //private key search
     static SetPrivateKeySearchQuery(privateKey : string)
     {
