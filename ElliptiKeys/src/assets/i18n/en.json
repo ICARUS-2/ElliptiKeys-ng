@@ -20,5 +20,13 @@
         "ominousMsgLink": "Ominous message hidden in the private keys",
         "lessOminousMsgLink": "Another, slightly less ominous message",
         "didYouKnowLink": "Did you know?"
+    },
+
+    "footer":
+    {
+        "aboutLink": "About ElliptiKeys",
+        "donateLink": "Donate",
+        "sourceLink": "Source Code",
+        "devLink": "Developer Site"
     }
 }
