@@ -28,5 +28,19 @@
         "donateLink": "Faire un Don",
         "sourceLink": "Code Source",
         "devLink": "Site du Développeur"
+    },
+
+    "keyspage":
+    {
+        "testnetWarning": "Vous explorez actuellement les clés testnet. Testnet est une blockchain Bitcoin alternative que les développeurs utilisent pour les tests. Les pièces Testnet n'ont aucune valeur.",
+        "of": "de",
+
+        "autoGen": 
+        {
+            "activate" : "Activer Auto-Gen",
+            "stop": "Arrêter Auto-Gen",
+            "stopOnYellow": "Arrêter sur jaune/vert",
+            "stopOnGreen": "Arrêter sur vert"
+        }
     }
 }

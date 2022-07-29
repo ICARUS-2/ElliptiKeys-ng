@@ -4,7 +4,7 @@
 
     <div *ngIf="isTestnet">
         <div class="alert alert-warning" role="alert">
-            You are currently exploring testnet keys. Testnet is an alternative Bitcoin blockchain that developers use for testing. Testnet coins do not hold any value.
+            {{'keyspage.testnetWarning' | translate}}
         </div>          
     </div>
 
@@ -17,7 +17,7 @@
     <div class="d-flex align-items-center w-100 flex-column justify-content-center pageNumbers">
         <h4>Page</h4>
         <h5 id="currentPageNumber" style="max-width: 80%;">{{pageNumber}}</h5>
-        <h5>of</h5>
+        <h5>{{'keyspage.of' | translate}}</h5>
         <h5 id="maxPageNum" style="max-width: 80%;">{{maxPageNumber}}</h5>
     </div>
 
