@@ -12,7 +12,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  errorMessage : string = "";
+  errorMessage : boolean = false;
 
   constructor(private router: Router, private title: Title) { }
 
@@ -51,7 +51,7 @@ export class HomepageComponent implements OnInit {
     }
     catch(err)
     {
-      this.errorMessage = "That's not a valid private key"
+      this.errorMessage = true;
     }
   }
 }

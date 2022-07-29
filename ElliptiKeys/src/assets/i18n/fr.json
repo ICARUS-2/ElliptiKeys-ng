@@ -3,5 +3,22 @@
     {
         "explorerLink": "Explorateur",
         "walletGenLink": "Générateur de Portefeuille"
+    },
+
+    "homepage": 
+    {
+        "topHeader": "Chaque clé privée et adresse Bitcoin se trouve sur ce site.",
+        "topSubheader" : "La clé privée de Satoshi Nakamoto est cachée sur l'une des pages",
+        "viewRandomPageBtn": "Voir une page aléatoire",
+        "viewRandomTestnetPageBtn": "Voir une page testnet aléatoire",
+
+        "searchBarHeader": "Rechercher",
+        "searchBarSubheader": "Si vous êtes curieux de savoir sur quelle page se trouve votre clé privée, vous pouvez la rechercher.",
+        "searchBarSuggestion": "Cependant, entrer votre propre clé privée sur un site Web aléatoire est-il vraiment une bonne idée ?",
+        "searchBarErrMsg": "Ce n'est pas une clé privée valide!",
+
+        "ominousMsgLink": "Message inquiétant caché dans les clés privées",
+        "lessOminousMsgLink": "Un autre message un peu moins inquiétant",
+        "didYouKnowLink": "Le saviez vous?"
     }
 }

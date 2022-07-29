@@ -1,47 +1,47 @@
 <div style="width: 100%; display: flex; flex-direction: row; justify-content: center;">
     <div style="width: 90%">
-        <h1>Every Bitcoin private key and address is on this website.</h1>
-        <h2>Satoshi Nakamoto's private key is hidden on one of the pages...</h2>
+        <h1>{{"homepage.topHeader" | translate}}</h1>
+        <h2>{{"homepage.topSubheader" | translate}}</h2>
 
         <div class="m-5"></div>
         
         <div id="networkSelector">
             <div class="randomPageSelector d-flex flex-column align-items-center m-2">
                 <img src="../../assets/bitcoin-logo.webp" class="randomBitcoinImage">
-                <a routerLink="/random/" class="btn btn-lg btn-primary">View random page</a>
+                <a routerLink="/random/" class="btn btn-lg btn-primary">{{'homepage.viewRandomPageBtn' | translate}}</a>
             </div>
 
             <div class="randomPageSelector d-flex flex-column align-items-center m-2">
                 <img src="../../assets/bitcoin-testnet-logo.webp" class="randomBitcoinImage">
-                <a routerLink="/testnet-random/" class="btn btn-lg btn-primary">View random testnet page</a>
+                <a routerLink="/testnet-random/" class="btn btn-lg btn-primary">{{'homepage.viewRandomTestnetPageBtn' | translate}}</a>
             </div>
         </div>
 
         <div class="m-5"></div>
 
-        <h2>Search</h2>
-        <h4>If you are curious which page your private key is on, you can search for it.</h4>
-        <h4>Although, is entering your own private key on a random website really a good idea?</h4>
+        <h2>{{'homepage.searchBarHeader' | translate}}</h2>
+        <h4>{{'homepage.searchBarSubheader' | translate}}</h4>
+        <h4>{{'homepage.searchBarSuggestion' | translate}}</h4>
         <div>
             <form #keySearch (ngSubmit)="onSubmitSearch(keySearch)">
                 <div class="d-flex formSection">
                     <input type="text" class="w-100" style="font-size: xx-large; color: cyan" name="searchQuery" ngModel>
-                    <input type="submit" class="btn btn-primary" value="Search" style="margin-left: 10px"> 
+                    <input type="submit" class="btn btn-primary" value="{{'homepage.searchBarHeader' | translate}}" style="margin-left: 10px"> 
                 </div>
-                <div class="text-danger">{{errorMessage}}</div>
+                <div class="text-danger" *ngIf="errorMessage">{{'homepage.searchBarErrMsg' | translate}}</div>
             </form>
         </div>
 
         <div class="m-5"></div>
 
         <!--5KeysCompromisedStopUsingBitcoinSELLRightNow15Tj8do-->
-        <a class="btn btn-primary" routerLink="/bitcoin/3222902875913731132929374219339302437551006396422558791540872452158031727566">Ominous message hidden in the private keys</a>
+        <a class="btn btn-primary" routerLink="/bitcoin/3222902875913731132929374219339302437551006396422558791540872452158031727566">{{'homepage.ominousMsgLink' | translate}}</a>
         <div class="m-2"></div>
         <!--5JustBecauseThisHasTextDoesntMeanAnyThingy3aH2RVF3u-->
-        <a class="btn btn-primary" routerLink="/bitcoin/1920893857224251698851956081707102212832371280319186121226980176031649864934">Another, slightly less ominous message</a>
+        <a class="btn btn-primary" routerLink="/bitcoin/1920893857224251698851956081707102212832371280319186121226980176031649864934">{{'homepage.lessOminousMsgLink' | translate}}</a>
         <div class="m-2"></div>
         <!--5JxThis1sAReaLPrivateKey111111111111111112zcbiLwEsU-->
-        <a class="btn btn-primary" routerLink="/bitcoin/1998920985044971006926168363760028643659804791081506296469456080293837436660">Did you know?</a>
+        <a class="btn btn-primary" routerLink="/bitcoin/1998920985044971006926168363760028643659804791081506296469456080293837436660">{{'homepage.didYouKnowLink' | translate}}</a>
     
         <div style="margin-bottom: 75px;"></div>
     </div>

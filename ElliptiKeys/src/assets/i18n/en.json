@@ -3,5 +3,22 @@
     {
         "explorerLink": "Explorer",
         "walletGenLink": "Wallet Generator"
+    },
+
+    "homepage": 
+    {
+        "topHeader": "Every Bitcoin private key and address is on this website.",
+        "topSubheader": "Satoshi Nakamoto's private key is hidden on one of the pages...",
+        "viewRandomPageBtn": "View random page",
+        "viewRandomTestnetPageBtn": "View random testnet page",
+
+        "searchBarHeader": "Search",
+        "searchBarSubheader": "If you are curious which page your private key is on, you can search for it.",
+        "searchBarSuggestion": "Although, is entering your own private key on a random website really a good idea?",
+        "searchBarErrMsg": "That's not a valid private key!",
+ 
+        "ominousMsgLink": "Ominous message hidden in the private keys",
+        "lessOminousMsgLink": "Another, slightly less ominous message",
+        "didYouKnowLink": "Did you know?"
     }
 }
