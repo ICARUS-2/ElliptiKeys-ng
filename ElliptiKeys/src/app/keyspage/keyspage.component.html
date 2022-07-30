@@ -25,7 +25,7 @@
 
     <app-auto-gen [isTestnet]="isTestnet"></app-auto-gen>
     
-    <div *ngIf="isLoading && !autoGenService.autoModeActive" class="loadingDiv" style="height: 50px">Loading...</div>
+    <div *ngIf="isLoading && !autoGenService.autoModeActive" class="loadingDiv" style="height: 50px">{{'keyspage.loading' | translate}}</div>
     <app-pagebuttons *ngIf="!isLoading && !autoGenService.autoModeActive" style="width: 70%;" class="pageBtns"></app-pagebuttons>
 
     <div class="m-3"></div>
@@ -77,7 +77,9 @@
     </div>
 
     <app-pagebuttons *ngIf="!isLoading && !autoGenService.autoModeActive" style="width: 70%;" class="pageBtns"></app-pagebuttons>
-    <div *ngIf="isLoading && !autoGenService.autoModeActive" class="loadingDiv" style="height: 50px">Loading...</div>
+    <div *ngIf="isLoading && !autoGenService.autoModeActive" class="loadingDiv" style="height: 50px">{{'keyspage.loading' | translate}}</div>
+
+    <div style="margin-top: 25px;"></div>
 
     <app-auto-gen [isTestnet]="isTestnet"></app-auto-gen>
 
