@@ -1,19 +1,18 @@
 <div style="width: 100%; display: flex; flex-direction: row; justify-content: center;">
     <div style="width: 70%">
-        <h1>Donate</h1>
+        <h1>{{'donate.topHeader' | translate}}</h1>
         <p class="descParagraph">
-            ElliptiKeys is a project made to educate people about the security of the Bitcoin network.
-            Many people are concerned that their private key will be brute-forced, and this site is meant to
-            show that this will simply never be the case. 
+            {{'donate.mainDescription' | translate}}
             <br>
             <br>
-            All of the code for the site is 100%
-            <a href="https://github.com/ICARUS-2/ElliptiKeys-ng" target="blank">open-source</a> and
-            can be compiled and ran on any computer :)
+            
+            <span [innerHTML]="'donate.openSource' | translate"></span>
 
             <br>
             <br>
-            If you wish to support this site, any donation is greatly appreciated!
+            
+            <span [innerHTML]="'donate.wishToSupport' | translate"></span>
+
             <br>
             <br>
                 <img src="../../assets/bitcoin-logo.webp" style="width: 50px;"><i>bitcoin</i>
