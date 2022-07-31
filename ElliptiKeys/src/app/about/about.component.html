@@ -1,72 +1,72 @@
 <div style="width: 100%; display: flex; flex-direction: row; justify-content: center;">
     <div style="width: 75%">
-        <h1>About ElliptiKeys</h1>
-        <p class="descParagraph">As you could probably tell, this site is based off the ever-popular
-            <a href="https://keys.lol" target="blank">keys.lol site.</a> However, this version is capable of deriving 
-            every public key type including SegWit and Bech32 addresses, as opposed to only
-            Legacy-type addresses. This version also displays all compressed private keys
-            alongside uncompressed ones.
+        <h1>{{'about.topHeader' | translate}}</h1>
+        <p class="descParagraph">
+            <span [innerHTML]="'about.mainDescription' | translate">
+            
+            </span>
             <br>
             <br>
-            It's also in dark mode.
+            {{'about.darkMode' | translate}}
         </p>
 
-        <div style="margin-top: 100px"></div>
+        <div style="margin-top: 50px"></div>
 
-        <h2>2^256 possibilities</h2>
+        <h2>{{'about.nPossibilities' | translate}}</h2>
         <p class="descParagraph">
-            To visualize how many private keys there really are and how you will
-            never actually find any coins on here, I recommend watching
-            this video.
+            {{'about.toVisualize' | translate}}
         </p>
         <iframe style="width: 60%; height: 400px;" src="https://www.youtube.com/embed/S9JGmA5_unY?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
         <div style="margin-top: 100px"></div>
 
-        <h2>How it works</h2>
         <p class="descParagraph">
-            Knowing how massive the possible keyspace truly is, storing every single private and public key simply would not be possible.
-            The keys are all dynamically computed when the page is loaded. 
+            {{'about.howItWorks' | translate}}
             <br>
             <br>
-            Since we know a private key is
-            simply a number somewhere between 1 and 2^256, it calculates them starting at n=([page number] * [keys/page])
-            and derives every private key and its corresponding address formats from n to n + [keys/page].
-            Once the private and public keys have been derived, it uses the <a href="https://www.blockchain.com/api" target="blank">Blockchain.com API</a>
-            to perform the balance checking. 
+            <span [innerHTML]="'about.howItWorks2' | translate">
+
+            </span>
             <br>
             <br>
-            • Keys that have never been used will turn <span style="color: red;">red.</span> 
+
+            <span [innerHTML]="'about.redKeys' | translate"></span>
+
             <br>
-            • Keys that have been previously used that currently have zero balance will turn <span style="color: yellow;">yellow.</span>
+
+            <span [innerHTML]="'about.yellowKeys' | translate"></span>
+            
             <br>
-            • Keys that currently contain coins will turn <span style="color: lime;">green.</span>
+            
+            <span [innerHTML]="'about.greenKeys' | translate"></span>
+            
             <br>
-            • If you search for a private key, its text on the page will turn <span style="color: cyan;">cyan.</span>
+            
+            <span [innerHTML]="'about.cyanKeys' | translate"></span>
 
             <br>
             <br>
-            If you would like to know more about how this happens behind the scenes, I recommend taking a look
-            at <a href="https://www.oreilly.com/library/view/mastering-bitcoin-2nd/9781491954379/ch04.html#:~:text=In%20bitcoin%2C%20we%20use%20public,transactions%20to%20spend%20the%20funds." target="blank">this article.</a>
+
+            <span [innerHTML]="'about.knowMore' | translate"></span>
         </p>
 
         <div style="margin-top: 75px"></div>
 
-        <h2>External Tools Used</h2>
+        <h2>{{'about.externalToolsUsed' | translate}}</h2>
         <div style="margin-top: 25px"></div>
 
         <h3>Site:</h3>
         <ul class="externalSourceList">
-            <li><img src="../../assets/bitcoin-logo.webp" class="externalSourceListImg"> Bitcoin balance checker powered by <a href="https://www.blockchain.com/api" target="_blank">Blockchain.com Data API</a> and <a href="https://api.haskoin.com/">Haskoin API for Testnet</a></li>
-            <li><img src="../../assets/coingecko.webp" class="externalSourceListImg"> Price ticker data pulled from <a href="https://www.coingecko.com/" target="_blank">CoinGecko</a></li>
-            <li><img src="../../assets/icons8.webp" class="externalSourceListImg"> Icons sourced from <a href="https://icons8.com/" target="_blank">Icons8</a></li>
+            <li><img src="../../assets/bitcoin-logo.webp" class="externalSourceListImg"><span [innerHTML]="'about.btcBalanceChecker' | translate"></span></li>
+            <li><img src="../../assets/coingecko.webp" class="externalSourceListImg"><span [innerHTML]="'about.priceTickerData' | translate"></span></li>
+            <li><img src="../../assets/icons8.webp" class="externalSourceListImg"><span [innerHTML]="'about.icons8' | translate"></span></li>
         </ul>
 
         <h3>Code:</h3>
         <ul class="externalSourceList">
-            <li><img src="../../assets/angular.webp" class="externalSourceListImg"> Coded with <a href="https://angular.io/" target="_blank">Angular</a> framework</li>
-            <li><img src="../../assets/cryptojs.webp" class="externalSourceListImg"> JS cryptographic hashing library from <a href="https://cryptojs.gitbook.io/docs/" target="_blank">CryptoJS</a></li>
-            <li><img src="../../assets/github.webp" class="externalSourceListImg"> Elliptic Curve implementation by <a href="https://github.com/paulmillr/noble-secp256k1" target="_blank">paulmillr</a></li>
+            <li><img src="../../assets/angular.webp" class="externalSourceListImg"><span [innerHTML]="'about.angular' | translate"></span></li>
+            <li><img src="../../assets/cryptojs.webp" class="externalSourceListImg"><span [innerHTML]="'about.cryptoJs' | translate"></span></li>
+            <li><img src="../../assets/github.webp" class="externalSourceListImg"><span [innerHTML]="'about.ellipticCurve' | translate"></span></li>
         </ul>
 
         <div style="margin-top: 100px"></div>

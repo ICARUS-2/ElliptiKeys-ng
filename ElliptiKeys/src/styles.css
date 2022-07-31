@@ -24,6 +24,36 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
     color: cyan !important
 }
 
+.whiteLink
+{
+    color: white;
+}
+
+.whiteLink:visited
+{
+    color: white;
+}
+
+.text-red
+{
+    color: red;
+}
+
+.text-yellow
+{
+    color: yellow;
+}
+
+.text-lime
+{
+    color: lime;
+}
+
+.text-cyan
+{
+    color: cyan;
+}
+
 @media screen and (max-width: 768px)
 {
     .mobileScrollableTable {

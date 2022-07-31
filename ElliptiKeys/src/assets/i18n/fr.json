@@ -43,5 +43,34 @@
             "stopOnYellow": "Arrêter sur jaune/vert",
             "stopOnGreen": "Arrêter sur vert"
         }
+    },
+
+    "about": 
+    {
+        "topHeader": "À propos d'ElliptiKeys",
+        "mainDescription": "Comme vous pouvez probablement le constater, ce site est basé sur le toujours populaire <a href='https://keys.lol' class='whiteLink' target='blank'>site keys.lol</a>. Cependant, cette version est capable de dériver chaque type de clé publique, y compris les adresses SegWit et Bech32, par opposition à seulement adresses de type Legacy. Cette version affiche également toutes les clés privées compressées aux côtés de ceux non compressés.",
+        "darkMode": "C'est aussi en <<dark mode>>",
+        "nPossibilities": "2^256 possibilités",
+
+        "toVisualize": "Pour visualiser le nombre réel de clés privées et comment vous ne trouverez jamais des coins ici, je vous recommande de regarder cette vidéo.",
+        "howItWorksHeader": "Comment ça marche",
+        "howItWorks" : "Sachant à quel point l'espace de clés possible est vraiment massif, stocker chaque clé privée et publique ne serait tout simplement pas possible. Les clés sont toutes calculées dynamiquement lors du chargement de la page.",
+        "howItWorks2": "Puisque nous savons qu'une clé privée est simplement un nombre quelque part entre 1 et 2^256, il les calcule à partir de n=([numéro de page] * [clés/page]) et dérive chaque clé privée et ses formats d'adresse correspondants de n à n + [clés/page]. Une fois les clés privées et publiques dérivées, il utilise l'<a href='https://www.blockchain.com/api' class='whiteLink' target='blank'>API Blockchain.com</a> pour effectuer la vérification du solde.",
+        
+        "redKeys": "• Les clés qui n'ont jamais été utilisées deviendront <span class='text-red'>rouge.</span>",
+        "yellowKeys": "• Les clés qui ont été utilisées précédemment et qui ont actuellement un solde nul deviendront <span class='text-yellow'>jaunes.</span>",
+        "greenKeys": "• Les clés qui contiennent actuellement des coins deviendront <span class='text-lime'>vertes.</span>",
+        "cyanKeys": "• Si vous recherchez une clé privée, son texte sur la page deviendra <span class='text-cyan'>cyan.</span>",
+        "knowMore": "Si vous souhaitez en savoir plus sur la façon dont cela se passe dans les coulisses, je vous recommande de jeter un œil à <a href='https://www.oreilly.com/library/view/mastering-bitcoin-2nd/9781491954379/ch04. html#:~:text=Dans%20bitcoin%2C%20nous%20utilisons%20des%20transactions%20publiquespour%20dépenser%20les%20fonds.' target='_blank' class='whiteLink'>cet article.</a>",
+
+        "externalToolsUsed": "Outils externes utilisés",
+
+        "btcBalanceChecker": "Vérificateur de solde Bitcoin optimisé par <a href='https://www.blockchain.com/api' class='whiteLink' target='_blank'>API de données Blockchain.com</a> et <a href='https://api.haskoin.com/' class='whiteLink'>API Haskoin pour Testnet</a>",
+        "priceTickerData": "Données de prix tirées de <a href='https://www.coingecko.com/' target='_blank' class='whiteLink'>CoinGecko</a>",
+        "icons8": "Icônes provenant de <a href='https://icons8.com/' target='_blank' class='whiteLink'>Icons8</a>",
+    
+        "angular": "Codé avec le framework <a href='https://angular.io/' target='_blank' class='whiteLink'>Angular</a>",
+        "cryptoJs": "Bibliothèque de hachage cryptographique JS de <a href='https://cryptojs.gitbook.io/docs/' class='whiteLink' target='_blank'>CryptoJS</a>",
+        "ellipticCurve": "Implémentation de la courbe elliptique par <a href='https://github.com/paulmillr/noble-secp256k1' target='_blank' class='whiteLink'>paulmillr</a>"
     }
 }

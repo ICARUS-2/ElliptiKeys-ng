@@ -43,5 +43,34 @@
             "stopOnYellow": "Stop on yellow/green",
             "stopOnGreen": "Stop on green"
         }
+    },
+
+    "about": 
+    {
+        "topHeader": "About ElliptiKeys",
+        "mainDescription": "As you could probably tell, this site is based off the ever-popular <a href='https://keys.lol' class='whiteLink' target='blank'>keys.lol site.</a> However, this version is capable of deriving every public key type including SegWit and Bech32 addresses, as opposed to only Legacy-type addresses. This version also displays all compressed private keys alongside uncompressed ones.",
+        "darkMode": "It's also in dark mode",
+        "nPossibilities": "2^256 possibilities",
+        
+        "toVisualize" : "To visualize how many private keys there really are and how you will never actually find any coins on here, I recommend watching this video.",
+        "howItWorksHeader": "How it works",
+        "howItWorks": "Knowing how massive the possible keyspace truly is, storing every single private and public key simply would not be possible. The keys are all dynamically computed when the page is loaded. ",
+        "howItWorks2": "Since we know a private key is simply a number somewhere between 1 and 2^256, it calculates them starting at n=([page number] * [keys/page]) and derives every private key and its corresponding address formats from n to n + [keys/page]. Once the private and public keys have been derived, it uses the <a href='https://www.blockchain.com/api' class='whiteLink' target='blank'>Blockchain.com API</a> to perform the balance checking. ",
+        
+        "redKeys": "• Keys that have never been used will turn <span class='text-red'>red.</span> ",
+        "yellowKeys": "• Keys that have been previously used that currently have zero balance will turn <span class='text-yellow'>yellow.</span>",
+        "greenKeys": "• Keys that currently contain coins will turn <span class='text-lime'>green.</span>",
+        "cyanKeys": "• If you search for a private key, its text on the page will turn <span class='text-cyan'>cyan.</span>",
+        "knowMore": "If you would like to know more about how this happens behind the scenes, I recommend taking a look at <a href='https://www.oreilly.com/library/view/mastering-bitcoin-2nd/9781491954379/ch04.html#:~:text=In%20bitcoin%2C%20we%20use%20public,transactions%20to%20spend%20the%20funds.' target='_blank' class='whiteLink'>this article.</a>",
+
+        "externalToolsUsed": "External Tools Used",
+
+        "btcBalanceChecker": "Bitcoin balance checker powered by <a href='https://www.blockchain.com/api' class='whiteLink' target='_blank'>Blockchain.com Data API</a> and <a href='https://api.haskoin.com/' class='whiteLink'>Haskoin API for Testnet</a>",
+        "priceTickerData": "Price ticker data pulled from <a href='https://www.coingecko.com/' target='_blank' class='whiteLink'>CoinGecko</a>",
+        "icons8": "Icons sourced from <a href='https://icons8.com/' target='_blank' class='whiteLink'>Icons8</a>",
+
+        "angular": "Coded with <a href='https://angular.io/' target='_blank' class='whiteLink'>Angular</a> framework",
+        "cryptoJs": "JS cryptographic hashing library from <a href='https://cryptojs.gitbook.io/docs/' class='whiteLink' target='_blank'>CryptoJS</a>",
+        "ellipticCurve": "Elliptic Curve implementation by <a href='https://github.com/paulmillr/noble-secp256k1' target='_blank' class='whiteLink'>paulmillr</a>"
     }
 }
