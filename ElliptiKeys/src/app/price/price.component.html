@@ -6,8 +6,7 @@
         <div style="margin-right: 5px;"></div>
 
         <div style="display: flex; align-items: center;">
-            <img [src]="priceModel.getArrowImgSrc()" width="15" height="15">
-            <div style="font-family: Roboto, 'Helvetica Neue', sans-serif;" id="percentageChangeValue" [style.color]="priceModel.getColor()">{{priceModel.changePercentage}}%</div>
+            <div style="font-family: Roboto, 'Helvetica Neue', sans-serif; word-wrap: break-word;" id="percentageChangeValue" [style.color]="priceModel.getColor()">{{priceModel.getArrow()}}{{priceModel.changePercentage}}%</div>
         </div>
     </div>
 </div>

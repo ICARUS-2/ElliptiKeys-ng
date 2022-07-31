@@ -17,11 +17,11 @@ export default class PriceViewModel
         return "lime"
     }
     
-    getArrowImgSrc()
+    getArrow()
     {
         if (this.changePercentage < 0)
-            return "../../assets/down.webp"
+            return "↓"
 
-        return "../../assets/up.webp"
+        return "↑"
     }
 }
