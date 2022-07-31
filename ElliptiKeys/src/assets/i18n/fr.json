@@ -80,5 +80,18 @@
         "mainDescription": "ElliptiKeys est un projet conçu pour éduquer les gens sur la sécurité du réseau Bitcoin. De nombreuses personnes craignent que leur clé privée ne soit forcée, et ce site est destiné à montrer que ce ne sera tout simplement jamais le cas.",
         "openSource": "Tout le code du site est <a href='https://github.com/ICARUS-2/ElliptiKeys-ng' target='_blank' class='whiteLink'>100% open-source</a> et peut être compilé et exécuté sur n'importe quel ordinateur :)",
         "wishToSupport": "Si vous souhaitez soutenir ce site, tout don est grandement apprécié!"
+    },
+
+    "explorer": 
+    {
+        "address": 
+        {
+            "errorCallingApi": "Une erreur s'est produite lors de la récupération des données"
+        },
+        
+        "index": 
+        {
+
+        }
     }
 }
