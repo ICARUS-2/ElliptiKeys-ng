@@ -7,46 +7,49 @@
   [ellipses]="true"
   [maxSize]="7" class="pagination" *ngIf="transactions.length > pageSize"></ngb-pagination>
 
-    <div *ngIf="transactions.length == 0">No transactions found.</div>
+    <div *ngIf="transactions.length == 0">{{'explorer.transactionList.noTxFound' | translate}}</div>
 
     <div *ngFor="let tx of transactions | slice: (page-1) * pageSize : page * pageSize ">
       <table class="table mobileScrollableTable">
         <tbody>
           <tr>
-            <th scope="row">Amount</th>
+            <th scope="row">{{'explorer.transactionList.table.amount' | translate}}</th>
             <td style="display: flex;"> <h6><span class="alert" style="padding: 5px;" [ngClass]="{ 'alert-success text-success': tx.model.result >= 0, 'alert-danger text-danger': tx.model.result < 0 }">{{tx.model.result >= 0 ? "+" : ""}} {{satoshiService.get(tx.model.result)}} BTC</span></h6> <h6 *ngIf="tx.model.isCoinbase"><span style="padding: 5px; margin-left: 5px;" class="alert alert-info text-primary">COINBASE TRANSACTION</span></h6> </td>
           </tr>
           
           <tr>
-            <th scope="row">Hash/ID</th>
+            <th scope="row">{{'explorer.transactionList.table.hash' | translate}}</th>
             <td><a [routerLink]="getTransactionExplorerLink(tx.model.hash)">{{tx.model.hash}}</a></td>
           </tr>
 
           <tr>
-            <th scope="row">Fee</th>
+            <th scope="row">{{'explorer.transactionList.table.fee' | translate}}</th>
             <td>{{satoshiService.get(tx.model.fee)}} BTC</td>
           </tr>
 
           <tr>
-            <th scope="row">Status</th>
-            <td><span class="badge" [ngClass]=" {'bg-danger' : tx.model.block == null, 'bg-success' : tx.model.block != null}">{{tx.model.block == null ? "Unconfirmed" : "Confirmed"}}</span></td>
+            <th scope="row">{{'explorer.transactionList.table.status' | translate}}</th>
+            <td><span class="badge" [ngClass]=" {'bg-danger' : tx.model.block == null, 'bg-success' : tx.model.block != null}">{{(tx.model.block == null ? "explorer.transactionList.table.unconfirmed" : "explorer.transactionList.table.confirmed") | translate}}</span></td>
           </tr>
 
           <tr>
-            <th scope="row">Block No.</th>
+            <th scope="row">{{'explorer.transactionList.table.blockNum' | translate}}</th>
             <td *ngIf="tx.model.block == null"></td>
             <td *ngIf="tx.model.block != null"><a [routerLink]="getBlockExplorerLink(tx.model.block)">{{tx.model.block}}</a></td>
           </tr>
 
           <tr>
-            <th scope="row">Timestamp</th>
+            <th scope="row">{{'explorer.transactionList.table.timestamp' | translate}}</th>
             <td>{{dateFormatter.formatUnixTime(tx.model.time)}}</td>
           </tr>
 
         </tbody>
       </table>
 
-      <button *ngIf="tx.shouldDisplayButton()" (click)="tx.toggleCollapse()" class="btn btn-primary">{{tx.getButtonText()}}</button>
+      <button *ngIf="tx.shouldDisplayButton()" (click)="tx.toggleCollapse()" class="btn btn-primary">
+        <ng-container *ngIf="tx.isCollapsed">{{'explorer.transactionList.table.showBtn' | translate}} ({{tx.getTotalIO()}})</ng-container> 
+        <ng-container *ngIf="!tx.isCollapsed">{{'explorer.transactionList.table.hideBtn' | translate}}</ng-container> 
+      </button>
 
       <div class="row">
         <div class="col">

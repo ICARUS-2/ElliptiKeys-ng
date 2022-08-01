@@ -9,44 +9,44 @@
       <table class="table mobileScrollableTable">
           <tbody>
             <tr>
-              <th scope="row">Private Key</th>
+              <th scope="row">{{'explorer.privateKey.table.privateKey' | translate}}</th>
               <td>{{key}}</td>
             </tr>
             <tr>
-              <th scope="row">Network</th>
+              <th scope="row">{{'explorer.privateKey.table.network' | translate}}</th>
               <td>{{isTestnet ? "Testnet" : "Mainnet"}}</td>
             </tr>
 
             <tr>
-              <th scope="row">Format</th>
+              <th scope="row">{{'explorer.privateKey.table.format' | translate}}</th>
               <td>
-                <h5><span class="badge" [ngClass]="{ 'bg-danger': !isCompressed, 'bg-success': isCompressed}">{{isCompressed ? "Compressed" : "Uncompressed"}}</span></h5>
+                <h5><span class="badge" [ngClass]="{ 'bg-danger': !isCompressed, 'bg-success': isCompressed}">{{ (isCompressed ? "explorer.privateKey.table.compressed" : "explorer.privateKey.table.uncompressed") | translate}}</span></h5>
               </td>
             </tr>
 
             <tr>
-                <th scope="row">{{isCompressed ? "Uncompressed" : "Compressed"}} Version</th>
+                <th scope="row">{{ (isCompressed ? "explorer.privateKey.table.uncompressedVersion" : "explorer.privateKey.table.compressedVersion") | translate}}</th>
                 <td><a [routerLink]="getWifExplorerUrl()">{{oppositeKeyFormat}}</a></td>
             </tr>
 
             <tr>
-                <th scope="row">Legacy Address</th>
+                <th scope="row">{{'explorer.privateKey.table.legacyAddress' | translate}}</th>
                 <td><a [routerLink]="getAddressExplorerUrl('legacy')">{{legacyAddress}}</a></td>
             </tr>
 
             <tr *ngIf="isCompressed">
-                <th scope="row">SegWit Address</th>
+                <th scope="row">{{'explorer.privateKey.table.segwitAddress' | translate}}</th>
                 <td><a [routerLink]="getAddressExplorerUrl('segwit')">{{segwitAddress}}</a></td>
             </tr>
 
             <tr *ngIf="isCompressed">
-                <th scope="row">Bech32 Address</th>
+                <th scope="row">{{'explorer.privateKey.table.bech32Address' | translate}}</th>
                 <td><a [routerLink]="getAddressExplorerUrl('bech32')">{{bech32Address}}</a></td>
             </tr>
 
             <tr>
-                <th scope="row">Page</th>
-                <td><a [routerLink]="getOpenPageButtonLink()" (click)="handleOpenPageButtonClick()" class="btn btn-primary">Open ElliptiKeys Page</a></td>
+                <th scope="row">{{'explorer.privateKey.table.page' | translate}}</th>
+                <td><a [routerLink]="getOpenPageButtonLink()" (click)="handleOpenPageButtonClick()" class="btn btn-primary">{{'explorer.privateKey.table.openElliptiKeysPage' | translate}}</a></td>
             </tr>
           </tbody>
         </table>

@@ -48,6 +48,11 @@ export default class TransactionViewModel
         return this.isCollapsed ? "Show all ("+totalEntries+")" : "Hide list"
     }
 
+    getTotalIO()
+    {
+        return this.model.inputs.length + this.model.outputs.length;
+    }
+
     getHiddenTotal()
     {
         return (this.model.inputs.length + this.model.outputs.length) - (this.getVisibleInputs().length + this.getVisibleOutputs().length)

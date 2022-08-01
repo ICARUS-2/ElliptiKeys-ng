@@ -144,7 +144,48 @@
 
         "privateKey": 
         {
-            "topHeader": "WIF Private Key"
+            "topHeader": "WIF Private Key",
+
+            "table":
+            {
+                "privateKey": "Private Key",
+                "network": "Network",
+                "format": "Format",
+                "uncompressed": "Uncompressed",
+                "compressed": "Compressed",
+                "uncompressedVersion": "Uncompressed Version",
+                "compressedVersion": "Compressed Version",
+                "legacyAddress": "Legacy Address",
+                "segwitAddress": "SegWit Address",
+                "bech32Address": "Bech32 Address",
+                "page": "Page",
+                "openElliptiKeysPage": "Open ElliptiKeys Page"
+            }
+        },
+
+        "transaction":
+        {
+            "topHeader": "Transaction"
+        },
+
+        "transactionList": 
+        {
+            "noTxFound": "No transactions found.",
+
+            "table": 
+            {
+                "amount": "Amount",
+                "hash": "Hash/ID",
+                "fee": "Fee",
+                "confirmed": "Confirmed",
+                "unconfirmed": "Unconfirmed",
+                "status": "Status",
+                "blockNum": "Block No.",
+                "timestamp": "Timestamp",
+
+                "showBtn": "Show All",
+                "hideBtn": "Hide List"
+            }
         }
     }
 }

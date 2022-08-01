@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import SearchResultViewModel from '../../../../models/search-result-view-model';
 import Keys from 'lib/keys/Keys';
 import KeysHelper from './../../../../lib/keys-helper';
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './explorer-index.component.html',
   styleUrls: ['./explorer-index.component.css']
 })
-export class ExplorerIndexComponent implements OnInit {
+export class ExplorerIndexComponent implements OnInit, OnDestroy {
   TRANSACTION_HASH_LENGTH = 64;
 
   searchResults: SearchResultViewModel[] = [];
@@ -38,6 +38,10 @@ export class ExplorerIndexComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    this.languageSubscription.unsubscribe();
   }
 
   onSubmitSearch()
