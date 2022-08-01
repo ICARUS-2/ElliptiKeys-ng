@@ -3,26 +3,26 @@
         <div class="d-flex align-items-center">
             <img src="../../../assets/block.webp" style="margin-right: 10px;" width="50px" height="50px"> <!--Cube by Icons8-->
             <div>
-                <h2>ElliptiKeys Blockchain Explorer</h2>
-                <h4>Powered by <a href="https://www.blockchain.com/api" target="_blank">Blockchain.com</a> and <a href="https://haskoin.com/" target="_blank">Haskoin</a></h4>
+                <h2>{{'explorer.index.topHeader' | translate}}</h2>
+                <h4 [innerHTML]="'explorer.index.poweredBy' | translate"></h4>
             </div>
         </div>
 
         <div class="m-4"></div>
-        <h2>Using this tool, you can look up any Bitcoin or Testnet block number, address, transaction, or even a private key (please not your own) to view its data.</h2>
+        <h2>{{'explorer.index.mainDescription' | translate}}</h2>
     
         <div class="m-5"></div>
     
         <div>
-            <form #explorerSearch (ngSubmit)="onSubmitSearch(explorerSearch)">
+            <form (ngSubmit)="onSubmitSearch()">
                 <div class="d-flex formSection">
-                    <input type="text" class="w-100" style="font-size: xx-large; color: cyan" name="searchQuery" ngModel>
-                    <input type="submit" class="btn btn-primary" value="Search" style="margin-left: 10px"> 
+                    <input type="text" class="w-100" style="font-size: xx-large; color: cyan" name="searchQuery" [(ngModel)]="searchQuery">
+                    <input type="submit" class="btn btn-primary" [value]="'explorer.index.searchBtn' | translate" style="margin-left: 10px"> 
                 </div>
             </form>
         </div>
 
-        <h3>{{searchResultHeader}}</h3>
+        <h3 *ngIf="didSearch">{{searchResultHeader}}</h3>
         
         <div style="margin: 20px;"></div>
 

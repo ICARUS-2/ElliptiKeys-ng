@@ -1,58 +1,58 @@
 <div class="container">
     <div class="m-2"></div>
 
-    <h2>Block {{blockNum}}</h2>
+    <h2>{{'explorer.block.topHeader' | translate}} {{blockNum}}</h2>
 
     <table class="table mobileScrollableTable">
         <tbody>
         <tr>
-            <th scope="row">Hash</th>
+            <th scope="row">{{'explorer.block.table.hash' | translate}}</th>
             <td>{{blockModel?.hash}}</td>
         </tr>
         <tr>
-            <th scope="row">Previous Hash</th>
+            <th scope="row">{{'explorer.block.table.previousHash' | translate}}</th>
             <td>{{blockModel?.prevHash}}</td>
         </tr>
         <tr>
-            <th scope="row">Network</th>
+            <th scope="row">{{'explorer.block.table.network' | translate}}</th>
             <td>{{isTestnet ? "Testnet" : "Mainnet"}}</td>
         </tr>
         <tr>
-            <th scope="row">Merkle Root</th>
+            <th scope="row">{{'explorer.block.table.merkleRoot' | translate}}</th>
             <td>{{blockModel?.merkleRoot}}</td>
         </tr>
         <tr>
-            <th scope="row">Transactions</th>
+            <th scope="row">{{'explorer.block.table.transactions' | translate}}</th>
             <td>{{blockModel?.txCount}}</td>
         </tr>
         <tr>
-            <th scope="row">Timestamp</th>
+            <th scope="row">{{'explorer.block.table.timestamp' | translate}}</th>
             <td>{{dateFormatter.formatUnixTime(blockModel?.timeStamp)}}</td>
         </tr>
         <tr>
-            <th scope="row">Nonce</th>
+            <th scope="row">{{'explorer.block.table.nonce' | translate}}</th>
             <td>{{blockModel?.nonce}}</td>
         </tr>
         <tr>
-            <th scope="row">Size</th>
+            <th scope="row">{{'explorer.block.table.size' | translate}}</th>
             <td>{{blockModel?.sizeInBytes}} bytes</td>
         </tr>
         <tr>
-            <th scope="row">Base Reward</th>
+            <th scope="row">{{'explorer.block.table.baseReward' | translate}}</th>
             <td>{{blockModel?.getBlockReward()?.toFixed(8)}} BTC</td>
         </tr>
         <tr>
-            <th scope="row">Fee Reward</th>
+            <th scope="row">{{'explorer.block.table.feeReward' | translate}}</th>
             <td>{{satoshiService.get(blockModel?.fee)}} BTC</td>
         </tr>
         <tr>
-            <th scope="row">Volume</th>
+            <th scope="row">{{'explorer.block.table.volume' | translate}}</th>
             <td>{{satoshiService.get(blockModel?.volume)}} BTC</td>
         </tr>
         </tbody>
     </table>
 
-    <h2>Transactions</h2>
+    <h2>{{'explorer.block.transactionsHeader' | translate}}</h2>
 
     <app-explorer-transaction-list [transactions]="transactions" [isTestnet]="isTestnet"></app-explorer-transaction-list>
   

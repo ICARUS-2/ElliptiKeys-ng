@@ -86,12 +86,65 @@
     {
         "address": 
         {
-            "errorCallingApi": "Une erreur s'est produite lors de la récupération des données"
+            "errorCallingApi": "Une erreur s'est produite lors de la récupération des données",
+            "topHeader": "Adresse",
+
+            "table": 
+            {
+                "network": "Réseau",
+                "format": "Format",
+                "totalReceived": "Totale Reçue",
+                "totalSent": "Totale Envoyé",
+                "balance": "Solde",
+                "transactions": "Transactions"
+            },
+
+            "transactionsHeader": "Transactions"
+        },
+
+        "block": 
+        {
+            "topHeader": "Bloc",
+
+            "table": 
+            {
+                "hash": "Hash",
+                "previousHash": "Hash Précédent",
+                "network": "Réseau",
+                "merkleRoot": "Racine de Merkle",
+                "transactions": "Transactions",
+                "timestamp": "Date/Heure",
+                "nonce": "Nonce",
+                "size": "Taille",
+                "baseReward": "Récompense de Base",
+                "feeReward": "Récompense de Frais",
+                "volume": "Volume"
+            },
+            
+            "transactionsHeader": "Transactions"
         },
         
         "index": 
         {
+            "topHeader": "Explorateur de Blockchain ElliptiKeys",
+            "poweredBy": "Propulsé par <a href='https://www.blockchain.com/api' target='_blank' class='whiteLink'>Blockchain.com</a> et <a href='https://haskoin.com /' target='_blank' class='whiteLink'>Haskoin</a>",
+            "mainDescription": "À l'aide de cet outil, vous pouvez rechercher n'importe quel numéro de bloc Bitcoin ou Testnet, adresse, transaction ou même une clé privée (pas le tien SVP) pour afficher ses données.",
+            "searchBtn": "Rechercher",
+            "noSearchResults": "Pas de résultats pour ",
+            "possibleSearchResults": "résultats possible pour",
 
+            "searchType":
+            {
+                "address": "Adresse",
+                "privateKey": "Clé Privée (WIF)",
+                "transaction": "Transaction",
+                "block": "Bloc"
+            }
+        },
+
+        "privateKey": 
+        {
+            "topHeader": "Clé Privée (WIF)"
         }
     }
 }

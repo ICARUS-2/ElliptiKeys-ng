@@ -86,14 +86,65 @@
     {
         "address": 
         {
+            "errorCallingApi": "Error occurred while retrieving data",
+            "topHeader": "Address",
+            
+            "table":
+            {
+                "network": "Network",
+                "format": "Format",
+                "totalReceived": "Total Received",
+                "totalSent": "Total Sent",
+                "balance": "Balance",
+                "transactions": "Transactions"
+            },
 
-            "errorCallingApi": "Error occurred while retrieving data"
+            "transactionsHeader": "Transactions"
+        },
 
+        "block": 
+        {
+            "topHeader": "Block",
+            
+            "table": 
+            {
+                "hash": "Hash",
+                "previousHash": "Previous Hash",
+                "network": "Network",
+                "merkleRoot": "Merkle Root",
+                "transactions": "Transactions",
+                "timestamp": "Timestamp",
+                "nonce": "Nonce",
+                "size": "Size",
+                "baseReward": "Base Reward",
+                "feeReward": "Fee Reward",
+                "volume": "Volume"
+            },
+
+            "transactionsHeader": "Transactions"
         },
 
         "index": 
         {
+            "topHeader": "ElliptiKeys Blockchain Explorer",
+            "poweredBy": "Powered by <a href='https://www.blockchain.com/api' target='_blank' class='whiteLink'>Blockchain.com</a> and <a href='https://haskoin.com/' target='_blank' class='whiteLink'>Haskoin</a>",
+            "mainDescription": "Using this tool, you can look up any Bitcoin or Testnet block number, address, transaction, or even a private key (please not your own) to view its data.",
+            "searchBtn": "Search",
+            "noSearchResults": "No search results for ",
+            "possibleSearchResults": "possible search results for ",
 
+            "searchType":
+            {
+                "address": "Address",
+                "privateKey": "WIF Private Key",
+                "transaction": "Transaction",
+                "block": "Block"
+            }
+        },
+
+        "privateKey": 
+        {
+            "topHeader": "WIF Private Key"
         }
     }
 }

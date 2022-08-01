@@ -3,47 +3,47 @@
   <div class="m-2"></div>
 
   <div *ngIf="errorCallingApi" class="alert alert-danger">{{'explorer.address.errorCallingApi' | translate}}</div>
-  <h2>Address</h2>
+  <h2>{{'explorer.address.topHeader' | translate}}</h2>
 
   <div class="mainInnerDiv">
     <qrcode [qrdata]="address" [width]="300" [errorCorrectionLevel]="'M'" class="m-5"></qrcode>
     <table class="table mobileScrollableTable">
         <tbody>
           <tr>
-            <th scope="row">Address</th>
+            <th scope="row">{{'explorer.address.topHeader' | translate}}</th>
             <td>{{addressModel?.address}}</td>
           </tr>
           <tr>
-            <th scope="row">Network</th>
+            <th scope="row">{{'explorer.address.table.network' | translate}}</th>
             <td>{{isTestnet ? "Testnet" : "Mainnet"}}</td>
           </tr>
           <tr>
-            <th scope="row">Format</th>
+            <th scope="row">{{'explorer.address.table.format' | translate}}</th>
             <td>
               <h5><span class="badge" [ngClass]="{ 'bg-danger': addressModel?.getFormat() == 'legacy', 'bg-primary': addressModel?.getFormat() == 'segwit', 'bg-success': addressModel?.getFormat() == 'bech32'}">{{addressModel?.getDisplayFormat()}}</span></h5>
             </td>
           </tr>
           <tr>
-            <th scope="row">Transactions</th>
+            <th scope="row">{{'explorer.address.table.transactions' | translate}}</th>
             <td>{{addressModel?.transactions}}</td>
           </tr>
           <tr>
-            <th scope="row">Total Received</th>
+            <th scope="row">{{'explorer.address.table.totalReceived' | translate}}</th>
             <td>{{addressModel?.getBtcReceived()}} BTC</td>
           </tr>
           <tr>
-            <th scope="row">Total Sent</th>
+            <th scope="row">{{'explorer.address.table.totalSent' | translate}}</th>
             <td>{{addressModel?.getBtcSent()}} BTC</td>
           </tr>
           <tr>
-            <th scope="row">Balance</th>
+            <th scope="row">{{'explorer.address.table.balance' | translate}}</th>
             <td>{{addressModel?.getBtcBalance()}} BTC</td>
           </tr>
         </tbody>
       </table>
   </div>
 
-  <h2>Transactions</h2>
+  <h2>{{'explorer.address.transactionsHeader' | translate}}</h2>
 
   <app-explorer-transaction-list [transactions]="transactions" [isTestnet]="isTestnet"></app-explorer-transaction-list>
 

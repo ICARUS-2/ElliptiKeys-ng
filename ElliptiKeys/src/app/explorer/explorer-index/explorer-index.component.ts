@@ -4,6 +4,8 @@ import Keys from 'lib/keys/Keys';
 import KeysHelper from './../../../../lib/keys-helper';
 import { URLS } from './../../../../lib/urls';
 import { Title } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-explorer-index',
@@ -16,42 +18,56 @@ export class ExplorerIndexComponent implements OnInit {
   searchResults: SearchResultViewModel[] = [];
   searchResultHeader: string = "";
 
-  constructor(private title: Title) 
+  didSearch: boolean = false;
+
+  searchQuery: string = "";
+
+  languageSubscription: Subscription
+
+  constructor(private title: Title, private translate: TranslateService) 
   {
     title.setTitle("ElliptiKeys Block Explorer")
+
+    this.languageSubscription = translate.onLangChange.subscribe( () =>
+    {
+      let savedSearchState: boolean = this.didSearch;
+
+      this.onSubmitSearch();
+      this.didSearch = savedSearchState;
+    } )
   }
 
   ngOnInit(): void {
   }
 
-  onSubmitSearch(searchForm: HTMLFormElement)
+  onSubmitSearch()
   {
-    this.searchResults = [];
+    this.didSearch = true;
 
-    let searchQuery:string = searchForm["searchQuery"].value;
+    this.searchResults = [];
 
     try
     {
       //Check if user searched for an address
-      if(Keys.ValidateBitcoinAddress(searchQuery))
+      if(Keys.ValidateBitcoinAddress(this.searchQuery))
       {
         let model = new SearchResultViewModel();
 
-        model.text = searchQuery;
-        model.searchType = SearchResultViewModel.SEARCH_TYPE.address;
-        if (KeysHelper.IsAddressTestnet(searchQuery))
+        model.text = this.searchQuery;
+        model.searchType = this.translate.instant("explorer.index.searchType.address")
+        if (KeysHelper.IsAddressTestnet(this.searchQuery))
         {
           model.networkType = SearchResultViewModel.NETWORK_TYPE.testnet;
-          model.link = URLS.BASE_TESTNET_EXPLORER_URL+searchQuery;
+          model.link = URLS.BASE_TESTNET_EXPLORER_URL+this.searchQuery;
         }
         else
         {
           model.networkType = SearchResultViewModel.NETWORK_TYPE.bitcoin;
-          model.link = URLS.BASE_EXPLORER_URL+searchQuery;
+          model.link = URLS.BASE_EXPLORER_URL+this.searchQuery;
         }
 
         this.searchResults.push(model);
-        this.updateSearchHeader(searchQuery);
+        this.updateSearchHeader();
         return;
       }
     }
@@ -63,28 +79,28 @@ export class ExplorerIndexComponent implements OnInit {
     try
     {
       //Check if user searched for a private key
-      if (Keys.ValidatePrivateKey(searchQuery))
+      if (Keys.ValidatePrivateKey(this.searchQuery))
       {
         let model = new SearchResultViewModel();
 
-        model.text = searchQuery;
-        model.searchType = SearchResultViewModel.SEARCH_TYPE.privateKey;
+        model.text = this.searchQuery;
+        model.searchType = this.translate.instant("explorer.index.searchType.privateKey");
 
-        if (Keys.ValidatePrivateKey(searchQuery))
+        if (Keys.ValidatePrivateKey(this.searchQuery))
         {
-          if (KeysHelper.IsPrivateKeyTestnet(searchQuery))
+          if (KeysHelper.IsPrivateKeyTestnet(this.searchQuery))
           {
             model.networkType = SearchResultViewModel.NETWORK_TYPE.testnet;
-            model.link = URLS.BASE_TESTNET_WIF_EXPLORER_URL+searchQuery;
+            model.link = URLS.BASE_TESTNET_WIF_EXPLORER_URL+this.searchQuery;
           }
           else
           {
             model.networkType = SearchResultViewModel.NETWORK_TYPE.bitcoin;
-            model.link = URLS.BASE_WIF_EXPLORER_URL+searchQuery;
+            model.link = URLS.BASE_WIF_EXPLORER_URL+this.searchQuery;
           }
 
           this.searchResults.push(model)
-          this.updateSearchHeader(searchQuery);
+          this.updateSearchHeader();
           return;
         }
       }
@@ -96,7 +112,7 @@ export class ExplorerIndexComponent implements OnInit {
 
 
     //Check if user searched for a block number
-    let queryAsNumber = Number(searchQuery)
+    let queryAsNumber = Number(this.searchQuery)
     if (!isNaN(queryAsNumber))
     {
       if (queryAsNumber > 0)
@@ -107,21 +123,21 @@ export class ExplorerIndexComponent implements OnInit {
         mModel.networkType = SearchResultViewModel.NETWORK_TYPE.bitcoin;
         tModel.networkType = SearchResultViewModel.NETWORK_TYPE.testnet;
 
-        mModel.text = searchQuery;
-        tModel.text = searchQuery;
+        mModel.text = this.searchQuery;
+        tModel.text = this.searchQuery;
 
-        mModel.link = URLS.BASE_BLOCK_EXPLORER_URL+searchQuery;
-        tModel.link = URLS.BASE_TESTNET_BLOCK_EXPLORER_URL+searchQuery;
+        mModel.link = URLS.BASE_BLOCK_EXPLORER_URL+this.searchQuery;
+        tModel.link = URLS.BASE_TESTNET_BLOCK_EXPLORER_URL+this.searchQuery;
 
-        mModel.searchType = SearchResultViewModel.SEARCH_TYPE.block;
-        tModel.searchType = SearchResultViewModel.SEARCH_TYPE.block;
+        mModel.searchType = this.translate.instant("explorer.index.searchType.block");
+        tModel.searchType = this.translate.instant("explorer.index.searchType.block");
 
         this.searchResults.push(mModel);
         this.searchResults.push(tModel);
       }
     }
 
-    if (searchQuery.length == this.TRANSACTION_HASH_LENGTH && searchQuery.toLowerCase() == searchQuery)
+    if (this.searchQuery.length == this.TRANSACTION_HASH_LENGTH && this.searchQuery.toLowerCase() == this.searchQuery)
     {
       let mModel = new SearchResultViewModel();
       let tModel = new SearchResultViewModel();
@@ -129,24 +145,24 @@ export class ExplorerIndexComponent implements OnInit {
       mModel.networkType = SearchResultViewModel.NETWORK_TYPE.bitcoin;
       tModel.networkType = SearchResultViewModel.NETWORK_TYPE.testnet;
 
-      mModel.text = searchQuery;
-      tModel.text = searchQuery;
+      mModel.text = this.searchQuery;
+      tModel.text = this.searchQuery;
 
-      mModel.link = URLS.BASE_TRANSACTION_EXPLORER_URL+searchQuery;
-      tModel.link = URLS.BASE_TESTNET_TRANSACTION_EXPLORER_URL+searchQuery;
+      mModel.link = URLS.BASE_TRANSACTION_EXPLORER_URL+this.searchQuery;
+      tModel.link = URLS.BASE_TESTNET_TRANSACTION_EXPLORER_URL+this.searchQuery;
 
-      mModel.searchType = SearchResultViewModel.SEARCH_TYPE.transaction;
-      tModel.searchType = SearchResultViewModel.SEARCH_TYPE.transaction;
+      mModel.searchType = this.translate.instant("explorer.index.searchType.transaction");
+      tModel.searchType = this.translate.instant("explorer.index.searchType.transaction");
 
       this.searchResults.push(mModel);
       this.searchResults.push(tModel);
     }
 
-    this.updateSearchHeader(searchQuery);
+    this.updateSearchHeader();
   }
 
-  updateSearchHeader(searchQuery: string)
+  updateSearchHeader()
   {
-    this.searchResults.length == 0 ? this.searchResultHeader = "No search results for \""+searchQuery+"\"" : this.searchResultHeader = this.searchResults.length + " possible results for \"" + searchQuery + "\"";
+    this.searchResults.length == 0 ? this.searchResultHeader = this.translate.instant("explorer.index.noSearchResults")+ " \""+this.searchQuery+"\"" : this.searchResultHeader = this.searchResults.length + " " + this.translate.instant("explorer.index.possibleSearchResults") + " \"" + this.searchQuery + "\"";
   }
 }
