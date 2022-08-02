@@ -13,7 +13,7 @@ export class PriceService {
     
   }
 
-  async GetPrice() : Promise<object>
+  async getPrice() : Promise<object>
   {
     if (this._CanCallApi())
     {
@@ -38,6 +38,22 @@ export class PriceService {
     }
 
     return LocalStorageHelper.GetLastRecordedPrice();
+  }
+
+  btcToUsd(btcAmnt: number | undefined)
+  {
+    if (btcAmnt == undefined)
+      return "<invalid amount>"
+
+    try
+    {
+      let lastRecorded = LocalStorageHelper.GetLastRecordedPrice()["bitcoin"]["usd"];
+      return (lastRecorded * btcAmnt).toFixed(2);
+    }
+    catch(err)
+    {
+      return "<price unavailable>"
+    }
   }
 
   async _FetchPrice()

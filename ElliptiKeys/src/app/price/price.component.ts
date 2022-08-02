@@ -22,7 +22,7 @@ export class PriceComponent implements OnInit {
   async ngOnInit(): Promise<void> {
 
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe( async (event) => {
-      this.price = await this.priceService.GetPrice();
+      this.price = await this.priceService.getPrice();
 
       //@ts-ignore
       if (this.price["bitcoin"])

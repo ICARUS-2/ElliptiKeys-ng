@@ -8,6 +8,7 @@ import TransactionApi from './../../../../lib/transaction-api';
 import TransactionViewModel from './../../../../models/transaction-view-model';
 import { SatoshiToBitcoinService } from 'src/app/services/satoshi-to-bitcoin/satoshi-to-bitcoin.service';
 import { DateFormatterService } from 'src/app/services/date-formatter/date-formatter.service';
+import { PriceService } from './../../services/price/price.service';
 
 @Component({
   selector: 'app-explorer-address',
@@ -24,6 +25,7 @@ export class ExplorerAddressComponent implements OnInit {
 
   satoshiService: SatoshiToBitcoinService;
   dateFormatter: DateFormatterService;
+  priceService: PriceService;
 
   transactionApi: TransactionApi = new TransactionApi();
 
@@ -31,7 +33,8 @@ export class ExplorerAddressComponent implements OnInit {
     private router: Router, 
     private title: Title, 
     satoshiToBtc: SatoshiToBitcoinService,
-    dateFormatter: DateFormatterService) 
+    dateFormatter: DateFormatterService,
+    priceService: PriceService) 
   {
     activeRoute.params.subscribe( (d)=> 
     {
@@ -50,6 +53,7 @@ export class ExplorerAddressComponent implements OnInit {
     title.setTitle("Address: " + this.address)
     this.satoshiService = satoshiToBtc;
     this.dateFormatter = dateFormatter;
+    this.priceService = priceService;
    }
 
   async ngOnInit(): Promise<void> {

@@ -29,15 +29,15 @@
           </tr>
           <tr>
             <th scope="row">{{'explorer.address.table.totalReceived' | translate}}</th>
-            <td>{{addressModel?.getBtcReceived()}} BTC</td>
+            <td>{{addressModel?.getBtcReceived()}} BTC (${{priceService.btcToUsd(addressModel?.getBtcReceived())}})</td>
           </tr>
           <tr>
             <th scope="row">{{'explorer.address.table.totalSent' | translate}}</th>
-            <td>{{addressModel?.getBtcSent()}} BTC</td>
+            <td>{{addressModel?.getBtcSent()}} BTC (${{priceService.btcToUsd(addressModel?.getBtcSent())}})</td>
           </tr>
           <tr>
             <th scope="row">{{'explorer.address.table.balance' | translate}}</th>
-            <td>{{addressModel?.getBtcBalance()}} BTC</td>
+            <td>{{addressModel?.getBtcBalance()}} BTC (${{priceService.btcToUsd(addressModel?.getBtcBalance())}})</td>
           </tr>
         </tbody>
       </table>
