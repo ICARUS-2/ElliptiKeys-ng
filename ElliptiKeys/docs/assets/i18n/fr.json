@@ -199,9 +199,7 @@
 
         "bulkGenerate": 
         {
-            "quantity": "Quantité",
-            "generateBtn": "Générer",
-            "generateBtnInProgress": "En cours..."
+            "quantity": "Quantité"
         },
 
         "mnemonic": 
