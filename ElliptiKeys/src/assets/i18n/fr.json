@@ -181,11 +181,65 @@
                 "unconfirmed": "Non Confirmée",
                 "status": "Statut",
                 "blockNum": "No. de Bloc",
+                "coinbaseTransaction": "TRANSACTION COINBASE",
                 "timestamp": "Date/Heure",
 
                 "showBtn": "Afficher Tout",
                 "hideBtn": "Cacher"
             }
+        }
+    },
+
+    "walletGenerator": 
+    {
+        "addressTypeSelector": 
+        {
+            "topHeader": "Type d'Adresse"
+        },
+
+        "bulkGenerate": 
+        {
+            "quantity": "Quantité"
+        },
+
+        "mnemonic": 
+        {
+            "generateBtn": "Générer"
+        },
+
+        "mnemonicWordCount": 
+        {
+            "topHeader": "Nombre de Mots" 
+        },
+
+        "networkTypeSelector": 
+        {
+            "topHeader": "Réseau"
+        },
+
+        "qrCodeTypeSelector": 
+        {
+            "topHeader": "Correction d'Erreur de Code QR",
+            "high": "Haur",
+            "quartile": "Quartile",
+            "medium": "Moyen",
+            "low": "Bas"
+        },
+
+        "singleKeyset":
+        {
+            "addressHeaderText": "Adresse (Chargement/Réception)",
+            "privateKeyHeaderText": "Clé Privée (Retirer/Dépenser)",
+            "generateBtn": "Générer un Nouveau Portefeuille"
+        },
+
+        "index":
+        {
+            "topHeader": "Générateur de Portefeuille ElliptiKeys",
+            "alertText": " !!! AVERTISSEMENT : Vous semblez être connecté à Internet. Si vous souhaitez générer des portefeuilles importants, il est recommandé de télécharger le <a href='https://github.com/ICARUS-2/ElliptiKeys-ng' target='_blank' class='alert-link bg-transparent' > code source ElliptiKeys</a> et exécutez-le hors ligne pour minimiser le risque que votre portefeuille soit compromis.",
+            "singleAddressBtn": "Adresse Unique",
+            "bulkGenerateBtn": "Générer en masse",
+            "mnemonicBtn": "Mnémonique"
         }
     }
 }

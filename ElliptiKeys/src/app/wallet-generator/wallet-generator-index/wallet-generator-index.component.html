@@ -1,32 +1,28 @@
 <div style="width: 100%; display: flex; flex-direction: row; justify-content: center;">
     <div style="width: 90%;">
-        <h1>ElliptiKeys Wallet Generator</h1>
+        <h1>{{'walletGenerator.index.topHeader' | translate}}</h1>
 
-        <ngb-alert id="onlineAlert" #onlineAlert *ngIf="connectionStatus == 1" class="alert alert-dark" (closed)="handleNetworkAlertCleared()">
-          !!! WARNING: You appear to be connected to the Internet. 
-          If you wish to generate important wallets, it is recommended to download the 
-          <a href="https://github.com/ICARUS-2/ElliptiKeys-ng" target="_blank" class="alert-link bg-transparent"> ElliptiKeys source code</a>
-          and run it offline to minimize risk of your wallet being compromised.
+        <ngb-alert id="onlineAlert" #onlineAlert *ngIf="connectionStatus == 1" class="alert alert-dark" (closed)="handleNetworkAlertCleared()" [innerHTML]="'walletGenerator.index.alertText' | translate">
         </ngb-alert>
 
 
         <ul id="walletGenNav" ngbNav #nav="ngbNav" [(activeId)]="active" [destroyOnHide]="false" class="nav-tabs" orientation="horizontal">
             <li [ngbNavItem]="1" [destroyOnHide]="false">
-              <a ngbNavLink>Single Address</a>
+              <a ngbNavLink>{{'walletGenerator.index.singleAddressBtn' | translate}}</a>
               <ng-template ngbNavContent>
                 <app-single-keyset></app-single-keyset>
               </ng-template>
             </li>
 
             <li [ngbNavItem]="2" [destroyOnHide]="false">
-              <a ngbNavLink>Bulk Generate</a>
+              <a ngbNavLink>{{'walletGenerator.index.bulkGenerateBtn' | translate}}</a>
               <ng-template ngbNavContent>
                 <app-bulk-generate></app-bulk-generate>
               </ng-template>
             </li>
 
             <li [ngbNavItem]="3" [destroyOnHide]="false">
-              <a ngbNavLink>Mnemonic</a>
+              <a ngbNavLink>{{'walletGenerator.index.mnemonicBtn' | translate}}</a>
               <ng-template ngbNavContent let-active>
                 <app-mnemonic></app-mnemonic>
               </ng-template>

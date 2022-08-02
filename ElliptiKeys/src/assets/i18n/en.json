@@ -181,11 +181,65 @@
                 "unconfirmed": "Unconfirmed",
                 "status": "Status",
                 "blockNum": "Block No.",
+                "coinbaseTransaction": "COINBASE TRANSACTION",
                 "timestamp": "Timestamp",
 
                 "showBtn": "Show All",
                 "hideBtn": "Hide List"
             }
+        }
+    },
+
+    "walletGenerator":
+    {
+        "addressTypeSelector": 
+        {
+            "topHeader": "Address Type"
+        },
+
+        "bulkGenerate": 
+        {
+            "quantity": "Quantity"
+        },
+
+        "mnemonic": 
+        {
+            "generateBtn": "Generate"
+        },
+
+        "mnemonicWordCount": 
+        {
+            "topHeader": "Word Count" 
+        },
+
+        "networkTypeSelector": 
+        {
+            "topHeader": "Network Type"
+        },
+
+        "qrCodeTypeSelector": 
+        {
+            "topHeader": "QR Code Error Correction",
+            "high": "High",
+            "quartile": "Quartile",
+            "medium": "Medium",
+            "low": "Low"
+        },
+
+        "singleKeyset":
+        {
+            "addressHeaderText": "Address (Load/Receive)",
+            "privateKeyHeaderText": "Private Key (Spend/Withdraw)",
+            "generateBtn": "Generate New Wallet"
+        },
+
+        "index":
+        {
+            "topHeader": "ElliptiKeys Wallet Generator",
+            "alertText": "!!! WARNING: You appear to be connected to the Internet. If you wish to generate important wallets, it is recommended to download the <a href='https://github.com/ICARUS-2/ElliptiKeys-ng' target='_blank' class='alert-link bg-transparent'> ElliptiKeys source code</a> and run it offline to minimize risk of your wallet being compromised.",
+            "singleAddressBtn": "Single Address",
+            "bulkGenerateBtn": "Bulk Generate",
+            "mnemonicBtn": "Mnemonic"
         }
     }
 }

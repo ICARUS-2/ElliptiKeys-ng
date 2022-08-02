@@ -14,7 +14,7 @@
         <tbody>
           <tr>
             <th scope="row">{{'explorer.transactionList.table.amount' | translate}}</th>
-            <td style="display: flex;"> <h6><span class="alert" style="padding: 5px;" [ngClass]="{ 'alert-success text-success': tx.model.result >= 0, 'alert-danger text-danger': tx.model.result < 0 }">{{tx.model.result >= 0 ? "+" : ""}} {{satoshiService.get(tx.model.result)}} BTC</span></h6> <h6 *ngIf="tx.model.isCoinbase"><span style="padding: 5px; margin-left: 5px;" class="alert alert-info text-primary">COINBASE TRANSACTION</span></h6> </td>
+            <td style="display: flex;"> <h6><span class="alert" style="padding: 5px;" [ngClass]="{ 'alert-success text-success': tx.model.result >= 0, 'alert-danger text-danger': tx.model.result < 0 }">{{tx.model.result >= 0 ? "+" : ""}} {{satoshiService.get(tx.model.result)}} BTC</span></h6> <h6 *ngIf="tx.model.isCoinbase"><span style="padding: 5px; margin-left: 5px;" class="alert alert-info text-primary">{{'explorer.transactionList.table.coinbaseTransaction' | translate}}</span></h6> </td>
           </tr>
           
           <tr>

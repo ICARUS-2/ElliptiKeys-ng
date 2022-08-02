@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap/nav/nav.module';
 import { OnlineStatusService, OnlineStatusType } from "ngx-online-status";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-wallet-generator-index',
@@ -15,11 +16,14 @@ export class WalletGeneratorIndexComponent implements OnInit {
 
   connectionStatus: OnlineStatusType = this.onlineStatusService.getStatus(); // get initial status
 
-  constructor(private onlineStatusService: OnlineStatusService) {
+  constructor(private onlineStatusService: OnlineStatusService, private title: Title) {
     this.onlineStatusService.status.subscribe((status: OnlineStatusType) => {
       // use status
       this.connectionStatus = status;
     });
+
+
+    title.setTitle("ElliptiKeys Wallet Generator")
   }
 
   ngOnInit(): void {

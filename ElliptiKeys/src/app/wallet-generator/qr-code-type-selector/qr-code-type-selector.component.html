@@ -1,14 +1,14 @@
-<h2>QR Code Error Correction</h2>
+<h2>{{'walletGenerator.qrCodeTypeSelector.topHeader' | translate}}</h2>
 <div class="btn-group" role="group" (change)="onRadioButtonChanged()">
     <input type="radio" [name]="radioName" [formControl]="qrFormControl" [value]="qrCodeTypes.high" class="btn-check" [id]="'qrHighRadio'+radioName" autocomplete="off">
-    <label class="btn btn-outline-primary" [ngClass]="{'active' : qrFormControl.value == qrCodeTypes.high}" [for]="'qrHighRadio'+radioName">High</label>
+    <label class="btn btn-outline-primary" [ngClass]="{'active' : qrFormControl.value == qrCodeTypes.high}" [for]="'qrHighRadio'+radioName">{{'walletGenerator.qrCodeTypeSelector.high' | translate}}</label>
   
     <input type="radio" [name]="radioName" [formControl]="qrFormControl" [value]="qrCodeTypes.quartile" class="btn-check" [id]="'qrQuartileRadio'+radioName" autocomplete="off">
-    <label class="btn btn-outline-primary" [ngClass]="{'active' : qrFormControl.value == qrCodeTypes.quartile}" [for]="'qrQuartileRadio'+radioName">Quartile</label>
+    <label class="btn btn-outline-primary" [ngClass]="{'active' : qrFormControl.value == qrCodeTypes.quartile}" [for]="'qrQuartileRadio'+radioName">{{'walletGenerator.qrCodeTypeSelector.quartile' | translate}}</label>
 
     <input type="radio" [name]="radioName" [formControl]="qrFormControl" [value]="qrCodeTypes.medium" class="btn-check" [id]="'qrMediumRadio'+radioName" autocomplete="off">
-    <label class="btn btn-outline-primary" [ngClass]="{'active' : qrFormControl.value == qrCodeTypes.medium}" [for]="'qrMediumRadio'+radioName">Medium</label>
+    <label class="btn btn-outline-primary" [ngClass]="{'active' : qrFormControl.value == qrCodeTypes.medium}" [for]="'qrMediumRadio'+radioName">{{'walletGenerator.qrCodeTypeSelector.medium' | translate}}</label>
 
     <input type="radio" [name]="radioName" [formControl]="qrFormControl" [value]="qrCodeTypes.low" class="btn-check" [id]="'qrLowRadio'+radioName" autocomplete="off">
-    <label class="btn btn-outline-primary" [ngClass]="{'active' : qrFormControl.value == qrCodeTypes.low}" [for]="'qrLowRadio'+radioName">Low</label>
+    <label class="btn btn-outline-primary" [ngClass]="{'active' : qrFormControl.value == qrCodeTypes.low}" [for]="'qrLowRadio'+radioName">{{'walletGenerator.qrCodeTypeSelector.low' | translate}}</label>
 </div>
