@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-donate',
@@ -8,10 +10,24 @@ import { Title } from '@angular/platform-browser';
 })
 export class DonateComponent implements OnInit {
 
-  constructor(private titleService: Title) { }
+  langSub: Subscription;
 
-  ngOnInit(): void {
-    this.titleService.setTitle("Donate | ElliptiKeys")
+  constructor(private titleService: Title, private translateService: TranslateService) {
+    this.langSub = this.translateService.onLangChange.subscribe( ()=>
+    {
+      this.setTitle();
+    } )
   }
 
+  ngOnInit(): void {
+
+  }
+
+  setTitle()
+  {
+    this.translateService.get("donate.title").subscribe( str =>
+      {
+        this.titleService.setTitle(str);
+      })
+  }
 }

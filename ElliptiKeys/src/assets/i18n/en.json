@@ -51,6 +51,8 @@
 
     "about": 
     {
+        "title": "About ElliptiKeys",
+
         "topHeader": "About ElliptiKeys",
         "mainDescription": "As you could probably tell, this site is based off the ever-popular <a href='https://keys.lol' class='whiteLink' target='blank'>keys.lol site.</a> However, this version is capable of deriving every public key type including SegWit and Bech32 addresses, as opposed to only Legacy-type addresses. This version also displays all compressed private keys alongside uncompressed ones.",
         "darkMode": "It's also in dark mode",
@@ -80,10 +82,12 @@
 
     "donate": 
     {
-      "topHeader": "Donate",
-      "mainDescription": "ElliptiKeys is a project made to educate people about the security of the Bitcoin network. Many people are concerned that their private key will be brute-forced, and this site is meant to show that this will simply never be the case. ",
-      "openSource": "All of the code for the site is <a href='https://github.com/ICARUS-2/ElliptiKeys-ng' target='_blank' class='whiteLink'>100% open-source</a> and can be compiled and ran on any computer :)",
-      "wishToSupport": "If you wish to support this site, any donation is greatly appreciated!"
+        "title": "Donate | ElliptiKeys",
+
+        "topHeader": "Donate",
+        "mainDescription": "ElliptiKeys is a project made to educate people about the security of the Bitcoin network. Many people are concerned that their private key will be brute-forced, and this site is meant to show that this will simply never be the case. ",
+        "openSource": "All of the code for the site is <a href='https://github.com/ICARUS-2/ElliptiKeys-ng' target='_blank' class='whiteLink'>100% open-source</a> and can be compiled and ran on any computer :)",
+        "wishToSupport": "If you wish to support this site, any donation is greatly appreciated!"
     },
 
     "explorer": 
