@@ -26,13 +26,14 @@ export class ExplorerIndexComponent implements OnInit, OnDestroy {
 
   constructor(private title: Title, private translate: TranslateService) 
   {
-    title.setTitle("ElliptiKeys Block Explorer")
+    this.setTitle();
 
     this.languageSubscription = translate.onLangChange.subscribe( () =>
     {
       let savedSearchState: boolean = this.didSearch;
 
       this.onSubmitSearch();
+      this.setTitle();
       this.didSearch = savedSearchState;
     } )
   }
@@ -168,5 +169,13 @@ export class ExplorerIndexComponent implements OnInit, OnDestroy {
   updateSearchHeader()
   {
     this.searchResults.length == 0 ? this.searchResultHeader = this.translate.instant("explorer.index.noSearchResults")+ " \""+this.searchQuery+"\"" : this.searchResultHeader = this.searchResults.length + " " + this.translate.instant("explorer.index.possibleSearchResults") + " \"" + this.searchQuery + "\"";
+  }
+
+  setTitle()
+  {
+    this.translate.get( "explorer.index.title" ).subscribe( str =>
+    {
+      this.title.setTitle(str);
+    } )
   }
 }

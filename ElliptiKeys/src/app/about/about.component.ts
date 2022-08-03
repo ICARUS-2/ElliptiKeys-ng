@@ -13,6 +13,9 @@ export class AboutComponent implements OnInit, OnDestroy {
   langSub: Subscription
 
   constructor(private titleService: Title, private translateService: TranslateService) {
+    
+    this.setTitle();
+    
     this.langSub = this.translateService.onLangChange.subscribe( () =>
     {
       this.setTitle()

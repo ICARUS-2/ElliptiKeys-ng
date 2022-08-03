@@ -94,6 +94,8 @@
     {
         "address": 
         {
+            "title": "Address: ",
+
             "errorCallingApi": "Error occurred while retrieving data",
             "topHeader": "Address",
             
@@ -112,6 +114,8 @@
 
         "block": 
         {
+            "title": "Block: ",
+
             "topHeader": "Block",
             
             "table": 
@@ -134,6 +138,8 @@
 
         "index": 
         {
+            "title": "ElliptiKeys Blockchain Explorer",
+
             "topHeader": "ElliptiKeys Blockchain Explorer",
             "poweredBy": "Powered by <a href='https://www.blockchain.com/api' target='_blank' class='whiteLink'>Blockchain.com</a> and <a href='https://haskoin.com/' target='_blank' class='whiteLink'>Haskoin</a>",
             "mainDescription": "Using this tool, you can look up any Bitcoin or Testnet block number, address, transaction, or even a private key (please not your own) to view its data.",
@@ -152,6 +158,8 @@
 
         "privateKey": 
         {
+            "title": "Private Key: ",
+
             "topHeader": "WIF Private Key",
 
             "table":
@@ -173,6 +181,7 @@
 
         "transaction":
         {
+            "title": "Transaction: ",
             "topHeader": "Transaction"
         },
 
@@ -245,6 +254,8 @@
 
         "index":
         {
+            "title": "ElliptiKeys Wallet Generator",
+
             "topHeader": "ElliptiKeys Wallet Generator",
             "alertText": "!!! WARNING: You appear to be connected to the Internet. If you wish to generate important wallets, it is recommended to download the <a href='https://github.com/ICARUS-2/ElliptiKeys-ng' target='_blank' class='alert-link bg-transparent'> ElliptiKeys source code</a> and run it offline to minimize risk of your wallet being compromised.",
             "singleAddressBtn": "Single Address",
@@ -255,6 +266,8 @@
 
     "notFound": 
     {
+        "title": "Page not found | ElliptiKeys",
+
         "topHeader": "Page not found.",
         "topSubheader": "(It was lost in a boating accident).",
         "homepageBtn": "Return to homepage"
@@ -262,6 +275,8 @@
 
     "tooFar":
     {
+        "title": "Too far!",
+
         "topHeader": "Task failed successfully.",
         "topSubheader": "There aren't THAT many keys, silly!",
         "randomBtn": "Try a random page instead",

@@ -1,17 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-not-found',
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.css']
 })
-export class NotFoundComponent implements OnInit {
+export class NotFoundComponent implements OnInit, OnDestroy {
 
-  constructor(private titleService: Title) { }
+  langSub: Subscription;
 
-  ngOnInit(): void {
-    this.titleService.setTitle("Not Found | ElliptiKeys")
+  constructor(private titleService: Title, private translateService: TranslateService) 
+  {
+    this.setTitle();
+
+    this.langSub = this.translateService.onLangChange.subscribe( ()=>
+    {
+      this.setTitle();
+    } )
   }
 
+  ngOnInit(): void {
+
+  }
+
+  ngOnDestroy(): void {
+    this.langSub.unsubscribe();
+  }
+
+  setTitle()
+  {
+    this.translateService.get("notFound.title").subscribe( str =>
+      {
+        this.titleService.setTitle(str);
+      } )
+  }
 }

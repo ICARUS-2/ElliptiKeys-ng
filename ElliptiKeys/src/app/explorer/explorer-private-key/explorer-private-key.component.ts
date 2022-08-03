@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import KeysHelper from './../../../../lib/keys-helper';
@@ -8,13 +8,15 @@ import { ADDRESS_TYPES } from 'lib/address-types';
 import { WIF_TYPES } from './../../../../lib/wif-types';
 import PageHelper from './../../../../lib/page-helper';
 import LocalStorageHelper from './../../../../lib/localstorage-helper';
+import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-explorer-private-key',
   templateUrl: './explorer-private-key.component.html',
   styleUrls: ['./explorer-private-key.component.css']
 })
-export class ExplorerPrivateKeyComponent implements OnInit {
+export class ExplorerPrivateKeyComponent implements OnInit, OnDestroy {
 
   key: string = "";
   isTestnet: Boolean = false;
@@ -25,22 +27,35 @@ export class ExplorerPrivateKeyComponent implements OnInit {
   segwitAddress: string = "";
   bech32Address: string = "";
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router, private title: Title) {
-    activeRoute.params.subscribe( (d)=> 
+  langSub: Subscription;
+
+  constructor(
+    private activeRoute: ActivatedRoute, 
+    private router: Router, 
+    private title: Title,
+    private translateService: TranslateService
+    ) 
     {
-      if (d["id"])
-        this.key = d["id"]
+      activeRoute.params.subscribe( (d)=> 
+      {
+        if (d["id"])
+          this.key = d["id"]
 
-      this.isTestnet = KeysHelper.IsPrivateKeyTestnet(this.key)
-      let isUrlTestnet = window.location.href.includes("/testnet");
+        this.isTestnet = KeysHelper.IsPrivateKeyTestnet(this.key)
+        let isUrlTestnet = window.location.href.includes("/testnet");
 
-      //If URL does not match the requested address, navigate away.
-      if (this.isTestnet != isUrlTestnet)
-        this.router.navigate(["/not-found"], {skipLocationChange: true})
-    })
+        //If URL does not match the requested address, navigate away.
+        if (this.isTestnet != isUrlTestnet)
+          this.router.navigate(["/not-found"], {skipLocationChange: true})
+      })
 
-    title.setTitle("Private Key: " + this.key)
-   }
+      this.setTitle();
+
+      this.langSub = this.translateService.onLangChange.subscribe( () =>
+        {
+          this.setTitle();
+        } )
+    }
 
   ngOnInit(): void {
 
@@ -67,6 +82,10 @@ export class ExplorerPrivateKeyComponent implements OnInit {
       this.router.navigate(["/not-found"], {skipLocationChange: true})
     }
 
+  }
+
+  ngOnDestroy(): void {
+    this.langSub.unsubscribe();
   }
 
   getAddressExplorerUrl(addressType: string)
@@ -107,5 +126,13 @@ export class ExplorerPrivateKeyComponent implements OnInit {
 
     return this.isTestnet ? "/testnet/"+pageNumber : "/bitcoin/"+pageNumber
     //this.isTestnet ? this.router.navigate(["/testnet/"+pageNumber]) : this.router.navigate(["/bitcoin/"+pageNumber])
+  }
+  
+  setTitle()
+  {
+    this.translateService.get("explorer.privateKey.title").subscribe( str =>
+      {
+        this.title.setTitle(str+this.key)
+      } )
   }
 }

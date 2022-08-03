@@ -58,6 +58,8 @@ export class KeyspageComponent implements OnInit, OnDestroy {
       }
     } )
 
+    this.setTitle();
+
     this.langSub = this.translateService.onLangChange.subscribe( () =>
     {
       this.setTitle();

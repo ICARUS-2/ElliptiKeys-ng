@@ -1,20 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import TransactionViewModel from 'models/transaction-view-model';
 import  TransactionApi from './../../../../lib/transaction-api';
+import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-explorer-transaction',
   templateUrl: './explorer-transaction.component.html',
   styleUrls: ['./explorer-transaction.component.css']
 })
-export class ExplorerTransactionComponent implements OnInit {
+export class ExplorerTransactionComponent implements OnInit, OnDestroy {
   isTestnet: boolean = false;
   key: string = ""
   transaction: TransactionViewModel[] = [];
+  
+  langSub: Subscription;
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router, private title: Title) 
+  constructor(
+    private activeRoute: ActivatedRoute, 
+    private router: Router, 
+    private title: Title,
+    private translateService: TranslateService) 
   {
     activeRoute.params.subscribe( (d)=> 
     {
@@ -24,7 +32,12 @@ export class ExplorerTransactionComponent implements OnInit {
     })
     this.isTestnet = window.location.href.includes("/testnet");
 
-    title.setTitle("Transaction: " + this.key)
+    this.setTitle();
+
+    this.langSub = this.translateService.onLangChange.subscribe( () =>
+    {
+      this.setTitle();
+    } )
   }
 
   async ngOnInit(): Promise<void> {
@@ -38,4 +51,15 @@ export class ExplorerTransactionComponent implements OnInit {
       this.transaction.push(new TransactionViewModel(result))
   }
 
+  ngOnDestroy(): void {
+    this.langSub.unsubscribe();
+  }
+
+  setTitle()
+  {
+    this.translateService.get("explorer.transaction.title").subscribe( str =>
+      {
+        this.title.setTitle(str+this.key)
+      } )
+  }
 }
