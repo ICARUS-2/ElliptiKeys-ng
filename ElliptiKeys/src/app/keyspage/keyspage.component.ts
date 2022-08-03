@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import PageHelper from 'lib/page-helper';
 import KeyRowModel from './../../../models/key-row-model';
 import { Title } from '@angular/platform-browser';
 import BalanceApi from './../../../lib/balance-api';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AutoGenService } from '../services/auto-gen/auto-gen.service';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-keyspage',
@@ -12,7 +14,7 @@ import { AutoGenService } from '../services/auto-gen/auto-gen.service';
   styleUrls: ['./keyspage.component.css']
 })
 
-export class KeyspageComponent implements OnInit {
+export class KeyspageComponent implements OnInit, OnDestroy {
 
   pageNumber:BigInt = BigInt("0");
   maxPageNumber: BigInt = BigInt("0");
@@ -26,27 +28,46 @@ export class KeyspageComponent implements OnInit {
 
   autoGenService: AutoGenService;
 
+  version: string = "";
+
+  routeSub: Subscription | undefined;
+  langSub: Subscription | undefined;
+
   constructor(
     private titleService:Title, 
     private router: Router, 
     private activeRoute: ActivatedRoute,
+    private translateService: TranslateService,
     autoGenService: AutoGenService) 
     {
       this.autoGenService = autoGenService;
     }
 
+  ngOnDestroy(): void {
+    this.langSub?.unsubscribe();
+    this.routeSub?.unsubscribe();
+  }
+
   async ngOnInit() {
     
-    this.activeRoute.data.subscribe( (data) =>
+    this.routeSub = this.activeRoute.data.subscribe( (data) =>
     {
       if (data["isTestnet"])
+      {
         this.isTestnet = data["isTestnet"]
+      }
+    } )
+
+    this.langSub = this.translateService.onLangChange.subscribe( () =>
+    {
+      this.setTitle();
     } )
 
     try
     { 
       let param = this.isTestnet ? "testnet/" : "bitcoin/"
-        
+      this.version = this.isTestnet ? "Testnet" : "Bitcoin"  
+
       this.pageNumber = BigInt(window.location.href.split(param)[1])
     }
     catch(err)
@@ -54,16 +75,9 @@ export class KeyspageComponent implements OnInit {
       this.router.navigate(['/not-found'])
     }
 
-    let version = this.isTestnet ? "Testnet" : "Bitcoin"
-
     this.maxPageNumber = BigInt(PageHelper.GetMaxPage())
 
-    if (this.pageNumber == BigInt('1'))
-      this.titleService.setTitle("First page of " + version + " keys")
-    else if (this.pageNumber == this.maxPageNumber)
-      this.titleService.setTitle("Last page of" + version + "keys")
-    else
-      this.titleService.setTitle(version+` keys page ${this.pageNumber} of ${this.maxPageNumber}`)
+    this.setTitle();
 
     if (this.pageNumber > this.maxPageNumber)
       this.router.navigate(["/too-far"])
@@ -160,5 +174,39 @@ export class KeyspageComponent implements OnInit {
   isAutoGenning()
   {
     return this.autoGenService.autoModeActive;
+  }
+  
+  setTitle()
+  {
+    if (this.pageNumber == BigInt('1'))
+    {
+
+      this.translateService.get("keyspage.firstPageTitle").subscribe( str =>
+        {
+          this.titleService.setTitle(str.replace("{version}", this.version))
+        } );
+
+    }
+    else if (this.pageNumber == this.maxPageNumber)
+    {
+
+      this.translateService.get("keyspage.lastPageTitle").subscribe( str =>
+      {
+        this.titleService.setTitle(str.replace("{version}", this.version))
+      });
+       
+    }
+    else
+    {
+      
+      this.translateService.get("keyspage.title").subscribe( str =>
+        {
+          this.titleService.setTitle(str
+            .replace("{version}", this.version)
+            .replace("{page}", this.pageNumber)
+            .replace("{maxPage}", this.maxPageNumber))
+        } )
+
+    }
   }
 }

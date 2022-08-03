@@ -32,6 +32,10 @@
 
     "keyspage":
     {
+        "firstPageTitle": "First page of {version} keys",
+        "lastPageTitle": "Last page of {version} keys",
+        "title": "{version} keys page {page} of {maxPage}",
+        
         "testnetWarning": "You are currently exploring testnet keys. Testnet is an alternative Bitcoin blockchain that developers use for testing. Testnet coins do not hold any value.",
         "of": "of",
         "loading": "Loading...",
