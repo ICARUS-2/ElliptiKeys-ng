@@ -222,7 +222,7 @@
         "qrCodeTypeSelector": 
         {
             "topHeader": "Correction d'Erreur de Code QR",
-            "high": "Haur",
+            "high": "Haut",
             "quartile": "Quartile",
             "medium": "Moyen",
             "low": "Bas"
@@ -243,5 +243,20 @@
             "bulkGenerateBtn": "Générer en masse",
             "mnemonicBtn": "Mnémonique"
         }
+    },
+
+    "notFound": 
+    {
+        "topHeader": "Page non trouvée.",
+        "topSubheader": "(Il a été perdu dans un accident de bateau).",
+        "homepageBtn": "Retourner à la page d'accueil"
+    },
+
+    "tooFar":
+    {
+        "topHeader": "Tâche échoué avec succès.",
+        "topSubheader": "Il n'y a pas QUE beaucoup de clés, idiot!",
+        "randomBtn": "Essayez une page aléatoire?",
+        "randomTestnetBtn": "Ou peut-être une page testnet?"
     }
 }

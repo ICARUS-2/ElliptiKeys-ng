@@ -243,5 +243,20 @@
             "bulkGenerateBtn": "Bulk Generate",
             "mnemonicBtn": "Mnemonic"
         }
+    },
+
+    "notFound": 
+    {
+        "topHeader": "Page not found.",
+        "topSubheader": "(It was lost in a boating accident).",
+        "homepageBtn": "Return to homepage"
+    },
+
+    "tooFar":
+    {
+        "topHeader": "Task failed successfully.",
+        "topSubheader": "There aren't THAT many keys, silly!",
+        "randomBtn": "Try a random page instead",
+        "randomTestnetBtn": "Or maybe a testnet page?"
     }
 }
