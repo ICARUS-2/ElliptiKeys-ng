@@ -32,6 +32,10 @@
 
     "keyspage":
     {
+        "firstPageTitle": "Première page de clés {version}",
+        "lastPageTitle": "Dernière page de clés {version}",
+        "title": "Clés {version}: page {page} de {maxPage}",
+
         "testnetWarning": "Vous explorez actuellement les clés testnet. Testnet est une blockchain Bitcoin alternative que les développeurs utilisent pour les tests. Les pièces Testnet n'ont aucune valeur.",
         "of": "de",
         "loading": "Chargement en cours...",
@@ -47,6 +51,8 @@
 
     "about": 
     {
+        "title": "À propos d'ElliptiKeys",
+
         "topHeader": "À propos d'ElliptiKeys",
         "mainDescription": "Comme vous pouvez probablement le constater, ce site est basé sur le toujours populaire <a href='https://keys.lol' class='whiteLink' target='blank'>site keys.lol</a>. Cependant, cette version est capable de dériver chaque type de clé publique, y compris les adresses SegWit et Bech32, par opposition à seulement adresses de type Legacy. Cette version affiche également toutes les clés privées compressées aux côtés de ceux non compressés.",
         "darkMode": "C'est aussi en <<dark mode>>",
@@ -76,6 +82,8 @@
 
     "donate": 
     {
+        "title": "Faire un don | ElliptiKeys",
+
         "topHeader": "Faire un don",
         "mainDescription": "ElliptiKeys est un projet conçu pour éduquer les gens sur la sécurité du réseau Bitcoin. De nombreuses personnes craignent que leur clé privée ne soit forcée, et ce site est destiné à montrer que ce ne sera tout simplement jamais le cas.",
         "openSource": "Tout le code du site est <a href='https://github.com/ICARUS-2/ElliptiKeys-ng' target='_blank' class='whiteLink'>100% open-source</a> et peut être compilé et exécuté sur n'importe quel ordinateur :)",
@@ -86,6 +94,8 @@
     {
         "address": 
         {
+            "title": "Adresse: ",
+
             "errorCallingApi": "Une erreur s'est produite lors de la récupération des données",
             "topHeader": "Adresse",
 
@@ -104,6 +114,8 @@
 
         "block": 
         {
+            "title": "Bloc: ",
+
             "topHeader": "Bloc",
 
             "table": 
@@ -126,6 +138,8 @@
         
         "index": 
         {
+            "title": "Explorateur de Blockchain ElliptiKeys",
+
             "topHeader": "Explorateur de Blockchain ElliptiKeys",
             "poweredBy": "Propulsé par <a href='https://www.blockchain.com/api' target='_blank' class='whiteLink'>Blockchain.com</a> et <a href='https://haskoin.com /' target='_blank' class='whiteLink'>Haskoin</a>",
             "mainDescription": "À l'aide de cet outil, vous pouvez rechercher n'importe quel numéro de bloc Bitcoin ou Testnet, adresse, transaction ou même une clé privée (pas le tien SVP) pour afficher ses données.",
@@ -144,6 +158,7 @@
 
         "privateKey": 
         {
+            "title": "Clé Privée: ",
             "topHeader": "Clé Privée (WIF)",
 
             "table":
@@ -165,6 +180,7 @@
 
         "transaction":
         {
+            "title": "Transaction: ",
             "topHeader": "Transaction"
         },
 
@@ -199,7 +215,9 @@
 
         "bulkGenerate": 
         {
-            "quantity": "Quantité"
+            "quantity": "Quantité",
+            "generateBtn": "Générer",
+            "generateBtnInProgress": "En cours..."
         },
 
         "mnemonic": 
@@ -220,7 +238,7 @@
         "qrCodeTypeSelector": 
         {
             "topHeader": "Correction d'Erreur de Code QR",
-            "high": "Haur",
+            "high": "Haut",
             "quartile": "Quartile",
             "medium": "Moyen",
             "low": "Bas"
@@ -235,11 +253,39 @@
 
         "index":
         {
+            "title": "Générateur de Portefeuille ElliptiKeys",
+
             "topHeader": "Générateur de Portefeuille ElliptiKeys",
             "alertText": " !!! AVERTISSEMENT : Vous semblez être connecté à Internet. Si vous souhaitez générer des portefeuilles importants, il est recommandé de télécharger le <a href='https://github.com/ICARUS-2/ElliptiKeys-ng' target='_blank' class='alert-link bg-transparent' > code source ElliptiKeys</a> et exécutez-le hors ligne pour minimiser le risque que votre portefeuille soit compromis.",
             "singleAddressBtn": "Adresse Unique",
             "bulkGenerateBtn": "Générer en masse",
             "mnemonicBtn": "Mnémonique"
         }
+    },
+
+    "notFound": 
+    {
+        "title": "Page non trouvée | ElliptiKeys",
+
+        "topHeader": "Page non trouvée.",
+        "topSubheader": "(Il a été perdu dans un accident de bateau).",
+        "homepageBtn": "Retourner à la page d'accueil"
+    },
+
+    "pageStatTracker":
+    {
+        "toggleBtn": "Afficher/Cacher Statistiques",
+        "balancesChecked": "Soldes Vérifiés",
+        "resetBtn": "Réinitialiser"
+    },
+
+    "tooFar":
+    {
+        "title": "Top loin!",
+
+        "topHeader": "Tâche échoué avec succès.",
+        "topSubheader": "Il n'y a pas QUE beaucoup de clés!!",
+        "randomBtn": "Essayez une page aléatoire?",
+        "randomTestnetBtn": "Ou peut-être une page testnet?"
     }
 }

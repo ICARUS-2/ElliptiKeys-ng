@@ -7,6 +7,7 @@ import LocalStorageHelper from 'lib/localstorage-helper';
   styleUrls: ['./page-stat-tracker.component.css']
 })
 export class PageStatTrackerComponent implements OnInit {
+  isCollapsed: boolean = true;
 
   constructor() { }
 
@@ -30,5 +31,10 @@ export class PageStatTrackerComponent implements OnInit {
   getTestnetAddressesChecked()
   {
     return LocalStorageHelper.GetTestnetBalancesChecked();
+  }
+
+  handleResetButtonClicked()
+  {
+    LocalStorageHelper.ResetBalancesChecked();
   }
 }

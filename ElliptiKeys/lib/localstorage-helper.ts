@@ -64,6 +64,9 @@ export default class LocalStorageHelper
     //balances checked
     static GetMainnetBalancesChecked()
     {
+        if(!window.localStorage.getItem(LocalStorageHelper.MAINNET_BALANCES_CHECKED))
+            this.SetMainnetBalancesChecked("0");
+
         return window.localStorage.getItem(LocalStorageHelper.MAINNET_BALANCES_CHECKED);
     }
 
@@ -72,14 +75,36 @@ export default class LocalStorageHelper
         window.localStorage.setItem(LocalStorageHelper.MAINNET_BALANCES_CHECKED, val)
     }
 
+    static AddToMainnetBalancesChecked(val: number)
+    {
+        let stat = Number(this.GetMainnetBalancesChecked());
+
+        stat+= val;
+
+        this.SetMainnetBalancesChecked(stat.toString())
+    }
+
+
     static GetTestnetBalancesChecked()
     {
+        if (!window.localStorage.getItem(LocalStorageHelper.TESTNET_BALANCES_CHECKED))
+            this.SetTestnetBalancesChecked("0");
+
         return window.localStorage.getItem(LocalStorageHelper.TESTNET_BALANCES_CHECKED);
     }
 
     static SetTestnetBalancesChecked(val: string)
     {
         window.localStorage.setItem(LocalStorageHelper.TESTNET_BALANCES_CHECKED, val)
+    }
+
+    static AddToTestnetBalancesChecked(val: number)
+    {
+        let stat = Number(this.GetTestnetBalancesChecked());
+
+        stat+= val;
+
+        this.SetTestnetBalancesChecked(stat.toString())
     }
 
     static ResetBalancesChecked()

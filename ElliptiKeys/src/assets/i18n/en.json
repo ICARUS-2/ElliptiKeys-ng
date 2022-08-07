@@ -273,6 +273,13 @@
         "homepageBtn": "Return to homepage"
     },
 
+    "pageStatTracker":
+    {
+        "toggleBtn": "Show/Hide Stats",
+        "balancesChecked": "Balances Checked",
+        "resetBtn": "Reset"
+    },
+
     "tooFar":
     {
         "title": "Too far!",

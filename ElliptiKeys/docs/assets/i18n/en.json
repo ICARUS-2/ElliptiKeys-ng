@@ -32,6 +32,10 @@
 
     "keyspage":
     {
+        "firstPageTitle": "First page of {version} keys",
+        "lastPageTitle": "Last page of {version} keys",
+        "title": "{version} keys page {page} of {maxPage}",
+        
         "testnetWarning": "You are currently exploring testnet keys. Testnet is an alternative Bitcoin blockchain that developers use for testing. Testnet coins do not hold any value.",
         "of": "of",
         "loading": "Loading...",
@@ -47,6 +51,8 @@
 
     "about": 
     {
+        "title": "About ElliptiKeys",
+
         "topHeader": "About ElliptiKeys",
         "mainDescription": "As you could probably tell, this site is based off the ever-popular <a href='https://keys.lol' class='whiteLink' target='blank'>keys.lol site.</a> However, this version is capable of deriving every public key type including SegWit and Bech32 addresses, as opposed to only Legacy-type addresses. This version also displays all compressed private keys alongside uncompressed ones.",
         "darkMode": "It's also in dark mode",
@@ -76,16 +82,20 @@
 
     "donate": 
     {
-      "topHeader": "Donate",
-      "mainDescription": "ElliptiKeys is a project made to educate people about the security of the Bitcoin network. Many people are concerned that their private key will be brute-forced, and this site is meant to show that this will simply never be the case. ",
-      "openSource": "All of the code for the site is <a href='https://github.com/ICARUS-2/ElliptiKeys-ng' target='_blank' class='whiteLink'>100% open-source</a> and can be compiled and ran on any computer :)",
-      "wishToSupport": "If you wish to support this site, any donation is greatly appreciated!"
+        "title": "Donate | ElliptiKeys",
+
+        "topHeader": "Donate",
+        "mainDescription": "ElliptiKeys is a project made to educate people about the security of the Bitcoin network. Many people are concerned that their private key will be brute-forced, and this site is meant to show that this will simply never be the case. ",
+        "openSource": "All of the code for the site is <a href='https://github.com/ICARUS-2/ElliptiKeys-ng' target='_blank' class='whiteLink'>100% open-source</a> and can be compiled and ran on any computer :)",
+        "wishToSupport": "If you wish to support this site, any donation is greatly appreciated!"
     },
 
     "explorer": 
     {
         "address": 
         {
+            "title": "Address: ",
+
             "errorCallingApi": "Error occurred while retrieving data",
             "topHeader": "Address",
             
@@ -104,6 +114,8 @@
 
         "block": 
         {
+            "title": "Block: ",
+
             "topHeader": "Block",
             
             "table": 
@@ -126,6 +138,8 @@
 
         "index": 
         {
+            "title": "ElliptiKeys Blockchain Explorer",
+
             "topHeader": "ElliptiKeys Blockchain Explorer",
             "poweredBy": "Powered by <a href='https://www.blockchain.com/api' target='_blank' class='whiteLink'>Blockchain.com</a> and <a href='https://haskoin.com/' target='_blank' class='whiteLink'>Haskoin</a>",
             "mainDescription": "Using this tool, you can look up any Bitcoin or Testnet block number, address, transaction, or even a private key (please not your own) to view its data.",
@@ -144,6 +158,8 @@
 
         "privateKey": 
         {
+            "title": "Private Key: ",
+
             "topHeader": "WIF Private Key",
 
             "table":
@@ -165,6 +181,7 @@
 
         "transaction":
         {
+            "title": "Transaction: ",
             "topHeader": "Transaction"
         },
 
@@ -199,7 +216,9 @@
 
         "bulkGenerate": 
         {
-            "quantity": "Quantity"
+            "quantity": "Quantity",
+            "generateBtn": "Generate",
+            "generateBtnInProgress": "Working..."
         },
 
         "mnemonic": 
@@ -235,11 +254,39 @@
 
         "index":
         {
+            "title": "ElliptiKeys Wallet Generator",
+
             "topHeader": "ElliptiKeys Wallet Generator",
             "alertText": "!!! WARNING: You appear to be connected to the Internet. If you wish to generate important wallets, it is recommended to download the <a href='https://github.com/ICARUS-2/ElliptiKeys-ng' target='_blank' class='alert-link bg-transparent'> ElliptiKeys source code</a> and run it offline to minimize risk of your wallet being compromised.",
             "singleAddressBtn": "Single Address",
             "bulkGenerateBtn": "Bulk Generate",
             "mnemonicBtn": "Mnemonic"
         }
+    },
+
+    "notFound": 
+    {
+        "title": "Page not found | ElliptiKeys",
+
+        "topHeader": "Page not found.",
+        "topSubheader": "(It was lost in a boating accident).",
+        "homepageBtn": "Return to homepage"
+    },
+
+    "pageStatTracker":
+    {
+        "toggleBtn": "Show/Hide Stats",
+        "balancesChecked": "Balances Checked",
+        "resetBtn": "Reset"
+    },
+
+    "tooFar":
+    {
+        "title": "Too far!",
+
+        "topHeader": "Task failed successfully.",
+        "topSubheader": "There aren't THAT many keys, silly!",
+        "randomBtn": "Try a random page instead",
+        "randomTestnetBtn": "Or maybe a testnet page?"
     }
 }

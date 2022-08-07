@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AutoGenService } from '../services/auto-gen/auto-gen.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import LocalStorageHelper from 'lib/localstorage-helper';
 
 @Component({
   selector: 'app-keyspage',
@@ -110,6 +111,11 @@ export class KeyspageComponent implements OnInit, OnDestroy {
     if (this.autoGenService.autoModeActive)
     {
       this.autoGenService.navigateAfterDelay(this.isTestnet);
+    }
+
+    if (!this.balanceApi.errorCallingApi)
+    {
+      this.isTestnet ? LocalStorageHelper.AddToTestnetBalancesChecked(this.balanceApi.addressModels.length) : LocalStorageHelper.AddToMainnetBalancesChecked(this.balanceApi.addressModels.length)
     }
   }
 

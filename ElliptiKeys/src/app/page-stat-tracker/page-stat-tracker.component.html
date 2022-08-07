@@ -1,6 +1,27 @@
-<div>
-    <h4>Balances Checked</h4>
-    <h5>Mainnet: {{getBitcoinAddressesChecked()}}</h5>
-    <h5>Testnet: {{getTestnetAddressesChecked()}}</h5>
-    <button class="btn btn-outline-primary">Reset</button>
+
+<div class="statTrackerContainer">
+    <div class="balancesCheckedDiv">
+        <h5>{{"pageStatTracker.balancesChecked" | translate}} -</h5>
+        <h5>Mainnet: {{getBitcoinAddressesChecked()}}</h5>
+        <h5>Testnet: {{getTestnetAddressesChecked()}}</h5>
+        <button class="btn btn-outline-primary" (click)="handleResetButtonClicked()">{{"pageStatTracker.resetBtn" | translate}}</button>
+    </div>
+
+    <div class="balancesCheckedMobile">
+        <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+        aria-controls="collapseExample">
+        {{"pageStatTracker.toggleBtn" | translate}}
+        </button>
+
+        <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="collapseDiv">
+            <div class="card">
+            <div class="card-body">
+                <h5>{{"pageStatTracker.balancesChecked" | translate}}</h5>
+                <h5>Mainnet: {{getBitcoinAddressesChecked()}}</h5>
+                <h5>Testnet: {{getTestnetAddressesChecked()}}</h5>
+                <button class="btn btn-outline-primary" (click)="handleResetButtonClicked()">{{"pageStatTracker.resetBtn" | translate}}</button>
+            </div>
+            </div>
+        </div>
+    </div>
 </div>

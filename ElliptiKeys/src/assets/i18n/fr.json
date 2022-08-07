@@ -272,6 +272,13 @@
         "homepageBtn": "Retourner à la page d'accueil"
     },
 
+    "pageStatTracker":
+    {
+        "toggleBtn": "Afficher/Cacher Statistiques",
+        "balancesChecked": "Soldes Vérifiés",
+        "resetBtn": "Réinitialiser"
+    },
+
     "tooFar":
     {
         "title": "Top loin!",

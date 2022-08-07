@@ -1,0 +1,52 @@
+.balancesCheckedDiv
+{
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    width: 100%;
+}
+
+h5
+{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.balancesCheckedMobile
+{
+    display: none;
+}
+
+.statTrackerContainer
+{
+    padding: 15px;
+}
+
+@media screen and (max-width: 768px)
+{
+    .balancesCheckedDiv
+    {
+        display: none;
+    }
+
+    .balancesCheckedMobile
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .balancesCheckedMobile button
+    {
+        width: 200px;
+        align-self: flex-end;
+    }
+
+    .collapseDiv
+    {
+        margin-top: 5px;
+    }
+}
