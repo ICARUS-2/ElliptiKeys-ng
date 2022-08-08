@@ -2,7 +2,10 @@
 
     <div class="mt-1"></div>
 
-    <app-page-stat-tracker style="align-self: flex-end;"></app-page-stat-tracker>
+    <div class="topControls">
+        <button (click)="handleNetworkSwitchButtonClick()" class="btn btn-outline-primary" [disabled]="isLoading">{{'keyspage.switchNetworkBtn' | translate}}</button>
+        <app-page-stat-tracker style="align-self: flex-end;"></app-page-stat-tracker>
+    </div>
 
     <div *ngIf="isTestnet">
         <div class="alert alert-warning" role="alert">

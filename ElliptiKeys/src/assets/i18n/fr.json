@@ -36,6 +36,8 @@
         "lastPageTitle": "Dernière page de clés {version}",
         "title": "Clés {version}: page {page} de {maxPage}",
 
+        "switchNetworkBtn": "Changer de Réseau",
+
         "testnetWarning": "Vous explorez actuellement les clés testnet. Testnet est une blockchain Bitcoin alternative que les développeurs utilisent pour les tests. Les pièces Testnet n'ont aucune valeur.",
         "of": "de",
         "loading": "Chargement en cours...",

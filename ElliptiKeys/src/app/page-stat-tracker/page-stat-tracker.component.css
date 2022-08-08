@@ -43,6 +43,7 @@ h5
     {
         width: 200px;
         align-self: flex-end;
+        height: 60px;
     }
 
     .collapseDiv

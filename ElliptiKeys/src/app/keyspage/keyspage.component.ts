@@ -217,4 +217,18 @@ export class KeyspageComponent implements OnInit, OnDestroy {
 
     }
   }
+
+  getSwitchNetworkLink()
+  {
+    let link = "/{network}/"+this.pageNumber;
+    let oppositeVersion = this.isTestnet ? "bitcoin": "testnet"
+    
+    return link.replace("{network}", oppositeVersion);
+  }
+
+  handleNetworkSwitchButtonClick()
+  {
+    this.autoGenService.cancel();
+    this.router.navigate([this.getSwitchNetworkLink()]);
+  }
 }
