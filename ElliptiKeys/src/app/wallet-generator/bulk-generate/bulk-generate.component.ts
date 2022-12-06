@@ -103,4 +103,8 @@ export class BulkGenerateComponent implements OnInit {
     }
   }
 
+  getIsTestnet() : boolean
+  {
+    return this.networkType == NETWORK_TYPES.testnet;
+  }
 }

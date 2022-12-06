@@ -57,4 +57,8 @@ export class SingleKeysetComponent implements OnInit {
     this.qrCodeType = value;
   }
 
+  getIsTestnet() : boolean
+  {
+    return this.networkType == NETWORK_TYPES.testnet;
+  }
 }

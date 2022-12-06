@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import AppData from './../../../lib/app-data';
 
 @Component({
   selector: 'app-about',
@@ -38,4 +39,8 @@ export class AboutComponent implements OnInit, OnDestroy {
       } )
   }
   
+  getVersion(): string
+  {
+    return AppData.version;
+  }
 }

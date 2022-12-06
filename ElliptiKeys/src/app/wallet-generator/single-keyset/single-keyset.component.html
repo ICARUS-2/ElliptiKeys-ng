@@ -17,8 +17,8 @@
         <div class="m-5"></div>
 
         <button class="btn btn-lg btn-outline-primary" (click)="makeNewKeyset()">{{'walletGenerator.singleKeyset.generateBtn' | translate}}</button>
-
-   </div>
+        <div style="margin-top: 5px;" class="alert alert-danger" *ngIf="getIsTestnet()">{{"walletGenerator.scamWarning" | translate}}</div>
+    </div>
 
     <div id="qrCodeContainer">
 
