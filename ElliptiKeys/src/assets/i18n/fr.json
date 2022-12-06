@@ -210,7 +210,7 @@
 
     "walletGenerator": 
     {
-        "scamWarning": "AVERTISSEMENT D'ARNAQUE TESTNET - LES BITCOINS DE TESTNET N'ONT AUCUNE VALEUR",
+        "scamWarning": "AVERTISSEMENT D'ARNAQUE TESTNET: LES BITCOINS DE TESTNET N'ONT AUCUNE VALEUR!",
 
         "addressTypeSelector": 
         {

@@ -211,7 +211,7 @@
 
     "walletGenerator":
     {
-        "scamWarning": "TESTNET SCAM WARNING: TESTNET COINS HAVE NO VALUE.",
+        "scamWarning": "TESTNET SCAM WARNING: TESTNET COINS HAVE NO VALUE!",
 
         "addressTypeSelector": 
         {
