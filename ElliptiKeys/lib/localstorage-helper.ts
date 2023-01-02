@@ -116,7 +116,7 @@ export default class LocalStorageHelper
 
     static GetHideUnusedKeys() : boolean
     {
-        return window.localStorage.getItem(this.HIDE_UNUSED_KEYS) === "true";
+        return window.localStorage.getItem(this.HIDE_UNUSED_KEYS) == "true";
     } 
 
     static SetHideUnusedKeys(setting: boolean) : void 
