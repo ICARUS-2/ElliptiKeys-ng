@@ -48,9 +48,17 @@ nav
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    font-size: x-large;
+    font-size: large;
     padding-left: 25px;
     padding-right: 25px;
+}
+
+.navSettingsLogo
+{
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
 }
 
 .navLi a
