@@ -82,7 +82,7 @@
         </table>
     </div>
 
-    <h3 *ngIf="shouldHideUnusedKeys()">(+{{unusedKeyCount}}) hidden</h3>
+    <h3 *ngIf="shouldHideUnusedKeys()">(+{{unusedKeyCount}}) {{'keyspage.hidden' | translate}}</h3>
 
     <div *ngIf="!isEmptyPage() && shouldHideUnusedKeys()">
         <app-pagebuttons *ngIf="!isLoading && !autoGenService.autoModeActive" style="width: 70%;" class="pageBtns"></app-pagebuttons>

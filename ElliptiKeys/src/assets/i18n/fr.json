@@ -48,7 +48,9 @@
             "stop": "Arrêter Auto-Gen",
             "stopOnYellow": "Arrêter sur jaune/vert",
             "stopOnGreen": "Arrêter sur vert"
-        }
+        },
+
+        "hidden": "caché" 
     },
 
     "about": 
@@ -291,5 +293,14 @@
         "topSubheader": "Il n'y a pas QUE beaucoup de clés!!",
         "randomBtn": "Essayez une page aléatoire?",
         "randomTestnetBtn": "Ou peut-être une page testnet?"
+    },
+
+    "settings":
+    {
+        "topHeader": "Paramètres",
+        "yes": "Oui",
+        "no": "Non",
+
+        "hideUnusedKeys": "Cacher les entrées de clé inutilisées"
     }
 }
