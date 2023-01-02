@@ -1,5 +1,5 @@
 import AddressModel from './../models/address-model';
-import KeyRowModel from './../models/key-row-model';
+import KeyRowViewModel from './../models/key-row-model';
 import KeyStatsModel from './../models/key-stats-model';
 
 export default class BalanceApi
@@ -104,7 +104,7 @@ export default class BalanceApi
         return new AddressModel("address not found");
     }
 
-    getStatsForKeyRow(keyrow: KeyRowModel)
+    getStatsForKeyRow(keyrow: KeyRowViewModel)
     {
         let legacyModel = new AddressModel("", 0, 0);
         let compressedLegacyModel = new AddressModel("", 0, 0);

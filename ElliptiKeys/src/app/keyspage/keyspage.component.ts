@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import PageHelper from 'lib/page-helper';
-import KeyRowModel from './../../../models/key-row-model';
+import KeyRowViewModel from './../../../models/key-row-model';
 import { Title } from '@angular/platform-browser';
 import BalanceApi from './../../../lib/balance-api';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -23,7 +23,8 @@ export class KeyspageComponent implements OnInit, OnDestroy {
 
   isTestnet: boolean = false;
 
-  keys: KeyRowModel[] = []
+  keys: KeyRowViewModel[] = [];
+  unusedKeyCount: number = 0;
 
   balanceApi: BalanceApi = new BalanceApi(false);
 
@@ -102,11 +103,11 @@ export class KeyspageComponent implements OnInit, OnDestroy {
     await this.balanceApi.doApiRequest();
 
     //console.log(this.balanceApi.addressModels)
-    
-    for(let k of this.keys)
+
+    this.keys.forEach( (k) =>
     {
-      this.setDelayForKey(k)
-    }
+      this.setUpKeyRow(k)
+    } )
 
     if (this.autoGenService.autoModeActive)
     {
@@ -119,12 +120,12 @@ export class KeyspageComponent implements OnInit, OnDestroy {
     }
   }
 
-  setDelayForKey(k: KeyRowModel)
+  setUpKeyRow(k: KeyRowViewModel)
   {
+    let stats = this.balanceApi.getStatsForKeyRow(k);
+
     setTimeout( () =>
     {
-      let stats = this.balanceApi.getStatsForKeyRow(k)
-
       k.stats= stats.getFormat();
 
       //Sets the border color for that entry
@@ -143,6 +144,12 @@ export class KeyspageComponent implements OnInit, OnDestroy {
       }
       else
       {
+        if (LocalStorageHelper.GetHideUnusedKeys())
+        {
+          k.display = "none";
+          this.unusedKeyCount++;
+        }
+
         k.setBorderColor("red")
       }
 
@@ -230,5 +237,15 @@ export class KeyspageComponent implements OnInit, OnDestroy {
   {
     this.autoGenService.cancel();
     this.router.navigate([this.getSwitchNetworkLink()]);
+  }
+
+  shouldHideUnusedKeys() : boolean
+  {
+    return LocalStorageHelper.GetHideUnusedKeys();
+  }
+
+  isEmptyPage() : boolean
+  {
+    return this.unusedKeyCount == this.keys.length;
   }
 }
