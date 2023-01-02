@@ -48,7 +48,9 @@
             "stop": "Stop Auto-Gen",
             "stopOnYellow": "Stop on yellow/green",
             "stopOnGreen": "Stop on green"
-        }
+        },
+
+        "hidden": "hidden" 
     },
 
     "about": 
@@ -292,5 +294,14 @@
         "topSubheader": "There aren't THAT many keys, silly!",
         "randomBtn": "Try a random page instead",
         "randomTestnetBtn": "Or maybe a testnet page?"
+    },
+
+    "settings":
+    {
+        "topHeader": "Settings",
+        "yes": "Yes",
+        "no": "No",
+
+        "hideUnusedKeys": "Hide unused key entries"
     }
 }
