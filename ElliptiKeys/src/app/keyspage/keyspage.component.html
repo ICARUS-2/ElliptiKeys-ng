@@ -84,13 +84,13 @@
 
     <h3 *ngIf="shouldHideUnusedKeys()">(+{{unusedKeyCount}}) {{'keyspage.hidden' | translate}}</h3>
 
-    <div *ngIf="!isEmptyPage() && shouldHideUnusedKeys()">
+    <ng-container *ngIf="!isEmptyPage() && shouldHideUnusedKeys() || !shouldHideUnusedKeys()">
         <app-pagebuttons *ngIf="!isLoading && !autoGenService.autoModeActive" style="width: 70%;" class="pageBtns"></app-pagebuttons>
         <div *ngIf="isLoading && !autoGenService.autoModeActive" class="loadingDiv" style="height: 50px; text-align: center;">{{'keyspage.loading' | translate}}</div>
 
         <div style="margin-top: 25px;"></div>
         <app-auto-gen [isTestnet]="isTestnet"></app-auto-gen>
-    </div>
+    </ng-container>
 
     <div class="m-5"></div> 
 </div>
