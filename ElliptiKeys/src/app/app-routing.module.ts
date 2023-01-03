@@ -14,6 +14,7 @@ import { ExplorerPrivateKeyComponent } from './explorer/explorer-private-key/exp
 import { ExplorerBlockComponent } from './explorer/explorer-block/explorer-block.component';
 import { ExplorerIndexComponent } from './explorer/explorer-index/explorer-index.component';
 import { WalletGeneratorIndexComponent } from './wallet-generator/wallet-generator-index/wallet-generator-index.component';
+import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent, data: {routeName: "homepage"}},
@@ -37,6 +38,8 @@ const routes: Routes = [
   {path: 'explorer/testnet/block/:id', component: ExplorerBlockComponent, data: {routeName: "explorerBlockTestnet"}},
 
   {path: 'wallet-generator', component: WalletGeneratorIndexComponent, data: {routeName: "walletGeneratorIndex"}},
+
+  {path: 'settings', component: SettingsPageComponent},
 
   {path: '**', component:NotFoundComponent},
 ];

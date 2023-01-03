@@ -4,7 +4,7 @@ import { ADDRESS_TYPES } from './../lib/address-types';
 import { WIF_TYPES } from './../lib/wif-types';
 import { URLS } from './../lib/urls';
 
-export default class KeyRowModel
+export default class KeyRowViewModel
 {
     BORDER_WIDTH = 4
 
@@ -22,6 +22,7 @@ export default class KeyRowModel
     legacyCompressedColor: string = "white";
     segwitColor: string = "white";
     bech32Color: string = "white";
+    display: string = "normal";
 
     isTestnet: Boolean = false;
 

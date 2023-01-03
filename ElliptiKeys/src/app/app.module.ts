@@ -40,6 +40,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PageStatTrackerComponent } from './page-stat-tracker/page-stat-tracker.component';
+import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
 
 export function HttpLoaderFactory(http: HttpClient)
 {
@@ -78,6 +79,7 @@ export function HttpLoaderFactory(http: HttpClient)
     MnemonicWordCountSelectorComponent,
     AutoGenComponent,
     PageStatTrackerComponent,
+    SettingsPageComponent,
   ],
   imports: [
     BrowserModule,

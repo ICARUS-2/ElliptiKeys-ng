@@ -5,6 +5,7 @@ export default class LocalStorageHelper
     static LAST_RECORDED_PRICE: string = "elliptikeys_LastRecordedPrice"
     static MAINNET_BALANCES_CHECKED: string = "elliptikeys_MainnetBalancesChecked";
     static TESTNET_BALANCES_CHECKED: string = "elliptikeys_TestnetBalancesChecked";
+    static HIDE_UNUSED_KEYS: string = "elliptikeys_HideUnusedKeys";
 
     static SITE_NAME: string="elliptikeys_Lang"
     static getLang() : string | null
@@ -111,5 +112,15 @@ export default class LocalStorageHelper
     {
         this.SetMainnetBalancesChecked("0");
         this.SetTestnetBalancesChecked("0");
+    }
+
+    static GetHideUnusedKeys() : boolean
+    {
+        return window.localStorage.getItem(this.HIDE_UNUSED_KEYS) == "true";
+    } 
+
+    static SetHideUnusedKeys(setting: boolean) : void 
+    {
+        window.localStorage.setItem(this.HIDE_UNUSED_KEYS, setting.toString());
     }
 }

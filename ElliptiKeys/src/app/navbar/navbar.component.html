@@ -26,6 +26,11 @@
                     <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang == currentLang">{{lang}}</option>
                 </select>
             </li>
+            <li class="navSettingsLogo">
+                <a routerLink="/settings">
+                    <img src="../../assets/settings.webp" style="width: 30px;">
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

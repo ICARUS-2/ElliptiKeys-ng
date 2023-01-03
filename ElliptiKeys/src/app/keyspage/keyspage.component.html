@@ -39,29 +39,29 @@
     <div style="display: flex; justify-content: center; width: 100%;" class="tableWrapper">
         <table style="border-spacing: 10px 0px; border-collapse: separate; width: 97%;" class="keysTable">
             <tr *ngFor="let model of keys; let index = index" class="tableRow">
-                <td class="desktopTd" style="padding: 10px 0px;" [style.border-left]="model.borderColor">
+                <td class="desktopTd" style="padding: 10px 0px;" [style.border-left]="model.borderColor" [ngStyle]="{'display': model.display}">
                     <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('uncompressed')">{{model.privateKey}}</a>
                     <br>
                     <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('compressed')">{{model.privateKeyCompressed}}</a>
                 </td>
 
-                <td class="desktopTd">
+                <td class="desktopTd" [ngStyle]="{'display': model.display}">
                     <a [style.color]="model.legacyColor" [routerLink]="model.getAddressExplorerUrl('legacy')" class="{{model.legacy}}">{{model.legacy}}</a>
                     <br>
                     <a [style.color]="model.legacyCompressedColor" [routerLink]="model.getAddressExplorerUrl('legacyCompressed')" class="{{model.legacyCompressed}}">{{model.legacyCompressed}}</a>
                 </td>
 
-                <td class="desktopTd">
+                <td class="desktopTd" [ngStyle]="{'display': model.display}">
                     <a [style.color]="model.segwitColor" [routerLink]="model.getAddressExplorerUrl('segwit')" class="{{model.segwit}}">{{model.segwit}}</a>
                     <br>
                     <a [style.color]="model.bech32Color" [routerLink]="model.getAddressExplorerUrl('bech32')" class="{{model.bech32}}">{{model.bech32}}</a>
                 </td>
 
-                <td class="desktopTd">
+                <td class="desktopTd" [ngStyle]="{'display': model.display}">
                     <p>{{model.stats}}</p>
                 </td>
             
-                <td class="mobileTd" [style.border-left]="model.borderColor">
+                <td class="mobileTd" [style.border-left]="model.borderColor" [ngStyle]="{'display': model.display}">
                     <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('uncompressed')">{{model.privateKey}}</a>
                     <div style="margin-top: 10px;"></div>
                     <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('compressed')">{{model.privateKeyCompressed}}</a>
@@ -82,12 +82,15 @@
         </table>
     </div>
 
-    <app-pagebuttons *ngIf="!isLoading && !autoGenService.autoModeActive" style="width: 70%;" class="pageBtns"></app-pagebuttons>
-    <div *ngIf="isLoading && !autoGenService.autoModeActive" class="loadingDiv" style="height: 50px">{{'keyspage.loading' | translate}}</div>
+    <h3 *ngIf="shouldHideUnusedKeys()">(+{{unusedKeyCount}}) {{'keyspage.hidden' | translate}}</h3>
 
-    <div style="margin-top: 25px;"></div>
+    <div *ngIf="!isEmptyPage() && shouldHideUnusedKeys()">
+        <app-pagebuttons *ngIf="!isLoading && !autoGenService.autoModeActive" style="width: 70%;" class="pageBtns"></app-pagebuttons>
+        <div *ngIf="isLoading && !autoGenService.autoModeActive" class="loadingDiv" style="height: 50px; text-align: center;">{{'keyspage.loading' | translate}}</div>
 
-    <app-auto-gen [isTestnet]="isTestnet"></app-auto-gen>
+        <div style="margin-top: 25px;"></div>
+        <app-auto-gen [isTestnet]="isTestnet"></app-auto-gen>
+    </div>
 
     <div class="m-5"></div> 
 </div>

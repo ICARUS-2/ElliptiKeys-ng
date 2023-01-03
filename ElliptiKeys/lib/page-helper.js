@@ -1,5 +1,5 @@
 import Keys from './keys/Keys';
-import KeyRowModel from './../models/key-row-model';
+import KeyRowViewModel from './../models/key-row-model';
 
 export default class PageHelper
 {
@@ -44,7 +44,7 @@ export default class PageHelper
             if (i == Keys.MAX_PRIVATE_KEY + BigInt(1))
                 break;
 
-            models.push(new KeyRowModel(i, isTestnet))
+            models.push(new KeyRowViewModel(i, isTestnet))
         }
 
         return models
