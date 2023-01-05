@@ -54,6 +54,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
     color: cyan;
 }
 
+.testnetScamWarning a
+{
+    background-color: unset;
+    color: unset;
+    font-weight: bold;
+}
+
+.testnetScamWarning a:visited
+{
+    color: unset;
+}
+
 @media screen and (max-width: 768px)
 {
     .mobileScrollableTable {

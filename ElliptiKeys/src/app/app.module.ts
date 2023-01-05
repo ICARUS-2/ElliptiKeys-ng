@@ -12,8 +12,8 @@ import { RandomComponent } from './random/random.component';
 import { PagebuttonsComponent } from './pagebuttons/pagebuttons.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
-import { AboutComponent } from './about/about.component';
-import { DonateComponent } from './donate/donate.component';
+import { AboutComponent } from './static/about/about.component';
+import { DonateComponent } from './static/donate/donate.component';
 import { PriceService } from './services/price/price.service';
 import { PriceComponent } from './price/price.component';
 import { TestnetRandomComponent } from './testnet-random/testnet-random.component';
@@ -41,6 +41,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PageStatTrackerComponent } from './page-stat-tracker/page-stat-tracker.component';
 import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
+import { AboutTestnetScamsComponent } from './static/about-testnet-scams/about-testnet-scams.component';
 
 export function HttpLoaderFactory(http: HttpClient)
 {
@@ -80,6 +81,7 @@ export function HttpLoaderFactory(http: HttpClient)
     AutoGenComponent,
     PageStatTrackerComponent,
     SettingsPageComponent,
+    AboutTestnetScamsComponent,
   ],
   imports: [
     BrowserModule,

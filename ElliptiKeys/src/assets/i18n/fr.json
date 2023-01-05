@@ -39,6 +39,7 @@
         "switchNetworkBtn": "Changer de Réseau",
 
         "testnetWarning": "Vous explorez actuellement les clés testnet. Testnet est une blockchain Bitcoin alternative que les développeurs utilisent pour les tests. Les pièces Testnet n'ont aucune valeur.",
+        "learnMore":"Apprendre plus à propos des arnaques testnet.",
         "of": "de",
         "loading": "Chargement en cours...",
 
@@ -213,7 +214,8 @@
     "walletGenerator": 
     {
         "scamWarning": "AVERTISSEMENT D'ARNAQUE TESTNET: LES BITCOINS DE TESTNET N'ONT AUCUNE VALEUR!",
-
+        "learnMore": "Apprendre plus.",
+        
         "addressTypeSelector": 
         {
             "topHeader": "Type d'Adresse"

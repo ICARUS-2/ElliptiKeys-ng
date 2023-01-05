@@ -39,6 +39,7 @@
         "switchNetworkBtn": "Switch Network",
         
         "testnetWarning": "You are currently exploring testnet keys. Testnet is an alternative Bitcoin blockchain that developers use for testing. Testnet coins do not hold any value.",
+        "learnMore": "Learn more about testnet scams.",
         "of": "of",
         "loading": "Loading...",
 
@@ -214,6 +215,7 @@
     "walletGenerator":
     {
         "scamWarning": "TESTNET SCAM WARNING: TESTNET COINS HAVE NO VALUE!",
+        "learnMore": "Learn more.",
 
         "addressTypeSelector": 
         {
