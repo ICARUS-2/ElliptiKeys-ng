@@ -304,5 +304,14 @@
         "no": "Non",
 
         "hideUnusedKeys": "Cacher les entrées de clé inutilisées"
+    },
+
+    "aboutTestnetScams" : 
+    {
+        "topHeader": "À propos de Testnet et des arnaques Testnet",  
+
+        "desc1": "Le Bitcoin Testnet est une blockchain Bitcoin alternative fonctionnellement identique à l'original. Il est destiné à utilisation par les développeurs, afin que les développeurs de blockchain puissent tester de nouvelles mises à jour sans vous soucier de perdre des Bitcoins réels ou de casser accidentellement la chaîne de blocs principale.",
+        "desc2": "Pour cette raison, les portefeuilles et les pièces testnet n'ont aucune valeur monétaire et ne sont <span class='text-decoration-underline'>JAMAIS</span> destinés à être utilisés pour des paiements ou des achats réels.",
+        "header1": "Comment fonctionnent les arnaques Testnet"
     }
 }

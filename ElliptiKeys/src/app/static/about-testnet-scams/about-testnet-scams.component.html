@@ -1,20 +1,14 @@
 <div class="container">
-    <h1>About Testnet & Testnet Scams</h1>
+    <h1>{{'aboutTestnetScams.topHeader' | translate}}</h1>
 
     <p class="descParagraph">
-        The Bitcoin Testnet is an alternative Bitcoin blockchain
-        functionally identical to the original. It is intended for
-        developer use, so that blockchain developers can test new updates
-        without worrying about losing actual Bitcoins or accidentally breaking
-        the main blockchain.
+        {{'aboutTestnetScams.desc1' | translate}}
     </p>
 
-    <p class="descParagraph">
-        Due to this, testnet wallets and coins alike possess no monetary value,
-        and are <span style="text-decoration: underline">NEVER</span> meant to be used for 
-        real-life payments or purchases.
+    <p class="descParagraph" [innerHTML]="'aboutTestnetScams.desc2' | translate">
+        
     </p>
-
+    
     <br>
 
     <h2>How testnet scams work</h2>
