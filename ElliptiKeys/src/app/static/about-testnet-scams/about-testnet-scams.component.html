@@ -11,26 +11,22 @@
     
     <br>
 
-    <h2>How testnet scams work</h2>
+    <h2>{{'aboutTestnetScams.header2' | translate}}</h2>
     <p class="descParagraph">
-        The primary way a testnet scam gets executed is by someone convincing
-        someone else to make a Bitcoin wallet to receive a payment, but
-        instead tricking them into making a testnet wallet and sending
-        worthless testnet coins and not actual Bitcoin.
+        {{'aboutTestnetScams.desc3' | translate}}
     </p>
 
-    <h2>How to avoid testnet scams</h2>
+    <br>
+
+    <h2>{{'aboutTestnetScams.howToAvoidHeader' | translate}}</h2>
+
     <p class="descParagraph">
-        The easiest way to tell if you are getting scammed is by looking at the 
-        address prefix.
+        {{'aboutTestnetScams.howToAvoidDesc' | translate}}
     </p>
 
     <ul class="descList">
-        <li>A <span class="text-lime">real Bitcoin address</span> should always start with 1, 3, or bc1q/bc1p</li>
-        <li>A <span class="text-red">worthless testnet address</span> will be prefixed with m, n, 2, or tb1q/tb1p.
-            If you have been asked to create a wallet that starts with one of these,
-            <span style="text-decoration: underline">you are being scammed.</span>
-        </li>
+        <li [innerHTML]=" 'aboutTestnetScams.descListReal' | translate "></li>
+        <li [innerHTML]=" 'aboutTestnetScams.descListScam' | translate "></li>
     </ul>
 
     <div style="margin-top: 75px"></div>

@@ -23,8 +23,6 @@ export class SettingsPageComponent implements OnInit {
   {
     let val = event.target.value == "true"
 
-    console.log(val)
-
     this.hideUnusedKeysFormControl.setValue(val)
     LocalStorageHelper.SetHideUnusedKeys(val)
   }
