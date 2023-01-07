@@ -326,6 +326,9 @@
         "howToAvoidDesc": "Le moyen le plus simple de savoir si vous êtes victime d'une arnaque est de regarder le préfixe d'adresse.",
 
         "descListReal": "Une <span class='text-lime'>véritable adresse Bitcoin</span> doit toujours commencer par 1, 3 ou bc1q/bc1p",
-        "descListScam": "Une <span class='text-red'>adresse testnet sans valeur</span> sera précédée de m, n, 2 ou tb1q/tb1p. Si on vous a demandé de créer un portefeuille qui commence par l'un de ceux-ci, <span style='text-decoration: underline'>vous êtes victime d'une arnaque.</span>"
+        "descListScam": "Une <span class='text-red'>adresse testnet sans valeur</span> sera précédée de m, n, 2 ou tb1q/tb1p. Si on vous a demandé de créer un portefeuille qui commence par l'un de ceux-ci, <span style='text-decoration: underline'>vous êtes victime d'une arnaque.</span>",
+    
+        "exampleTableReal": "Vrai Bitcoin",
+        "exampleTableScam": "Aucune Valeur"
     }
 }
