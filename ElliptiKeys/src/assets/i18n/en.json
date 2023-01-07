@@ -217,6 +217,12 @@
         "scamWarning": "TESTNET SCAM WARNING: TESTNET COINS HAVE NO VALUE!",
         "learnMore": "Learn more.",
 
+        "networkSelector": 
+        {
+            "bitcoin": "Bitcoin",
+            "testnet": "Testnet (NO VALUE)"
+        },
+
         "addressTypeSelector": 
         {
             "topHeader": "Address Type"

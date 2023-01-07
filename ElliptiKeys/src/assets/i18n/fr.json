@@ -216,6 +216,12 @@
         "scamWarning": "AVERTISSEMENT D'ARNAQUE TESTNET: LES BITCOINS DE TESTNET N'ONT AUCUNE VALEUR!",
         "learnMore": "Apprendre plus.",
         
+        "networkSelector": 
+        {
+            "bitcoin": "Bitcoin",
+            "testnet": "Testnet (AUCUNE VALEUR)"
+        },
+
         "addressTypeSelector": 
         {
             "topHeader": "Type d'Adresse"
