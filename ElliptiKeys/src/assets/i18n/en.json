@@ -306,6 +306,7 @@
 
     "settings":
     {
+        "title": "Settings | ElliptiKeys",
         "topHeader": "Settings",
         "yes": "Yes",
         "no": "No",
@@ -315,6 +316,7 @@
 
     "aboutTestnetScams" : 
     {
+        "title": "About Testnet & Testnet Scams | ElliptiKeys",
         "topHeader": "About Testnet & Testnet Scams",
         
         "desc1": "The Bitcoin Testnet is an alternative Bitcoin blockchain functionally identical to the original. It is intended for developer use, so that blockchain developers can test new updates without worrying about losing actual Bitcoins or accidentally breaking the main blockchain.",
