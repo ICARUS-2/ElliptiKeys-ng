@@ -331,6 +331,8 @@
         "descListScam": "Une <span class='text-red'>adresse testnet sans valeur</span> sera précédée de m, n, 2 ou tb1q/tb1p. Si on vous a demandé de créer un portefeuille qui commence par l'un de ceux-ci, <span style='text-decoration: underline'>vous êtes victime d'une arnaque.</span>",
     
         "exampleTableReal": "Vrai Bitcoin",
-        "exampleTableScam": "Aucune Valeur"
+        "exampleTableScam": "Aucune Valeur",
+
+        "walletGeneratorDesc": "Lors de la génération de portefeuilles importants, assurez-vous toujours que le sélecteur de réseau est défini sur Bitcoin et non sur Testnet."
     }
 }

@@ -332,6 +332,8 @@
         "descListScam": "A <span class='text-red'>worthless testnet address</span> will be prefixed with m, n, 2, or tb1q/tb1p. If you have been asked to create a wallet that starts with one of these, <span class='text-decoration-underline'>you are being scammed.</span>",
     
         "exampleTableReal": "Real Bitcoin",
-        "exampleTableScam": "No Value"
+        "exampleTableScam": "No Value",
+
+        "walletGeneratorDesc": "When generating important wallets, always ensure the Network Selector is set to Bitcoin and not Testnet."
     }
 }
