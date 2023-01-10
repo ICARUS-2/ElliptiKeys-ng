@@ -1,8 +1,8 @@
 <h2>{{'walletGenerator.networkTypeSelector.topHeader' | translate}}</h2>
 <div class="btn-group" (change)="onRadioButtonChanged()">
     <input type="radio" [name]="radioName" [formControl]="networkFormControl" [value]="networkTypes.bitcoin" class="btn-check" [id]="'networkBtcRadio'+radioName" autocomplete="off">
-    <label class="btn btn-outline-primary" [for]="'networkBtcRadio'+radioName">Bitcoin</label>
+    <label class="btn btn-outline-primary" [for]="'networkBtcRadio'+radioName">{{'walletGenerator.networkSelector.bitcoin' | translate}}</label>
   
     <input type="radio" [name]="radioName" [formControl]="networkFormControl" [value]="networkTypes.testnet" class="btn-check" [id]="'networkTestnetRadio'+radioName" autocomplete="off">
-    <label class="btn btn-outline-primary" [for]="'networkTestnetRadio'+radioName">Testnet</label>
+    <label class="btn btn-outline-primary" [for]="'networkTestnetRadio'+radioName">{{'walletGenerator.networkSelector.testnet' | translate}}</label>
 </div>

@@ -18,7 +18,10 @@
             <button class="btn btn-lg" [disabled]="isCurrentlyGenerating" [ngClass]="{'btn-outline-primary':!isCurrentlyGenerating, 'btn-outline-secondary disabled' : isCurrentlyGenerating }" (click)="bulkGenerate()"> {{ (isCurrentlyGenerating ? "walletGenerator.bulkGenerate.generateBtnInProgress" : "walletGenerator.bulkGenerate.generateBtn") | translate}} </button>
         </div>
         <p class="countErrDisplay">{{countErrorMessage}}</p>
-        <div style="margin-top: 5px;" class="alert alert-danger" *ngIf="getIsTestnet()">{{"walletGenerator.scamWarning" | translate}}</div>
+        <div style="margin-top: 5px;" class="alert alert-danger testnetScamWarning" *ngIf="getIsTestnet()">
+            {{"walletGenerator.scamWarning" | translate}}
+            <a routerLink="/about-testnet-scams">{{'walletGenerator.learnMore' | translate}}</a>
+        </div>
         <div class="m-5"></div>
     </div>
 

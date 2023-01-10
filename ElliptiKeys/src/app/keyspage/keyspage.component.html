@@ -7,9 +7,10 @@
         <app-page-stat-tracker style="align-self: flex-end;"></app-page-stat-tracker>
     </div>
 
-    <div *ngIf="isTestnet">
-        <div class="alert alert-warning" role="alert">
+    <div *ngIf="isTestnet" class="w-100 d-flex justify-content-center">
+        <div style="max-width: 80%;" class="alert alert-warning testnetScamWarning" role="alert">
             {{'keyspage.testnetWarning' | translate}}
+            <a routerLink="/about-testnet-scams">{{'keyspage.learnMore' | translate}}</a>
         </div>          
     </div>
 

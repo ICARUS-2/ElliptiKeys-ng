@@ -39,6 +39,7 @@
         "switchNetworkBtn": "Changer de Réseau",
 
         "testnetWarning": "Vous explorez actuellement les clés testnet. Testnet est une blockchain Bitcoin alternative que les développeurs utilisent pour les tests. Les pièces Testnet n'ont aucune valeur.",
+        "learnMore":"Apprendre plus à propos des arnaques testnet.",
         "of": "de",
         "loading": "Chargement en cours...",
 
@@ -213,6 +214,13 @@
     "walletGenerator": 
     {
         "scamWarning": "AVERTISSEMENT D'ARNAQUE TESTNET: LES BITCOINS DE TESTNET N'ONT AUCUNE VALEUR!",
+        "learnMore": "Apprendre plus.",
+        
+        "networkSelector": 
+        {
+            "bitcoin": "Bitcoin",
+            "testnet": "Testnet (AUCUNE VALEUR)"
+        },
 
         "addressTypeSelector": 
         {
@@ -297,10 +305,34 @@
 
     "settings":
     {
+        "title": "Paramètres | ElliptiKeys",
         "topHeader": "Paramètres",
         "yes": "Oui",
         "no": "Non",
 
         "hideUnusedKeys": "Cacher les entrées de clé inutilisées"
+    },
+
+    "aboutTestnetScams" : 
+    {
+        "title": "À propos de Testnet et des arnaques Testnet | ElliptiKeys",
+        "topHeader": "À propos de Testnet et des arnaques Testnet",  
+
+        "desc1": "Le Bitcoin Testnet est une blockchain Bitcoin alternative fonctionnellement identique à l'original. Il est destiné à utilisation par les développeurs, afin que les développeurs de blockchain puissent tester de nouvelles mises à jour sans vous soucier de perdre des Bitcoins réels ou de casser accidentellement la blockchain principale.",
+        "desc2": "Pour cette raison, les portefeuilles et les pièces testnet n'ont aucune valeur monétaire et ne sont <span class='text-decoration-underline'>JAMAIS</span> destinés à être utilisés pour des paiements ou des achats réels.",
+        "header2": "Comment fonctionnent les arnaques Testnet",
+        
+        "desc3": "La principale façon dont une escroquerie testnet est exécutée est par quelqu'un de convaincant quelqu'un d'autre pour faire un portefeuille Bitcoin pour recevoir un paiement, mais au lieu de les inciter à créer un portefeuille testnet et à envoyer des pièces testnet sans valeur et non des bitcoins réels.",
+ 
+        "howToAvoidHeader": "Comment éviter les arnaques testnet",
+        "howToAvoidDesc": "Le moyen le plus simple de savoir si vous êtes victime d'une arnaque est de regarder le préfixe d'adresse.",
+
+        "descListReal": "Une <span class='text-lime'>véritable adresse Bitcoin</span> doit toujours commencer par 1, 3 ou bc1.",
+        "descListScam": "Une <span class='text-red'>adresse testnet sans valeur</span> sera précédée de m, n, 2 ou tb1. Si on vous a demandé de créer un portefeuille qui commence par l'un de ceux-ci, <span class='text-decoration-underline text-red'>VOUS ÊTES VICTIME D'UNE ARNAQUE.</span>",
+    
+        "exampleTableReal": "Vrai Bitcoin",
+        "exampleTableScam": "Aucune Valeur",
+
+        "walletGeneratorDesc": "Lors de la génération de portefeuilles importants, assurez-vous toujours que le sélecteur de réseau est défini sur Bitcoin et non sur Testnet."
     }
 }

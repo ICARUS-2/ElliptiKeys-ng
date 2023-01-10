@@ -5,8 +5,8 @@ import { KeyspageComponent } from './keyspage/keyspage.component';
 import { TooFarComponent } from './too-far/too-far.component';
 import { RandomComponent } from './random/random.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { AboutComponent } from './about/about.component';
-import { DonateComponent } from './donate/donate.component';
+import { AboutComponent } from './static/about/about.component';
+import { DonateComponent } from './static/donate/donate.component';
 import { TestnetRandomComponent } from './testnet-random/testnet-random.component';
 import { ExplorerAddressComponent } from './explorer/explorer-address/explorer-address.component';
 import { ExplorerTransactionComponent } from './explorer/explorer-transaction/explorer-transaction.component';
@@ -15,6 +15,7 @@ import { ExplorerBlockComponent } from './explorer/explorer-block/explorer-block
 import { ExplorerIndexComponent } from './explorer/explorer-index/explorer-index.component';
 import { WalletGeneratorIndexComponent } from './wallet-generator/wallet-generator-index/wallet-generator-index.component';
 import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
+import { AboutTestnetScamsComponent } from './static/about-testnet-scams/about-testnet-scams.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent, data: {routeName: "homepage"}},
@@ -26,6 +27,7 @@ const routes: Routes = [
   
   {path: 'about', component:AboutComponent, data: {routeName: "about"}},
   {path: 'donate', component: DonateComponent, data: {routeName: "donate"}},
+  {path: 'about-testnet-scams', component: AboutTestnetScamsComponent, data: {routeName: "about-testnet-scams"}},
 
   {path: 'explorer', component: ExplorerIndexComponent, data: {routeName: "explorerIndex"}},
   {path: 'explorer/bitcoin/address/:id', component: ExplorerAddressComponent, data: {routeName: "explorerAddressBitcoin"}},

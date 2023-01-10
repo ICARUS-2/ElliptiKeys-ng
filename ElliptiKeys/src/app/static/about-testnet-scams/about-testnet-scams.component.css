@@ -1,0 +1,19 @@
+.descParagraph
+{
+    font-size: x-large;
+}
+
+.descList
+{
+    font-size: x-large;
+}
+
+.exampleTable
+{
+    font-size: x-large;
+}
+
+.exampleTable td 
+{
+    width: 100%;
+}
