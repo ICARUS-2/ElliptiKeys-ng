@@ -39,6 +39,7 @@
         "switchNetworkBtn": "Switch Network",
         
         "testnetWarning": "You are currently exploring testnet keys. Testnet is an alternative Bitcoin blockchain that developers use for testing. Testnet coins do not hold any value.",
+        "learnMore": "Learn more about testnet scams.",
         "of": "of",
         "loading": "Loading...",
 
@@ -214,6 +215,13 @@
     "walletGenerator":
     {
         "scamWarning": "TESTNET SCAM WARNING: TESTNET COINS HAVE NO VALUE!",
+        "learnMore": "Learn more.",
+
+        "networkSelector": 
+        {
+            "bitcoin": "Bitcoin",
+            "testnet": "Testnet (NO VALUE)"
+        },
 
         "addressTypeSelector": 
         {
@@ -298,10 +306,34 @@
 
     "settings":
     {
+        "title": "Settings | ElliptiKeys",
         "topHeader": "Settings",
         "yes": "Yes",
         "no": "No",
 
         "hideUnusedKeys": "Hide unused key entries"
+    },
+
+    "aboutTestnetScams" : 
+    {
+        "title": "About Testnet & Testnet Scams | ElliptiKeys",
+        "topHeader": "About Testnet & Testnet Scams",
+        
+        "desc1": "The Bitcoin Testnet is an alternative Bitcoin blockchain functionally identical to the original. It is intended for developer use, so that blockchain developers can test new updates without worrying about losing actual Bitcoins or accidentally breaking the main blockchain.",
+        "desc2": "Due to this, testnet wallets and coins alike possess no monetary value, and are <span class='text-decoration-underline'>NEVER</span> meant to be used for real-life payments or purchases.",
+        "header2": "How Testnet scams work",
+    
+        "desc3": "The primary way a testnet scam gets executed is by someone convincing someone else to make a Bitcoin wallet to receive a payment, but instead tricking them into making a testnet wallet and sending worthless testnet coins and not actual Bitcoin.",
+    
+        "howToAvoidHeader": "How to avoid Testnet scams",
+        "howToAvoidDesc": "The easiest way to tell if you are getting scammed is by looking at the address prefix.",
+    
+        "descListReal": "A <span class='text-lime'>real Bitcoin address</span> should always start with 1, 3, or bc1.",
+        "descListScam": "A <span class='text-red'>worthless testnet address</span> will be prefixed with m, n, 2, or tb1. If you have been asked to create a wallet that starts with one of these, <span class='text-decoration-underline text-red'>YOU ARE BEING SCAMMED.</span>",
+    
+        "exampleTableReal": "Real Bitcoin",
+        "exampleTableScam": "No Value",
+
+        "walletGeneratorDesc": "When generating important wallets, always ensure the Network Selector is set to Bitcoin and not Testnet."
     }
 }
