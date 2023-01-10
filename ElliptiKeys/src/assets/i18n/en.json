@@ -328,8 +328,8 @@
         "howToAvoidHeader": "How to avoid Testnet scams",
         "howToAvoidDesc": "The easiest way to tell if you are getting scammed is by looking at the address prefix.",
     
-        "descListReal": "A <span class='text-lime'>real Bitcoin address</span> should always start with 1, 3, or bc1q/bc1p",
-        "descListScam": "A <span class='text-red'>worthless testnet address</span> will be prefixed with m, n, 2, or tb1q/tb1p. If you have been asked to create a wallet that starts with one of these, <span class='text-decoration-underline'>you are being scammed.</span>",
+        "descListReal": "A <span class='text-lime'>real Bitcoin address</span> should always start with 1, 3, or bc1.",
+        "descListScam": "A <span class='text-red'>worthless testnet address</span> will be prefixed with m, n, 2, or tb1. If you have been asked to create a wallet that starts with one of these, <span class='text-decoration-underline text-red'>YOU ARE BEING SCAMMED.</span>",
     
         "exampleTableReal": "Real Bitcoin",
         "exampleTableScam": "No Value",
