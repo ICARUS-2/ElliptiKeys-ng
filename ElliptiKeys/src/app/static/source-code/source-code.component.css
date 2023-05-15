@@ -1,0 +1,14 @@
+.sourceCodeLink:hover
+{
+    color: gray;
+}
+
+.sourceCodeImg
+{
+    width: 75%;
+}
+
+.sourceCodeDescParagraph
+{
+    font-size: large;
+}
