@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-source-code',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SourceCodeComponent implements OnInit {
 
-  constructor() { }
+  langSub: Subscription;
+  
+  constructor(private titleService: Title, private translateService: TranslateService) 
+  { 
+    this.setTitle();
+
+    this.langSub = this.translateService.onLangChange.subscribe( () =>
+    {
+      this.setTitle();
+    } )
+  }
 
   ngOnInit(): void {
   }
 
+  ngOnDestroy(): void 
+  {
+    this.langSub.unsubscribe();
+  }
+
+  setTitle() : void 
+  {
+    this.translateService.get("sourceCode.title").subscribe( str =>
+      {
+        this.titleService.setTitle(str);
+      } )
+  }
 }
