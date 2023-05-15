@@ -42,6 +42,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PageStatTrackerComponent } from './page-stat-tracker/page-stat-tracker.component';
 import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
 import { AboutTestnetScamsComponent } from './static/about-testnet-scams/about-testnet-scams.component';
+import { SourceCodeComponent } from './static/source-code/source-code.component';
 
 export function HttpLoaderFactory(http: HttpClient)
 {
@@ -82,6 +83,7 @@ export function HttpLoaderFactory(http: HttpClient)
     PageStatTrackerComponent,
     SettingsPageComponent,
     AboutTestnetScamsComponent,
+    SourceCodeComponent,
   ],
   imports: [
     BrowserModule,

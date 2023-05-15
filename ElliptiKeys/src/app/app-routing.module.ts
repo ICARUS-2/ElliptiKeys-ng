@@ -16,6 +16,7 @@ import { ExplorerIndexComponent } from './explorer/explorer-index/explorer-index
 import { WalletGeneratorIndexComponent } from './wallet-generator/wallet-generator-index/wallet-generator-index.component';
 import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
 import { AboutTestnetScamsComponent } from './static/about-testnet-scams/about-testnet-scams.component';
+import { SourceCodeComponent } from './static/source-code/source-code.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent, data: {routeName: "homepage"}},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'about', component:AboutComponent, data: {routeName: "about"}},
   {path: 'donate', component: DonateComponent, data: {routeName: "donate"}},
   {path: 'about-testnet-scams', component: AboutTestnetScamsComponent, data: {routeName: "about-testnet-scams"}},
+  {path: 'source-code', component: SourceCodeComponent},
 
   {path: 'explorer', component: ExplorerIndexComponent, data: {routeName: "explorerIndex"}},
   {path: 'explorer/bitcoin/address/:id', component: ExplorerAddressComponent, data: {routeName: "explorerAddressBitcoin"}},

@@ -12,7 +12,7 @@ export class AddressTypeSelectorComponent implements OnInit {
   addressFormControl: FormControl;
   addressTypes = ADDRESS_TYPES;
 
-  static DEFAULT_VALUE = ADDRESS_TYPES.segwit;
+  static DEFAULT_VALUE = ADDRESS_TYPES.bech32;
   
   radioName = Math.random().toString();
 
