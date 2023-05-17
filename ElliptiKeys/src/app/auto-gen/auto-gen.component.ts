@@ -11,7 +11,6 @@ export class AutoGenComponent implements OnInit {
 
   @Input() isTestnet: boolean = false;
 
-  formName: string = Math.random().toString();
   autoGenService: AutoGenService;
 
   constructor(ags: AutoGenService) 

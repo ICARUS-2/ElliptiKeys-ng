@@ -1,11 +1,5 @@
 <div class="autoGenContainer">
     <button class="btn btn-lg autoGenBtn" [ngClass]="{ 'btn-outline-success' : !this.autoGenService.autoModeActive, 'btn-outline-danger' : this.autoGenService.autoModeActive}" (click)="toggleAutoGen()">{{ (this.autoGenService.autoModeActive ? 'keyspage.autoGen.stop' : 'keyspage.autoGen.activate') | translate}}</button>
 
-    <div class="btn-group stopSettings" role="group" aria-label="Stop On Yellow">
-        <input type="radio" [value]="true" [(ngModel)]="autoGenService.stopOnYellow" class="btn-check" [id]="'stopZeroYes'+formName" autocomplete="off">
-        <label class="btn btn-outline-primary" [for]="'stopZeroYes'+formName">{{'keyspage.autoGen.stopOnYellow' | translate}}</label>
-    
-        <input type="radio" [value]="false" [(ngModel)]="autoGenService.stopOnYellow" class="btn-check" [id]="'stopZeroNo'+formName" autocomplete="off">
-        <label class="btn btn-outline-primary" [for]="'stopZeroNo'+formName">{{'keyspage.autoGen.stopOnGreen' | translate}}</label>
-    </div>
+
 </div>
