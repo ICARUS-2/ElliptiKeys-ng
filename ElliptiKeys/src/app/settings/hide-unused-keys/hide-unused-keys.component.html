@@ -1,0 +1,7 @@
+<div class="btn-group" role="group" (change)="onHideUnusedComponentRadioButtonChanged($event)">
+    <input id="settingsHideUnusedKeysTrue" type="radio" name="settingsHideUnusedKeys" [formControl]="hideUnusedKeysFormControl" value=true class="btn-check" autocomplete="off">
+    <label class="btn btn-outline-primary" [ngClass]="{'active' : hideUnusedKeysFormControl.value}" for="settingsHideUnusedKeysTrue">{{'settings.yes' | translate}}</label>
+    
+    <input id="settingsHideUnusedKeysFalse" type="radio" name="settingsHideUnusedKeys" [formControl]="hideUnusedKeysFormControl" value=false class="btn-check" autocomplete="off">
+    <label class="btn btn-outline-primary" [ngClass]="{'active' : !hideUnusedKeysFormControl.value}" for="settingsHideUnusedKeysFalse">{{'settings.no' | translate}}</label>
+</div>

@@ -43,6 +43,7 @@ import { PageStatTrackerComponent } from './page-stat-tracker/page-stat-tracker.
 import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
 import { AboutTestnetScamsComponent } from './static/about-testnet-scams/about-testnet-scams.component';
 import { SourceCodeComponent } from './static/source-code/source-code.component';
+import { HideUnusedKeysComponent } from './settings/hide-unused-keys/hide-unused-keys.component';
 
 export function HttpLoaderFactory(http: HttpClient)
 {
@@ -84,6 +85,7 @@ export function HttpLoaderFactory(http: HttpClient)
     SettingsPageComponent,
     AboutTestnetScamsComponent,
     SourceCodeComponent,
+    HideUnusedKeysComponent,
   ],
   imports: [
     BrowserModule,
