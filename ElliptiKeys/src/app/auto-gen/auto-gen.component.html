@@ -1,5 +1,3 @@
 <div class="autoGenContainer">
     <button class="btn btn-lg autoGenBtn" [ngClass]="{ 'btn-outline-success' : !this.autoGenService.autoModeActive, 'btn-outline-danger' : this.autoGenService.autoModeActive}" (click)="toggleAutoGen()">{{ (this.autoGenService.autoModeActive ? 'keyspage.autoGen.stop' : 'keyspage.autoGen.activate') | translate}}</button>
-
-
 </div>

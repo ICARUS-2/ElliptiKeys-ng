@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import PageHelper from './../../../../lib/page-helper';
+import LocalStorageHelper from 'lib/localstorage-helper';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,6 @@ import PageHelper from './../../../../lib/page-helper';
 export class AutoGenService {
 
   autoModeActive: boolean = false;
-
-  stopOnYellow: boolean = true;
 
   timeoutEvent: any;
 
@@ -62,5 +61,10 @@ export class AutoGenService {
       this.autoModeActive = false;
       clearTimeout(this.timeoutEvent)
     }
+  }
+
+  doesStopOnYellow() : boolean
+  {
+    return LocalStorageHelper.GetStopAutoGenOnYellow();
   }
 }

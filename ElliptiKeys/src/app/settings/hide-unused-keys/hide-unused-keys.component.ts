@@ -22,7 +22,7 @@ export class HideUnusedKeysComponent implements OnInit {
 
   onHideUnusedComponentRadioButtonChanged(event: any)
   {
-    let val = event.target.value == "true"
+    let val: boolean = event.target.value == "true"
 
     this.hideUnusedKeysFormControl.setValue(val)
     LocalStorageHelper.SetHideUnusedKeys(val)

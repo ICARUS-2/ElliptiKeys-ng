@@ -1,7 +1,12 @@
-<div class="btn-group stopSettings" role="group" aria-label="Stop On Yellow">
-    <input type="radio" [value]="true" [(ngModel)]="autoGenService.stopOnYellow" class="btn-check" [id]="'stopZeroYes'+formName" autocomplete="off">
-    <label class="btn btn-outline-primary" [for]="'stopZeroYes'+formName">{{'keyspage.autoGen.stopOnYellow' | translate}}</label>
+<div>
+    <h5>Stop Option</h5>
+    <div class="btn-group stopSettings" role="group" aria-label="Stop On Yellow" (change)="onStopModeRadioButtonChanged($event)">
+        <input type="radio" value=true [formControl]="autoGenStopSettingFormControl" class="btn-check" [id]="'stopZeroYes'+formName" autocomplete="off">
+        <label class="btn btn-outline-primary" [for]="'stopZeroYes'+formName" [ngClass]="{'active' : autoGenStopSettingFormControl.value}">{{'keyspage.autoGen.stopOnYellow' | translate}}</label>
 
-    <input type="radio" [value]="false" [(ngModel)]="autoGenService.stopOnYellow" class="btn-check" [id]="'stopZeroNo'+formName" autocomplete="off">
-    <label class="btn btn-outline-primary" [for]="'stopZeroNo'+formName">{{'keyspage.autoGen.stopOnGreen' | translate}}</label>
+        <input type="radio" value=false [formControl]="autoGenStopSettingFormControl" class="btn-check" [id]="'stopZeroNo'+formName" autocomplete="off">
+        <label class="btn btn-outline-primary" [for]="'stopZeroNo'+formName" [ngClass]="{'active' : !autoGenStopSettingFormControl.value}">{{'keyspage.autoGen.stopOnGreen' | translate}}</label>
+    </div>
+
+    <!--TODO: ADD INCREMENT SETTINGS-->
 </div>

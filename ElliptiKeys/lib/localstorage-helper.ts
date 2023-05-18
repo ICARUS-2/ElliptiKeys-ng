@@ -1,11 +1,19 @@
 export default class LocalStorageHelper
 {
+    //searching
     static PRIVATE_KEY_SEARCH_QUERY: string = "elliptikeys_PrivateKeySearchQuery";
+
+    //price api
     static LAST_PRICE_API_CALL: string = "elliptikeys_LastPriceApiCall"
     static LAST_RECORDED_PRICE: string = "elliptikeys_LastRecordedPrice"
+
+    //user stats
     static MAINNET_BALANCES_CHECKED: string = "elliptikeys_MainnetBalancesChecked";
     static TESTNET_BALANCES_CHECKED: string = "elliptikeys_TestnetBalancesChecked";
+
+    //user configuration
     static HIDE_UNUSED_KEYS: string = "elliptikeys_HideUnusedKeys";
+    static STOP_AUTO_GEN_YELLOW_GREEN = "elliptikeys_StopAutoGenYellowGreen";
 
     static SITE_NAME: string="elliptikeys_Lang"
     static getLang() : string | null
@@ -114,6 +122,8 @@ export default class LocalStorageHelper
         this.SetTestnetBalancesChecked("0");
     }
 
+    //Settings
+    //Hiding unused keys
     static GetHideUnusedKeys() : boolean
     {
         return window.localStorage.getItem(this.HIDE_UNUSED_KEYS) == "true";
@@ -122,5 +132,16 @@ export default class LocalStorageHelper
     static SetHideUnusedKeys(setting: boolean) : void 
     {
         window.localStorage.setItem(this.HIDE_UNUSED_KEYS, setting.toString());
+    }
+
+    //Auto-Gen stop settings
+    static GetStopAutoGenOnYellow() : boolean
+    {
+        return window.localStorage.getItem(this.STOP_AUTO_GEN_YELLOW_GREEN) == "true"
+    }
+
+    static SetStopAutoGenOnYellowGreen(setting: boolean) : void
+    {
+        window.localStorage.setItem(this.STOP_AUTO_GEN_YELLOW_GREEN, setting.toString());
     }
 }
