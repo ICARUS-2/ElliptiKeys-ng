@@ -8,5 +8,17 @@
         <label class="btn btn-outline-primary" [for]="'stopZeroNo'+formName" [ngClass]="{'active' : !autoGenStopSettingFormControl.value}">{{'keyspage.autoGen.stopOnGreen' | translate}}</label>
     </div>
 
+    <h5>Page Selection</h5>
+    <div class="btn-group pageSelectionSetting" role="group" aria-label="Page Selection Setting" (change)="onPageSelectionTypeChanged($event)">
+        <input type="radio" value="random" [formControl]="autoGenPageSelectionFormControl" class="btn-check" [id]="'randomPageSelection'+formName" autocomplete="off">
+        <label class="btn btn-outline-primary" [for]="'randomPageSelection'+formName" [ngClass]="{'active' : autoGenPageSelectionFormControl.value == pageSelectionTypes.random }">Random</label>
+
+        <input type="radio" value="incrementing" [formControl]="autoGenPageSelectionFormControl" class="btn-check" [id]="'incrementingPageSelection'+formName" autocomplete="off">
+        <label class="btn btn-outline-primary" [for]="'incrementingPageSelection'+formName" [ngClass]="{'active' : autoGenPageSelectionFormControl.value == pageSelectionTypes.incrementing }">Incrementing</label>
+
+        <input type="radio" value="decrementing" [formControl]="autoGenPageSelectionFormControl" class="btn-check" [id]="'decrementingPageSelection'+formName" autocomplete="off">
+        <label class="btn btn-outline-primary" [for]="'decrementingPageSelection'+formName" [ngClass]="{'active' : autoGenPageSelectionFormControl.value == pageSelectionTypes.decrementing}">Decrementing</label>
+    </div>
+
     <!--TODO: ADD INCREMENT SETTINGS-->
 </div>

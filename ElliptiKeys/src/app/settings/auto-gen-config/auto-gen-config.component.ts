@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import LocalStorageHelper from 'lib/localstorage-helper';
+import { AUTO_GEN_PAGE_SELECTION_TYPES } from 'lib/page-selection-types';
 import { AutoGenService } from 'src/app/services/auto-gen/auto-gen.service';
 
 @Component({
@@ -12,12 +13,18 @@ export class AutoGenConfigComponent implements OnInit {
 
   autoGenService: AutoGenService;
   formName: string = Math.random().toString();
+  
+  autoGenPageSelectionFormControl: FormControl;
   autoGenStopSettingFormControl : FormControl;
+
+  pageSelectionTypes = AUTO_GEN_PAGE_SELECTION_TYPES;
 
   constructor(ags: AutoGenService) 
   { 
     this.autoGenService = ags
-    this.autoGenStopSettingFormControl = new FormControl(LocalStorageHelper.GetStopAutoGenOnYellow())
+    
+    this.autoGenStopSettingFormControl = new FormControl(LocalStorageHelper.GetStopAutoGenOnYellow());
+    this.autoGenPageSelectionFormControl = new FormControl(LocalStorageHelper.GetAutoGenPageSelectionType());
   }
 
   ngOnInit(): void {
@@ -26,10 +33,14 @@ export class AutoGenConfigComponent implements OnInit {
   onStopModeRadioButtonChanged(event: any) : void 
   {
     let val: boolean = event.target.value == "true";
-    console.log(val)
 
     LocalStorageHelper.SetStopAutoGenOnYellowGreen(val);
-    //console.log(LocalStorageHelper.GetStopAutoGenOnYellow())
   }
 
+  onPageSelectionTypeChanged(event: any) : void 
+  {
+    let val: string = event.target.value;
+    
+    LocalStorageHelper.SetAutoGenPageSelectionType(val);
+  }
 }

@@ -1,3 +1,5 @@
+import { AUTO_GEN_PAGE_SELECTION_TYPES } from "./page-selection-types";
+
 export default class LocalStorageHelper
 {
     //searching
@@ -14,6 +16,7 @@ export default class LocalStorageHelper
     //user configuration
     static HIDE_UNUSED_KEYS: string = "elliptikeys_HideUnusedKeys";
     static STOP_AUTO_GEN_YELLOW_GREEN = "elliptikeys_StopAutoGenYellowGreen";
+    static AUTO_GEN_PAGE_SELECTION = "elliptikeys_AutoGenPageSelection";
 
     static SITE_NAME: string="elliptikeys_Lang"
     static getLang() : string | null
@@ -143,5 +146,24 @@ export default class LocalStorageHelper
     static SetStopAutoGenOnYellowGreen(setting: boolean) : void
     {
         window.localStorage.setItem(this.STOP_AUTO_GEN_YELLOW_GREEN, setting.toString());
+    }
+
+    //Auto-Gen page selection
+    static GetAutoGenPageSelectionType() : string
+    {
+        let storedVal = window.localStorage.getItem(this.AUTO_GEN_PAGE_SELECTION);
+
+        if (!storedVal)
+        {
+            storedVal = AUTO_GEN_PAGE_SELECTION_TYPES.random;
+            LocalStorageHelper.SetAutoGenPageSelectionType(storedVal);
+        }
+        
+        return storedVal;
+    }
+
+    static SetAutoGenPageSelectionType(setting: string) : void 
+    {
+        window.localStorage.setItem(this.AUTO_GEN_PAGE_SELECTION, setting);
     }
 }
