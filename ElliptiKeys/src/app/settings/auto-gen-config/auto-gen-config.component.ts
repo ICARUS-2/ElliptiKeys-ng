@@ -40,7 +40,7 @@ export class AutoGenConfigComponent implements OnInit {
   onPageSelectionTypeChanged(event: any) : void 
   {
     let val: string = event.target.value;
-    
+
     LocalStorageHelper.SetAutoGenPageSelectionType(val);
   }
 }
