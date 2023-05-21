@@ -17,7 +17,7 @@ export class AutoGenService {
 
   }
 
-  navigateAfterDelay(isTestnet: boolean)
+  navigateAfterDelay(isTestnet: boolean, pageNumber: BigInt)
   {
     let interval = PageHelper.DELAY;
 
@@ -40,13 +40,13 @@ export class AutoGenService {
     }, interval)
   }
 
-  toggleAutoGen(isTestnet: boolean)
+  toggleAutoGen(isTestnet: boolean, pageNumber: BigInt)
   {
     this.autoModeActive = !this.autoModeActive;
 
     if (this.autoModeActive)
     {
-      this.navigateAfterDelay(isTestnet);
+      this.navigateAfterDelay(isTestnet, pageNumber);
     }
     else
     {

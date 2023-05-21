@@ -29,7 +29,7 @@
 
     <div class="m-3"></div>
 
-    <app-auto-gen [isTestnet]="isTestnet"></app-auto-gen>
+    <app-auto-gen [isTestnet]="isTestnet" [pageNumber]="pageNumber"></app-auto-gen>
 
     
     <div *ngIf="isLoading && !autoGenService.autoModeActive" class="loadingDiv" style="height: 50px">{{'keyspage.loading' | translate}}</div>
@@ -90,7 +90,7 @@
         <div *ngIf="isLoading && !autoGenService.autoModeActive" class="loadingDiv" style="height: 50px; text-align: center;">{{'keyspage.loading' | translate}}</div>
 
         <div style="margin-top: 25px;"></div>
-        <app-auto-gen [isTestnet]="isTestnet"></app-auto-gen>
+        <app-auto-gen [isTestnet]="isTestnet" [pageNumber]="pageNumber"></app-auto-gen>
     </ng-container>
 
     <div class="m-5"></div> 

@@ -111,7 +111,7 @@ export class KeyspageComponent implements OnInit, OnDestroy {
 
     if (this.autoGenService.autoModeActive)
     {
-      this.autoGenService.navigateAfterDelay(this.isTestnet);
+      this.autoGenService.navigateAfterDelay(this.isTestnet, this.pageNumber);
     }
 
     if (!this.balanceApi.errorCallingApi)
