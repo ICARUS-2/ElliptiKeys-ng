@@ -1,11 +1,11 @@
 <div>
     <h5>Stop Option</h5>
     <div class="btn-group stopSettings" role="group" aria-label="Stop On Yellow" (change)="onStopModeRadioButtonChanged($event)">
-        <input type="radio" value=true [formControl]="autoGenStopSettingFormControl" class="btn-check" [id]="'stopZeroYes'+formName" autocomplete="off">
-        <label class="btn btn-outline-primary" [for]="'stopZeroYes'+formName" [ngClass]="{'active' : autoGenStopSettingFormControl.value}">{{'keyspage.autoGen.stopOnYellow' | translate}}</label>
+        <input type="radio" value="true" [formControl]="autoGenStopSettingFormControl" class="btn-check" [id]="'stopZeroYes'+formName" autocomplete="off">
+        <label class="btn btn-outline-primary" [for]="'stopZeroYes'+formName" [ngClass]="{'active' : autoGenStopSettingFormControl.value == true}">{{'keyspage.autoGen.stopOnYellow' | translate}}</label>
 
-        <input type="radio" value=false [formControl]="autoGenStopSettingFormControl" class="btn-check" [id]="'stopZeroNo'+formName" autocomplete="off">
-        <label class="btn btn-outline-primary" [for]="'stopZeroNo'+formName" [ngClass]="{'active' : !autoGenStopSettingFormControl.value}">{{'keyspage.autoGen.stopOnGreen' | translate}}</label>
+        <input type="radio" value="false" [formControl]="autoGenStopSettingFormControl" class="btn-check" [id]="'stopZeroNo'+formName" autocomplete="off">
+        <label class="btn btn-outline-primary" [for]="'stopZeroNo'+formName" [ngClass]="{'active' : autoGenStopSettingFormControl.value == false}">{{'keyspage.autoGen.stopOnGreen' | translate}}</label>
     </div>
 
     <h5>Page Selection</h5>
@@ -19,6 +19,4 @@
         <input type="radio" value="decrementing" [formControl]="autoGenPageSelectionFormControl" class="btn-check" [id]="'decrementingPageSelection'+formName" autocomplete="off">
         <label class="btn btn-outline-primary" [for]="'decrementingPageSelection'+formName" [ngClass]="{'active' : autoGenPageSelectionFormControl.value == pageSelectionTypes.decrementing}">Decrementing</label>
     </div>
-
-    <!--TODO: ADD INCREMENT SETTINGS-->
 </div>
