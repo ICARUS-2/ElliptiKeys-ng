@@ -32,8 +32,6 @@ export class AutoGenService {
 
       if (autoGenType == AUTO_GEN_PAGE_SELECTION_TYPES.incrementing)
       {
-        console.log(pageNumber)
-
         //@ts-ignore
         let nextPage = pageNumber == PageHelper.GetMaxPage() ? BigInt('1') : pageNumber + BigInt('1');
         
@@ -41,7 +39,10 @@ export class AutoGenService {
       }
       else if (autoGenType == AUTO_GEN_PAGE_SELECTION_TYPES.decrementing)
       {
-
+        //@ts-ignore
+        let prevPg = pageNumber == BigInt('1') ? PageHelper.GetMaxPage() : pageNumber - BigInt('1');
+     
+        this.router.navigate(["/" + networkUrl + "/" + prevPg]);
       }
       else
       {
