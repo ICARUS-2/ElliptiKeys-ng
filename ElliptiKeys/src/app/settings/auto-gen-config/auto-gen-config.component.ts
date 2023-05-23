@@ -32,9 +32,11 @@ export class AutoGenConfigComponent implements OnInit {
 
   onStopModeRadioButtonChanged(event: any) : void 
   {
-    let val: boolean = event.target.value == "true";
+    let val: string = event.target.value;
 
     LocalStorageHelper.SetStopAutoGenOnYellowGreen(val);
+
+    console.log("Stop setting changed")
   }
 
   onPageSelectionTypeChanged(event: any) : void 
@@ -42,5 +44,7 @@ export class AutoGenConfigComponent implements OnInit {
     let val: string = event.target.value;
 
     LocalStorageHelper.SetAutoGenPageSelectionType(val);
+  
+    console.log("Page selection setting changed")
   }
 }

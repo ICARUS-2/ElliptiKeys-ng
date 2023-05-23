@@ -86,6 +86,6 @@ export class AutoGenService {
 
   doesStopOnYellow() : boolean
   {
-    return LocalStorageHelper.GetStopAutoGenOnYellow();
+    return LocalStorageHelper.GetStopAutoGenOnYellow() == "yes";
   }
 }

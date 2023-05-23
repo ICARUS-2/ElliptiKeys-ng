@@ -138,12 +138,20 @@ export default class LocalStorageHelper
     }
 
     //Auto-Gen stop settings
-    static GetStopAutoGenOnYellow() : boolean
+    static GetStopAutoGenOnYellow() : string
     {
-        return window.localStorage.getItem(this.STOP_AUTO_GEN_YELLOW_GREEN) == "true"
+        let res = window.localStorage.getItem(this.STOP_AUTO_GEN_YELLOW_GREEN);
+
+        if (!res)
+        {
+            res = "yes"
+            LocalStorageHelper.SetStopAutoGenOnYellowGreen("yes");
+        }
+
+        return res;
     }
 
-    static SetStopAutoGenOnYellowGreen(setting: boolean) : void
+    static SetStopAutoGenOnYellowGreen(setting: string) : void
     {
         window.localStorage.setItem(this.STOP_AUTO_GEN_YELLOW_GREEN, setting.toString());
     }
