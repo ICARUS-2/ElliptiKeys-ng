@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { NETWORK_TYPES } from './../../../../lib/network-types';
+import { NETWORK_TYPES } from '../../../../lib/dictionaries/network-types';
 
 @Component({
   selector: 'app-network-type-selector',

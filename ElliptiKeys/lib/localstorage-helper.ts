@@ -1,4 +1,5 @@
-import { AUTO_GEN_PAGE_SELECTION_TYPES } from "./page-selection-types";
+import { AUTO_GEN_STOP_YELLOW } from "./dictionaries/autogen-stop-types";
+import { AUTO_GEN_PAGE_SELECTION_TYPES } from "./dictionaries/page-selection-types";
 
 export default class LocalStorageHelper
 {
@@ -144,8 +145,8 @@ export default class LocalStorageHelper
 
         if (!res)
         {
-            res = "yes"
-            LocalStorageHelper.SetStopAutoGenOnYellowGreen("yes");
+            res = AUTO_GEN_STOP_YELLOW.yes;
+            LocalStorageHelper.SetStopAutoGenOnYellowGreen(res);
         }
 
         return res;

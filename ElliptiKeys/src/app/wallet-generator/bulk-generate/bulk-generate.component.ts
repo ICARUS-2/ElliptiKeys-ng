@@ -1,7 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { ADDRESS_TYPES } from 'lib/address-types';
-import { NETWORK_TYPES } from 'lib/network-types';
+import { ADDRESS_TYPES } from 'lib/dictionaries/address-types';
+import { NETWORK_TYPES } from 'lib/dictionaries/network-types';
 import { AddressTypeSelectorComponent } from '../address-type-selector/address-type-selector.component';
 import { NetworkTypeSelectorComponent } from '../network-type-selector/network-type-selector.component';
 import SingleAddressModel from './../../../../models/single-address-model';

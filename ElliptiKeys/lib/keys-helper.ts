@@ -1,5 +1,5 @@
 import Keys from './keys/Keys';
-import { ADDRESS_TYPES } from './address-types';
+import { ADDRESS_TYPES } from './dictionaries/address-types';
 
 export default class KeysHelper
 {

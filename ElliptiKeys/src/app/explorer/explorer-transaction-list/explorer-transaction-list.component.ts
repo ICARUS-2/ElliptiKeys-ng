@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { URLS } from 'lib/urls';
+import { URLS } from 'lib/dictionaries/urls';
 import TransactionViewModel from 'models/transaction-view-model';
 import { DateFormatterService } from 'src/app/services/date-formatter/date-formatter.service';
 import { SatoshiToBitcoinService } from 'src/app/services/satoshi-to-bitcoin/satoshi-to-bitcoin.service';

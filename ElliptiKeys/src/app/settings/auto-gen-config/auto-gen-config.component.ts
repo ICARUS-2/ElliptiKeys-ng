@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import LocalStorageHelper from 'lib/localstorage-helper';
-import { AUTO_GEN_PAGE_SELECTION_TYPES } from 'lib/page-selection-types';
+import { AUTO_GEN_PAGE_SELECTION_TYPES } from 'lib/dictionaries/page-selection-types';
 import { AutoGenService } from 'src/app/services/auto-gen/auto-gen.service';
 
 @Component({
@@ -35,8 +35,6 @@ export class AutoGenConfigComponent implements OnInit {
     let val: string = event.target.value;
 
     LocalStorageHelper.SetStopAutoGenOnYellowGreen(val);
-
-    console.log("Stop setting changed")
   }
 
   onPageSelectionTypeChanged(event: any) : void 
@@ -44,7 +42,5 @@ export class AutoGenConfigComponent implements OnInit {
     let val: string = event.target.value;
 
     LocalStorageHelper.SetAutoGenPageSelectionType(val);
-  
-    console.log("Page selection setting changed")
   }
 }

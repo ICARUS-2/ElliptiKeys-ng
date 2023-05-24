@@ -1,5 +1,5 @@
 import KeysHelper from "lib/keys-helper";
-import { ADDRESS_TYPES } from "lib/address-types";
+import { ADDRESS_TYPES } from "lib/dictionaries/address-types";
 
 export default class AddressModel
 {

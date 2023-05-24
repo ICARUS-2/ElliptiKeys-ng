@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ADDRESS_TYPES } from 'lib/address-types';
+import { ADDRESS_TYPES } from 'lib/dictionaries/address-types';
 import Keys from 'lib/keys/Keys';
-import { QR_ERROR_CORRECTION } from 'lib/qr-error-correction';
+import { QR_ERROR_CORRECTION } from 'lib/dictionaries/qr-error-correction';
 import { AddressTypeSelectorComponent } from '../address-type-selector/address-type-selector.component';
 import { QrCodeTypeSelectorComponent } from './../qr-code-type-selector/qr-code-type-selector.component';
-import { NETWORK_TYPES } from './../../../../lib/network-types';
+import { NETWORK_TYPES } from '../../../../lib/dictionaries/network-types';
 import { NetworkTypeSelectorComponent } from './../network-type-selector/network-type-selector.component';
 import { QRCodeErrorCorrectionLevel } from 'angularx-qrcode';
 import SingleAddressModel from './../../../../models/single-address-model';

@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import PageHelper from './../../../../lib/page-helper';
 import LocalStorageHelper from 'lib/localstorage-helper';
-import { AUTO_GEN_PAGE_SELECTION_TYPES } from 'lib/page-selection-types';
+import { AUTO_GEN_PAGE_SELECTION_TYPES } from 'lib/dictionaries/page-selection-types';
+import { AUTO_GEN_STOP_YELLOW } from 'lib/dictionaries/autogen-stop-types';
 
 @Injectable({
   providedIn: 'root'
@@ -86,6 +87,6 @@ export class AutoGenService {
 
   doesStopOnYellow() : boolean
   {
-    return LocalStorageHelper.GetStopAutoGenOnYellow() == "yes";
+    return LocalStorageHelper.GetStopAutoGenOnYellow() == AUTO_GEN_STOP_YELLOW.yes;
   }
 }
