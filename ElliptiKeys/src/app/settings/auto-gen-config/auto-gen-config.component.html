@@ -7,6 +7,9 @@
         <input type="radio" value="no" [formControl]="autoGenStopSettingFormControl" class="btn-check" [id]="'stopZeroNo'+formName" autocomplete="off">
         <label class="btn btn-outline-primary" [for]="'stopZeroNo'+formName" [ngClass]="{'active' : autoGenStopSettingFormControl.value == 'no'}">{{'settings.autoGen.stopOnGreen' | translate}}</label>
     </div>
+    
+    <br>
+    <br>
 
     <h5>{{'settings.autoGen.pageSelection' | translate}}</h5>
     <div class="btn-group pageSelectionSetting" role="group" aria-label="Page Selection Setting" (change)="onPageSelectionTypeChanged($event)">

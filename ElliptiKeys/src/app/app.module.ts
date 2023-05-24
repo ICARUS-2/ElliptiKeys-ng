@@ -45,6 +45,7 @@ import { AboutTestnetScamsComponent } from './static/about-testnet-scams/about-t
 import { SourceCodeComponent } from './static/source-code/source-code.component';
 import { HideUnusedKeysComponent } from './settings/hide-unused-keys/hide-unused-keys.component';
 import { AutoGenConfigComponent } from './settings/auto-gen-config/auto-gen-config.component';
+import { AutoGenSettingsDisplayComponent } from './auto-gen-settings-display/auto-gen-settings-display.component';
 
 export function HttpLoaderFactory(http: HttpClient)
 {
@@ -88,6 +89,7 @@ export function HttpLoaderFactory(http: HttpClient)
     SourceCodeComponent,
     HideUnusedKeysComponent,
     AutoGenConfigComponent,
+    AutoGenSettingsDisplayComponent,
   ],
   imports: [
     BrowserModule,
