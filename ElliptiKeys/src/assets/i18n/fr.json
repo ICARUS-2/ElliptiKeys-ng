@@ -323,7 +323,16 @@
             "random": "Aléatoire",
             "incrementing": "Accroissant",
             "decrementing": "Décroissant"
-        } 
+        }, 
+
+        "autoGenSettingsDisplay": 
+        {
+            "randomMode": "Aléatoire",
+            "incrementingMode": "Accroissant",
+            "decrementingMode": "Décroissant",
+            "stopOption": "Option d'Arrêt",
+            "modify": "Modifier"
+        }
     },
 
     "aboutTestnetScams" : 

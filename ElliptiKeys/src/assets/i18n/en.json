@@ -324,6 +324,15 @@
             "random": "Random",
             "incrementing": "Incrementing",
             "decrementing": "Decrementing" 
+        },
+
+        "autoGenSettingsDisplay": 
+        {
+            "randomMode": "Random",
+            "incrementingMode": "Incrementing",
+            "decrementingMode": "Decrementing",
+            "stopOption": "Stop Option",
+            "modify": "Modify"
         }
     },
 

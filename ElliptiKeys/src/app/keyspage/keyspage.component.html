@@ -30,7 +30,8 @@
     <div class="m-3"></div>
 
     <app-auto-gen [isTestnet]="isTestnet" [pageNumber]="pageNumber"></app-auto-gen>
-    
+    <app-auto-gen-settings-display></app-auto-gen-settings-display>
+
     <div *ngIf="isLoading && !autoGenService.autoModeActive" class="loadingDiv" style="height: 50px">{{'keyspage.loading' | translate}}</div>
     <app-pagebuttons *ngIf="!isLoading && !autoGenService.autoModeActive" style="width: 70%;" class="pageBtns"></app-pagebuttons>
 

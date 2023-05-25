@@ -1,1 +1,3 @@
-<p>auto-gen-settings-display works!</p>
+<div>
+    <p>[ Auto-Gen {{"settings.autoGenSettingsDisplay.stopOption" | translate}}: <span *ngIf="autoGenService.doesStopOnYellow()">🟡</span>🟢 -- Mode: {{getAutoGenSelectionModeDisplay() | translate}} -- <a class="whiteLink" routerLink="/settings">{{"settings.autoGenSettingsDisplay.modify" | translate}}</a>]</p>
+</div>

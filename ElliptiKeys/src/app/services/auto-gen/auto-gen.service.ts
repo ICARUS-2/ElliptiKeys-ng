@@ -89,4 +89,9 @@ export class AutoGenService {
   {
     return LocalStorageHelper.GetStopAutoGenOnYellow() == AUTO_GEN_STOP_YELLOW.yes;
   }
+
+  getSelectionMode() : string
+  {
+    return LocalStorageHelper.GetAutoGenPageSelectionType();
+  }
 }
