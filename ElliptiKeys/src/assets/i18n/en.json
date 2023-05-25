@@ -331,7 +331,6 @@
             "randomMode": "Random",
             "incrementingMode": "Incrementing",
             "decrementingMode": "Decrementing",
-            "stopOption": "Stop Option",
             "modify": "Modify"
         }
     },

@@ -334,5 +334,21 @@
         "exampleTableScam": "Aucune Valeur",
 
         "walletGeneratorDesc": "Lors de la génération de portefeuilles importants, assurez-vous toujours que le sélecteur de réseau est défini sur Bitcoin et non sur Testnet."
+    },
+
+    "sourceCode" : 
+    {
+        "title" : "Code Source | ElliptiKeys",
+        "mainHeader": "Code Source",
+
+        "rawCodeHeader" : "Code Source Angular (Non Compilé)",
+        "rawCodeDesc" : "Ceci est le code source Angular complet et non compilé pour ElliptiKeys. Utilisez ceci si vous souhaitez apporter vos propres modifications et les héberger/publier, ou si vous prévoyez sur l'auto-compilation pour la génération de portefeuilles sécurisés (recommandé si vous générez des portefeuilles importants). Nécessite l'installation de",
+
+        "precompiledBuildHeader": "Code Angular Précompilé",
+        "precompiledBuildDesc": "La version précompilée du site. Livré prêt à accueillir. Utilisez-le si vous prévoyez d'héberger votre propre version localement ou globalement sans apporter de modifications. Nécessite un logiciel de serveur HTTP, tel que",
+        "liveServerLink": "Live Server pour Visual Studio Code",
+
+        "elliptikeysJsHeader": "Bibliothèque ElliptiKeysJS",
+        "elliptikeysJsDesc": "Générateur de clé Bitcoin JavaScript facile à utiliser qui alimente le site Web. Fonctionne directement dans le navigateur. Utilisez ceci si vous souhaitez une solution simple pour générer des clés Bitcoin et des mnémoniques dans votre application Web."
     }
 }

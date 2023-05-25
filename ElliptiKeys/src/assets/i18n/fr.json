@@ -330,7 +330,6 @@
             "randomMode": "Aléatoire",
             "incrementingMode": "Accroissant",
             "decrementingMode": "Décroissant",
-            "stopOption": "Option d'Arrêt",
             "modify": "Modifier"
         }
     },
