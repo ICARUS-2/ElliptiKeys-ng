@@ -1,4 +1,4 @@
-import { ADDRESS_TYPES } from 'lib/address-types';
+import { ADDRESS_TYPES } from 'lib/dictionaries/address-types';
 import Keys from 'lib/keys/Keys';
 
 export default class SingleAddressModel

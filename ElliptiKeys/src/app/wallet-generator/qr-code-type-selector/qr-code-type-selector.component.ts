@@ -1,6 +1,6 @@
 
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { QR_ERROR_CORRECTION } from 'lib/qr-error-correction';
+import { QR_ERROR_CORRECTION } from 'lib/dictionaries/qr-error-correction';
 import { FormControl } from '@angular/forms';
 
 @Component({

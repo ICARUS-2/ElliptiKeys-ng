@@ -1,8 +1,8 @@
 import Keys from "lib/keys/Keys";
 import LocalStorageHelper from "lib/localstorage-helper"
-import { ADDRESS_TYPES } from './../lib/address-types';
-import { WIF_TYPES } from './../lib/wif-types';
-import { URLS } from './../lib/urls';
+import { ADDRESS_TYPES } from '../lib/dictionaries/address-types';
+import { WIF_TYPES } from '../lib/dictionaries/wif-types';
+import { URLS } from '../lib/dictionaries/urls';
 
 export default class KeyRowViewModel
 {

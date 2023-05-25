@@ -1,14 +1,13 @@
 <div class="settingsPageContainer container">
     <h1>{{'settings.topHeader' | translate}}</h1>
 
-    <div class="m-5"></div>
+    <div class="m-4"></div>
 
-    <h2>{{'settings.hideUnusedKeys' | translate}}</h2>
-    <div class="btn-group" role="group" (change)="onHideUnusedComponentRadioButtonChanged($event)">
-        <input id="settingsHideUnusedKeysTrue" type="radio" name="settingsHideUnusedKeys" [formControl]="hideUnusedKeysFormControl" value=true class="btn-check" autocomplete="off">
-        <label class="btn btn-outline-primary" [ngClass]="{'active' : hideUnusedKeysFormControl.value}" for="settingsHideUnusedKeysTrue">{{'settings.yes' | translate}}</label>
-        
-        <input id="settingsHideUnusedKeysFalse" type="radio" name="settingsHideUnusedKeys" [formControl]="hideUnusedKeysFormControl" value=false class="btn-check" autocomplete="off">
-        <label class="btn btn-outline-primary" [ngClass]="{'active' : !hideUnusedKeysFormControl.value}" for="settingsHideUnusedKeysFalse">{{'settings.no' | translate}}</label>
-    </div>
+    <h2>{{'settings.keyPages.header' | translate}}</h2>
+    <app-hide-unused-keys></app-hide-unused-keys>
+
+    <div class="m-4"></div>
+
+    <h2>Auto-Gen</h2>
+    <app-auto-gen-config></app-auto-gen-config>
 </div>

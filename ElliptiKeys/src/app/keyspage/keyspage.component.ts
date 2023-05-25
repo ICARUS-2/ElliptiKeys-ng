@@ -111,7 +111,7 @@ export class KeyspageComponent implements OnInit, OnDestroy {
 
     if (this.autoGenService.autoModeActive)
     {
-      this.autoGenService.navigateAfterDelay(this.isTestnet);
+      this.autoGenService.navigateAfterDelay(this.isTestnet, this.pageNumber);
     }
 
     if (!this.balanceApi.errorCallingApi)
@@ -137,7 +137,7 @@ export class KeyspageComponent implements OnInit, OnDestroy {
       else if (stats.totalTx > 0)
       {
         k.setBorderColor("yellow")
-        if (this.autoGenService.stopOnYellow)
+        if (this.autoGenService.doesStopOnYellow())
         {
           this.autoGenService.cancel();
         }

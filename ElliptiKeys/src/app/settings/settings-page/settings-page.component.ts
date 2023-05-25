@@ -12,13 +12,11 @@ import { Subscription } from 'rxjs';
 })
 export class SettingsPageComponent implements OnInit, OnDestroy {
 
-  hideUnusedKeysFormControl: FormControl;
   langSub: Subscription;
 
   constructor(private titleService: Title, private translateService: TranslateService) 
   {
-    this.hideUnusedKeysFormControl = new FormControl(LocalStorageHelper.GetHideUnusedKeys())
-  
+
     this.setTitle();
 
     this.langSub = this.translateService.onLangChange.subscribe( ()=>
@@ -36,13 +34,6 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
     this.langSub.unsubscribe();  
   }
 
-  onHideUnusedComponentRadioButtonChanged(event: any)
-  {
-    let val = event.target.value == "true"
-
-    this.hideUnusedKeysFormControl.setValue(val)
-    LocalStorageHelper.SetHideUnusedKeys(val)
-  }
 
   setTitle(): void 
   {

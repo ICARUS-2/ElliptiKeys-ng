@@ -10,8 +10,8 @@ import { FormControl } from '@angular/forms';
 export class AutoGenComponent implements OnInit {
 
   @Input() isTestnet: boolean = false;
+  @Input() pageNumber: BigInt = BigInt("0");
 
-  formName: string = Math.random().toString();
   autoGenService: AutoGenService;
 
   constructor(ags: AutoGenService) 
@@ -25,6 +25,6 @@ export class AutoGenComponent implements OnInit {
 
   toggleAutoGen()
   {
-    this.autoGenService.toggleAutoGen(this.isTestnet)
+    this.autoGenService.toggleAutoGen(this.isTestnet, this.pageNumber)
   }
 }

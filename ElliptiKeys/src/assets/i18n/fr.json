@@ -46,9 +46,7 @@
         "autoGen": 
         {
             "activate" : "Activer Auto-Gen",
-            "stop": "Arrêter Auto-Gen",
-            "stopOnYellow": "Arrêter sur jaune/vert",
-            "stopOnGreen": "Arrêter sur vert"
+            "stop": "Arrêter Auto-Gen"
         },
 
         "hidden": "caché" 
@@ -310,7 +308,30 @@
         "yes": "Oui",
         "no": "Non",
 
-        "hideUnusedKeys": "Cacher les entrées de clé inutilisées"
+        "keyPages":
+        {
+            "header": "Pages des Clés",
+            "hideUnusedKeys": "Cacher les entrées de clé inutilisées"
+        },
+
+        "autoGen" : 
+        {
+            "stopOption": "Option d'Arrêt",
+            "stopOnYellow": "Arrêter sur jaune/vert",
+            "stopOnGreen": "Arrêter sur vert",
+            "pageSelection": "Sélection de Page",
+            "random": "Aléatoire",
+            "incrementing": "Accroissant",
+            "decrementing": "Décroissant"
+        }, 
+
+        "autoGenSettingsDisplay": 
+        {
+            "randomMode": "Aléatoire",
+            "incrementingMode": "Accroissant",
+            "decrementingMode": "Décroissant",
+            "modify": "Modifier"
+        }
     },
 
     "aboutTestnetScams" : 

@@ -335,5 +335,21 @@
         "exampleTableScam": "No Value",
 
         "walletGeneratorDesc": "When generating important wallets, always ensure the Network Selector is set to Bitcoin and not Testnet."
+    },
+
+    "sourceCode" : 
+    {
+        "title" : "Source Code | ElliptiKeys",
+        "mainHeader": "Source Code",
+
+        "rawCodeHeader" : "ElliptiKeys Raw Angular Source Code",
+        "rawCodeDesc" : "This is the full, uncompiled Angular source code for ElliptiKeys. Use this if you wish to make your own changes and host/publish them, or if you plan on self-compiling for secure wallet generation (Recommended if generating important wallets). Requires installing",
+
+        "precompiledBuildHeader": "Precompiled Angular Build",
+        "precompiledBuildDesc": "This is the precompiled build of the site. Comes ready to host. Use this if you plan on hosting your own version locally or globally without making any changes. Requires HTTP server software, such as",
+        "liveServerLink": "Live Server for Visual Studio Code",
+
+        "elliptikeysJsHeader": "ElliptiKeysJS Library",
+        "elliptikeysJsDesc": "Easy-to-use JavaScript Bitcoin key generator that powers the website. Works directly in the browser. Use this if you would like a simple solution for generating Bitcoin keys and mnemonics in your web app."
     }
 }

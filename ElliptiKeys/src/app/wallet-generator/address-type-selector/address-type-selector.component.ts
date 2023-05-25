@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ADDRESS_TYPES } from 'lib/address-types';
+import { ADDRESS_TYPES } from 'lib/dictionaries/address-types';
 
 @Component({
   selector: 'app-address-type-selector',

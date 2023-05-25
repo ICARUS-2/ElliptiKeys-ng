@@ -1,0 +1,25 @@
+<div>
+    <h5>{{'settings.autoGen.stopOption' | translate}}</h5>
+    <div class="btn-group stopSettings" role="group" aria-label="Stop On Yellow" (change)="onStopModeRadioButtonChanged($event)">
+        <input type="radio" value="yes" [formControl]="autoGenStopSettingFormControl" class="btn-check" [id]="'stopZeroYes'+formName" autocomplete="off">
+        <label class="btn btn-outline-primary" [for]="'stopZeroYes'+formName" [ngClass]="{'active' : autoGenStopSettingFormControl.value == 'yes'}">{{'settings.autoGen.stopOnYellow' | translate}}</label>
+
+        <input type="radio" value="no" [formControl]="autoGenStopSettingFormControl" class="btn-check" [id]="'stopZeroNo'+formName" autocomplete="off">
+        <label class="btn btn-outline-primary" [for]="'stopZeroNo'+formName" [ngClass]="{'active' : autoGenStopSettingFormControl.value == 'no'}">{{'settings.autoGen.stopOnGreen' | translate}}</label>
+    </div>
+    
+    <br>
+    <br>
+
+    <h5>{{'settings.autoGen.pageSelection' | translate}}</h5>
+    <div class="btn-group pageSelectionSetting" role="group" aria-label="Page Selection Setting" (change)="onPageSelectionTypeChanged($event)">
+        <input type="radio" value="random" [formControl]="autoGenPageSelectionFormControl" class="btn-check" [id]="'randomPageSelection'+formName" autocomplete="off">
+        <label class="btn btn-outline-primary" [for]="'randomPageSelection'+formName" [ngClass]="{'active' : autoGenPageSelectionFormControl.value == pageSelectionTypes.random }">{{'settings.autoGen.random' | translate}}</label>
+
+        <input type="radio" value="incrementing" [formControl]="autoGenPageSelectionFormControl" class="btn-check" [id]="'incrementingPageSelection'+formName" autocomplete="off">
+        <label class="btn btn-outline-primary" [for]="'incrementingPageSelection'+formName" [ngClass]="{'active' : autoGenPageSelectionFormControl.value == pageSelectionTypes.incrementing }">{{'settings.autoGen.incrementing' | translate}}</label>
+
+        <input type="radio" value="decrementing" [formControl]="autoGenPageSelectionFormControl" class="btn-check" [id]="'decrementingPageSelection'+formName" autocomplete="off">
+        <label class="btn btn-outline-primary" [for]="'decrementingPageSelection'+formName" [ngClass]="{'active' : autoGenPageSelectionFormControl.value == pageSelectionTypes.decrementing}">{{'settings.autoGen.decrementing' | translate}}</label>
+    </div>
+</div>

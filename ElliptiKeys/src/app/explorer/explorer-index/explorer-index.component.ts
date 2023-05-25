@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import SearchResultViewModel from '../../../../models/search-result-view-model';
 import Keys from 'lib/keys/Keys';
 import KeysHelper from './../../../../lib/keys-helper';
-import { URLS } from './../../../../lib/urls';
+import { URLS } from '../../../../lib/dictionaries/urls';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
