@@ -1,0 +1,18 @@
+.tripleSevenSegmentDisplay
+{
+    display: flex;
+}
+
+.sevenSegmentWithFooter
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.middleDisplay
+{
+    margin-left: 40px;
+    margin-right: 40px;
+}

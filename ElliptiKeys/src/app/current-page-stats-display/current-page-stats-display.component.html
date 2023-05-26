@@ -1,3 +1,16 @@
-<div>
-    🔴: {{redCounter}} 🟡: {{yellowCounter}} 🟢: {{greenCounter}}
+<div class="tripleSevenSegmentDisplay">
+    <div class="sevenSegmentWithFooter">
+        <seven-seg [digits]=3 [value]="redCounter"></seven-seg>
+        <div>🔴</div>
+    </div>
+
+    <div class="sevenSegmentWithFooter middleDisplay">
+        <seven-seg [digits]=3 [value]="yellowCounter"></seven-seg>
+        <div>🟡</div>
+    </div>
+
+    <div class="sevenSegmentWithFooter">
+        <seven-seg [digits]=3 [value]="greenCounter"></seven-seg>
+        <div>🟢</div>
+    </div>
 </div>

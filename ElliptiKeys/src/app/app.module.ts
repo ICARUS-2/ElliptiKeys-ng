@@ -47,6 +47,7 @@ import { HideUnusedKeysComponent } from './settings/hide-unused-keys/hide-unused
 import { AutoGenConfigComponent } from './settings/auto-gen-config/auto-gen-config.component';
 import { AutoGenSettingsDisplayComponent } from './auto-gen-settings-display/auto-gen-settings-display.component';
 import { CurrentPageStatsDisplayComponent } from './current-page-stats-display/current-page-stats-display.component';
+import { SevenSegModule } from 'ng-sevenseg';
 
 export function HttpLoaderFactory(http: HttpClient)
 {
@@ -108,7 +109,8 @@ export function HttpLoaderFactory(http: HttpClient)
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    SevenSegModule
   ],
   providers: [
     Title,
