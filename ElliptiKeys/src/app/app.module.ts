@@ -46,6 +46,7 @@ import { SourceCodeComponent } from './static/source-code/source-code.component'
 import { HideUnusedKeysComponent } from './settings/hide-unused-keys/hide-unused-keys.component';
 import { AutoGenConfigComponent } from './settings/auto-gen-config/auto-gen-config.component';
 import { AutoGenSettingsDisplayComponent } from './auto-gen-settings-display/auto-gen-settings-display.component';
+import { CurrentPageStatsDisplayComponent } from './current-page-stats-display/current-page-stats-display.component';
 
 export function HttpLoaderFactory(http: HttpClient)
 {
@@ -90,6 +91,7 @@ export function HttpLoaderFactory(http: HttpClient)
     HideUnusedKeysComponent,
     AutoGenConfigComponent,
     AutoGenSettingsDisplayComponent,
+    CurrentPageStatsDisplayComponent,
   ],
   imports: [
     BrowserModule,
