@@ -312,7 +312,12 @@
         "keyPages" : 
         {
             "header": "Key Pages",
-            "hideUnusedKeys": "Hide unused key entries"
+            "hideUnusedKeys": "Hide unused key entries",
+
+            "keyStatusDisplay": "Key Status Display",
+            "keyStatusDisplaySevenSegment": "7-Segment",
+            "keyStatusDisplayText": "Text",
+            "keyStatusDisplayOff": "Off"
         },
 
         "autoGen" : 

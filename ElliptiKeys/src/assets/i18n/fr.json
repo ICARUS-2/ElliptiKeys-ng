@@ -311,7 +311,12 @@
         "keyPages":
         {
             "header": "Pages des Clés",
-            "hideUnusedKeys": "Cacher les entrées de clé inutilisées"
+            "hideUnusedKeys": "Cacher les entrées de clé inutilisées",
+
+            "keyStatusDisplay": "Affichage du Statut des Clés",
+            "keyStatusDisplaySevenSegment": "7 segments",
+            "keyStatusDisplayText": "Texte",
+            "keyStatusDisplayOff": "Désactivé"
         },
 
         "autoGen" : 

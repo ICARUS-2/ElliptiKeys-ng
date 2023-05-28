@@ -1,12 +1,12 @@
 <div>
-    <h5>Key Status Display</h5>
+    <h5>{{'settings.keyPages.keyStatusDisplay' | translate}}</h5>
     <div class="btn-group keyStatusDisplayType" role="group" aria-label="Stop On Yellow" (change)="onKeyStatusDisplayTypeRadioButtonChanged($event)">
     <input type="radio" value="sevenSegment" [formControl]="keyStatusDisplayType" class="btn-check" [id]="'keyStatusDisplaySevenSegment'+formName" autocomplete="off">
-    <label class="btn btn-outline-primary" [for]="'keyStatusDisplaySevenSegment'+formName" [ngClass]="{'active' : keyStatusDisplayType.value == types.sevenSegment}">7-Segment</label>
+    <label class="btn btn-outline-primary" [for]="'keyStatusDisplaySevenSegment'+formName" [ngClass]="{'active' : keyStatusDisplayType.value == types.sevenSegment}">{{'settings.keyPages.keyStatusDisplaySevenSegment' | translate}}</label>
 
     <input type="radio" value="text" [formControl]="keyStatusDisplayType" class="btn-check" [id]="'keyStatusDisplayText'+formName" autocomplete="off">
-    <label class="btn btn-outline-primary" [for]="'keyStatusDisplayText'+formName" [ngClass]="{'active' : keyStatusDisplayType.value == types.text}">Text</label>
+    <label class="btn btn-outline-primary" [for]="'keyStatusDisplayText'+formName" [ngClass]="{'active' : keyStatusDisplayType.value == types.text}">{{'settings.keyPages.keyStatusDisplayText' | translate}}</label>
 
     <input type="radio" value="off" [formControl]="keyStatusDisplayType" class="btn-check" [id]="'keyStatusDisplayOff'+formName" autocomplete="off">
-    <label class="btn btn-outline-primary" [for]="'keyStatusDisplayOff'+formName" [ngClass]="{'active' : keyStatusDisplayType.value == types.off}">Off</label>
+    <label class="btn btn-outline-primary" [for]="'keyStatusDisplayOff'+formName" [ngClass]="{'active' : keyStatusDisplayType.value == types.off}">{{'settings.keyPages.keyStatusDisplayOff' | translate}}</label>
 </div>
