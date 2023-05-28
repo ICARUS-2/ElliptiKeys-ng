@@ -48,6 +48,7 @@ import { AutoGenConfigComponent } from './settings/auto-gen-config/auto-gen-conf
 import { AutoGenSettingsDisplayComponent } from './auto-gen-settings-display/auto-gen-settings-display.component';
 import { CurrentPageStatsDisplayComponent } from './current-page-stats-display/current-page-stats-display.component';
 import { SevenSegModule } from 'ng-sevenseg';
+import { KeyStatusDisplayTypeComponent } from './settings/key-status-display-type/key-status-display-type.component';
 
 export function HttpLoaderFactory(http: HttpClient)
 {
@@ -93,6 +94,7 @@ export function HttpLoaderFactory(http: HttpClient)
     AutoGenConfigComponent,
     AutoGenSettingsDisplayComponent,
     CurrentPageStatsDisplayComponent,
+    KeyStatusDisplayTypeComponent,
   ],
   imports: [
     BrowserModule,
