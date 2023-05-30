@@ -20,6 +20,10 @@
         </div>          
     </div>
 
+    <div class="d-flex align-items-center w-100 justify-content-center">
+        <app-current-page-stats-display [redCounter]="this.redCounter" [yellowCounter]="this.yellowCounter" [greenCounter]="this.greenCounter"></app-current-page-stats-display>
+    </div>
+
     <div class="d-flex align-items-center w-100 flex-column justify-content-center pageNumbers">
         <h4>Page</h4>
         <h5 id="currentPageNumber" style="max-width: 80%;">{{pageNumber}}</h5>

@@ -35,6 +35,10 @@ export class KeyspageComponent implements OnInit, OnDestroy {
   routeSub: Subscription | undefined;
   langSub: Subscription | undefined;
 
+  redCounter = 0;
+  yellowCounter = 0;
+  greenCounter = 0;
+
   constructor(
     private titleService:Title, 
     private router: Router, 
@@ -107,7 +111,7 @@ export class KeyspageComponent implements OnInit, OnDestroy {
     this.keys.forEach( (k) =>
     {
       this.setUpKeyRow(k)
-    } )
+    } );
 
     if (this.autoGenService.autoModeActive)
     {
@@ -131,12 +135,12 @@ export class KeyspageComponent implements OnInit, OnDestroy {
       //Sets the border color for that entry
       if (stats.totalBalance > 0)
       {
-        k.setBorderColor("lime")
+        k.setBorderColor("lime");
         this.autoGenService.cancel();
       }
       else if (stats.totalTx > 0)
       {
-        k.setBorderColor("yellow")
+        k.setBorderColor("yellow");
         if (this.autoGenService.doesStopOnYellow())
         {
           this.autoGenService.cancel();
@@ -153,31 +157,71 @@ export class KeyspageComponent implements OnInit, OnDestroy {
         k.setBorderColor("red")
       }
 
-      //sets the color for the individual addresses
+      //sets the color for the individual addresses and increments respective counters
       let legacyModel = this.balanceApi.getAddressModel(k.legacy);
       let compressedLegacyModel = this.balanceApi.getAddressModel(k.legacyCompressed);
       let segwitModel = this.balanceApi.getAddressModel(k.segwit);
       let bech32Model = this.balanceApi.getAddressModel(k.bech32);
 
       if (legacyModel.balance > 0)
-        k.legacyColor = "lime"
+      {
+        k.legacyColor = "lime";
+        this.greenCounter++;
+      }
       else if (legacyModel.transactions > 0)
+      {
         k.legacyColor = "yellow"
+        this.yellowCounter++;
+      }
+      else
+      {
+        this.redCounter++;
+      }
 
-        if (compressedLegacyModel.balance > 0)
-        k.legacyCompressedColor = "lime"
+      if (compressedLegacyModel.balance > 0)
+      {
+        k.legacyCompressedColor = "lime";
+        this.greenCounter++;
+      }
       else if (compressedLegacyModel.transactions > 0)
-        k.legacyCompressedColor = "yellow"
+      {
+        k.legacyCompressedColor = "yellow";
+        this.yellowCounter++;
+      }
+      else
+      {
+        this.redCounter++;
+      }
 
-        if (segwitModel.balance > 0)
-        k.segwitColor = "lime"
+      if (segwitModel.balance > 0)
+      {
+        k.segwitColor = "lime";
+        this.greenCounter++;
+      }
       else if (segwitModel.transactions > 0)
-        k.segwitColor = "yellow"
+      {
+        k.segwitColor = "yellow";
+        this.yellowCounter++;
+      }
+      else
+      {
+        this.redCounter++;
+      }
 
-        if (bech32Model.balance > 0)
-        k.bech32Color = "lime"
+      if (bech32Model.balance > 0)
+      {
+        k.bech32Color = "lime";
+        this.greenCounter++;
+      }
       else if (bech32Model.transactions > 0)
-        k.bech32Color = "yellow"
+      {
+        k.bech32Color = "yellow";
+        this.yellowCounter++;
+      }
+      else
+      {
+        this.redCounter++;
+      }
 
     }, this.getRandomDelay())
   }

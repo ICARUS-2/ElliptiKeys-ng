@@ -1,4 +1,4 @@
 export default class AppData
 {
-    static version: string = "2.3";
+    static version: string = "2.4";
 }

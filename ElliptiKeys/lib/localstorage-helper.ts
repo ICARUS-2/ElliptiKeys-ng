@@ -1,4 +1,5 @@
 import { AUTO_GEN_STOP_YELLOW } from "./dictionaries/autogen-stop-types";
+import { KEY_STATUS_DISPLAY_TYPES } from "./dictionaries/key-status-display-types";
 import { AUTO_GEN_PAGE_SELECTION_TYPES } from "./dictionaries/page-selection-types";
 
 export default class LocalStorageHelper
@@ -18,6 +19,7 @@ export default class LocalStorageHelper
     static HIDE_UNUSED_KEYS: string = "elliptikeys_HideUnusedKeys";
     static STOP_AUTO_GEN_YELLOW_GREEN = "elliptikeys_StopAutoGenYellowGreen";
     static AUTO_GEN_PAGE_SELECTION = "elliptikeys_AutoGenPageSelection";
+    static KEY_STATUS_DISPLAY_TYPE = "elliptikeys_KeyStatusDisplayType"
 
     static SITE_NAME: string="elliptikeys_Lang"
     static getLang() : string | null
@@ -174,5 +176,23 @@ export default class LocalStorageHelper
     static SetAutoGenPageSelectionType(setting: string) : void 
     {
         window.localStorage.setItem(this.AUTO_GEN_PAGE_SELECTION, setting);
+    }
+
+    static GetKeyStatusDisplayType() : string 
+    {
+        let val = window.localStorage.getItem(this.KEY_STATUS_DISPLAY_TYPE);
+
+        if (!val)
+        {
+            val = KEY_STATUS_DISPLAY_TYPES.sevenSegment;
+            LocalStorageHelper.SetKeyStatusDisplayType(val);
+        }
+
+        return val;
+    }
+
+    static SetKeyStatusDisplayType(val: string) : void 
+    {
+        window.localStorage.setItem(this.KEY_STATUS_DISPLAY_TYPE, val);
     }
 }

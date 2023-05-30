@@ -80,7 +80,8 @@
 
         "angular": "Coded with <a href='https://angular.io/' target='_blank' class='whiteLink'>Angular</a> framework",
         "cryptoJs": "JS cryptographic hashing library from <a href='https://cryptojs.gitbook.io/docs/' class='whiteLink' target='_blank'>CryptoJS</a>",
-        "ellipticCurve": "Elliptic Curve implementation by <a href='https://github.com/paulmillr/noble-secp256k1' target='_blank' class='whiteLink'>paulmillr</a>"
+        "ellipticCurve": "Elliptic Curve implementation by <a href='https://github.com/paulmillr/noble-secp256k1' target='_blank' class='whiteLink'>paulmillr</a>",
+        "sevenSeg": "Angular 7-segment display implementation by <a href='https://github.com/bbredesen/ng-sevenseg' target='_blank' class='whiteLink'>bbredesen</a>"
     },
 
     "donate": 
@@ -312,7 +313,12 @@
         "keyPages" : 
         {
             "header": "Key Pages",
-            "hideUnusedKeys": "Hide unused key entries"
+            "hideUnusedKeys": "Hide unused key entries",
+
+            "keyStatusDisplay": "Key Status Display",
+            "keyStatusDisplaySevenSegment": "7-Segment",
+            "keyStatusDisplayText": "Text",
+            "keyStatusDisplayOff": "Off"
         },
 
         "autoGen" : 
