@@ -17,7 +17,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "docs",
+            "outputPath": {
+              "base": "docs",
+              "browser": ""
+            },
             "index": "src/index.html",
             "polyfills": [
               "src/polyfills.ts"
@@ -70,8 +73,7 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -80,10 +82,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ElliptiKeys:build:production"
             },
             "development": {
-              "buildTarget": "ElliptiKeys:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,7 +91,6 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ElliptiKeys:build"
           }
         },
         "test": {
