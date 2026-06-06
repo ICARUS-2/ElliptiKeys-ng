@@ -82,8 +82,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
+              "buildTarget": "ElliptiKeys:build:production"
             },
             "development": {
+              "buildTarget": "ElliptiKeys:build:development"
             }
           },
           "defaultConfiguration": "development"
