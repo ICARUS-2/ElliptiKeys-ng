@@ -80,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ElliptiKeys:build:production"
+              "browserTarget": "ElliptiKeys:build:production"
             },
             "development": {
-              "buildTarget": "ElliptiKeys:build:development"
+              "browserTarget": "ElliptiKeys:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ElliptiKeys:build"
+            "browserTarget": "ElliptiKeys:build"
           }
         },
         "test": {

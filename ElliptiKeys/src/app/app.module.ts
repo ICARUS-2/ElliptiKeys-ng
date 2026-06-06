@@ -37,7 +37,7 @@ import { QrCodeWithBorderComponent } from './wallet-generator/qr-code-with-borde
 import { MnemonicWordCountSelectorComponent } from './wallet-generator/mnemonic-word-count-selector/mnemonic-word-count-selector.component';
 import { AutoGenComponent } from './auto-gen/auto-gen.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PageStatTrackerComponent } from './page-stat-tracker/page-stat-tracker.component';
 import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
@@ -55,72 +55,65 @@ export function HttpLoaderFactory(http: HttpClient)
     return new TranslateHttpLoader(http)
 }
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    HomepageComponent,
-    KeyspageComponent,
-    TooFarComponent,
-    RandomComponent,
-    PagebuttonsComponent,
-    NotFoundComponent,
-    FooterComponent,
-    AboutComponent,
-    DonateComponent,
-    PriceComponent,
-    TestnetRandomComponent,
-    ExplorerAddressComponent,
-    ExplorerPrivateKeyComponent,
-    ExplorerTransactionListComponent,
-    ExplorerTransactionComponent,
-    ExplorerBlockComponent,
-    ExplorerIndexComponent,
-    WalletGeneratorIndexComponent,
-    SingleKeysetComponent,
-    BulkGenerateComponent,
-    MnemonicComponent,
-    AddressTypeSelectorComponent,
-    QrCodeTypeSelectorComponent,
-    NetworkTypeSelectorComponent,
-    QrCodeWithBorderComponent,
-    MnemonicWordCountSelectorComponent,
-    AutoGenComponent,
-    PageStatTrackerComponent,
-    SettingsPageComponent,
-    AboutTestnetScamsComponent,
-    SourceCodeComponent,
-    HideUnusedKeysComponent,
-    AutoGenConfigComponent,
-    AutoGenSettingsDisplayComponent,
-    CurrentPageStatsDisplayComponent,
-    KeyStatusDisplayTypeComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    QRCodeModule,
-    OnlineStatusModule,
-    NgbModule,
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    //SevenSegModule
-  ],
-  providers: [
-    Title,
-    PriceService
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        NavbarComponent,
+        HomepageComponent,
+        KeyspageComponent,
+        TooFarComponent,
+        RandomComponent,
+        PagebuttonsComponent,
+        NotFoundComponent,
+        FooterComponent,
+        AboutComponent,
+        DonateComponent,
+        PriceComponent,
+        TestnetRandomComponent,
+        ExplorerAddressComponent,
+        ExplorerPrivateKeyComponent,
+        ExplorerTransactionListComponent,
+        ExplorerTransactionComponent,
+        ExplorerBlockComponent,
+        ExplorerIndexComponent,
+        WalletGeneratorIndexComponent,
+        SingleKeysetComponent,
+        BulkGenerateComponent,
+        MnemonicComponent,
+        AddressTypeSelectorComponent,
+        QrCodeTypeSelectorComponent,
+        NetworkTypeSelectorComponent,
+        QrCodeWithBorderComponent,
+        MnemonicWordCountSelectorComponent,
+        AutoGenComponent,
+        PageStatTrackerComponent,
+        SettingsPageComponent,
+        AboutTestnetScamsComponent,
+        SourceCodeComponent,
+        HideUnusedKeysComponent,
+        AutoGenConfigComponent,
+        AutoGenSettingsDisplayComponent,
+        CurrentPageStatsDisplayComponent,
+        KeyStatusDisplayTypeComponent,
+    ],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        QRCodeModule,
+        OnlineStatusModule,
+        NgbModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })], providers: [
+        Title,
+        PriceService,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
