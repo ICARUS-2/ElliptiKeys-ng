@@ -32,7 +32,7 @@ export class HomepageComponent implements OnInit {
       if (searchQuery.startsWith("c"))
         searchQuery = Keys.DecompressTestnetWIF(searchQuery)
       
-      let privateKeyNum:BigInt = Keys.GetNumberFromPrivateKey(searchQuery)
+      let privateKeyNum:bigint = Keys.GetNumberFromPrivateKey(searchQuery)
 
       let pageNumber:BigInt = BigInt(PageHelper.CalculatePageNumber(privateKeyNum))
 

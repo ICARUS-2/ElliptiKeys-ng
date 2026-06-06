@@ -1,7 +1,7 @@
 export default class PriceViewModel
 {
-    usdPrice: Number = 0;
-    changePercentage: Number = 0;
+    usdPrice: number = 0;
+    changePercentage: number = 0;
     color: string = "white";
 
     constructor()

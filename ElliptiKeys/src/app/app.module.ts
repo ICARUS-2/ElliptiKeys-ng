@@ -112,7 +112,7 @@ export function HttpLoaderFactory(http: HttpClient)
         deps: [HttpClient]
       }
     }),
-    SevenSegModule
+    //SevenSegModule
   ],
   providers: [
     Title,
