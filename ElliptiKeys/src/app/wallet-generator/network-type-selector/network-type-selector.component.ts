@@ -3,9 +3,10 @@ import { FormControl } from '@angular/forms';
 import { NETWORK_TYPES } from '../../../../lib/dictionaries/network-types';
 
 @Component({
-  selector: 'app-network-type-selector',
-  templateUrl: './network-type-selector.component.html',
-  styleUrls: ['./network-type-selector.component.css']
+    selector: 'app-network-type-selector',
+    templateUrl: './network-type-selector.component.html',
+    styleUrls: ['./network-type-selector.component.css'],
+    standalone: false
 })
 export class NetworkTypeSelectorComponent implements OnInit {
   

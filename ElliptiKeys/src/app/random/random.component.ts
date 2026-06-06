@@ -4,9 +4,10 @@ import PageHelper from './../../../lib/page-helper';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-random',
-  templateUrl: './random.component.html',
-  styleUrls: ['./random.component.css']
+    selector: 'app-random',
+    templateUrl: './random.component.html',
+    styleUrls: ['./random.component.css'],
+    standalone: false
 })
 export class RandomComponent implements OnInit {
 

@@ -4,9 +4,10 @@ import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-too-far',
-  templateUrl: './too-far.component.html',
-  styleUrls: ['./too-far.component.css']
+    selector: 'app-too-far',
+    templateUrl: './too-far.component.html',
+    styleUrls: ['./too-far.component.css'],
+    standalone: false
 })
 export class TooFarComponent implements OnInit, OnDestroy {
 

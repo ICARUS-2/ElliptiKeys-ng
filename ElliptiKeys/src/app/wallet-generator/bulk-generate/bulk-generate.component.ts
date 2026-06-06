@@ -7,9 +7,10 @@ import { NetworkTypeSelectorComponent } from '../network-type-selector/network-t
 import SingleAddressModel from './../../../../models/single-address-model';
 
 @Component({
-  selector: 'app-bulk-generate',
-  templateUrl: './bulk-generate.component.html',
-  styleUrls: ['./bulk-generate.component.css']
+    selector: 'app-bulk-generate',
+    templateUrl: './bulk-generate.component.html',
+    styleUrls: ['./bulk-generate.component.css'],
+    standalone: false
 })
 export class BulkGenerateComponent implements OnInit {
 

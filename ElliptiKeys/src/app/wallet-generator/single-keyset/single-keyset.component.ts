@@ -8,9 +8,10 @@ import { NetworkTypeSelectorComponent } from './../network-type-selector/network
 import SingleAddressModel from './../../../../models/single-address-model';
 
 @Component({
-  selector: 'app-single-keyset',
-  templateUrl: './single-keyset.component.html',
-  styleUrls: ['./single-keyset.component.css']
+    selector: 'app-single-keyset',
+    templateUrl: './single-keyset.component.html',
+    styleUrls: ['./single-keyset.component.css'],
+    standalone: false
 })
 export class SingleKeysetComponent implements OnInit {
 

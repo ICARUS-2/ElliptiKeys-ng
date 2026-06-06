@@ -3,9 +3,10 @@ import { FormControl } from '@angular/forms';
 import LocalStorageHelper from 'lib/localstorage-helper';
 
 @Component({
-  selector: 'app-hide-unused-keys',
-  templateUrl: './hide-unused-keys.component.html',
-  styleUrls: ['./hide-unused-keys.component.css']
+    selector: 'app-hide-unused-keys',
+    templateUrl: './hide-unused-keys.component.html',
+    styleUrls: ['./hide-unused-keys.component.css'],
+    standalone: false
 })
 export class HideUnusedKeysComponent implements OnInit {
 

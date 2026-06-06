@@ -4,9 +4,10 @@ import { QR_ERROR_CORRECTION } from 'lib/dictionaries/qr-error-correction';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-qr-code-type-selector',
-  templateUrl: './qr-code-type-selector.component.html',
-  styleUrls: ['./qr-code-type-selector.component.css']
+    selector: 'app-qr-code-type-selector',
+    templateUrl: './qr-code-type-selector.component.html',
+    styleUrls: ['./qr-code-type-selector.component.css'],
+    standalone: false
 })
 export class QrCodeTypeSelectorComponent implements OnInit {
 

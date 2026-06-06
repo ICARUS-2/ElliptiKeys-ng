@@ -6,9 +6,10 @@ import LocalStorageHelper from 'lib/localstorage-helper';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-settings-page',
-  templateUrl: './settings-page.component.html',
-  styleUrls: ['./settings-page.component.css']
+    selector: 'app-settings-page',
+    templateUrl: './settings-page.component.html',
+    styleUrls: ['./settings-page.component.css'],
+    standalone: false
 })
 export class SettingsPageComponent implements OnInit, OnDestroy {
 

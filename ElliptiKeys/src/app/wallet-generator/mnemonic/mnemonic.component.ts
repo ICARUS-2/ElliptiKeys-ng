@@ -4,9 +4,10 @@ import { MnemonicWordCountSelectorComponent } from './../mnemonic-word-count-sel
 import { QR_ERROR_CORRECTION } from 'lib/dictionaries/qr-error-correction';
 
 @Component({
-  selector: 'app-mnemonic',
-  templateUrl: './mnemonic.component.html',
-  styleUrls: ['./mnemonic.component.css']
+    selector: 'app-mnemonic',
+    templateUrl: './mnemonic.component.html',
+    styleUrls: ['./mnemonic.component.css'],
+    standalone: false
 })
 export class MnemonicComponent implements OnInit {
 

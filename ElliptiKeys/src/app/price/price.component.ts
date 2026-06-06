@@ -5,9 +5,10 @@ import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
-  selector: 'app-price',
-  templateUrl: './price.component.html',
-  styleUrls: ['./price.component.css']
+    selector: 'app-price',
+    templateUrl: './price.component.html',
+    styleUrls: ['./price.component.css'],
+    standalone: false
 })
 export class PriceComponent implements OnInit {
 

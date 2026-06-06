@@ -5,9 +5,10 @@ import { AUTO_GEN_PAGE_SELECTION_TYPES } from 'lib/dictionaries/page-selection-t
 import { AutoGenService } from 'src/app/services/auto-gen/auto-gen.service';
 
 @Component({
-  selector: 'app-auto-gen-config',
-  templateUrl: './auto-gen-config.component.html',
-  styleUrls: ['./auto-gen-config.component.css']
+    selector: 'app-auto-gen-config',
+    templateUrl: './auto-gen-config.component.html',
+    styleUrls: ['./auto-gen-config.component.css'],
+    standalone: false
 })
 export class AutoGenConfigComponent implements OnInit {
 

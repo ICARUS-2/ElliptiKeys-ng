@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-qr-code-with-border',
-  templateUrl: './qr-code-with-border.component.html',
-  styleUrls: ['./qr-code-with-border.component.css']
+    selector: 'app-qr-code-with-border',
+    templateUrl: './qr-code-with-border.component.html',
+    styleUrls: ['./qr-code-with-border.component.css'],
+    standalone: false
 })
 export class QrCodeWithBorderComponent implements OnInit {
 

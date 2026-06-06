@@ -7,9 +7,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-wallet-generator-index',
-  templateUrl: './wallet-generator-index.component.html',
-  styleUrls: ['./wallet-generator-index.component.css']
+    selector: 'app-wallet-generator-index',
+    templateUrl: './wallet-generator-index.component.html',
+    styleUrls: ['./wallet-generator-index.component.css'],
+    standalone: false
 })
 export class WalletGeneratorIndexComponent implements OnInit, OnDestroy {
   

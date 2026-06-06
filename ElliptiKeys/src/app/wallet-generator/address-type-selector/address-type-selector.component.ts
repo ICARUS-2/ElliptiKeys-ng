@@ -3,9 +3,10 @@ import { FormControl } from '@angular/forms';
 import { ADDRESS_TYPES } from 'lib/dictionaries/address-types';
 
 @Component({
-  selector: 'app-address-type-selector',
-  templateUrl: './address-type-selector.component.html',
-  styleUrls: ['./address-type-selector.component.css']
+    selector: 'app-address-type-selector',
+    templateUrl: './address-type-selector.component.html',
+    styleUrls: ['./address-type-selector.component.css'],
+    standalone: false
 })
 export class AddressTypeSelectorComponent implements OnInit {
   

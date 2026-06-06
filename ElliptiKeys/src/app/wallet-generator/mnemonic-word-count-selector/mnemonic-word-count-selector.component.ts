@@ -2,9 +2,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-mnemonic-word-count-selector',
-  templateUrl: './mnemonic-word-count-selector.component.html',
-  styleUrls: ['./mnemonic-word-count-selector.component.css']
+    selector: 'app-mnemonic-word-count-selector',
+    templateUrl: './mnemonic-word-count-selector.component.html',
+    styleUrls: ['./mnemonic-word-count-selector.component.css'],
+    standalone: false
 })
 export class MnemonicWordCountSelectorComponent implements OnInit {
   

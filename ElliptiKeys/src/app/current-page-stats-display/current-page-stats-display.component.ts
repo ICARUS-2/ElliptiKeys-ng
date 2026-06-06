@@ -3,9 +3,10 @@ import { KEY_STATUS_DISPLAY_TYPES } from 'lib/dictionaries/key-status-display-ty
 import LocalStorageHelper from 'lib/localstorage-helper';
 
 @Component({
-  selector: 'app-current-page-stats-display',
-  templateUrl: './current-page-stats-display.component.html',
-  styleUrls: ['./current-page-stats-display.component.css']
+    selector: 'app-current-page-stats-display',
+    templateUrl: './current-page-stats-display.component.html',
+    styleUrls: ['./current-page-stats-display.component.css'],
+    standalone: false
 })
 export class CurrentPageStatsDisplayComponent implements OnInit {
 

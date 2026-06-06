@@ -10,9 +10,10 @@ import { Subscription } from 'rxjs';
 import LocalStorageHelper from 'lib/localstorage-helper';
 
 @Component({
-  selector: 'app-keyspage',
-  templateUrl: './keyspage.component.html',
-  styleUrls: ['./keyspage.component.css']
+    selector: 'app-keyspage',
+    templateUrl: './keyspage.component.html',
+    styleUrls: ['./keyspage.component.css'],
+    standalone: false
 })
 
 export class KeyspageComponent implements OnInit, OnDestroy {

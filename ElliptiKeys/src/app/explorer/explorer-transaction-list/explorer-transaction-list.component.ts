@@ -5,9 +5,10 @@ import { DateFormatterService } from 'src/app/services/date-formatter/date-forma
 import { SatoshiToBitcoinService } from 'src/app/services/satoshi-to-bitcoin/satoshi-to-bitcoin.service';
 
 @Component({
-  selector: 'app-explorer-transaction-list',
-  templateUrl: './explorer-transaction-list.component.html',
-  styleUrls: ['./explorer-transaction-list.component.css']
+    selector: 'app-explorer-transaction-list',
+    templateUrl: './explorer-transaction-list.component.html',
+    styleUrls: ['./explorer-transaction-list.component.css'],
+    standalone: false
 })
 export class ExplorerTransactionListComponent implements OnInit {
 

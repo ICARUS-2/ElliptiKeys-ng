@@ -4,9 +4,10 @@ import { KEY_STATUS_DISPLAY_TYPES } from 'lib/dictionaries/key-status-display-ty
 import LocalStorageHelper from 'lib/localstorage-helper';
 
 @Component({
-  selector: 'app-key-status-display-type',
-  templateUrl: './key-status-display-type.component.html',
-  styleUrls: ['./key-status-display-type.component.css']
+    selector: 'app-key-status-display-type',
+    templateUrl: './key-status-display-type.component.html',
+    styleUrls: ['./key-status-display-type.component.css'],
+    standalone: false
 })
 export class KeyStatusDisplayTypeComponent implements OnInit {
 

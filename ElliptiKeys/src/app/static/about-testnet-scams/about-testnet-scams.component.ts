@@ -4,9 +4,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-about-testnet-scams',
-  templateUrl: './about-testnet-scams.component.html',
-  styleUrls: ['./about-testnet-scams.component.css']
+    selector: 'app-about-testnet-scams',
+    templateUrl: './about-testnet-scams.component.html',
+    styleUrls: ['./about-testnet-scams.component.css'],
+    standalone: false
 })
 export class AboutTestnetScamsComponent implements OnInit, OnDestroy {
 

@@ -3,9 +3,10 @@ import PageHelper from 'lib/page-helper';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-pagebuttons',
-  templateUrl: './pagebuttons.component.html',
-  styleUrls: ['./pagebuttons.component.css']
+    selector: 'app-pagebuttons',
+    templateUrl: './pagebuttons.component.html',
+    styleUrls: ['./pagebuttons.component.css'],
+    standalone: false
 })
 export class PagebuttonsComponent implements OnInit {
   pageNumber: BigInt=BigInt('1')

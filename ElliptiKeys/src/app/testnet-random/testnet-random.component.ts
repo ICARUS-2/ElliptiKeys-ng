@@ -4,9 +4,10 @@ import Keys from 'lib/keys/Keys';
 import PageHelper from 'lib/page-helper';
 
 @Component({
-  selector: 'app-testnet-random',
-  templateUrl: './testnet-random.component.html',
-  styleUrls: ['./testnet-random.component.css']
+    selector: 'app-testnet-random',
+    templateUrl: './testnet-random.component.html',
+    styleUrls: ['./testnet-random.component.css'],
+    standalone: false
 })
 export class TestnetRandomComponent implements OnInit {
 

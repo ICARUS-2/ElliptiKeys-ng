@@ -4,9 +4,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-donate',
-  templateUrl: './donate.component.html',
-  styleUrls: ['./donate.component.css']
+    selector: 'app-donate',
+    templateUrl: './donate.component.html',
+    styleUrls: ['./donate.component.css'],
+    standalone: false
 })
 export class DonateComponent implements OnInit, OnDestroy {
 

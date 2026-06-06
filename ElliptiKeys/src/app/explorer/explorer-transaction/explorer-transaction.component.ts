@@ -7,9 +7,10 @@ import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-explorer-transaction',
-  templateUrl: './explorer-transaction.component.html',
-  styleUrls: ['./explorer-transaction.component.css']
+    selector: 'app-explorer-transaction',
+    templateUrl: './explorer-transaction.component.html',
+    styleUrls: ['./explorer-transaction.component.css'],
+    standalone: false
 })
 export class ExplorerTransactionComponent implements OnInit, OnDestroy {
   isTestnet: boolean = false;

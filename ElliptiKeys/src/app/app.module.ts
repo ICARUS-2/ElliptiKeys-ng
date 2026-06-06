@@ -18,7 +18,7 @@ import { PriceService } from './services/price/price.service';
 import { PriceComponent } from './price/price.component';
 import { TestnetRandomComponent } from './testnet-random/testnet-random.component';
 import { ExplorerAddressComponent } from './explorer/explorer-address/explorer-address.component';
-import { QRCodeModule } from 'angularx-qrcode';
+import { QRCodeComponent } from 'angularx-qrcode';
 import { ExplorerPrivateKeyComponent } from './explorer/explorer-private-key/explorer-private-key.component';
 import { ExplorerTransactionListComponent } from './explorer/explorer-transaction-list/explorer-transaction-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -102,7 +102,7 @@ export function HttpLoaderFactory(http: HttpClient)
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        QRCodeModule,
+        QRCodeComponent,
         OnlineStatusModule,
         NgbModule,
         TranslateModule.forRoot({

@@ -3,9 +3,10 @@ import { AutoGenService } from '../services/auto-gen/auto-gen.service';
 import { AUTO_GEN_PAGE_SELECTION_TYPES } from 'lib/dictionaries/page-selection-types';
 
 @Component({
-  selector: 'app-auto-gen-settings-display',
-  templateUrl: './auto-gen-settings-display.component.html',
-  styleUrls: ['./auto-gen-settings-display.component.css']
+    selector: 'app-auto-gen-settings-display',
+    templateUrl: './auto-gen-settings-display.component.html',
+    styleUrls: ['./auto-gen-settings-display.component.css'],
+    standalone: false
 })
 export class AutoGenSettingsDisplayComponent implements OnInit {
 

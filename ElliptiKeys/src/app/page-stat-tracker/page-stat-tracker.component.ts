@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import LocalStorageHelper from 'lib/localstorage-helper';
 
 @Component({
-  selector: 'app-page-stat-tracker',
-  templateUrl: './page-stat-tracker.component.html',
-  styleUrls: ['./page-stat-tracker.component.css']
+    selector: 'app-page-stat-tracker',
+    templateUrl: './page-stat-tracker.component.html',
+    styleUrls: ['./page-stat-tracker.component.css'],
+    standalone: false
 })
 export class PageStatTrackerComponent implements OnInit {
   isCollapsed: boolean = true;

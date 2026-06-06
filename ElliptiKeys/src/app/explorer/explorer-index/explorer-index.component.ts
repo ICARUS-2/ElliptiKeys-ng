@@ -8,9 +8,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-explorer-index',
-  templateUrl: './explorer-index.component.html',
-  styleUrls: ['./explorer-index.component.css']
+    selector: 'app-explorer-index',
+    templateUrl: './explorer-index.component.html',
+    styleUrls: ['./explorer-index.component.css'],
+    standalone: false
 })
 export class ExplorerIndexComponent implements OnInit, OnDestroy {
   TRANSACTION_HASH_LENGTH = 64;

@@ -3,9 +3,10 @@ import { TranslateService } from '@ngx-translate/core';
 import LocalStorageHelper from 'lib/localstorage-helper';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.css'],
+    standalone: false
 })
 export class NavbarComponent implements OnInit {
 

@@ -10,9 +10,10 @@ import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-explorer-block',
-  templateUrl: './explorer-block.component.html',
-  styleUrls: ['./explorer-block.component.css']
+    selector: 'app-explorer-block',
+    templateUrl: './explorer-block.component.html',
+    styleUrls: ['./explorer-block.component.css'],
+    standalone: false
 })
 export class ExplorerBlockComponent implements OnInit, OnDestroy {
 

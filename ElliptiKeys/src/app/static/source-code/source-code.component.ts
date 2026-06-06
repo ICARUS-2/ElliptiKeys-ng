@@ -4,9 +4,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-source-code',
-  templateUrl: './source-code.component.html',
-  styleUrls: ['./source-code.component.css']
+    selector: 'app-source-code',
+    templateUrl: './source-code.component.html',
+    styleUrls: ['./source-code.component.css'],
+    standalone: false
 })
 export class SourceCodeComponent implements OnInit {
 

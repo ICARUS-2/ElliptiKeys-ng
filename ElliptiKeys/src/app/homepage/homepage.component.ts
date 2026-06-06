@@ -7,9 +7,10 @@ import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+    selector: 'app-homepage',
+    templateUrl: './homepage.component.html',
+    styleUrls: ['./homepage.component.css'],
+    standalone: false
 })
 export class HomepageComponent implements OnInit {
   errorMessage : boolean = false;

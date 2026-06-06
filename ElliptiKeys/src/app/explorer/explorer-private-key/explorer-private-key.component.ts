@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-explorer-private-key',
-  templateUrl: './explorer-private-key.component.html',
-  styleUrls: ['./explorer-private-key.component.css']
+    selector: 'app-explorer-private-key',
+    templateUrl: './explorer-private-key.component.html',
+    styleUrls: ['./explorer-private-key.component.css'],
+    standalone: false
 })
 export class ExplorerPrivateKeyComponent implements OnInit, OnDestroy {
 

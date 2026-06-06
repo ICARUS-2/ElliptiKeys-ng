@@ -13,9 +13,10 @@ import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-explorer-address',
-  templateUrl: './explorer-address.component.html',
-  styleUrls: ['./explorer-address.component.css']
+    selector: 'app-explorer-address',
+    templateUrl: './explorer-address.component.html',
+    styleUrls: ['./explorer-address.component.css'],
+    standalone: false
 })
 export class ExplorerAddressComponent implements OnInit, OnDestroy {
 

@@ -5,9 +5,10 @@ import { Subscription } from 'rxjs';
 import AppData from '../../../../lib/app-data';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+    selector: 'app-about',
+    templateUrl: './about.component.html',
+    styleUrls: ['./about.component.css'],
+    standalone: false
 })
 export class AboutComponent implements OnInit, OnDestroy {
 
