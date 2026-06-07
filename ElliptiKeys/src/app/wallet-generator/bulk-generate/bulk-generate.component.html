@@ -1,38 +1,42 @@
 <div id="bulkGenerateContainer">
 
-    <div>
+  <div>
 
-        <div class="m-4"></div>
+    <div class="m-4"></div>
 
-        <app-network-type-selector (itemChanged)="networkTypeChanged($event)"></app-network-type-selector>
+    <app-network-type-selector (itemChanged)="networkTypeChanged($event)"></app-network-type-selector>
 
-        <div class="m-4"></div>
+    <div class="m-4"></div>
 
-        <app-address-type-selector (itemChanged)="addressTypeChanged($event)"></app-address-type-selector>
-        
-        <div class="m-4"></div>
+    <app-address-type-selector (itemChanged)="addressTypeChanged($event)"></app-address-type-selector>
 
-        <h2>{{'walletGenerator.bulkGenerate.quantity' | translate}} (max {{maxGen}})</h2>
-        <div id="qtyControl">
-            <input id="qtyInput" type="number" [(ngModel)]="qtyToGenerate" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
-            <button class="btn btn-lg" [disabled]="isCurrentlyGenerating" [ngClass]="{'btn-outline-primary':!isCurrentlyGenerating, 'btn-outline-secondary disabled' : isCurrentlyGenerating }" (click)="bulkGenerate()"> {{ (isCurrentlyGenerating ? "walletGenerator.bulkGenerate.generateBtnInProgress" : "walletGenerator.bulkGenerate.generateBtn") | translate}} </button>
-        </div>
-        <p class="countErrDisplay">{{countErrorMessage}}</p>
-        <div style="margin-top: 5px;" class="alert alert-danger testnetScamWarning" *ngIf="getIsTestnet()">
-            {{"walletGenerator.scamWarning" | translate}}
-            <a routerLink="/about-testnet-scams">{{'walletGenerator.learnMore' | translate}}</a>
-        </div>
-        <div class="m-5"></div>
+    <div class="m-4"></div>
+
+    <h2>{{'walletGenerator.bulkGenerate.quantity' | translate}} (max {{maxGen}})</h2>
+    <div id="qtyControl">
+      <input id="qtyInput" type="number" [(ngModel)]="qtyToGenerate" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
+      <button class="btn btn-lg" [disabled]="isCurrentlyGenerating" [ngClass]="{'btn-outline-primary':!isCurrentlyGenerating, 'btn-outline-secondary disabled' : isCurrentlyGenerating }" (click)="bulkGenerate()"> {{ (isCurrentlyGenerating ? "walletGenerator.bulkGenerate.generateBtnInProgress" : "walletGenerator.bulkGenerate.generateBtn") | translate}} </button>
     </div>
+    <p class="countErrDisplay">{{countErrorMessage}}</p>
+    @if (getIsTestnet()) {
+      <div style="margin-top: 5px;" class="alert alert-danger testnetScamWarning">
+        {{"walletGenerator.scamWarning" | translate}}
+        <a routerLink="/about-testnet-scams">{{'walletGenerator.learnMore' | translate}}</a>
+      </div>
+    }
+    <div class="m-5"></div>
+  </div>
 
-   <div id="tableOuter">
-        <table class="table table-borderless mobileScrollableTable">
-            <tr *ngFor="let key of displayedKeys">
-                <td>{{key.privateKey}}</td>
-                <td>{{key.address}}</td>
-            </tr>
-        </table>
-   </div>
+  <div id="tableOuter">
+    <table class="table table-borderless mobileScrollableTable">
+      @for (key of displayedKeys; track key) {
+        <tr>
+          <td>{{key.privateKey}}</td>
+          <td>{{key.address}}</td>
+        </tr>
+      }
+    </table>
+  </div>
 </div>
 
 <div style="margin-top: 100px"></div>

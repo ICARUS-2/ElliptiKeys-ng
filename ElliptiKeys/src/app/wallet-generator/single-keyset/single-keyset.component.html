@@ -1,35 +1,37 @@
 <div id="singleAddressContainer">
 
-    <div id="singleAddressSettings">
+  <div id="singleAddressSettings">
 
-        <div class="m-4"></div>
+    <div class="m-4"></div>
 
-        <app-network-type-selector (itemChanged)="networkTypeChanged($event)"></app-network-type-selector>
+    <app-network-type-selector (itemChanged)="networkTypeChanged($event)"></app-network-type-selector>
 
-        <div class="m-4"></div>
+    <div class="m-4"></div>
 
-        <app-address-type-selector (itemChanged)="addressTypeChanged($event)"></app-address-type-selector>
-        
-        <div class="m-4"></div>
+    <app-address-type-selector (itemChanged)="addressTypeChanged($event)"></app-address-type-selector>
 
-        <app-qr-code-type-selector (itemChanged)="qrCodeTypeChanged($event)" ></app-qr-code-type-selector>
+    <div class="m-4"></div>
 
-        <div class="m-5"></div>
+    <app-qr-code-type-selector (itemChanged)="qrCodeTypeChanged($event)" ></app-qr-code-type-selector>
 
-        <button class="btn btn-lg btn-outline-primary" (click)="makeNewKeyset()">{{'walletGenerator.singleKeyset.generateBtn' | translate}}</button>
-        <div style="margin-top: 5px;" class="alert alert-danger testnetScamWarning" *ngIf="getIsTestnet()">
-            {{"walletGenerator.scamWarning" | translate}}
-            <a routerLink="/about-testnet-scams" class="">{{'walletGenerator.learnMore' | translate}}</a>
-        </div>
-    </div>
+    <div class="m-5"></div>
 
-    <div id="qrCodeContainer">
+    <button class="btn btn-lg btn-outline-primary" (click)="makeNewKeyset()">{{'walletGenerator.singleKeyset.generateBtn' | translate}}</button>
+    @if (getIsTestnet()) {
+      <div style="margin-top: 5px;" class="alert alert-danger testnetScamWarning">
+        {{"walletGenerator.scamWarning" | translate}}
+        <a routerLink="/about-testnet-scams" class="">{{'walletGenerator.learnMore' | translate}}</a>
+      </div>
+    }
+  </div>
 
-        <app-qr-code-with-border id="addressQrSection" [headerText]="'walletGenerator.singleKeyset.addressHeaderText' | translate" [qrData]="model.address" [errorCorrectionLevel]="getQrCodeType()" borderColor="green"></app-qr-code-with-border>
-        
-        <div style="margin-top: 15px"></div>
-        
-        <app-qr-code-with-border [headerText]="'walletGenerator.singleKeyset.privateKeyHeaderText' | translate" [qrData]="model.privateKey" borderColor="darkred" [errorCorrectionLevel]="getQrCodeType()"></app-qr-code-with-border>
-    </div>
+  <div id="qrCodeContainer">
+
+    <app-qr-code-with-border id="addressQrSection" [headerText]="'walletGenerator.singleKeyset.addressHeaderText' | translate" [qrData]="model.address" [errorCorrectionLevel]="getQrCodeType()" borderColor="green"></app-qr-code-with-border>
+
+    <div style="margin-top: 15px"></div>
+
+    <app-qr-code-with-border [headerText]="'walletGenerator.singleKeyset.privateKeyHeaderText' | translate" [qrData]="model.privateKey" borderColor="darkred" [errorCorrectionLevel]="getQrCodeType()"></app-qr-code-with-border>
+  </div>
 </div>
 <div style="margin-top: 100px"></div>

@@ -1,6 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
-import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap/nav/nav.module';
 import { OnlineStatusService, OnlineStatusType } from "ngx-online-status";
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';

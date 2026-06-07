@@ -1,101 +1,112 @@
 <div class="d-flex align-items-center w-100 flex-column justify-content-center">
 
-    <div class="mt-1"></div>
+  <div class="mt-1"></div>
 
-    <div class="topControls">
-        <button (click)="handleNetworkSwitchButtonClick()" class="btn btn-outline-primary" [disabled]="isLoading">{{'keyspage.switchNetworkBtn' | translate}}</button>
-        <app-page-stat-tracker style="align-self: flex-end;"></app-page-stat-tracker>
+  <div class="topControls">
+    <button (click)="handleNetworkSwitchButtonClick()" class="btn btn-outline-primary" [disabled]="isLoading">{{'keyspage.switchNetworkBtn' | translate}}</button>
+    <app-page-stat-tracker style="align-self: flex-end;"></app-page-stat-tracker>
+  </div>
+
+  @if (isTestnet) {
+    <div class="w-100 d-flex justify-content-center">
+      <div style="max-width: 80%;" class="alert alert-warning testnetScamWarning" role="alert">
+        {{'keyspage.testnetWarning' | translate}}
+        <a routerLink="/about-testnet-scams">{{'keyspage.learnMore' | translate}}</a>
+      </div>
     </div>
+  }
 
-    <div *ngIf="isTestnet" class="w-100 d-flex justify-content-center">
-        <div style="max-width: 80%;" class="alert alert-warning testnetScamWarning" role="alert">
-            {{'keyspage.testnetWarning' | translate}}
-            <a routerLink="/about-testnet-scams">{{'keyspage.learnMore' | translate}}</a>
-        </div>          
+  @if (balanceApi.errorCallingApi) {
+    <div>
+      <div class="alert alert-danger" role="alert">
+        Error occurred while retrieving balances.
+      </div>
     </div>
+  }
 
-    <div *ngIf="balanceApi.errorCallingApi">
-        <div class="alert alert-danger" role="alert">
-            Error occurred while retrieving balances.
-        </div>          
-    </div>
+  <div class="d-flex align-items-center w-100 justify-content-center">
+    <app-current-page-stats-display [redCounter]="this.redCounter" [yellowCounter]="this.yellowCounter" [greenCounter]="this.greenCounter"></app-current-page-stats-display>
+  </div>
 
-    <div class="d-flex align-items-center w-100 justify-content-center">
-        <app-current-page-stats-display [redCounter]="this.redCounter" [yellowCounter]="this.yellowCounter" [greenCounter]="this.greenCounter"></app-current-page-stats-display>
-    </div>
+  <div class="d-flex align-items-center w-100 flex-column justify-content-center pageNumbers">
+    <h4>Page</h4>
+    <h5 id="currentPageNumber" style="max-width: 80%;">{{pageNumber}}</h5>
+    <h5>{{'keyspage.of' | translate}}</h5>
+    <h5 id="maxPageNum" style="max-width: 80%;">{{maxPageNumber}}</h5>
+  </div>
 
-    <div class="d-flex align-items-center w-100 flex-column justify-content-center pageNumbers">
-        <h4>Page</h4>
-        <h5 id="currentPageNumber" style="max-width: 80%;">{{pageNumber}}</h5>
-        <h5>{{'keyspage.of' | translate}}</h5>
-        <h5 id="maxPageNum" style="max-width: 80%;">{{maxPageNumber}}</h5>
-    </div>
+  <div class="m-3"></div>
 
-    <div class="m-3"></div>
+  <app-auto-gen [isTestnet]="isTestnet" [pageNumber]="pageNumber"></app-auto-gen>
+  <app-auto-gen-settings-display></app-auto-gen-settings-display>
 
-    <app-auto-gen [isTestnet]="isTestnet" [pageNumber]="pageNumber"></app-auto-gen>
-    <app-auto-gen-settings-display></app-auto-gen-settings-display>
+  @if (isLoading && !autoGenService.autoModeActive) {
+    <div class="loadingDiv" style="height: 50px">{{'keyspage.loading' | translate}}</div>
+  }
+  @if (!isLoading && !autoGenService.autoModeActive) {
+    <app-pagebuttons style="width: 70%;" class="pageBtns"></app-pagebuttons>
+  }
 
-    <div *ngIf="isLoading && !autoGenService.autoModeActive" class="loadingDiv" style="height: 50px">{{'keyspage.loading' | translate}}</div>
-    <app-pagebuttons *ngIf="!isLoading && !autoGenService.autoModeActive" style="width: 70%;" class="pageBtns"></app-pagebuttons>
+  <div class="m-3"></div>
 
-    <div class="m-3"></div>
-
-    <div style="display: flex; justify-content: center; width: 100%;" class="tableWrapper">
-        <table style="border-spacing: 10px 0px; border-collapse: separate; width: 97%;" class="keysTable">
-            <tr *ngFor="let model of keys; let index = index" class="tableRow">
-                <td class="desktopTd" style="padding: 10px 0px;" [style.border-left]="model.borderColor" [ngStyle]="{'display': model.display}">
-                    <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('uncompressed')">{{model.privateKey}}</a>
-                    <br>
-                    <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('compressed')">{{model.privateKeyCompressed}}</a>
+  <div style="display: flex; justify-content: center; width: 100%;" class="tableWrapper">
+    <table style="border-spacing: 10px 0px; border-collapse: separate; width: 97%;" class="keysTable">
+      @for (model of keys; track model; let index = $index) {
+        <tr class="tableRow">
+          <td class="desktopTd" style="padding: 10px 0px;" [style.border-left]="model.borderColor" [ngStyle]="{'display': model.display}">
+            <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('uncompressed')">{{model.privateKey}}</a>
+            <br>
+              <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('compressed')">{{model.privateKeyCompressed}}</a>
+            </td>
+            <td class="desktopTd" [ngStyle]="{'display': model.display}">
+              <a [style.color]="model.legacyColor" [routerLink]="model.getAddressExplorerUrl('legacy')" class="{{model.legacy}}">{{model.legacy}}</a>
+              <br>
+                <a [style.color]="model.legacyCompressedColor" [routerLink]="model.getAddressExplorerUrl('legacyCompressed')" class="{{model.legacyCompressed}}">{{model.legacyCompressed}}</a>
+              </td>
+              <td class="desktopTd" [ngStyle]="{'display': model.display}">
+                <a [style.color]="model.segwitColor" [routerLink]="model.getAddressExplorerUrl('segwit')" class="{{model.segwit}}">{{model.segwit}}</a>
+                <br>
+                  <a [style.color]="model.bech32Color" [routerLink]="model.getAddressExplorerUrl('bech32')" class="{{model.bech32}}">{{model.bech32}}</a>
                 </td>
-
                 <td class="desktopTd" [ngStyle]="{'display': model.display}">
-                    <a [style.color]="model.legacyColor" [routerLink]="model.getAddressExplorerUrl('legacy')" class="{{model.legacy}}">{{model.legacy}}</a>
-                    <br>
-                    <a [style.color]="model.legacyCompressedColor" [routerLink]="model.getAddressExplorerUrl('legacyCompressed')" class="{{model.legacyCompressed}}">{{model.legacyCompressed}}</a>
+                  <p>{{model.stats}}</p>
                 </td>
-
-                <td class="desktopTd" [ngStyle]="{'display': model.display}">
-                    <a [style.color]="model.segwitColor" [routerLink]="model.getAddressExplorerUrl('segwit')" class="{{model.segwit}}">{{model.segwit}}</a>
-                    <br>
-                    <a [style.color]="model.bech32Color" [routerLink]="model.getAddressExplorerUrl('bech32')" class="{{model.bech32}}">{{model.bech32}}</a>
-                </td>
-
-                <td class="desktopTd" [ngStyle]="{'display': model.display}">
-                    <p>{{model.stats}}</p>
-                </td>
-            
                 <td class="mobileTd" [style.border-left]="model.borderColor" [ngStyle]="{'display': model.display}">
-                    <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('uncompressed')">{{model.privateKey}}</a>
-                    <div style="margin-top: 10px;"></div>
-                    <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('compressed')">{{model.privateKeyCompressed}}</a>
+                  <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('uncompressed')">{{model.privateKey}}</a>
+                  <div style="margin-top: 10px;"></div>
+                  <a [style.color]="model.privateKeyTextColor" [routerLink]="model.getWifExplorerUrl('compressed')">{{model.privateKeyCompressed}}</a>
+                  <br>
                     <br>
-                    <br>
-                    <a [style.color]="model.legacyColor" [routerLink]="model.getAddressExplorerUrl('legacy')" class="{{model.legacy}}">{{model.legacy.substr(0, model.legacy.length / 1.3)}}...</a>
-                    <br>
-                    <a [style.color]="model.legacyCompressedColor" [routerLink]="model.getAddressExplorerUrl('legacyCompressed')" class="{{model.legacyCompressed}}">{{model.legacyCompressed.substr(0, model.legacyCompressed.length / 1.3)}}...</a>
-                    <br>
-                    <a [style.color]="model.segwitColor" [routerLink]="model.getAddressExplorerUrl('segwit')" class="{{model.segwit}}">{{model.segwit.substr(0, model.segwit.length / 1.3)}}...</a>
-                    <br>
-                    <a [style.color]="model.bech32Color" [routerLink]="model.getAddressExplorerUrl('bech32')" class="{{model.bech32}}">{{model.bech32.substr(0, model.bech32.length / 1.3)}}...</a>
-                    <br>
-                    <br>
-                    <p>{{model.stats}}</p>
-                </td>
-            </tr>
-        </table>
-    </div>
+                      <a [style.color]="model.legacyColor" [routerLink]="model.getAddressExplorerUrl('legacy')" class="{{model.legacy}}">{{model.legacy.substr(0, model.legacy.length / 1.3)}}...</a>
+                      <br>
+                        <a [style.color]="model.legacyCompressedColor" [routerLink]="model.getAddressExplorerUrl('legacyCompressed')" class="{{model.legacyCompressed}}">{{model.legacyCompressed.substr(0, model.legacyCompressed.length / 1.3)}}...</a>
+                        <br>
+                          <a [style.color]="model.segwitColor" [routerLink]="model.getAddressExplorerUrl('segwit')" class="{{model.segwit}}">{{model.segwit.substr(0, model.segwit.length / 1.3)}}...</a>
+                          <br>
+                            <a [style.color]="model.bech32Color" [routerLink]="model.getAddressExplorerUrl('bech32')" class="{{model.bech32}}">{{model.bech32.substr(0, model.bech32.length / 1.3)}}...</a>
+                            <br>
+                              <br>
+                                <p>{{model.stats}}</p>
+                              </td>
+                            </tr>
+                          }
+                        </table>
+                      </div>
 
-    <h3 *ngIf="shouldHideUnusedKeys()">(+{{unusedKeyCount}}) {{'keyspage.hidden' | translate}}</h3>
+                      @if (shouldHideUnusedKeys()) {
+                        <h3>(+{{unusedKeyCount}}) {{'keyspage.hidden' | translate}}</h3>
+                      }
 
-    <ng-container *ngIf="!isEmptyPage() && shouldHideUnusedKeys() || !shouldHideUnusedKeys()">
-        <app-pagebuttons *ngIf="!isLoading && !autoGenService.autoModeActive" style="width: 70%;" class="pageBtns"></app-pagebuttons>
-        <div *ngIf="isLoading && !autoGenService.autoModeActive" class="loadingDiv" style="height: 50px; text-align: center;">{{'keyspage.loading' | translate}}</div>
+                      @if (!isEmptyPage() && shouldHideUnusedKeys() || !shouldHideUnusedKeys()) {
+                        @if (!isLoading && !autoGenService.autoModeActive) {
+                          <app-pagebuttons style="width: 70%;" class="pageBtns"></app-pagebuttons>
+                        }
+                        @if (isLoading && !autoGenService.autoModeActive) {
+                          <div class="loadingDiv" style="height: 50px; text-align: center;">{{'keyspage.loading' | translate}}</div>
+                        }
+                        <div style="margin-top: 25px;"></div>
+                        <app-auto-gen [isTestnet]="isTestnet" [pageNumber]="pageNumber"></app-auto-gen>
+                      }
 
-        <div style="margin-top: 25px;"></div>
-        <app-auto-gen [isTestnet]="isTestnet" [pageNumber]="pageNumber"></app-auto-gen>
-    </ng-container>
-
-    <div class="m-5"></div> 
-</div>
+                      <div class="m-5"></div>
+                    </div>
