@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import Keys from 'lib/keys/Keys';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MnemonicWordCountSelectorComponent } from './../mnemonic-word-count-selector/mnemonic-word-count-selector.component';
-import { QR_ERROR_CORRECTION } from 'lib/dictionaries/qr-error-correction';
+import { QR_ERROR_CORRECTION } from '../../../../lib/dictionaries/qr-error-correction';
+import Keys from '../../../../lib/keys/Keys';
 
 @Component({
     selector: 'app-mnemonic',
     templateUrl: './mnemonic.component.html',
     styleUrls: ['./mnemonic.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class MnemonicComponent implements OnInit {

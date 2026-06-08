@@ -1,15 +1,16 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import TransactionViewModel from 'models/transaction-view-model';
 import  TransactionApi from './../../../../lib/transaction-api';
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import TransactionViewModel from '../../../../models/transaction-view-model';
 
 @Component({
     selector: 'app-explorer-transaction',
     templateUrl: './explorer-transaction.component.html',
     styleUrls: ['./explorer-transaction.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ExplorerTransactionComponent implements OnInit, OnDestroy {

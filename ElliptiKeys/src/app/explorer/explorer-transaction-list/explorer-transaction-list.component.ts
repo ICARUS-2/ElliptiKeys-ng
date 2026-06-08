@@ -1,13 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { URLS } from 'lib/dictionaries/urls';
-import TransactionViewModel from 'models/transaction-view-model';
-import { DateFormatterService } from 'src/app/services/date-formatter/date-formatter.service';
-import { SatoshiToBitcoinService } from 'src/app/services/satoshi-to-bitcoin/satoshi-to-bitcoin.service';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import TransactionViewModel from '../../../../models/transaction-view-model';
+import { SatoshiToBitcoinService } from '../../services/satoshi-to-bitcoin/satoshi-to-bitcoin.service';
+import { DateFormatterService } from '../../services/date-formatter/date-formatter.service';
+import { URLS } from '../../../../lib/dictionaries/urls';
 
 @Component({
     selector: 'app-explorer-transaction-list',
     templateUrl: './explorer-transaction-list.component.html',
     styleUrls: ['./explorer-transaction-list.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ExplorerTransactionListComponent implements OnInit {

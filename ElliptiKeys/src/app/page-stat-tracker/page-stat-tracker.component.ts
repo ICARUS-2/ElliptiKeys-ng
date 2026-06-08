@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import LocalStorageHelper from 'lib/localstorage-helper';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import LocalStorageHelper from '../../../lib/localstorage-helper';
 
 @Component({
     selector: 'app-page-stat-tracker',
     templateUrl: './page-stat-tracker.component.html',
     styleUrls: ['./page-stat-tracker.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class PageStatTrackerComponent implements OnInit {

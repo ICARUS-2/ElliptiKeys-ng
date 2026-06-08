@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { PriceService } from '../services/price/price.service';
 import PriceViewModel from '../../../models/price-view-model';
 import { NavigationEnd, Router } from '@angular/router';
@@ -8,6 +8,7 @@ import { filter } from 'rxjs';
     selector: 'app-price',
     templateUrl: './price.component.html',
     styleUrls: ['./price.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class PriceComponent implements OnInit {

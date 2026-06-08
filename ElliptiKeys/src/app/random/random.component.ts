@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import Keys from 'lib/keys/Keys';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import PageHelper from './../../../lib/page-helper';
 import { Router } from '@angular/router';
+import Keys from '../../../lib/keys/Keys';
 
 @Component({
     selector: 'app-random',
     templateUrl: './random.component.html',
     styleUrls: ['./random.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class RandomComponent implements OnInit {

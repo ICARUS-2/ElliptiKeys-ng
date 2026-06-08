@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AutoGenService } from '../services/auto-gen/auto-gen.service';
-import { AUTO_GEN_PAGE_SELECTION_TYPES } from 'lib/dictionaries/page-selection-types';
+import { AUTO_GEN_PAGE_SELECTION_TYPES } from '../../../lib/dictionaries/page-selection-types';
 
 @Component({
     selector: 'app-auto-gen-settings-display',
     templateUrl: './auto-gen-settings-display.component.html',
     styleUrls: ['./auto-gen-settings-display.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AutoGenSettingsDisplayComponent implements OnInit {

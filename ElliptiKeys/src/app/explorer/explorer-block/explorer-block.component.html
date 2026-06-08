@@ -27,7 +27,7 @@
         </tr>
         <tr>
             <th scope="row">{{'explorer.block.table.timestamp' | translate}}</th>
-            <td>{{dateFormatter.formatUnixTime(blockModel?.timeStamp)}}</td>
+            <td>{{dateFormatter.formatUnixTime($safeNavigationMigration(blockModel?.timeStamp))}}</td>
         </tr>
         <tr>
             <th scope="row">{{'explorer.block.table.nonce' | translate}}</th>
@@ -43,11 +43,11 @@
         </tr>
         <tr>
             <th scope="row">{{'explorer.block.table.feeReward' | translate}}</th>
-            <td>{{satoshiService.get(blockModel?.fee)}} BTC</td>
+            <td>{{satoshiService.get($safeNavigationMigration(blockModel?.fee))}} BTC</td>
         </tr>
         <tr>
             <th scope="row">{{'explorer.block.table.volume' | translate}}</th>
-            <td>{{satoshiService.get(blockModel?.volume)}} BTC</td>
+            <td>{{satoshiService.get($safeNavigationMigration(blockModel?.volume))}} BTC</td>
         </tr>
         </tbody>
     </table>

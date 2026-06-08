@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import LocalStorageHelper from 'lib/localstorage-helper';
-import { AUTO_GEN_PAGE_SELECTION_TYPES } from 'lib/dictionaries/page-selection-types';
-import { AutoGenService } from 'src/app/services/auto-gen/auto-gen.service';
+import { AutoGenService } from '../../services/auto-gen/auto-gen.service';
+import { AUTO_GEN_PAGE_SELECTION_TYPES } from '../../../../lib/dictionaries/page-selection-types';
+import LocalStorageHelper from '../../../../lib/localstorage-helper';
+
 
 @Component({
     selector: 'app-auto-gen-config',
     templateUrl: './auto-gen-config.component.html',
     styleUrls: ['./auto-gen-config.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AutoGenConfigComponent implements OnInit {

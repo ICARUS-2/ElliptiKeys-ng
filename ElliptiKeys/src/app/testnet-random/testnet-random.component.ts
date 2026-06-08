@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
-import Keys from 'lib/keys/Keys';
-import PageHelper from 'lib/page-helper';
+import PageHelper from '../../../lib/page-helper';
+import Keys from '../../../lib/keys/Keys';
 
 @Component({
     selector: 'app-testnet-random',
     templateUrl: './testnet-random.component.html',
     styleUrls: ['./testnet-random.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class TestnetRandomComponent implements OnInit {

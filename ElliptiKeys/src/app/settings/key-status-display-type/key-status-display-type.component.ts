@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { KEY_STATUS_DISPLAY_TYPES } from 'lib/dictionaries/key-status-display-types';
-import LocalStorageHelper from 'lib/localstorage-helper';
+import { KEY_STATUS_DISPLAY_TYPES } from '../../../../lib/dictionaries/key-status-display-types';
+import LocalStorageHelper from '../../../../lib/localstorage-helper';
 
 @Component({
     selector: 'app-key-status-display-type',
     templateUrl: './key-status-display-type.component.html',
     styleUrls: ['./key-status-display-type.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class KeyStatusDisplayTypeComponent implements OnInit {

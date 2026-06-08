@@ -22,7 +22,7 @@
         <tr>
           <th scope="row">{{'explorer.address.table.format' | translate}}</th>
           <td>
-            <h5><span class="badge" [ngClass]="{ 'bg-danger': addressModel?.getFormat() == 'legacy', 'bg-primary': addressModel?.getFormat() == 'segwit', 'bg-success': addressModel?.getFormat() == 'bech32'}">{{addressModel?.getDisplayFormat()}}</span></h5>
+            <h5><span class="badge" [ngClass]="{ 'bg-danger': $safeNavigationMigration(addressModel?.getFormat()) == 'legacy', 'bg-primary': $safeNavigationMigration(addressModel?.getFormat()) == 'segwit', 'bg-success': $safeNavigationMigration(addressModel?.getFormat()) == 'bech32'}">{{addressModel?.getDisplayFormat()}}</span></h5>
           </td>
         </tr>
         <tr>
@@ -31,15 +31,15 @@
         </tr>
         <tr>
           <th scope="row">{{'explorer.address.table.totalReceived' | translate}}</th>
-          <td>{{addressModel?.getBtcReceived()}} BTC (${{priceService.btcToUsd(addressModel?.getBtcReceived())}})</td>
+          <td>{{addressModel?.getBtcReceived()}} BTC (${{priceService.btcToUsd($safeNavigationMigration(addressModel?.getBtcReceived()))}})</td>
         </tr>
         <tr>
           <th scope="row">{{'explorer.address.table.totalSent' | translate}}</th>
-          <td>{{addressModel?.getBtcSent()}} BTC (${{priceService.btcToUsd(addressModel?.getBtcSent())}})</td>
+          <td>{{addressModel?.getBtcSent()}} BTC (${{priceService.btcToUsd($safeNavigationMigration(addressModel?.getBtcSent()))}})</td>
         </tr>
         <tr>
           <th scope="row">{{'explorer.address.table.balance' | translate}}</th>
-          <td>{{addressModel?.getBtcBalance()}} BTC (${{priceService.btcToUsd(addressModel?.getBtcBalance())}})</td>
+          <td>{{addressModel?.getBtcBalance()}} BTC (${{priceService.btcToUsd($safeNavigationMigration(addressModel?.getBtcBalance()))}})</td>
         </tr>
       </tbody>
     </table>

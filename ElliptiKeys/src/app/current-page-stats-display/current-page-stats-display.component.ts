@@ -1,11 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { KEY_STATUS_DISPLAY_TYPES } from 'lib/dictionaries/key-status-display-types';
-import LocalStorageHelper from 'lib/localstorage-helper';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { KEY_STATUS_DISPLAY_TYPES } from '../../../lib/dictionaries/key-status-display-types';
+import LocalStorageHelper from '../../../lib/localstorage-helper';
 
 @Component({
     selector: 'app-current-page-stats-display',
     templateUrl: './current-page-stats-display.component.html',
     styleUrls: ['./current-page-stats-display.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CurrentPageStatsDisplayComponent implements OnInit {

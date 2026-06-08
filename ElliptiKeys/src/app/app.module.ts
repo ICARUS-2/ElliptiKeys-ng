@@ -37,7 +37,7 @@ import { QrCodeWithBorderComponent } from './wallet-generator/qr-code-with-borde
 import { MnemonicWordCountSelectorComponent } from './wallet-generator/mnemonic-word-count-selector/mnemonic-word-count-selector.component';
 import { AutoGenComponent } from './auto-gen/auto-gen.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PageStatTrackerComponent } from './page-stat-tracker/page-stat-tracker.component';
 import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
@@ -114,6 +114,6 @@ export function HttpLoaderFactory(http: HttpClient)
         })], providers: [
         Title,
         PriceService,
-        provideHttpClient(withInterceptorsFromDi())
+        provideHttpClient(withXhr(), withInterceptorsFromDi())
     ] })
 export class AppModule { }
