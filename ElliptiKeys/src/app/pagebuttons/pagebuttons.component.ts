@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import PageHelper from 'lib/page-helper';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import PageHelper from '../../../lib/page-helper';
 
 @Component({
-  selector: 'app-pagebuttons',
-  templateUrl: './pagebuttons.component.html',
-  styleUrls: ['./pagebuttons.component.css']
+    selector: 'app-pagebuttons',
+    templateUrl: './pagebuttons.component.html',
+    styleUrls: ['./pagebuttons.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class PagebuttonsComponent implements OnInit {
   pageNumber: BigInt=BigInt('1')

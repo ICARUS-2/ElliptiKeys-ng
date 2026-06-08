@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import PageHelper from 'lib/page-helper';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import KeyRowViewModel from './../../../models/key-row-model';
 import { Title } from '@angular/platform-browser';
 import BalanceApi from './../../../lib/balance-api';
@@ -7,12 +6,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AutoGenService } from '../services/auto-gen/auto-gen.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import LocalStorageHelper from 'lib/localstorage-helper';
+import LocalStorageHelper from '../../../lib/localstorage-helper';
+import PageHelper from '../../../lib/page-helper';
 
 @Component({
-  selector: 'app-keyspage',
-  templateUrl: './keyspage.component.html',
-  styleUrls: ['./keyspage.component.css']
+    selector: 'app-keyspage',
+    templateUrl: './keyspage.component.html',
+    styleUrls: ['./keyspage.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 
 export class KeyspageComponent implements OnInit, OnDestroy {

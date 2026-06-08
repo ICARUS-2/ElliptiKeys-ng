@@ -1,18 +1,20 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import TransactionApi from 'lib/transaction-api';
-import BlockModel from 'models/block-model';
-import { DateFormatterService } from 'src/app/services/date-formatter/date-formatter.service';
-import TransactionViewModel  from 'models/transaction-view-model';
-import { SatoshiToBitcoinService } from 'src/app/services/satoshi-to-bitcoin/satoshi-to-bitcoin.service';
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import BlockModel from '../../../../models/block-model';
+import TransactionViewModel from '../../../../models/transaction-view-model';
+import { SatoshiToBitcoinService } from '../../services/satoshi-to-bitcoin/satoshi-to-bitcoin.service';
+import { DateFormatterService } from '../../services/date-formatter/date-formatter.service';
+import TransactionApi from '../../../../lib/transaction-api';
 
 @Component({
-  selector: 'app-explorer-block',
-  templateUrl: './explorer-block.component.html',
-  styleUrls: ['./explorer-block.component.css']
+    selector: 'app-explorer-block',
+    templateUrl: './explorer-block.component.html',
+    styleUrls: ['./explorer-block.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class ExplorerBlockComponent implements OnInit, OnDestroy {
 

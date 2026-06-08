@@ -18,7 +18,7 @@ import { PriceService } from './services/price/price.service';
 import { PriceComponent } from './price/price.component';
 import { TestnetRandomComponent } from './testnet-random/testnet-random.component';
 import { ExplorerAddressComponent } from './explorer/explorer-address/explorer-address.component';
-import { QRCodeModule } from 'angularx-qrcode';
+import { QRCodeComponent } from 'angularx-qrcode';
 import { ExplorerPrivateKeyComponent } from './explorer/explorer-private-key/explorer-private-key.component';
 import { ExplorerTransactionListComponent } from './explorer/explorer-transaction-list/explorer-transaction-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -37,7 +37,7 @@ import { QrCodeWithBorderComponent } from './wallet-generator/qr-code-with-borde
 import { MnemonicWordCountSelectorComponent } from './wallet-generator/mnemonic-word-count-selector/mnemonic-word-count-selector.component';
 import { AutoGenComponent } from './auto-gen/auto-gen.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PageStatTrackerComponent } from './page-stat-tracker/page-stat-tracker.component';
 import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
@@ -47,7 +47,8 @@ import { HideUnusedKeysComponent } from './settings/hide-unused-keys/hide-unused
 import { AutoGenConfigComponent } from './settings/auto-gen-config/auto-gen-config.component';
 import { AutoGenSettingsDisplayComponent } from './auto-gen-settings-display/auto-gen-settings-display.component';
 import { CurrentPageStatsDisplayComponent } from './current-page-stats-display/current-page-stats-display.component';
-import { SevenSegModule } from 'ng-sevenseg';
+import { SevenSegModule } from 'ng-sevenseg2';
+
 import { KeyStatusDisplayTypeComponent } from './settings/key-status-display-type/key-status-display-type.component';
 
 export function HttpLoaderFactory(http: HttpClient)
@@ -55,72 +56,66 @@ export function HttpLoaderFactory(http: HttpClient)
     return new TranslateHttpLoader(http)
 }
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    HomepageComponent,
-    KeyspageComponent,
-    TooFarComponent,
-    RandomComponent,
-    PagebuttonsComponent,
-    NotFoundComponent,
-    FooterComponent,
-    AboutComponent,
-    DonateComponent,
-    PriceComponent,
-    TestnetRandomComponent,
-    ExplorerAddressComponent,
-    ExplorerPrivateKeyComponent,
-    ExplorerTransactionListComponent,
-    ExplorerTransactionComponent,
-    ExplorerBlockComponent,
-    ExplorerIndexComponent,
-    WalletGeneratorIndexComponent,
-    SingleKeysetComponent,
-    BulkGenerateComponent,
-    MnemonicComponent,
-    AddressTypeSelectorComponent,
-    QrCodeTypeSelectorComponent,
-    NetworkTypeSelectorComponent,
-    QrCodeWithBorderComponent,
-    MnemonicWordCountSelectorComponent,
-    AutoGenComponent,
-    PageStatTrackerComponent,
-    SettingsPageComponent,
-    AboutTestnetScamsComponent,
-    SourceCodeComponent,
-    HideUnusedKeysComponent,
-    AutoGenConfigComponent,
-    AutoGenSettingsDisplayComponent,
-    CurrentPageStatsDisplayComponent,
-    KeyStatusDisplayTypeComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    QRCodeModule,
-    OnlineStatusModule,
-    NgbModule,
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    SevenSegModule
-  ],
-  providers: [
-    Title,
-    PriceService
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        NavbarComponent,
+        HomepageComponent,
+        KeyspageComponent,
+        TooFarComponent,
+        RandomComponent,
+        PagebuttonsComponent,
+        NotFoundComponent,
+        FooterComponent,
+        AboutComponent,
+        DonateComponent,
+        PriceComponent,
+        TestnetRandomComponent,
+        ExplorerAddressComponent,
+        ExplorerPrivateKeyComponent,
+        ExplorerTransactionListComponent,
+        ExplorerTransactionComponent,
+        ExplorerBlockComponent,
+        ExplorerIndexComponent,
+        WalletGeneratorIndexComponent,
+        SingleKeysetComponent,
+        BulkGenerateComponent,
+        MnemonicComponent,
+        AddressTypeSelectorComponent,
+        QrCodeTypeSelectorComponent,
+        NetworkTypeSelectorComponent,
+        QrCodeWithBorderComponent,
+        MnemonicWordCountSelectorComponent,
+        AutoGenComponent,
+        PageStatTrackerComponent,
+        SettingsPageComponent,
+        AboutTestnetScamsComponent,
+        SourceCodeComponent,
+        HideUnusedKeysComponent,
+        AutoGenConfigComponent,
+        AutoGenSettingsDisplayComponent,
+        CurrentPageStatsDisplayComponent,
+        KeyStatusDisplayTypeComponent,
+    ],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        QRCodeComponent,
+        OnlineStatusModule,
+        NgbModule,
+        SevenSegModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })], providers: [
+        Title,
+        PriceService,
+        provideHttpClient(withXhr(), withInterceptorsFromDi())
+    ] })
 export class AppModule { }

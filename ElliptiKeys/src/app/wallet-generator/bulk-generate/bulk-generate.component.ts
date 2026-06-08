@@ -1,15 +1,16 @@
-import { ThisReceiver } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
-import { ADDRESS_TYPES } from 'lib/dictionaries/address-types';
-import { NETWORK_TYPES } from 'lib/dictionaries/network-types';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AddressTypeSelectorComponent } from '../address-type-selector/address-type-selector.component';
 import { NetworkTypeSelectorComponent } from '../network-type-selector/network-type-selector.component';
 import SingleAddressModel from './../../../../models/single-address-model';
+import { ADDRESS_TYPES } from '../../../../lib/dictionaries/address-types';
+import { NETWORK_TYPES } from '../../../../lib/dictionaries/network-types';
 
 @Component({
-  selector: 'app-bulk-generate',
-  templateUrl: './bulk-generate.component.html',
-  styleUrls: ['./bulk-generate.component.css']
+    selector: 'app-bulk-generate',
+    templateUrl: './bulk-generate.component.html',
+    styleUrls: ['./bulk-generate.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class BulkGenerateComponent implements OnInit {
 

@@ -1,88 +1,110 @@
 <div>
+  @if (transactions.length > pageSize) {
     <ngb-pagination
-  [(page)]="page"
-  [pageSize]="pageSize"
-  [collectionSize]="transactions.length"
-  [directionLinks]="true"
-  [ellipses]="true"
-  [maxSize]="7" class="pagination" *ngIf="transactions.length > pageSize"></ngb-pagination>
+      [(page)]="page"
+      [pageSize]="pageSize"
+      [collectionSize]="transactions.length"
+      [directionLinks]="true"
+      [ellipses]="true"
+    [maxSize]="7" class="pagination"></ngb-pagination>
+  }
 
-    <div *ngIf="transactions.length == 0">{{'explorer.transactionList.noTxFound' | translate}}</div>
+  @if (transactions.length == 0) {
+    <div>{{'explorer.transactionList.noTxFound' | translate}}</div>
+  }
 
-    <div *ngFor="let tx of transactions | slice: (page-1) * pageSize : page * pageSize ">
+  @for (tx of transactions | slice: (page-1) * pageSize : page * pageSize ; track tx) {
+    <div>
       <table class="table mobileScrollableTable">
         <tbody>
           <tr>
             <th scope="row">{{'explorer.transactionList.table.amount' | translate}}</th>
-            <td style="display: flex;"> <h6><span class="alert" style="padding: 5px;" [ngClass]="{ 'alert-success text-success': tx.model.result >= 0, 'alert-danger text-danger': tx.model.result < 0 }">{{tx.model.result >= 0 ? "+" : ""}} {{satoshiService.get(tx.model.result)}} BTC</span></h6> <h6 *ngIf="tx.model.isCoinbase"><span style="padding: 5px; margin-left: 5px;" class="alert alert-info text-primary">{{'explorer.transactionList.table.coinbaseTransaction' | translate}}</span></h6> </td>
-          </tr>
-          
-          <tr>
-            <th scope="row">{{'explorer.transactionList.table.hash' | translate}}</th>
-            <td><a [routerLink]="getTransactionExplorerLink(tx.model.hash)">{{tx.model.hash}}</a></td>
-          </tr>
-
-          <tr>
-            <th scope="row">{{'explorer.transactionList.table.fee' | translate}}</th>
-            <td>{{satoshiService.get(tx.model.fee)}} BTC</td>
-          </tr>
-
-          <tr>
-            <th scope="row">{{'explorer.transactionList.table.status' | translate}}</th>
-            <td><span class="badge" [ngClass]=" {'bg-danger' : tx.model.block == null, 'bg-success' : tx.model.block != null}">{{(tx.model.block == null ? "explorer.transactionList.table.unconfirmed" : "explorer.transactionList.table.confirmed") | translate}}</span></td>
-          </tr>
-
-          <tr>
-            <th scope="row">{{'explorer.transactionList.table.blockNum' | translate}}</th>
-            <td *ngIf="tx.model.block == null"></td>
-            <td *ngIf="tx.model.block != null"><a [routerLink]="getBlockExplorerLink(tx.model.block)">{{tx.model.block}}</a></td>
-          </tr>
-
-          <tr>
-            <th scope="row">{{'explorer.transactionList.table.timestamp' | translate}}</th>
-            <td>{{dateFormatter.formatUnixTime(tx.model.time)}}</td>
-          </tr>
-
-        </tbody>
-      </table>
-
-      <button *ngIf="tx.shouldDisplayButton()" (click)="tx.toggleCollapse()" class="btn btn-primary">
-        <ng-container *ngIf="tx.isCollapsed">{{'explorer.transactionList.table.showBtn' | translate}} ({{tx.getTotalIO()}})</ng-container> 
-        <ng-container *ngIf="!tx.isCollapsed">{{'explorer.transactionList.table.hideBtn' | translate}}</ng-container> 
+            <td style="display: flex;"> <h6><span class="alert" style="padding: 5px;" [ngClass]="{ 'alert-success text-success': tx.model.result >= 0, 'alert-danger text-danger': tx.model.result < 0 }">{{tx.model.result >= 0 ? "+" : ""}} {{satoshiService.get(tx.model.result)}} BTC</span></h6> @if (tx.model.isCoinbase) {
+            <h6><span style="padding: 5px; margin-left: 5px;" class="alert alert-info text-primary">{{'explorer.transactionList.table.coinbaseTransaction' | translate}}</span></h6>
+          } </td>
+        </tr>
+        <tr>
+          <th scope="row">{{'explorer.transactionList.table.hash' | translate}}</th>
+          <td><a [routerLink]="getTransactionExplorerLink(tx.model.hash)">{{tx.model.hash}}</a></td>
+        </tr>
+        <tr>
+          <th scope="row">{{'explorer.transactionList.table.fee' | translate}}</th>
+          <td>{{satoshiService.get(tx.model.fee)}} BTC</td>
+        </tr>
+        <tr>
+          <th scope="row">{{'explorer.transactionList.table.status' | translate}}</th>
+          <td><span class="badge" [ngClass]=" {'bg-danger' : tx.model.block == null, 'bg-success' : tx.model.block != null}">{{(tx.model.block == null ? "explorer.transactionList.table.unconfirmed" : "explorer.transactionList.table.confirmed") | translate}}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">{{'explorer.transactionList.table.blockNum' | translate}}</th>
+          @if (tx.model.block == null) {
+            <td></td>
+          }
+          @if (tx.model.block != null) {
+            <td><a [routerLink]="getBlockExplorerLink(tx.model.block)">{{tx.model.block}}</a></td>
+          }
+        </tr>
+        <tr>
+          <th scope="row">{{'explorer.transactionList.table.timestamp' | translate}}</th>
+          <td>{{dateFormatter.formatUnixTime(tx.model.time)}}</td>
+        </tr>
+      </tbody>
+    </table>
+    @if (tx.shouldDisplayButton()) {
+      <button (click)="tx.toggleCollapse()" class="btn btn-primary">
+        @if (tx.isCollapsed) {
+          {{'explorer.transactionList.table.showBtn' | translate}} ({{tx.getTotalIO()}})
+        }
+        @if (!tx.isCollapsed) {
+          {{'explorer.transactionList.table.hideBtn' | translate}}
+        }
       </button>
-
-      <div class="row">
-        <div class="col">
-          <table class="table table-borderless mobileScrollableTable">
-            <tr *ngFor="let i of tx.getVisibleInputs()">
+    }
+    <div class="row">
+      <div class="col">
+        <table class="table table-borderless mobileScrollableTable">
+          @for (i of tx.getVisibleInputs(); track i) {
+            <tr>
               <td><a [routerLink]="getAddressExplorerLink(i.address)">{{i.address}}</a></td>
-              <td> <span *ngIf="tx.model.isCoinbase">Coinbase</span> <span *ngIf="!tx.model.isCoinbase">{{satoshiService.get(i.value)}} BTC </span><img src="../../../assets/input.webp"></td>
-            </tr>
+              <td> @if (tx.model.isCoinbase) {
+                <span>Coinbase</span>
+                } @if (!tx.model.isCoinbase) {
+                <span>{{satoshiService.get(i.value)}} BTC </span>
+                }<img src="../../../assets/input.webp"></td>
+              </tr>
+            }
           </table>
-
         </div>
-        
         <div class="col">
           <table class="table table-borderless mobileScrollableTable">
-            <tr *ngFor="let i of tx.getVisibleOutputs()">
-              <td *ngIf="i.address != undefined"><a [routerLink]="getAddressExplorerLink(i.address)">{{i.address}}</a></td>
-              <td *ngIf="i.address == undefined"><a>OP_RETURN</a></td>
-              <td>{{satoshiService.get(i.value)}} BTC <img src="../../../assets/output.webp"></td>
-            </tr>
+            @for (i of tx.getVisibleOutputs(); track i) {
+              <tr>
+                @if (i.address != undefined) {
+                  <td><a [routerLink]="getAddressExplorerLink(i.address)">{{i.address}}</a></td>
+                }
+                @if (i.address == undefined) {
+                  <td><a>OP_RETURN</a></td>
+                }
+                <td>{{satoshiService.get(i.value)}} BTC <img src="../../../assets/output.webp"></td>
+              </tr>
+            }
           </table>
         </div>
       </div>
-      <div *ngIf="tx.shouldDisplayButton() && tx.isCollapsed">+ {{tx.getHiddenTotal()}}</div>
-
+      @if (tx.shouldDisplayButton() && tx.isCollapsed) {
+        <div>+ {{tx.getHiddenTotal()}}</div>
+      }
       <div class="m-5"></div>
+    </div>
+  }
 
-    </div>  
-
+  @if (transactions.length > pageSize) {
     <ngb-pagination
-    [(page)]="page"
-    [pageSize]="pageSize"
-    [collectionSize]="transactions.length"
-    [directionLinks]="true"
-    [ellipses]="true"
-    [maxSize]="7" class="pagination" *ngIf="transactions.length > pageSize"></ngb-pagination>
+      [(page)]="page"
+      [pageSize]="pageSize"
+      [collectionSize]="transactions.length"
+      [directionLinks]="true"
+      [ellipses]="true"
+    [maxSize]="7" class="pagination"></ngb-pagination>
+  }
 </div>

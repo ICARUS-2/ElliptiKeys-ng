@@ -1,26 +1,30 @@
 <div id="mnemonicContainer">
 
-    <div id="mnemonicSettings">
-        <div class="m-4"></div>
-        <app-mnemonic-word-count-selector (itemChanged)="onWordCountChanged($event)"></app-mnemonic-word-count-selector>
-        
-        <div class="m-4"></div>
-        <app-qr-code-type-selector (itemChanged)="onQrTypeChanged($event)"></app-qr-code-type-selector>
+  <div id="mnemonicSettings">
+    <div class="m-4"></div>
+    <app-mnemonic-word-count-selector (itemChanged)="onWordCountChanged($event)"></app-mnemonic-word-count-selector>
 
-        <br>
-        <div class="m-5"></div>
-        <button class="btn btn-outline-primary btn-lg" (click)="makeNewMnemonic()">{{'walletGenerator.mnemonic.generateBtn' | translate}}</button>
+    <div class="m-4"></div>
+    <app-qr-code-type-selector (itemChanged)="onQrTypeChanged($event)"></app-qr-code-type-selector>
+
+    <br>
+      <div class="m-5"></div>
+      <button class="btn btn-outline-primary btn-lg" (click)="makeNewMnemonic()">{{'walletGenerator.mnemonic.generateBtn' | translate}}</button>
     </div>
 
     <div id="mnemonicInfoOuter">
-        <div id="mnemonicInfoInner">
-            <qrcode *ngIf="words.length > 0" [width]="300" [qrdata]="getQrCodeData()" [errorCorrectionLevel]="getQrCodeType()" [allowEmptyString]="true"></qrcode>
-            
-            <div id="wordsContainer">
-                <h3 class="wordEntry" *ngFor="let w of words; let i = index"><span class="badge badge-lg bg-secondary wordEntryBadge">{{i+1}}. {{w}}</span></h3>
-            </div>
-        </div>    
-    </div>
-</div>
+      <div id="mnemonicInfoInner">
+        @if (words.length > 0) {
+          <qrcode [width]="300" [qrdata]="getQrCodeData()" [errorCorrectionLevel]="getQrCodeType()" [allowEmptyString]="true"></qrcode>
+        }
 
-<div style="margin-top: 100px"></div>
+        <div id="wordsContainer">
+          @for (w of words; track w; let i = $index) {
+            <h3 class="wordEntry"><span class="badge badge-lg bg-secondary wordEntryBadge">{{i+1}}. {{w}}</span></h3>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 100px"></div>

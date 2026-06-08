@@ -3,7 +3,7 @@ import KeysHelper from './keys-helper';
 import AddressTransactionModel from '../models/address-transaction-model';
 import AddressModel from './../models/address-model';
 import { TransactionIOModel, TransactionModel } from './../models/transaction-model';
-import BlockModel from "models/block-model";
+import BlockModel from '../models/block-model';
 
 export default class TransactionApi
 {

@@ -1,12 +1,14 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-too-far',
-  templateUrl: './too-far.component.html',
-  styleUrls: ['./too-far.component.css']
+    selector: 'app-too-far',
+    templateUrl: './too-far.component.html',
+    styleUrls: ['./too-far.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class TooFarComponent implements OnInit, OnDestroy {
 

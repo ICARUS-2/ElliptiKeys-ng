@@ -1,21 +1,23 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import Keys from 'lib/keys/Keys';
 import KeysHelper from './../../../../lib/keys-helper';
 import AddressModel from './../../../../models/address-model';
 import { Title } from '@angular/platform-browser';
 import TransactionApi from './../../../../lib/transaction-api';
 import TransactionViewModel from './../../../../models/transaction-view-model';
-import { SatoshiToBitcoinService } from 'src/app/services/satoshi-to-bitcoin/satoshi-to-bitcoin.service';
-import { DateFormatterService } from 'src/app/services/date-formatter/date-formatter.service';
 import { PriceService } from './../../services/price/price.service';
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import { SatoshiToBitcoinService } from '../../services/satoshi-to-bitcoin/satoshi-to-bitcoin.service';
+import { DateFormatterService } from '../../services/date-formatter/date-formatter.service';
+import Keys from '../../../../lib/keys/Keys';
 
 @Component({
-  selector: 'app-explorer-address',
-  templateUrl: './explorer-address.component.html',
-  styleUrls: ['./explorer-address.component.css']
+    selector: 'app-explorer-address',
+    templateUrl: './explorer-address.component.html',
+    styleUrls: ['./explorer-address.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class ExplorerAddressComponent implements OnInit, OnDestroy {
 

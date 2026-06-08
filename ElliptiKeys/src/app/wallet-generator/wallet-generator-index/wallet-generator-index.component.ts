@@ -1,15 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
-import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap/nav/nav.module';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { OnlineStatusService, OnlineStatusType } from "ngx-online-status";
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-wallet-generator-index',
-  templateUrl: './wallet-generator-index.component.html',
-  styleUrls: ['./wallet-generator-index.component.css']
+    selector: 'app-wallet-generator-index',
+    templateUrl: './wallet-generator-index.component.html',
+    styleUrls: ['./wallet-generator-index.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class WalletGeneratorIndexComponent implements OnInit, OnDestroy {
   

@@ -1,11 +1,13 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ADDRESS_TYPES } from 'lib/dictionaries/address-types';
+import { ADDRESS_TYPES } from '../../../../lib/dictionaries/address-types';
 
 @Component({
-  selector: 'app-address-type-selector',
-  templateUrl: './address-type-selector.component.html',
-  styleUrls: ['./address-type-selector.component.css']
+    selector: 'app-address-type-selector',
+    templateUrl: './address-type-selector.component.html',
+    styleUrls: ['./address-type-selector.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class AddressTypeSelectorComponent implements OnInit {
   

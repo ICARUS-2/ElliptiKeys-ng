@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Form, FormsModule } from '@angular/forms';
-import Keys from 'lib/keys/Keys';
-import PageHelper from 'lib/page-helper.js';
-import LocalStorageHelper from 'lib/localstorage-helper';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import Keys from '../../../lib/keys/Keys';
+import PageHelper from '../../../lib/page-helper';
+import LocalStorageHelper from '../../../lib/localstorage-helper';
 
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+    selector: 'app-homepage',
+    templateUrl: './homepage.component.html',
+    styleUrls: ['./homepage.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class HomepageComponent implements OnInit {
   errorMessage : boolean = false;
@@ -32,7 +33,7 @@ export class HomepageComponent implements OnInit {
       if (searchQuery.startsWith("c"))
         searchQuery = Keys.DecompressTestnetWIF(searchQuery)
       
-      let privateKeyNum:BigInt = Keys.GetNumberFromPrivateKey(searchQuery)
+      let privateKeyNum:bigint = Keys.GetNumberFromPrivateKey(searchQuery)
 
       let pageNumber:BigInt = BigInt(PageHelper.CalculatePageNumber(privateKeyNum))
 

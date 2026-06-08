@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import LocalStorageHelper from 'lib/localstorage-helper';
+import LocalStorageHelper from '../../../../lib/localstorage-helper';
 
 @Injectable({
   providedIn: 'root'

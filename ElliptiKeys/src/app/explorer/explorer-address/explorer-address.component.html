@@ -2,49 +2,51 @@
 
   <div class="m-2"></div>
 
-  <div *ngIf="errorCallingApi" class="alert alert-danger">{{'explorer.address.errorCallingApi' | translate}}</div>
+  @if (errorCallingApi) {
+    <div class="alert alert-danger">{{'explorer.address.errorCallingApi' | translate}}</div>
+  }
   <h2>{{'explorer.address.topHeader' | translate}}</h2>
 
   <div class="mainInnerDiv">
     <qrcode [qrdata]="address" [width]="300" [errorCorrectionLevel]="'M'" class="m-5"></qrcode>
     <table class="table mobileScrollableTable">
-        <tbody>
-          <tr>
-            <th scope="row">{{'explorer.address.topHeader' | translate}}</th>
-            <td>{{addressModel?.address}}</td>
-          </tr>
-          <tr>
-            <th scope="row">{{'explorer.address.table.network' | translate}}</th>
-            <td>{{isTestnet ? "Testnet" : "Mainnet"}}</td>
-          </tr>
-          <tr>
-            <th scope="row">{{'explorer.address.table.format' | translate}}</th>
-            <td>
-              <h5><span class="badge" [ngClass]="{ 'bg-danger': addressModel?.getFormat() == 'legacy', 'bg-primary': addressModel?.getFormat() == 'segwit', 'bg-success': addressModel?.getFormat() == 'bech32'}">{{addressModel?.getDisplayFormat()}}</span></h5>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">{{'explorer.address.table.transactions' | translate}}</th>
-            <td>{{addressModel?.transactions}}</td>
-          </tr>
-          <tr>
-            <th scope="row">{{'explorer.address.table.totalReceived' | translate}}</th>
-            <td>{{addressModel?.getBtcReceived()}} BTC (${{priceService.btcToUsd(addressModel?.getBtcReceived())}})</td>
-          </tr>
-          <tr>
-            <th scope="row">{{'explorer.address.table.totalSent' | translate}}</th>
-            <td>{{addressModel?.getBtcSent()}} BTC (${{priceService.btcToUsd(addressModel?.getBtcSent())}})</td>
-          </tr>
-          <tr>
-            <th scope="row">{{'explorer.address.table.balance' | translate}}</th>
-            <td>{{addressModel?.getBtcBalance()}} BTC (${{priceService.btcToUsd(addressModel?.getBtcBalance())}})</td>
-          </tr>
-        </tbody>
-      </table>
+      <tbody>
+        <tr>
+          <th scope="row">{{'explorer.address.topHeader' | translate}}</th>
+          <td>{{addressModel?.address}}</td>
+        </tr>
+        <tr>
+          <th scope="row">{{'explorer.address.table.network' | translate}}</th>
+          <td>{{isTestnet ? "Testnet" : "Mainnet"}}</td>
+        </tr>
+        <tr>
+          <th scope="row">{{'explorer.address.table.format' | translate}}</th>
+          <td>
+            <h5><span class="badge" [ngClass]="{ 'bg-danger': $safeNavigationMigration(addressModel?.getFormat()) == 'legacy', 'bg-primary': $safeNavigationMigration(addressModel?.getFormat()) == 'segwit', 'bg-success': $safeNavigationMigration(addressModel?.getFormat()) == 'bech32'}">{{addressModel?.getDisplayFormat()}}</span></h5>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">{{'explorer.address.table.transactions' | translate}}</th>
+          <td>{{addressModel?.transactions}}</td>
+        </tr>
+        <tr>
+          <th scope="row">{{'explorer.address.table.totalReceived' | translate}}</th>
+          <td>{{addressModel?.getBtcReceived()}} BTC (${{priceService.btcToUsd($safeNavigationMigration(addressModel?.getBtcReceived()))}})</td>
+        </tr>
+        <tr>
+          <th scope="row">{{'explorer.address.table.totalSent' | translate}}</th>
+          <td>{{addressModel?.getBtcSent()}} BTC (${{priceService.btcToUsd($safeNavigationMigration(addressModel?.getBtcSent()))}})</td>
+        </tr>
+        <tr>
+          <th scope="row">{{'explorer.address.table.balance' | translate}}</th>
+          <td>{{addressModel?.getBtcBalance()}} BTC (${{priceService.btcToUsd($safeNavigationMigration(addressModel?.getBtcBalance()))}})</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <h2>{{'explorer.address.transactionsHeader' | translate}}</h2>
 
   <app-explorer-transaction-list [transactions]="transactions" [isTestnet]="isTestnet"></app-explorer-transaction-list>
 
-<div style="margin-top: 100px;"></div>
+  <div style="margin-top: 100px;"></div>

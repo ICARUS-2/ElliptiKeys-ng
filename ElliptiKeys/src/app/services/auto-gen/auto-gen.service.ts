@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import PageHelper from './../../../../lib/page-helper';
-import LocalStorageHelper from 'lib/localstorage-helper';
-import { AUTO_GEN_PAGE_SELECTION_TYPES } from 'lib/dictionaries/page-selection-types';
-import { AUTO_GEN_STOP_YELLOW } from 'lib/dictionaries/autogen-stop-types';
-
+import { AUTO_GEN_STOP_YELLOW } from '../../../../lib/dictionaries/autogen-stop-types';
+import { AUTO_GEN_PAGE_SELECTION_TYPES } from '../../../../lib/dictionaries/page-selection-types';
+import LocalStorageHelper from '../../../../lib/localstorage-helper';
 @Injectable({
   providedIn: 'root'
 })

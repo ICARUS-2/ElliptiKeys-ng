@@ -1,36 +1,38 @@
 <nav class="navbar navbar-expand-md">
-    <div class="titleBar navbar-brand nav-item nav-left">
-        <a routerLink="/" id="homeLink">
-            ElliptiKeys <img src="../../assets/key-logo.webp" id="siteLogo">
+  <div class="titleBar navbar-brand nav-item nav-left">
+    <a routerLink="/" id="homeLink">
+      ElliptiKeys <img src="../../assets/key-logo.webp" id="siteLogo">
+    </a>
+  </div>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#toggleMobileMenu"
+    aria-controls="toggleMobileMenu"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="toggleMobileMenu">
+    <ul class="navbar-nav ms-auto text-end">
+      <li class="navLi"><a routerLink="/explorer" class="">{{'navbar.explorerLink' | translate}}</a></li>
+      <li class="navLi"><a routerLink="/wallet-generator" class="">{{'navbar.walletGenLink' | translate}}</a></li>
+      <li id="priceWrapperLi"><app-price></app-price></li>
+      <li class="navLi" id="langSelectListItem">
+        <select #langselect (change)="onLanguageChanged()" name="" id="langSelect" class="nav-link">
+          @for (lang of translate.getLangs(); track lang) {
+            <option [value]="lang" [selected]="lang == currentLang">{{lang}}</option>
+          }
+        </select>
+      </li>
+      <li class="navSettingsLogo">
+        <a routerLink="/settings">
+          <img src="../../assets/settings.webp" style="width: 30px;">
         </a>
-    </div>
-
-    <button 
-        class="navbar-toggler" 
-        type="button" 
-        data-bs-toggle="collapse" 
-        data-bs-target="#toggleMobileMenu" 
-        aria-controls="toggleMobileMenu" 
-        aria-expanded="false" 
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="toggleMobileMenu">
-        <ul class="navbar-nav ms-auto text-end">
-            <li class="navLi"><a routerLink="/explorer" class="">{{'navbar.explorerLink' | translate}}</a></li>
-            <li class="navLi"><a routerLink="/wallet-generator" class="">{{'navbar.walletGenLink' | translate}}</a></li>
-            <li id="priceWrapperLi"><app-price></app-price></li>
-            <li class="navLi" id="langSelectListItem">
-                <select #langselect (change)="onLanguageChanged()" name="" id="langSelect" class="nav-link">
-                    <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang == currentLang">{{lang}}</option>
-                </select>
-            </li>
-            <li class="navSettingsLogo">
-                <a routerLink="/settings">
-                    <img src="../../assets/settings.webp" style="width: 30px;">
-                </a>
-            </li>
-        </ul>
-    </div>
+      </li>
+    </ul>
+  </div>
 </nav>

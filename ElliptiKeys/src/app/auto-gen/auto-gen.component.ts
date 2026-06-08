@@ -1,11 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AutoGenService } from '../services/auto-gen/auto-gen.service';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-auto-gen',
-  templateUrl: './auto-gen.component.html',
-  styleUrls: ['./auto-gen.component.css']
+    selector: 'app-auto-gen',
+    templateUrl: './auto-gen.component.html',
+    styleUrls: ['./auto-gen.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class AutoGenComponent implements OnInit {
 

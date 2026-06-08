@@ -1,20 +1,21 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import KeysHelper from './../../../../lib/keys-helper';
-import Keys from 'lib/keys/Keys';
 import { URLS } from '../../../../lib/dictionaries/urls';
-import { ADDRESS_TYPES } from 'lib/dictionaries/address-types';
-import { WIF_TYPES } from '../../../../lib/dictionaries/wif-types';
 import PageHelper from './../../../../lib/page-helper';
 import LocalStorageHelper from './../../../../lib/localstorage-helper';
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import Keys from '../../../../lib/keys/Keys';
+import { ADDRESS_TYPES } from '../../../../lib/dictionaries/address-types';
 
 @Component({
-  selector: 'app-explorer-private-key',
-  templateUrl: './explorer-private-key.component.html',
-  styleUrls: ['./explorer-private-key.component.css']
+    selector: 'app-explorer-private-key',
+    templateUrl: './explorer-private-key.component.html',
+    styleUrls: ['./explorer-private-key.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class ExplorerPrivateKeyComponent implements OnInit, OnDestroy {
 

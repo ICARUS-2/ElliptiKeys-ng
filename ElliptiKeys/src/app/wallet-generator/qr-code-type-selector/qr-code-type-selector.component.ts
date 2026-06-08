@@ -1,12 +1,14 @@
 
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { QR_ERROR_CORRECTION } from 'lib/dictionaries/qr-error-correction';
+import { Component, EventEmitter, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { QR_ERROR_CORRECTION } from '../../../../lib/dictionaries/qr-error-correction';
 
 @Component({
-  selector: 'app-qr-code-type-selector',
-  templateUrl: './qr-code-type-selector.component.html',
-  styleUrls: ['./qr-code-type-selector.component.css']
+    selector: 'app-qr-code-type-selector',
+    templateUrl: './qr-code-type-selector.component.html',
+    styleUrls: ['./qr-code-type-selector.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class QrCodeTypeSelectorComponent implements OnInit {
 

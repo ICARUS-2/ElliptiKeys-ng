@@ -1,16 +1,18 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import SearchResultViewModel from '../../../../models/search-result-view-model';
-import Keys from 'lib/keys/Keys';
 import KeysHelper from './../../../../lib/keys-helper';
 import { URLS } from '../../../../lib/dictionaries/urls';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import Keys from '../../../../lib/keys/Keys';
 
 @Component({
-  selector: 'app-explorer-index',
-  templateUrl: './explorer-index.component.html',
-  styleUrls: ['./explorer-index.component.css']
+    selector: 'app-explorer-index',
+    templateUrl: './explorer-index.component.html',
+    styleUrls: ['./explorer-index.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class ExplorerIndexComponent implements OnInit, OnDestroy {
   TRANSACTION_HASH_LENGTH = 64;

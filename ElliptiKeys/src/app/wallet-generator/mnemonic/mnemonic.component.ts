@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { QRCodeErrorCorrectionLevel } from 'angularx-qrcode';
-import Keys from 'lib/keys/Keys';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MnemonicWordCountSelectorComponent } from './../mnemonic-word-count-selector/mnemonic-word-count-selector.component';
-import { QrCodeTypeSelectorComponent } from './../qr-code-type-selector/qr-code-type-selector.component';
+import { QR_ERROR_CORRECTION } from '../../../../lib/dictionaries/qr-error-correction';
+import Keys from '../../../../lib/keys/Keys';
 
 @Component({
-  selector: 'app-mnemonic',
-  templateUrl: './mnemonic.component.html',
-  styleUrls: ['./mnemonic.component.css']
+    selector: 'app-mnemonic',
+    templateUrl: './mnemonic.component.html',
+    styleUrls: ['./mnemonic.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class MnemonicComponent implements OnInit {
 
   wordCount: number = MnemonicWordCountSelectorComponent.WORD_COUNTS[0];
-  qrEc: string = QrCodeTypeSelectorComponent.DEFAULT_VALUE;
+  qrEc: string = QR_ERROR_CORRECTION.high;
+  
 
   words: string[] = [];
 
@@ -36,9 +38,9 @@ export class MnemonicComponent implements OnInit {
     this.qrEc = value;
   }
 
-  getQrCodeType() : QRCodeErrorCorrectionLevel
+  getQrCodeType() : QR_ERROR_CORRECTION
   {
-    return this.qrEc as QRCodeErrorCorrectionLevel;
+    return this.qrEc as QR_ERROR_CORRECTION;
   }
 
   getQrCodeData()

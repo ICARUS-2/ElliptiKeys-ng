@@ -1,19 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { ADDRESS_TYPES } from 'lib/dictionaries/address-types';
-import Keys from 'lib/keys/Keys';
-import { QR_ERROR_CORRECTION } from 'lib/dictionaries/qr-error-correction';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AddressTypeSelectorComponent } from '../address-type-selector/address-type-selector.component';
 import { QrCodeTypeSelectorComponent } from './../qr-code-type-selector/qr-code-type-selector.component';
 import { NETWORK_TYPES } from '../../../../lib/dictionaries/network-types';
 import { NetworkTypeSelectorComponent } from './../network-type-selector/network-type-selector.component';
-import { QRCodeErrorCorrectionLevel } from 'angularx-qrcode';
 import SingleAddressModel from './../../../../models/single-address-model';
+import { ADDRESS_TYPES } from '../../../../lib/dictionaries/address-types';
+import { QR_ERROR_CORRECTION } from '../../../../lib/dictionaries/qr-error-correction';
 
 @Component({
-  selector: 'app-single-keyset',
-  templateUrl: './single-keyset.component.html',
-  styleUrls: ['./single-keyset.component.css']
+    selector: 'app-single-keyset',
+    templateUrl: './single-keyset.component.html',
+    styleUrls: ['./single-keyset.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class SingleKeysetComponent implements OnInit {
 
@@ -30,9 +29,9 @@ export class SingleKeysetComponent implements OnInit {
     this.makeNewKeyset();
   }
 
-  getQrCodeType() : QRCodeErrorCorrectionLevel
+  getQrCodeType() : QR_ERROR_CORRECTION
   {
-    return this.qrCodeType as QRCodeErrorCorrectionLevel;
+    return this.qrCodeType as QR_ERROR_CORRECTION;
   }
 
   makeNewKeyset()

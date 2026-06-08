@@ -1,11 +1,13 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NETWORK_TYPES } from '../../../../lib/dictionaries/network-types';
 
 @Component({
-  selector: 'app-network-type-selector',
-  templateUrl: './network-type-selector.component.html',
-  styleUrls: ['./network-type-selector.component.css']
+    selector: 'app-network-type-selector',
+    templateUrl: './network-type-selector.component.html',
+    styleUrls: ['./network-type-selector.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class NetworkTypeSelectorComponent implements OnInit {
   
