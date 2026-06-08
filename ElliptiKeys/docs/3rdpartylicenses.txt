@@ -413,6 +413,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 --------------------------------------------------------------------------------
+Package: ng-sevenseg2
+License: undefined
+
+
+--------------------------------------------------------------------------------
 Package: angularx-qrcode
 License: "MIT"
 

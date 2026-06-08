@@ -7,7 +7,7 @@ import LocalStorageHelper from '../../../lib/localstorage-helper';
     templateUrl: './current-page-stats-display.component.html',
     styleUrls: ['./current-page-stats-display.component.css'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: false,
 })
 export class CurrentPageStatsDisplayComponent implements OnInit {
 
